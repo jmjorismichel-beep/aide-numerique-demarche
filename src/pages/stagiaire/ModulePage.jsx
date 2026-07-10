@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getModule } from '../../data/getModuleContent'
 import { useAuthStore } from '../../store/authStore'
+import { useI18nStore } from '../../store/i18nStore'
+import { translateModule } from '../../data/translations/modules'
 import { logActivity } from '../../lib/activity'
 import { exportModuleToPdf } from '../../lib/pdf'
 import { saveRecord } from '../../lib/sync'
@@ -18,14 +20,15 @@ const SELF_ASSESSMENT_OPTIONS = [
 export default function ModulePage() {
   const { id } = useParams()
   const { user } = useAuthStore()
-  const [module, setModule] = useState(null)
+  const { lang } = useI18nStore()
+  const [rawModule, setRawModule] = useState(null)
   const [done, setDone] = useState(false)
   const [quizAnswers, setQuizAnswers] = useState({})
   const [quizSubmitted, setQuizSubmitted] = useState(false)
   const [selfAssessment, setSelfAssessment] = useState(null)
 
   useEffect(() => {
-    getModule(id).then(setModule)
+    getModule(id).then(setRawModule)
     logActivity(user.id, `Consulte le module`, id)
     return () => stopSpeaking()
   }, [id])
@@ -37,6 +40,7 @@ export default function ModulePage() {
     })
   }, [id])
 
+  const module = translateModule(rawModule, lang)
   if (!module) return <p>Chargement…</p>
 
   async function marquerTermine() {
@@ -93,13 +97,28 @@ export default function ModulePage() {
           </div>
         </div>
 
+        {module.whatIsIt && (
+          <div className="doc-checklist" style={{ background: '#fefce8', borderColor: '#fde68a' }}>
+            <h4>💡 {lang === 'en' ? 'What is this, and why is it useful?' : lang === 'ar' ? 'ما هذا؟ ولماذا هو مفيد؟' : "C'est quoi, et pourquoi c'est utile ?"}</h4>
+            <p style={{ margin: 0 }}>{module.whatIsIt}</p>
+          </div>
+        )}
+
         {module.documents && module.documents.length > 0 && (
           <div className="doc-checklist">
-            <h4>📋 Documents à préparer avant de commencer</h4>
+            <h4>📋 {lang === 'en' ? 'Documents to prepare before starting' : lang === 'ar' ? 'المستندات التي يجب تحضيرها قبل البدء' : 'Documents à préparer avant de commencer'}</h4>
             <ul>
               {module.documents.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
           </div>
+        )}
+
+        {module.stepsNotTranslated && (module.steps || []).length > 0 && (
+          <p style={{ background: '#eff6ff', border: '1.5px solid #bfdbfe', borderRadius: 10, padding: 10, fontSize: '.9rem' }}>
+            {lang === 'en'
+              ? 'The detailed steps below are only available in French for now.'
+              : 'الخطوات التفصيلية أدناه متوفرة باللغة الفرنسية فقط حالياً.'}
+          </p>
         )}
 
         {(module.steps || []).length === 0 && (

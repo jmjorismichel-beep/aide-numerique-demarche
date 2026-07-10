@@ -131,6 +131,7 @@ export const DEFAULT_MODULES = [
   // ============================================================
   { id: 'dem-sites-officiels', category: 'demarches', icon: '🌐', title: 'Les sites officiels',
     description: "Découvrir les sites officiels et savoir quelles démarches on peut faire en ligne.",
+    whatIsIt: "En France, beaucoup de démarches administratives (famille, santé, travail, logement, papiers...) se font maintenant sur internet plutôt qu'au guichet. Savoir reconnaître un site officiel évite de perdre du temps ou de tomber sur une arnaque.",
     steps: [
       { title: "Reconnaître un site officiel", text: "Un site officiel du gouvernement se termine presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr, service-public.fr. Méfie-toi des sites qui ressemblent mais demandent de payer pour un service normalement gratuit." },
       { title: "Le site service-public.fr", text: "C'est le site officiel qui rassemble des informations sur toutes les démarches administratives françaises (identité, famille, travail, logement...). Il explique clairement quoi faire et donne les liens vers les bons sites." },
@@ -140,6 +141,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-caf', category: 'demarches', icon: '👨‍👩‍👧', title: 'La CAF',
     description: "Faire ses démarches sur le site de la CAF.",
+    whatIsIt: "La CAF (Caisse d'Allocations Familiales) verse de l'argent aux familles et aux personnes à faibles revenus : aide au logement, aide pour les enfants, prime d'activité... Si tu as des enfants ou des revenus modestes, tu as probablement droit à une aide.",
     documents: ["Numéro de Sécurité Sociale", "Adresse email", "RIB (relevé d'identité bancaire)", "Justificatif de domicile récent"],
     steps: [
       { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r.", visual: "document" },
@@ -155,6 +157,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-cpam', category: 'demarches', icon: '🏥', title: 'La CPAM (Assurance Maladie)',
     description: "Faire ses démarches sur ameli.fr (CPAM).",
+    whatIsIt: "La CPAM (Assurance Maladie) rembourse une partie de tes frais médicaux (médecin, pharmacie, hôpital). Elle délivre aussi la carte Vitale, indispensable pour être bien remboursé. Sans elle, tu payes tes soins beaucoup plus cher.",
     documents: ["Numéro de Sécurité Sociale", "Pièce d'identité", "Adresse email"],
     steps: [
       { title: "Aller sur le site ameli.fr", text: "Ouvre le site officiel de l'Assurance Maladie : ameli.fr. C'est le site de la CPAM (Caisse Primaire d'Assurance Maladie)." },
@@ -166,6 +169,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-carsat', category: 'demarches', icon: '👴', title: 'La CARSAT (retraite)',
     description: "Faire ses démarches sur le site de la CARSAT.",
+    whatIsIt: "La CARSAT s'occupe de ta future retraite : elle compte les années et trimestres que tu travailles. Même si la retraite semble loin, chaque période de travail déclarée compte pour plus tard.",
     documents: ["Numéro de Sécurité Sociale", "Adresse email", "Relevé de carrière si tu en as un"],
     steps: [
       { title: "Aller sur le site officiel", text: "Ouvre le site lassuranceretraite.fr, le site officiel de l'Assurance Retraite (CARSAT en Normandie)." },
@@ -177,6 +181,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-lia', category: 'demarches', icon: '🚋', title: 'LiA (bus et tramway)',
     description: "Utiliser le site du réseau de transport LiA (bus, tramway, funiculaire du Havre).",
+    whatIsIt: "LiA, c'est le nom du réseau de bus et de tramway au Havre. Pour se déplacer en ville sans voiture (aller en formation, au travail, faire ses courses), c'est le moyen de transport principal.",
     documents: ["Photo d'identité", "Justificatif de ressources (pour un tarif réduit)", "Justificatif de domicile"],
     steps: [
       { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr." },
@@ -187,6 +192,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-impots', category: 'demarches', icon: '💶', title: 'Les Impôts',
     description: "Faire sa déclaration et ses démarches sur impots.gouv.fr.",
+    whatIsIt: "En France, presque tout le monde doit déclarer ses revenus chaque année aux impôts, même les personnes avec peu d'argent. C'est obligatoire, et beaucoup d'autres démarches (aides, logement...) demandent ensuite un document appelé « avis d'imposition ».",
     documents: ["Numéro fiscal (sur un avis d'imposition précédent)", "Adresse email", "Justificatifs de revenus de l'année"],
     steps: [
       { title: "Aller sur le site des impôts", text: "Ouvre le site officiel impots.gouv.fr. Vérifie bien l'adresse avant de continuer." },
@@ -198,6 +204,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-france-travail', category: 'demarches', icon: '💼', title: 'France Travail',
     description: "S'inscrire et faire ses démarches sur francetravail.fr.",
+    whatIsIt: "France Travail (qui s'appelait avant Pôle Emploi) aide à chercher un travail et peut verser une allocation si tu perds ton emploi. Pour être suivi et avoir accès aux offres d'emploi, il faut s'y inscrire.",
     documents: ["Pièce d'identité", "Numéro de Sécurité Sociale", "CV si tu en as un", "Adresse email"],
     steps: [
       { title: "Aller sur le site France Travail", text: "Ouvre le site officiel francetravail.fr (anciennement Pôle Emploi)." },
@@ -209,6 +216,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mdph', category: 'demarches', icon: '♿', title: 'La MDPH',
     description: "Faire une demande sur le site de la MDPH.",
+    whatIsIt: "La MDPH aide les personnes en situation de handicap : reconnaissance officielle du handicap, aides financières, carte spéciale, accompagnement. Si toi ou un proche avez un handicap ou une maladie qui gêne la vie quotidienne, elle peut aider.",
     documents: ["Pièce d'identité", "Certificat médical de moins de 12 mois", "Justificatif de domicile"],
     steps: [
       { title: "La MDPH au Havre (Seine-Maritime)", text: "Pour le département de Seine-Maritime (dont Le Havre), la MDPH n'utilise pas le site national : il faut passer par le portail du Département, à l'adresse solidarites.seinemaritime.fr." },
@@ -220,6 +228,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mee', category: 'demarches', icon: '📅', title: 'Mes Événements Emploi',
     description: "Utiliser le site Mes Événements Emploi.",
+    whatIsIt: "Ce site liste les journées où des entreprises viennent recruter directement, près de chez toi. C'est une bonne occasion de rencontrer des employeurs sans passer par une candidature écrite.",
     documents: ["CV à jour (papier ou numérique)", "Ton identifiant France Travail si tu en as un"],
     steps: [
       { title: "Qu'est-ce que Mes Événements Emploi ?", text: "C'est un site de France Travail qui liste les forums, salons et journées de recrutement organisés près de chez toi." },
@@ -230,6 +239,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-logement-social', category: 'demarches', icon: '🏠', title: 'Logement social',
     description: "Faire une demande de logement social en ligne.",
+    whatIsIt: "Un logement social (HLM) est un logement dont le loyer est moins cher qu'un logement privé, réservé aux personnes qui ont des revenus modestes. Il faut faire une demande officielle et souvent attendre, donc mieux vaut s'y prendre tôt.",
     documents: ["Pièce d'identité", "Justificatifs de ressources de tout le foyer", "Livret de famille si tu en as un"],
     steps: [
       { title: "Le site officiel", text: "Ouvre le site demande-logement-social.gouv.fr, le site officiel pour faire une demande de logement social (HLM) en France." },
@@ -241,6 +251,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mobilite', category: 'demarches', icon: '🚌', title: 'Aide à la mobilité',
     description: "Découvrir le Pôle Mobilité et l'association MAD (Mobilité Associative Durable) au Havre.",
+    whatIsIt: "Ne pas avoir de moyen de transport est souvent un obstacle pour trouver un travail ou suivre une formation. Le Pôle Mobilité du Havre aide justement les personnes dans cette situation : passer le permis à prix réduit, réparer sa voiture, louer un véhicule pas cher.",
     documents: ["Lettre d'orientation d'un conseiller (France Travail, mission locale...)", "Pièce d'identité"],
     steps: [
       { title: "Le Pôle Mobilité du Havre", text: "Le Pôle Mobilité (site pole-mobilite.org) aide les personnes qui ont du mal à se déplacer pour aller travailler ou se former : auto-école solidaire, garage solidaire, location de voitures et scooters à petit prix." },
@@ -251,6 +262,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-remuneration-normandie', category: 'demarches', icon: '💶', title: 'Rémunération - Région Normandie',
     description: "Utiliser le site de rémunération des stagiaires de la Région Normandie.",
+    whatIsIt: "Si tu suis une formation financée par la Région Normandie et que tu n'es pas indemnisé par France Travail, tu peux être payé pendant ta formation. Ce site permet de suivre ces paiements.",
     documents: ["Identifiants transmis par ton organisme de formation", "RIB"],
     steps: [
       { title: "Aller sur la plateforme", text: "Ouvre le site remuneration.normandie.fr, la plateforme officielle de gestion de la rémunération des stagiaires de la formation professionnelle en Normandie." },
@@ -262,6 +274,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-ecole', category: 'demarches', icon: '🏫', title: 'École, cantine, périscolaire',
     description: "Inscrire et renouveler l'inscription de ses enfants à l'école, la cantine, le périscolaire et le centre de loisirs (Ville du Havre).",
+    whatIsIt: "Si tu as des enfants scolarisés au Havre, la cantine et la garde avant/après l'école (périscolaire) ne sont pas automatiques : il faut inscrire ton enfant chaque année sur le site de la ville, sinon il ne pourra pas manger à la cantine ou être gardé.",
     documents: ["Attestation de quotient familial CAF de moins de 2 mois", "Adresse email", "Livret de famille"],
     steps: [
       { title: "Le Kiosque Famille du Havre", text: "La Ville du Havre regroupe toutes les démarches liées aux enfants (cantine, périscolaire, centres de loisirs) sur un seul site : kiosquefamille.lehavre.fr." },
@@ -273,6 +286,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-titre-sejour', category: 'demarches', icon: '🛂', title: 'Titre de séjour',
     description: "Créer et renouveler un titre de séjour en arrivant au Havre.",
+    whatIsIt: "Le titre de séjour est le document qui autorise une personne étrangère à vivre légalement en France. Il faut le demander en arrivant et le renouveler avant sa date de fin, sinon tu risques de te retrouver en situation irrégulière — c'est souvent la toute première démarche à faire en arrivant.",
     documents: ["Passeport", "Justificatif de domicile", "Photo d'identité récente", "Adresse email"],
     steps: [
       { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document" },
@@ -285,6 +299,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-casier-judiciaire', category: 'demarches', icon: '📜', title: 'Casier judiciaire',
     description: "Demander son extrait de casier judiciaire en ligne.",
+    whatIsIt: "Le casier judiciaire est un document qui prouve que tu n'as pas de condamnation (ou liste les condamnations éventuelles). Beaucoup d'employeurs ou d'administrations le demandent, notamment pour certains métiers (enfance, sécurité...).",
     documents: ["Nom, prénom, date et lieu de naissance exacts (comme sur ta carte d'identité)"],
     steps: [
       { title: "Le site officiel", text: "Ouvre le site officiel casier-judiciaire.justice.gouv.fr pour demander ton extrait de casier judiciaire (bulletin n°3), souvent demandé pour un emploi." },
@@ -295,6 +310,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-carte-identite', category: 'demarches', icon: '🪪', title: "Carte d'identité",
     description: "Prendre rendez-vous pour créer ou renouveler sa carte d'identité (ville du Havre et site gouvernemental).",
+    whatIsIt: "La carte d'identité prouve qui tu es en France. Elle est différente du titre de séjour : elle concerne surtout les personnes de nationalité française. Beaucoup de démarches administratives te demanderont une pièce d'identité valide.",
     documents: ["Photo d'identité récente aux normes", "Justificatif de domicile", "Ancienne carte d'identité si tu en as une"],
     steps: [
       { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder.", visual: "document" },

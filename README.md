@@ -88,6 +88,20 @@ Pour ajuster le contenu, deux méthodes :
 - **Validation en direct** sur le formulaire d'inscription : email et mot de passe vérifiés au fur et à mesure, pas seulement après clic sur le bouton.
 - **Interface responsive mobile** : menu, grille de modules, messagerie, tableaux formateur et formulaires s'adaptent aux écrans de smartphone (testé jusqu'à 375px de large).
 
+## Nouveautés (quatrième itération) — contenu adapté aux nouveaux arrivants
+
+- **"C'est quoi, et pourquoi c'est utile ?"** : chaque module de démarche administrative commence maintenant par une explication simple du "pourquoi", avant le "comment". Utile aussi bien pour un non-francophone que pour un francophone qui découvre le système administratif.
+- **Glossaire** (nouvel onglet "Glossaire") : une vingtaine de mots administratifs expliqués simplement (RIB, quotient familial, avis d'imposition, titre de séjour...), avec une recherche.
+- **"Par où commencer ?"** (nouvel onglet) : deux parcours conseillés — « Je viens d'arriver au Havre » et « Je vis déjà ici mais je découvre le numérique » — avec un ordre de modules suggéré et une note sur pourquoi chaque étape compte.
+- **Rappel de prudence dans la messagerie** : un message rappelle de ne pas envoyer de photo de documents sensibles (passeport, titre de séjour) par message, et de plutôt en parler en personne à son formateur.
+- **Traduction anglais / arabe** (sélecteur de langue en haut de l'écran) : les titres, descriptions et listes de documents des modules sont traduits, ainsi que l'essentiel de l'interface. **Important** : les étapes détaillées de chaque module restent en français uniquement pour l'instant (un message le précise dans l'app) — les traduire toutes aurait représenté un travail considérable, et je préfère vous laisser le contrôle sur les langues réellement utiles à vos stagiaires avant d'aller plus loin.
+  - **Fiabilité des traductions** : elles ont été relues une fois mais **ne sont pas validées par un locuteur natif**. Pour de l'anglais, la fiabilité est bonne. Pour l'arabe, le vocabulaire administratif est correct mais je recommande une relecture par une personne arabophone avant de vous appuyer dessus pour des démarches sensibles (titre de séjour, casier judiciaire...). Les traductions sont dans `src/data/translations/`, faciles à corriger ou étendre à d'autres langues.
+  - **Langues non incluses** : je n'ai pas ajouté d'autres langues (dari, tigrinya, ukrainien...) faute de connaître la répartition réelle de vos stagiaires. Dites-moi lesquelles seraient prioritaires et je peux les ajouter à l'infrastructure déjà en place.
+  - **Affichage RTL** (arabe) : le sens de lecture s'inverse correctement, mais certains éléments visuels (icônes, alignements) n'ont pas été peaufinés spécifiquement pour l'arabe — à tester en conditions réelles.
+
+**Ce que je n'ai volontairement pas fait : le contenu adapté par niveau linguistique (A1 à C2)**
+Réécrire chacun des 26 modules en 3 versions de complexité différente représente un travail de contenu très lourd (environ 78 versions à rédiger et maintenir), avec un risque de devenir vite incohérent si le contenu évolue. J'ai gardé une seule version en français simple pour tous les niveaux, ce qui reste lisible même en A2. Si après un premier usage réel vous sentez que c'est un vrai manque, on peut le faire — mais je recommande d'abord de tester avec de vrais stagiaires pour voir si c'est réellement bloquant avant d'investir ce temps.
+
 ## Structure du projet
 ```
 src/

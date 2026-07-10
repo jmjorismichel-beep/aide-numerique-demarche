@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { useSettingsStore, TEXT_SIZE_LABELS } from '../store/settingsStore'
+import { useI18nStore, LANGUAGES } from '../store/i18nStore'
 import { onSyncStatusChange } from '../lib/sync'
 import { useUnreadCount } from '../lib/useUnreadCount'
 
@@ -11,12 +12,18 @@ export default function Layout({ children }) {
   const [online, setOnline] = useState(navigator.onLine)
   const [syncStatus, setSyncStatus] = useState('idle')
   const { textSize, cycleTextSize } = useSettingsStore()
+  const { lang, setLang } = useI18nStore()
   const unreadCount = useUnreadCount(user?.id)
 
   useEffect(() => {
     document.documentElement.style.setProperty('--text-scale',
       textSize === 'small' ? '0.9' : textSize === 'large' ? '1.25' : '1')
   }, [textSize])
+
+  useEffect(() => {
+    document.documentElement.setAttribute('dir', LANGUAGES[lang].dir)
+    document.documentElement.setAttribute('lang', lang)
+  }, [lang])
 
   useEffect(() => {
     const on = () => setOnline(true)
@@ -33,9 +40,12 @@ export default function Layout({ children }) {
     <div className="app-shell">
       <div className="topbar">
         <h1>🧭 Parcours Numérique</h1>
-        <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <select className="text-size-toggle" value={lang} onChange={e => setLang(e.target.value)} title="Langue / Language">
+            {Object.entries(LANGUAGES).map(([code, l]) => <option key={code} value={code}>{l.label}</option>)}
+          </select>
           <button className="text-size-toggle" onClick={cycleTextSize} title="Changer la taille du texte">
-            🔤 Texte : {TEXT_SIZE_LABELS[textSize]}
+            🔤 {TEXT_SIZE_LABELS[textSize]}
           </button>
           <span className={`offline-pill ${online ? 'online' : 'offline'}`}>
             {online ? (syncStatus === 'syncing' ? 'Synchronisation…' : 'En ligne') : 'Hors-ligne (sauvegarde locale)'}
@@ -52,6 +62,8 @@ export default function Layout({ children }) {
           <nav className="nav-tabs">
             {!isFormateur && <>
               <NavLink to="/dashboard" className={({isActive}) => isActive ? 'active' : ''}>Mes modules</NavLink>
+              <NavLink to="/parcours-conseille" className={({isActive}) => isActive ? 'active' : ''}>Par où commencer</NavLink>
+              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>Glossaire</NavLink>
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
                 Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>
@@ -62,6 +74,7 @@ export default function Layout({ children }) {
               <NavLink to="/formateur/stagiaires" className={({isActive}) => isActive ? 'active' : ''}>Stagiaires</NavLink>
               <NavLink to="/formateur/modules" className={({isActive}) => isActive ? 'active' : ''}>Contenu des modules</NavLink>
               <NavLink to="/formateur/statistiques" className={({isActive}) => isActive ? 'active' : ''}>Statistiques</NavLink>
+              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>Glossaire</NavLink>
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
                 Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>

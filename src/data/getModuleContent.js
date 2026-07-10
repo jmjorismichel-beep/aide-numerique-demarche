@@ -15,11 +15,12 @@ export async function getModule(id) {
 }
 
 function mergeModule(base, override) {
-  if (!override) return { ...base, steps: base.steps || [], documents: base.documents || [], quiz: base.quiz || null, edited: false }
+  if (!override) return { ...base, steps: base.steps || [], documents: base.documents || [], quiz: base.quiz || null, whatIsIt: base.whatIsIt || null, edited: false }
   return {
     ...base,
     title: override.title ?? base.title,
     description: override.description ?? base.description,
+    whatIsIt: override.whatIsIt ?? base.whatIsIt ?? null,
     steps: override.steps ?? base.steps ?? [],
     documents: override.documents ?? base.documents ?? [],
     quiz: override.quiz ?? base.quiz ?? null,

@@ -112,6 +112,9 @@ export default function Messagerie() {
 
       <div className="card">
         <h3>Conversation</h3>
+        <p style={{ fontSize: '.8rem', color: 'var(--muted)', marginTop: -6 }}>
+          ⚠️ Évite d'envoyer une photo de tes papiers (passeport, titre de séjour...) par message. Pour ça, préviens plutôt ton formateur en personne.
+        </p>
         <div className="chat-thread">
           {messages.length === 0 && <p style={{ color: 'var(--muted)' }}>Aucun message pour l'instant.</p>}
           {messages.map(m => (

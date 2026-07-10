@@ -4,17 +4,22 @@ import ModuleCard from '../../components/ModuleCard'
 import { getAllModules } from '../../data/getModuleContent'
 import { CATEGORIES } from '../../data/modules'
 import { useAuthStore } from '../../store/authStore'
+import { useI18nStore } from '../../store/i18nStore'
+import { translateModule } from '../../data/translations/modules'
 import { logActivity } from '../../lib/activity'
 import { db } from '../../lib/db'
 
 export default function Dashboard() {
   const { user } = useAuthStore()
+  const { lang } = useI18nStore()
   const [modules, setModules] = useState([])
 
   useEffect(() => {
     getAllModules().then(setModules)
     logActivity(user.id, 'Consulte son tableau de bord')
   }, [])
+
+  const translatedModules = modules.map(m => translateModule(m, lang))
 
   const progress = useLiveQuery(
     () => db.moduleProgress.filter(p => p.user_id === user.id && p.completed).toArray(),
@@ -28,8 +33,8 @@ export default function Dashboard() {
   )
   const assigned = myGroup?.assigned_modules
   const visibleModules = (assigned && assigned.length > 0)
-    ? modules.filter(m => assigned.includes(m.id))
-    : modules
+    ? translatedModules.filter(m => assigned.includes(m.id))
+    : translatedModules
 
   const total = visibleModules.length
   const done = visibleModules.filter(m => completedIds.has(m.id)).length

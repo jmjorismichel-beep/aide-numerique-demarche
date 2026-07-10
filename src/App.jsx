@@ -10,6 +10,8 @@ import Connexion from './pages/Connexion'
 import TestPositionnement from './pages/TestPositionnement'
 import Dashboard from './pages/stagiaire/Dashboard'
 import ModulePage from './pages/stagiaire/ModulePage'
+import ParcoursConseille from './pages/stagiaire/ParcoursConseille'
+import Glossaire from './pages/Glossaire'
 import Messagerie from './pages/Messagerie'
 import FormateurDashboard from './pages/formateur/FormateurDashboard'
 import Groupes from './pages/formateur/Groupes'
@@ -35,6 +37,8 @@ export default function App() {
 
         <Route path="/dashboard" element={<ProtectedRoute role="stagiaire"><Dashboard /></ProtectedRoute>} />
         <Route path="/module/:id" element={<ProtectedRoute role="stagiaire"><ModulePage /></ProtectedRoute>} />
+        <Route path="/parcours-conseille" element={<ProtectedRoute role="stagiaire"><ParcoursConseille /></ProtectedRoute>} />
+        <Route path="/glossaire" element={<ProtectedRoute><Glossaire /></ProtectedRoute>} />
         <Route path="/messagerie" element={<ProtectedRoute><Messagerie /></ProtectedRoute>} />
 
         <Route path="/formateur" element={<ProtectedRoute role="formateur"><FormateurDashboard /></ProtectedRoute>} />
