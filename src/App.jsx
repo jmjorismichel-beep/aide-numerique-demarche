@@ -28,7 +28,7 @@ export default function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Navigate to={loading ? '/connexion' : (user ? (user.role === 'formateur' ? '/formateur' : '/dashboard') : '/connexion')} replace />} />
+        <Route path="/" element={<Navigate to={loading ? '/inscription' : (user ? (user.role === 'formateur' ? '/formateur' : '/dashboard') : '/inscription')} replace />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/test-positionnement" element={<TestPositionnement />} />
