@@ -1,0 +1,58 @@
+// À copier-coller dans Firebase Console > Firestore Database > Règles > Publier.
+// Logique : chacun lit/modifie son propre profil ; les formateurs ont accès à tout ;
+// la messagerie n'est visible que par les deux personnes concernées ; le contenu
+// des modules est lisible par tous mais modifiable seulement par les formateurs.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function isFormateur() {
+      return isSignedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'formateur';
+    }
+    function isSelf(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId} {
+      allow read: if isSelf(userId) || isFormateur();
+      allow write: if isSelf(userId) || isFormateur();
+    }
+
+    match /groups/{groupId} {
+      allow read, write: if isSignedIn() && isFormateur();
+    }
+
+    match /moduleContent/{moduleId} {
+      allow read: if isSignedIn();
+      allow write: if isFormateur();
+    }
+
+    match /moduleProgress/{progressId} {
+      allow read, write: if isSignedIn() &&
+        (resource == null || resource.data.user_id == request.auth.uid || isFormateur());
+    }
+
+    match /testResults/{resultId} {
+      allow read, write: if isSignedIn() &&
+        (resource == null || resource.data.user_id == request.auth.uid || isFormateur());
+    }
+
+    match /messages/{messageId} {
+      allow read, write: if isSignedIn() &&
+        (resource == null ||
+         resource.data.sender_id == request.auth.uid ||
+         resource.data.recipient_id == request.auth.uid);
+    }
+
+    match /activityLogs/{logId} {
+      allow read, write: if isSignedIn() &&
+        (resource == null || resource.data.user_id == request.auth.uid || isFormateur());
+    }
+  }
+}
