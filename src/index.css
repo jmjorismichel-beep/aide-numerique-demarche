@@ -117,3 +117,9 @@ a { color: var(--blue); text-decoration: none; }
 .speak-btn { background: none; border: 1.5px solid var(--blue); color: var(--blue); border-radius: 8px; padding: 4px 10px; font-size: .8rem; }
 
 .text-size-toggle { background: rgba(255,255,255,.2); color: white; border: none; border-radius: 8px; padding: 4px 10px; font-size: .8rem; }
+
+.step-illustration { flex-shrink: 0; width: 40px; height: 40px; color: var(--orange); background: white; border-radius: 10px; padding: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+.step-card-body { display: flex; gap: 12px; align-items: flex-start; }
+
+.attach-btn { background: none; border: 1.5px solid #d1d5db; border-radius: 10px; padding: 8px 12px; font-size: 1rem; }
+.bubble img { max-width: 100%; border-radius: 10px; display: block; margin-bottom: 4px; }

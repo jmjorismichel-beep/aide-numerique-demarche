@@ -67,16 +67,17 @@ Pour ajuster le contenu, deux méthodes :
 
 - **Taille de texte réglable** : bouton en haut de l'écran (🔤), 3 tailles.
 - **Lecture audio** : bouton 🔊 sur chaque étape et « Écouter tout » en haut d'un module, via la synthèse vocale du navigateur (gratuite, fonctionne aussi hors-ligne une fois la page chargée).
+- **Illustrations d'étapes** : une petite icône schématique (pas une vraie capture d'écran, mais un repère visuel : Wi-Fi, cadenas, souris, calendrier...) peut être associée à chaque étape. Déjà fait sur Windows, CAF, Titre de séjour et Carte d'identité à titre d'exemple ; réglable pour tous les autres modules directement depuis l'éditeur formateur (menu déroulant « Icône d'illustration » sous chaque étape).
 - **Progression visible** : barre de progression sur le tableau de bord stagiaire, coche verte sur les modules terminés.
-- **Documents à préparer** : encadré bleu en haut des modules de démarches administratives, listant les pièces à avoir sous la main.
-- **Vérification de compréhension** : quiz à la fin d'un module quand il en a un (Windows et CAF pour l'instant, à titre d'exemple — ajoutez un tableau `quiz` dans `src/data/modules.js` pour les autres), sinon une auto-évaluation simple (facile / aide / difficile) que le formateur peut consulter. Aucune note, aucun badge, aucune attestation générée.
-- **Messagerie avec compteur non lu** : pastille rouge dans le menu et sur chaque contact tant qu'un message n'a pas été ouvert.
+- **Documents à préparer** : encadré bleu en haut des modules de démarches administratives, listant les pièces à avoir sous la main — éditable depuis l'interface formateur.
+- **Vérification de compréhension** : quiz à la fin d'un module quand il en a un (Windows et CAF pour l'instant), sinon une auto-évaluation simple (facile / aide / difficile) que le formateur peut consulter. Le quiz est entièrement éditable depuis l'interface formateur (questions, options, bonne réponse). Aucune note, aucun badge, aucune attestation générée.
+- **Messagerie avec pièce jointe et compteur non lu** : possibilité d'envoyer une photo (bouton 📷, compressée automatiquement avant l'envoi), pastille rouge dans le menu et sur chaque contact tant qu'un message n'a pas été ouvert.
 - **Modules assignés par groupe** : dans Groupes, bouton « Assigner des modules » pour limiter ce qu'un groupe voit sur son tableau de bord (sans rien cocher, tout reste visible par défaut).
 - **Statistiques formateur** : nouvel onglet listant le taux de complétion de chaque module par l'ensemble des stagiaires, pour repérer les modules les plus bloquants.
 
 **Non inclus volontairement** (sur votre demande) : pas de badges de réussite, pas d'attestations/certificats générés, pas de mention "RÉCIFE" dans l'application (renommée "Parcours Numérique").
 
-**Limites connues à garder en tête** : pas encore de captures d'écran réelles dans les modules (texte uniquement pour l'instant — à ajouter au cas par cas si besoin), pas de pièce jointe/photo dans la messagerie, l'éditeur de contenu formateur ne permet pas encore de modifier les documents à préparer ni le quiz depuis l'interface (seulement le code).
+**Limite connue** : les illustrations restent des icônes schématiques, pas de vraies captures d'écran des interfaces réelles (Windows, sites officiels...) — je n'ai pas ces images. Si vous voulez de vraies captures à un moment, il faudra soit les fournir (photos d'écran), soit me les décrire précisément pour que je génère un visuel adapté module par module.
 
 ## Structure du projet
 ```

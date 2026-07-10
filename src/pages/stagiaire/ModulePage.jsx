@@ -7,6 +7,7 @@ import { exportModuleToPdf } from '../../lib/pdf'
 import { saveRecord } from '../../lib/sync'
 import { db, uid } from '../../lib/db'
 import { speak, stopSpeaking, speechAvailable } from '../../lib/speech'
+import StepIllustration from '../../components/StepIllustration'
 
 const SELF_ASSESSMENT_OPTIONS = [
   { value: 'facile', label: '🙂 J\'ai réussi facilement' },
@@ -109,13 +110,18 @@ export default function ModulePage() {
 
         {(module.steps || []).map((s, i) => (
           <div className="step-card" key={i}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
-              <h4>{i + 1}. {s.title}</h4>
-              {speechAvailable && (
-                <button className="speak-btn" onClick={() => speak(`${s.title}. ${s.text}`)}>🔊</button>
-              )}
+            <div className="step-card-body">
+              {s.visual && <StepIllustration visual={s.visual} />}
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
+                  <h4>{i + 1}. {s.title}</h4>
+                  {speechAvailable && (
+                    <button className="speak-btn" onClick={() => speak(`${s.title}. ${s.text}`)}>🔊</button>
+                  )}
+                </div>
+                <p>{s.text}</p>
+              </div>
             </div>
-            <p>{s.text}</p>
           </div>
         ))}
 

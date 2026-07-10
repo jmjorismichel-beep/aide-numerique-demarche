@@ -55,11 +55,11 @@ export const DEFAULT_MODULES = [
   { id: 'app-windows', category: 'appareils', icon: '🪟', title: 'Windows',
     description: "Découvrir et configurer les paramètres de Windows.",
     steps: [
-      { title: "Trouver le Menu Démarrer", text: "Clique sur le bouton avec le logo Windows en bas à gauche de l'écran. C'est le Menu Démarrer. Il permet d'ouvrir tous tes programmes." },
-      { title: "Ouvrir les Paramètres", text: "Clique sur le Menu Démarrer, puis clique sur la roue crantée ⚙️ « Paramètres »." },
-      { title: "Régler la langue", text: "Dans Paramètres, va dans « Heure et langue ». Tu peux choisir ou ajouter le français comme langue du clavier." },
-      { title: "Régler le son et l'écran", text: "Dans Paramètres > « Système », tu peux régler le volume du son et la luminosité de l'écran." },
-      { title: "Connecter le Wi-Fi", text: "Dans Paramètres > « Réseau et Internet », clique sur Wi-Fi, choisis ton réseau et entre le mot de passe." }
+      { title: "Trouver le Menu Démarrer", text: "Clique sur le bouton avec le logo Windows en bas à gauche de l'écran. C'est le Menu Démarrer. Il permet d'ouvrir tous tes programmes.", visual: "mouse" },
+      { title: "Ouvrir les Paramètres", text: "Clique sur le Menu Démarrer, puis clique sur la roue crantée ⚙️ « Paramètres ».", visual: "settings" },
+      { title: "Régler la langue", text: "Dans Paramètres, va dans « Heure et langue ». Tu peux choisir ou ajouter le français comme langue du clavier.", visual: "keyboard" },
+      { title: "Régler le son et l'écran", text: "Dans Paramètres > « Système », tu peux régler le volume du son et la luminosité de l'écran.", visual: "settings" },
+      { title: "Connecter le Wi-Fi", text: "Dans Paramètres > « Réseau et Internet », clique sur Wi-Fi, choisis ton réseau et entre le mot de passe.", visual: "wifi" }
     ],
     quiz: [
       { question: "Pour ouvrir les Paramètres de Windows, tu cliques sur :", options: ["Le Menu Démarrer puis la roue crantée ⚙️", "Le bureau", "La molette de la souris"], correctIndex: 0 },
@@ -142,11 +142,11 @@ export const DEFAULT_MODULES = [
     description: "Faire ses démarches sur le site de la CAF.",
     documents: ["Numéro de Sécurité Sociale", "Adresse email", "RIB (relevé d'identité bancaire)", "Justificatif de domicile récent"],
     steps: [
-      { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r." },
-      { title: "Créer Mon Compte", text: "Clique sur « Mon Compte » puis « Créer mon compte ». Tu as besoin de ton numéro de Sécurité Sociale et d'un email." },
-      { title: "Se connecter", text: "Clique sur « Mon Compte », entre ton identifiant (email) et ton mot de passe." },
-      { title: "Faire une demande en ligne", text: "Une fois connecté, va dans « Mes démarches ». Tu peux déclarer ta situation, demander une aide, ou envoyer un document." },
-      { title: "Envoyer un document", text: "Dans « Mes démarches » > « Envoyer un document », tu peux prendre une photo ou choisir un fichier depuis ton téléphone." }
+      { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r.", visual: "document" },
+      { title: "Créer Mon Compte", text: "Clique sur « Mon Compte » puis « Créer mon compte ». Tu as besoin de ton numéro de Sécurité Sociale et d'un email.", visual: "lock" },
+      { title: "Se connecter", text: "Clique sur « Mon Compte », entre ton identifiant (email) et ton mot de passe.", visual: "lock" },
+      { title: "Faire une demande en ligne", text: "Une fois connecté, va dans « Mes démarches ». Tu peux déclarer ta situation, demander une aide, ou envoyer un document.", visual: "document" },
+      { title: "Envoyer un document", text: "Dans « Mes démarches » > « Envoyer un document », tu peux prendre une photo ou choisir un fichier depuis ton téléphone.", visual: "phone" }
     ],
     quiz: [
       { question: "L'adresse officielle du site de la CAF est :", options: ["caf.com", "caf.fr", "caf-officiel.net"], correctIndex: 1 },
@@ -275,11 +275,11 @@ export const DEFAULT_MODULES = [
     description: "Créer et renouveler un titre de séjour en arrivant au Havre.",
     documents: ["Passeport", "Justificatif de domicile", "Photo d'identité récente", "Adresse email"],
     steps: [
-      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France)." },
-      { title: "Créer son compte", text: "Clique sur « Créer un compte », renseigne ton email et crée un mot de passe. Tu recevras un email de confirmation à valider." },
-      { title: "Choisir sa démarche", text: "Une fois connecté, choisis le type de démarche : première demande de titre de séjour, renouvellement, ou changement de statut, selon ta situation." },
-      { title: "Remplir le formulaire et joindre les documents", text: "Le site te demande de remplir un formulaire puis de scanner ou photographier tes documents (passeport, justificatif de domicile, photo d'identité...)." },
-      { title: "Suivre sa demande", text: "Après l'envoi, tu peux suivre l'état de ta demande dans ton espace personnel. Tu recevras un message quand un rendez-vous en préfecture est nécessaire." },
+      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document" },
+      { title: "Créer son compte", text: "Clique sur « Créer un compte », renseigne ton email et crée un mot de passe. Tu recevras un email de confirmation à valider.", visual: "mail" },
+      { title: "Choisir sa démarche", text: "Une fois connecté, choisis le type de démarche : première demande de titre de séjour, renouvellement, ou changement de statut, selon ta situation.", visual: "idcard" },
+      { title: "Remplir le formulaire et joindre les documents", text: "Le site te demande de remplir un formulaire puis de scanner ou photographier tes documents (passeport, justificatif de domicile, photo d'identité...).", visual: "phone" },
+      { title: "Suivre sa demande", text: "Après l'envoi, tu peux suivre l'état de ta demande dans ton espace personnel. Tu recevras un message quand un rendez-vous en préfecture est nécessaire.", visual: "calendar" },
       { title: "Se faire accompagner", text: "Pour toute question, tu peux te faire aider par une association d'aide aux migrants au Havre ou par ton formateur." }
     ] },
 
@@ -297,10 +297,10 @@ export const DEFAULT_MODULES = [
     description: "Prendre rendez-vous pour créer ou renouveler sa carte d'identité (ville du Havre et site gouvernemental).",
     documents: ["Photo d'identité récente aux normes", "Justificatif de domicile", "Ancienne carte d'identité si tu en as une"],
     steps: [
-      { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder." },
-      { title: "Prendre rendez-vous à la mairie du Havre", text: "Va sur le site lehavre.fr, rubrique État civil > Carte nationale d'identité et passeport, pour réserver un créneau à l'Hôtel de Ville ou dans une mairie annexe (Bléville, Graville, Rouelles)." },
-      { title: "Préparer son dossier", text: "Prépare une photo d'identité récente aux normes, un justificatif de domicile, et ton ancienne carte d'identité si tu en as une. Le dossier incomplet ne sera pas accepté." },
-      { title: "Se présenter au rendez-vous", text: "Le jour du rendez-vous, présente-toi avec tous les documents originaux. Tes empreintes seront prises si tu as plus de 12 ans. Le rendez-vous dure entre 10 et 20 minutes." },
-      { title: "Récupérer sa carte", text: "Tu recevras un SMS quand ta carte sera prête (en général 3 à 4 semaines). Va la chercher là où tu as déposé ta demande, avec ton ancienne pièce d'identité." }
+      { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder.", visual: "document" },
+      { title: "Prendre rendez-vous à la mairie du Havre", text: "Va sur le site lehavre.fr, rubrique État civil > Carte nationale d'identité et passeport, pour réserver un créneau à l'Hôtel de Ville ou dans une mairie annexe (Bléville, Graville, Rouelles).", visual: "calendar" },
+      { title: "Préparer son dossier", text: "Prépare une photo d'identité récente aux normes, un justificatif de domicile, et ton ancienne carte d'identité si tu en as une. Le dossier incomplet ne sera pas accepté.", visual: "idcard" },
+      { title: "Se présenter au rendez-vous", text: "Le jour du rendez-vous, présente-toi avec tous les documents originaux. Tes empreintes seront prises si tu as plus de 12 ans. Le rendez-vous dure entre 10 et 20 minutes.", visual: "house" },
+      { title: "Récupérer sa carte", text: "Tu recevras un SMS quand ta carte sera prête (en général 3 à 4 semaines). Va la chercher là où tu as déposé ta demande, avec ton ancienne pièce d'identité.", visual: "phone" }
     ] }
 ]
