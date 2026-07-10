@@ -7,6 +7,7 @@ export default function EditeurModule() {
   const [modules, setModules] = useState([])
   const [selectedId, setSelectedId] = useState(null)
   const [form, setForm] = useState(null)
+  const [savedMessage, setSavedMessage] = useState(null)
 
   useEffect(() => { getAllModules().then(setModules) }, [])
 
@@ -42,7 +43,8 @@ export default function EditeurModule() {
     })
     const refreshed = await getAllModules()
     setModules(refreshed)
-    alert('Module enregistré.')
+    setSavedMessage('Module enregistré ✓')
+    setTimeout(() => setSavedMessage(null), 2500)
   }
 
   async function revenirVersion(version) {
@@ -103,8 +105,9 @@ export default function EditeurModule() {
             ))}
             <button className="btn secondary" onClick={ajouterEtape}>+ Ajouter une étape</button>
 
-            <div style={{ marginTop: 20, display: 'flex', gap: 10 }}>
+            <div style={{ marginTop: 20, display: 'flex', gap: 10, alignItems: 'center' }}>
               <button className="btn" onClick={enregistrer}>Enregistrer les modifications</button>
+              {savedMessage && <span style={{ color: 'var(--green)', fontWeight: 600 }}>{savedMessage}</span>}
             </div>
 
             {form.history?.length > 0 && (

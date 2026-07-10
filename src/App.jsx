@@ -15,6 +15,7 @@ import FormateurDashboard from './pages/formateur/FormateurDashboard'
 import Groupes from './pages/formateur/Groupes'
 import Stagiaires from './pages/formateur/Stagiaires'
 import EditeurModule from './pages/formateur/EditeurModule'
+import Statistiques from './pages/formateur/Statistiques'
 
 export default function App() {
   const { init, user, loading } = useAuthStore()
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/formateur/groupes" element={<ProtectedRoute role="formateur"><Groupes /></ProtectedRoute>} />
         <Route path="/formateur/stagiaires" element={<ProtectedRoute role="formateur"><Stagiaires /></ProtectedRoute>} />
         <Route path="/formateur/modules" element={<ProtectedRoute role="formateur"><EditeurModule /></ProtectedRoute>} />
+        <Route path="/formateur/statistiques" element={<ProtectedRoute role="formateur"><Statistiques /></ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

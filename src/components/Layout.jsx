@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
+import { useSettingsStore, TEXT_SIZE_LABELS } from '../store/settingsStore'
 import { onSyncStatusChange } from '../lib/sync'
+import { useUnreadCount } from '../lib/useUnreadCount'
 
 export default function Layout({ children }) {
   const { user, signOut } = useAuthStore()
   const navigate = useNavigate()
   const [online, setOnline] = useState(navigator.onLine)
   const [syncStatus, setSyncStatus] = useState('idle')
+  const { textSize, cycleTextSize } = useSettingsStore()
+  const unreadCount = useUnreadCount(user?.id)
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--text-scale',
+      textSize === 'small' ? '0.9' : textSize === 'large' ? '1.25' : '1')
+  }, [textSize])
 
   useEffect(() => {
     const on = () => setOnline(true)
@@ -23,8 +32,11 @@ export default function Layout({ children }) {
   return (
     <div className="app-shell">
       <div className="topbar">
-        <h1>🏝️ Parcours Numérique RÉCIFE</h1>
+        <h1>🧭 Parcours Numérique</h1>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+          <button className="text-size-toggle" onClick={cycleTextSize} title="Changer la taille du texte">
+            🔤 Texte : {TEXT_SIZE_LABELS[textSize]}
+          </button>
           <span className={`offline-pill ${online ? 'online' : 'offline'}`}>
             {online ? (syncStatus === 'syncing' ? 'Synchronisation…' : 'En ligne') : 'Hors-ligne (sauvegarde locale)'}
           </span>
@@ -40,14 +52,19 @@ export default function Layout({ children }) {
           <nav className="nav-tabs">
             {!isFormateur && <>
               <NavLink to="/dashboard" className={({isActive}) => isActive ? 'active' : ''}>Mes modules</NavLink>
-              <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>Messagerie</NavLink>
+              <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
+                Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
+              </NavLink>
             </>}
             {isFormateur && <>
               <NavLink to="/formateur" end className={({isActive}) => isActive ? 'active' : ''}>Activité</NavLink>
               <NavLink to="/formateur/groupes" className={({isActive}) => isActive ? 'active' : ''}>Groupes</NavLink>
               <NavLink to="/formateur/stagiaires" className={({isActive}) => isActive ? 'active' : ''}>Stagiaires</NavLink>
               <NavLink to="/formateur/modules" className={({isActive}) => isActive ? 'active' : ''}>Contenu des modules</NavLink>
-              <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>Messagerie</NavLink>
+              <NavLink to="/formateur/statistiques" className={({isActive}) => isActive ? 'active' : ''}>Statistiques</NavLink>
+              <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
+                Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
+              </NavLink>
             </>}
           </nav>
         </div>

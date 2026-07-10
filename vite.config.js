@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
       manifest: {
-        name: 'Parcours Numérique RÉCIFE',
+        name: 'Parcours Numérique',
         short_name: 'ParcoursNum',
-        description: "Plateforme de formation numérique pour stagiaires allophones - RÉCIFE Le Havre",
+        description: "Plateforme de formation numérique pour stagiaires allophones",
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'standalone',

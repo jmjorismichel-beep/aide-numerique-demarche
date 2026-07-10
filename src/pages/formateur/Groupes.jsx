@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, uid } from '../../lib/db'
 import { saveRecord } from '../../lib/sync'
+import { getAllModules } from '../../data/getModuleContent'
 
 export default function Groupes() {
   const groups = useLiveQuery(() => db.groups.filter(g => !g.archived).toArray()) || []
@@ -9,6 +10,10 @@ export default function Groupes() {
   const [renaming, setRenaming] = useState(null)
   const [renameValue, setRenameValue] = useState('')
   const [history, setHistory] = useState([]) // pile d'actions annulables
+  const [expandedGroup, setExpandedGroup] = useState(null)
+  const [allModules, setAllModules] = useState([])
+
+  useEffect(() => { getAllModules().then(setAllModules) }, [])
 
   function pushUndo(action) {
     setHistory(h => [...h.slice(-9), action])
@@ -17,7 +22,7 @@ export default function Groupes() {
   async function creer(e) {
     e.preventDefault()
     if (!nom.trim()) return
-    const record = await saveRecord('groups', { id: uid(), name: nom.trim(), archived: false })
+    const record = await saveRecord('groups', { id: uid(), name: nom.trim(), archived: false, assigned_modules: [] })
     setNom('')
     pushUndo({ label: `Création du groupe « ${record.name} »`, undo: () => saveRecord('groups', { ...record, archived: true }) })
   }
@@ -34,6 +39,12 @@ export default function Groupes() {
     const before = { ...group }
     await saveRecord('groups', { ...before, archived: true }) // suppression douce : réversible
     pushUndo({ label: `Suppression du groupe « ${before.name} »`, undo: () => saveRecord('groups', { ...before, archived: false }) })
+  }
+
+  async function toggleModuleAssignment(group, moduleId) {
+    const current = group.assigned_modules || []
+    const next = current.includes(moduleId) ? current.filter(m => m !== moduleId) : [...current, moduleId]
+    await saveRecord('groups', { ...group, assigned_modules: next })
   }
 
   async function annulerDerniere() {
@@ -72,10 +83,36 @@ export default function Groupes() {
             ) : (
               <>
                 <h3 style={{ margin: '0 0 10px' }}>{g.name}</h3>
-                <div style={{ display: 'flex', gap: 8 }}>
+                <p style={{ color: 'var(--muted)', fontSize: '.85rem', margin: '0 0 10px' }}>
+                  {(g.assigned_modules || []).length > 0
+                    ? `${g.assigned_modules.length} module(s) assigné(s)`
+                    : 'Tous les modules sont visibles (aucune sélection)'}
+                </p>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   <button className="btn secondary" onClick={() => { setRenaming(g.id); setRenameValue(g.name) }}>Renommer</button>
+                  <button className="btn secondary" onClick={() => setExpandedGroup(expandedGroup === g.id ? null : g.id)}>
+                    {expandedGroup === g.id ? 'Fermer' : 'Assigner des modules'}
+                  </button>
                   <button className="btn danger" onClick={() => supprimer(g)}>Supprimer</button>
                 </div>
+
+                {expandedGroup === g.id && (
+                  <div style={{ marginTop: 14, borderTop: '1px solid #e5e7eb', paddingTop: 12, maxHeight: 260, overflowY: 'auto' }}>
+                    <p style={{ fontSize: '.85rem', color: 'var(--muted)' }}>
+                      Coche les modules que ce groupe doit voir. Si rien n'est coché, le groupe voit tous les modules.
+                    </p>
+                    {allModules.map(m => (
+                      <label key={m.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '4px 0' }}>
+                        <input
+                          type="checkbox"
+                          checked={(g.assigned_modules || []).includes(m.id)}
+                          onChange={() => toggleModuleAssignment(g, m.id)}
+                        />
+                        {m.icon} {m.title}
+                      </label>
+                    ))}
+                  </div>
+                )}
               </>
             )}
           </div>

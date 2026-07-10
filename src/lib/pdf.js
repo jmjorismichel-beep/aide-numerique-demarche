@@ -9,7 +9,7 @@ export function exportModuleToPdf(module) {
   doc.rect(0, 0, 595, 40, 'F')
   doc.setTextColor(255, 255, 255)
   doc.setFontSize(12)
-  doc.text('RÉCIFE — Parcours Numérique', marginX, 26)
+  doc.text('Parcours Numérique', marginX, 26)
 
   doc.setTextColor(31, 41, 55)
   doc.setFontSize(20)

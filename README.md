@@ -1,6 +1,6 @@
-# Parcours Numérique RÉCIFE
+# Parcours Numérique
 
-Application web **hors-ligne et en ligne** pour la formation numérique des stagiaires (RÉCIFE Le Havre) : espace stagiaire (modules, test de positionnement, messagerie, export PDF) et espace formateur (suivi d'activité, groupes, gestion des stagiaires, édition du contenu des modules).
+Application web **hors-ligne et en ligne** pour la formation numérique de stagiaires : espace stagiaire (modules, test de positionnement, messagerie, export PDF) et espace formateur (suivi d'activité, groupes, gestion des stagiaires, édition du contenu des modules).
 
 ## Comment ça marche (hors-ligne / en-ligne)
 
@@ -63,6 +63,21 @@ Pour ajuster le contenu, deux méthodes :
 - **Depuis l'app** (recommandé pour vous, sans coder) : connectez-vous en formateur, allez dans **Contenu des modules**, sélectionnez un module, modifiez les étapes. Chaque enregistrement garde une version précédente, avec un bouton « Revenir à cette version » en cas d'erreur.
 - **Dans le code** : éditez directement `src/data/modules.js` — utile pour des modifications en masse avant de livrer aux stagiaires.
 
+## Nouveautés (deuxième itération)
+
+- **Taille de texte réglable** : bouton en haut de l'écran (🔤), 3 tailles.
+- **Lecture audio** : bouton 🔊 sur chaque étape et « Écouter tout » en haut d'un module, via la synthèse vocale du navigateur (gratuite, fonctionne aussi hors-ligne une fois la page chargée).
+- **Progression visible** : barre de progression sur le tableau de bord stagiaire, coche verte sur les modules terminés.
+- **Documents à préparer** : encadré bleu en haut des modules de démarches administratives, listant les pièces à avoir sous la main.
+- **Vérification de compréhension** : quiz à la fin d'un module quand il en a un (Windows et CAF pour l'instant, à titre d'exemple — ajoutez un tableau `quiz` dans `src/data/modules.js` pour les autres), sinon une auto-évaluation simple (facile / aide / difficile) que le formateur peut consulter. Aucune note, aucun badge, aucune attestation générée.
+- **Messagerie avec compteur non lu** : pastille rouge dans le menu et sur chaque contact tant qu'un message n'a pas été ouvert.
+- **Modules assignés par groupe** : dans Groupes, bouton « Assigner des modules » pour limiter ce qu'un groupe voit sur son tableau de bord (sans rien cocher, tout reste visible par défaut).
+- **Statistiques formateur** : nouvel onglet listant le taux de complétion de chaque module par l'ensemble des stagiaires, pour repérer les modules les plus bloquants.
+
+**Non inclus volontairement** (sur votre demande) : pas de badges de réussite, pas d'attestations/certificats générés, pas de mention "RÉCIFE" dans l'application (renommée "Parcours Numérique").
+
+**Limites connues à garder en tête** : pas encore de captures d'écran réelles dans les modules (texte uniquement pour l'instant — à ajouter au cas par cas si besoin), pas de pièce jointe/photo dans la messagerie, l'éditeur de contenu formateur ne permet pas encore de modifier les documents à préparer ni le quiz depuis l'interface (seulement le code).
+
 ## Structure du projet
 ```
 src/
@@ -80,6 +95,6 @@ firestore.rules                        -> règles de sécurité à publier dans 
 
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
-- Ajouter des logos RÉCIFE dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
+- Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
 - Ajouter un système de notification (nouveau message reçu) via un badge.
 - Découper le fichier JS final en plusieurs morceaux plus légers si le nombre de stagiaires connectés en simultané devient important (avertissement de taille de build, sans impact pour un usage en centre de formation).

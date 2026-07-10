@@ -60,6 +60,10 @@ export const DEFAULT_MODULES = [
       { title: "Régler la langue", text: "Dans Paramètres, va dans « Heure et langue ». Tu peux choisir ou ajouter le français comme langue du clavier." },
       { title: "Régler le son et l'écran", text: "Dans Paramètres > « Système », tu peux régler le volume du son et la luminosité de l'écran." },
       { title: "Connecter le Wi-Fi", text: "Dans Paramètres > « Réseau et Internet », clique sur Wi-Fi, choisis ton réseau et entre le mot de passe." }
+    ],
+    quiz: [
+      { question: "Pour ouvrir les Paramètres de Windows, tu cliques sur :", options: ["Le Menu Démarrer puis la roue crantée ⚙️", "Le bureau", "La molette de la souris"], correctIndex: 0 },
+      { question: "Pour connecter le Wi-Fi, tu vas dans :", options: ["Heure et langue", "Réseau et Internet", "Comptes"], correctIndex: 1 }
     ] },
 
   { id: 'app-apple', category: 'appareils', icon: '🍎', title: 'Apple (macOS)',
@@ -136,16 +140,22 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-caf', category: 'demarches', icon: '👨‍👩‍👧', title: 'La CAF',
     description: "Faire ses démarches sur le site de la CAF.",
+    documents: ["Numéro de Sécurité Sociale", "Adresse email", "RIB (relevé d'identité bancaire)", "Justificatif de domicile récent"],
     steps: [
       { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r." },
       { title: "Créer Mon Compte", text: "Clique sur « Mon Compte » puis « Créer mon compte ». Tu as besoin de ton numéro de Sécurité Sociale et d'un email." },
       { title: "Se connecter", text: "Clique sur « Mon Compte », entre ton identifiant (email) et ton mot de passe." },
       { title: "Faire une demande en ligne", text: "Une fois connecté, va dans « Mes démarches ». Tu peux déclarer ta situation, demander une aide, ou envoyer un document." },
       { title: "Envoyer un document", text: "Dans « Mes démarches » > « Envoyer un document », tu peux prendre une photo ou choisir un fichier depuis ton téléphone." }
+    ],
+    quiz: [
+      { question: "L'adresse officielle du site de la CAF est :", options: ["caf.com", "caf.fr", "caf-officiel.net"], correctIndex: 1 },
+      { question: "Pour envoyer un document à la CAF, tu vas dans :", options: ["Mes démarches > Envoyer un document", "Mon profil", "Contact"], correctIndex: 0 }
     ] },
 
   { id: 'dem-cpam', category: 'demarches', icon: '🏥', title: 'La CPAM (Assurance Maladie)',
     description: "Faire ses démarches sur ameli.fr (CPAM).",
+    documents: ["Numéro de Sécurité Sociale", "Pièce d'identité", "Adresse email"],
     steps: [
       { title: "Aller sur le site ameli.fr", text: "Ouvre le site officiel de l'Assurance Maladie : ameli.fr. C'est le site de la CPAM (Caisse Primaire d'Assurance Maladie)." },
       { title: "Créer ou retrouver son compte", text: "Clique sur « Mon compte ». Si c'est ta première visite, clique sur « Créer mon compte » et suis les étapes avec ton numéro de Sécurité Sociale." },
@@ -156,6 +166,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-carsat', category: 'demarches', icon: '👴', title: 'La CARSAT (retraite)',
     description: "Faire ses démarches sur le site de la CARSAT.",
+    documents: ["Numéro de Sécurité Sociale", "Adresse email", "Relevé de carrière si tu en as un"],
     steps: [
       { title: "Aller sur le site officiel", text: "Ouvre le site lassuranceretraite.fr, le site officiel de l'Assurance Retraite (CARSAT en Normandie)." },
       { title: "Créer Mon compte retraite", text: "Clique sur « Mon compte » puis « Créer mon compte », ou connecte-toi directement avec FranceConnect si tu en as déjà un." },
@@ -166,6 +177,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-lia', category: 'demarches', icon: '🚋', title: 'LiA (bus et tramway)',
     description: "Utiliser le site du réseau de transport LiA (bus, tramway, funiculaire du Havre).",
+    documents: ["Photo d'identité", "Justificatif de ressources (pour un tarif réduit)", "Justificatif de domicile"],
     steps: [
       { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr." },
       { title: "Consulter les horaires et itinéraires", text: "Sur transports-lia.fr, tu peux chercher un trajet en indiquant ton point de départ et ton arrivée pour connaître les horaires et la ligne à prendre." },
@@ -175,6 +187,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-impots', category: 'demarches', icon: '💶', title: 'Les Impôts',
     description: "Faire sa déclaration et ses démarches sur impots.gouv.fr.",
+    documents: ["Numéro fiscal (sur un avis d'imposition précédent)", "Adresse email", "Justificatifs de revenus de l'année"],
     steps: [
       { title: "Aller sur le site des impôts", text: "Ouvre le site officiel impots.gouv.fr. Vérifie bien l'adresse avant de continuer." },
       { title: "Créer son espace particulier", text: "Clique sur « Votre espace particulier » puis « Vous n'avez pas de compte fiscal en ligne ? ». Tu auras besoin de ton numéro fiscal (sur un avis d'imposition) pour t'inscrire." },
@@ -185,6 +198,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-france-travail', category: 'demarches', icon: '💼', title: 'France Travail',
     description: "S'inscrire et faire ses démarches sur francetravail.fr.",
+    documents: ["Pièce d'identité", "Numéro de Sécurité Sociale", "CV si tu en as un", "Adresse email"],
     steps: [
       { title: "Aller sur le site France Travail", text: "Ouvre le site officiel francetravail.fr (anciennement Pôle Emploi)." },
       { title: "S'inscrire comme demandeur d'emploi", text: "Clique sur « S'inscrire », puis suis les étapes en indiquant tes informations personnelles et ta situation professionnelle." },
@@ -195,6 +209,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mdph', category: 'demarches', icon: '♿', title: 'La MDPH',
     description: "Faire une demande sur le site de la MDPH.",
+    documents: ["Pièce d'identité", "Certificat médical de moins de 12 mois", "Justificatif de domicile"],
     steps: [
       { title: "La MDPH au Havre (Seine-Maritime)", text: "Pour le département de Seine-Maritime (dont Le Havre), la MDPH n'utilise pas le site national : il faut passer par le portail du Département, à l'adresse solidarites.seinemaritime.fr." },
       { title: "Créer un compte", text: "Sur solidarites.seinemaritime.fr, clique sur « Créer un compte » si c'est ta première demande. Indique tes informations personnelles." },
@@ -205,6 +220,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mee', category: 'demarches', icon: '📅', title: 'Mes Événements Emploi',
     description: "Utiliser le site Mes Événements Emploi.",
+    documents: ["CV à jour (papier ou numérique)", "Ton identifiant France Travail si tu en as un"],
     steps: [
       { title: "Qu'est-ce que Mes Événements Emploi ?", text: "C'est un site de France Travail qui liste les forums, salons et journées de recrutement organisés près de chez toi." },
       { title: "Chercher un événement", text: "Sur le site, indique ta ville (Le Havre) pour voir les événements emploi à venir dans ta région." },
@@ -214,6 +230,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-logement-social', category: 'demarches', icon: '🏠', title: 'Logement social',
     description: "Faire une demande de logement social en ligne.",
+    documents: ["Pièce d'identité", "Justificatifs de ressources de tout le foyer", "Livret de famille si tu en as un"],
     steps: [
       { title: "Le site officiel", text: "Ouvre le site demande-logement-social.gouv.fr, le site officiel pour faire une demande de logement social (HLM) en France." },
       { title: "Créer sa demande", text: "Clique sur « Faire une demande de logement social ». Renseigne tes informations : composition familiale, ressources, ville souhaitée." },
@@ -224,6 +241,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-mobilite', category: 'demarches', icon: '🚌', title: 'Aide à la mobilité',
     description: "Découvrir le Pôle Mobilité et l'association MAD (Mobilité Associative Durable) au Havre.",
+    documents: ["Lettre d'orientation d'un conseiller (France Travail, mission locale...)", "Pièce d'identité"],
     steps: [
       { title: "Le Pôle Mobilité du Havre", text: "Le Pôle Mobilité (site pole-mobilite.org) aide les personnes qui ont du mal à se déplacer pour aller travailler ou se former : auto-école solidaire, garage solidaire, location de voitures et scooters à petit prix." },
       { title: "Comment y accéder", text: "L'accès au Pôle Mobilité se fait généralement sur orientation d'un conseiller (France Travail, mission locale, assistante sociale). Parle-en à ton formateur ou ton conseiller pour savoir si tu peux en bénéficier." },
@@ -233,6 +251,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-remuneration-normandie', category: 'demarches', icon: '💶', title: 'Rémunération - Région Normandie',
     description: "Utiliser le site de rémunération des stagiaires de la Région Normandie.",
+    documents: ["Identifiants transmis par ton organisme de formation", "RIB"],
     steps: [
       { title: "Aller sur la plateforme", text: "Ouvre le site remuneration.normandie.fr, la plateforme officielle de gestion de la rémunération des stagiaires de la formation professionnelle en Normandie." },
       { title: "Choisir son portail", text: "Sur la page d'accueil, choisis le portail « Stagiaire » (les autres portails sont réservés aux organismes de formation et aux agents de la Région)." },
@@ -243,6 +262,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-ecole', category: 'demarches', icon: '🏫', title: 'École, cantine, périscolaire',
     description: "Inscrire et renouveler l'inscription de ses enfants à l'école, la cantine, le périscolaire et le centre de loisirs (Ville du Havre).",
+    documents: ["Attestation de quotient familial CAF de moins de 2 mois", "Adresse email", "Livret de famille"],
     steps: [
       { title: "Le Kiosque Famille du Havre", text: "La Ville du Havre regroupe toutes les démarches liées aux enfants (cantine, périscolaire, centres de loisirs) sur un seul site : kiosquefamille.lehavre.fr." },
       { title: "Créer son compte", text: "Si c'est ta première inscription, crée un compte sur le Kiosque famille avec ton email et les informations de ton enfant." },
@@ -253,17 +273,19 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-titre-sejour', category: 'demarches', icon: '🛂', title: 'Titre de séjour',
     description: "Créer et renouveler un titre de séjour en arrivant au Havre.",
+    documents: ["Passeport", "Justificatif de domicile", "Photo d'identité récente", "Adresse email"],
     steps: [
       { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France)." },
       { title: "Créer son compte", text: "Clique sur « Créer un compte », renseigne ton email et crée un mot de passe. Tu recevras un email de confirmation à valider." },
       { title: "Choisir sa démarche", text: "Une fois connecté, choisis le type de démarche : première demande de titre de séjour, renouvellement, ou changement de statut, selon ta situation." },
       { title: "Remplir le formulaire et joindre les documents", text: "Le site te demande de remplir un formulaire puis de scanner ou photographier tes documents (passeport, justificatif de domicile, photo d'identité...)." },
       { title: "Suivre sa demande", text: "Après l'envoi, tu peux suivre l'état de ta demande dans ton espace personnel. Tu recevras un message quand un rendez-vous en préfecture est nécessaire." },
-      { title: "Se faire accompagner", text: "Pour toute question, tu peux te faire aider par une association d'aide aux migrants au Havre ou par ton formateur RÉCIFE." }
+      { title: "Se faire accompagner", text: "Pour toute question, tu peux te faire aider par une association d'aide aux migrants au Havre ou par ton formateur." }
     ] },
 
   { id: 'dem-casier-judiciaire', category: 'demarches', icon: '📜', title: 'Casier judiciaire',
     description: "Demander son extrait de casier judiciaire en ligne.",
+    documents: ["Nom, prénom, date et lieu de naissance exacts (comme sur ta carte d'identité)"],
     steps: [
       { title: "Le site officiel", text: "Ouvre le site officiel casier-judiciaire.justice.gouv.fr pour demander ton extrait de casier judiciaire (bulletin n°3), souvent demandé pour un emploi." },
       { title: "Remplir le formulaire", text: "Clique sur « Effectuer une demande », puis indique ton nom, prénom, date et lieu de naissance exactement comme sur ta carte d'identité." },
@@ -273,6 +295,7 @@ export const DEFAULT_MODULES = [
 
   { id: 'dem-carte-identite', category: 'demarches', icon: '🪪', title: "Carte d'identité",
     description: "Prendre rendez-vous pour créer ou renouveler sa carte d'identité (ville du Havre et site gouvernemental).",
+    documents: ["Photo d'identité récente aux normes", "Justificatif de domicile", "Ancienne carte d'identité si tu en as une"],
     steps: [
       { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder." },
       { title: "Prendre rendez-vous à la mairie du Havre", text: "Va sur le site lehavre.fr, rubrique État civil > Carte nationale d'identité et passeport, pour réserver un créneau à l'Hôtel de Ville ou dans une mairie annexe (Bléville, Graville, Rouelles)." },
