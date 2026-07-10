@@ -53,13 +53,15 @@ npm install
 npm run dev
 ```
 
-## Compléter le contenu des modules
+## Contenu des modules
 
-Deux modules sont fournis entièrement remplis à titre d'exemple (**Windows** et **La CAF**, dans `src/data/modules.js`). Tous les autres modules (Apple, Linux, Chromebook, iPhone, Android, CPAM, CARSAT, Impôts, France Travail, titre de séjour, carte d'identité, etc.) sont créés avec un titre et une description, prêts à être complétés.
+Les **26 modules sont désormais entièrement rédigés** dans `src/data/modules.js` (10 appareils + 16 démarches administratives), avec des étapes vérifiées sur les sites officiels et locaux du Havre (juillet 2026) : caf.fr, ameli.fr, lassuranceretraite.fr, impots.gouv.fr, francetravail.fr, le portail MDPH de Seine-Maritime (solidarites.seinemaritime.fr — attention, ce département n'est pas rattaché au portail national mdphenligne.cnsa.fr), demande-logement-social.gouv.fr, l'ANEF pour les titres de séjour, casier-judiciaire.justice.gouv.fr, le Kiosque famille et le service État civil de la Ville du Havre (lehavre.fr), le réseau LiA (transports-lia.fr), le Pôle Mobilité du Havre (pole-mobilite.org), et la plateforme de rémunération des stagiaires de la Région Normandie (remuneration.normandie.fr).
 
-Pour ajouter leur contenu, deux méthodes :
-- **Depuis l'app** (recommandé pour vous, sans coder) : connectez-vous en formateur, allez dans **Contenu des modules**, sélectionnez un module, ajoutez les étapes. Chaque enregistrement garde une version précédente, avec un bouton « Revenir à cette version » en cas d'erreur.
-- **Dans le code** : éditez directement `src/data/modules.js` en ajoutant des `steps` (comme pour Windows ou la CAF) — utile si vous voulez pré-remplir beaucoup de contenu d'un coup avant de livrer aux stagiaires.
+**Ces sites évoluent régulièrement** — pensez à vérifier périodiquement que les informations (adresses, horaires, procédures) sont toujours exactes, et à corriger directement depuis l'espace formateur si besoin (bouton « Contenu des modules »).
+
+Pour ajuster le contenu, deux méthodes :
+- **Depuis l'app** (recommandé pour vous, sans coder) : connectez-vous en formateur, allez dans **Contenu des modules**, sélectionnez un module, modifiez les étapes. Chaque enregistrement garde une version précédente, avec un bouton « Revenir à cette version » en cas d'erreur.
+- **Dans le code** : éditez directement `src/data/modules.js` — utile pour des modifications en masse avant de livrer aux stagiaires.
 
 ## Structure du projet
 ```
