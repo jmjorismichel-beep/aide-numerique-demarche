@@ -3,11 +3,17 @@ import { doc, setDoc, getDoc } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut as firebaseSignOut
+  signOut as firebaseSignOut,
+  sendPasswordResetEmail
 } from 'firebase/auth'
 import { db } from '../lib/db'
 import { auth, dbRemote, isOnline } from '../lib/firebase'
 import { saveRecord } from '../lib/sync'
+
+// Code donné aux formateurs pour qu'ils obtiennent ce rôle dès l'inscription
+// (au lieu de devoir modifier leur rôle manuellement dans Firestore).
+// Changez-le via la variable d'environnement VITE_FORMATEUR_INVITE_CODE.
+const FORMATEUR_INVITE_CODE = import.meta.env.VITE_FORMATEUR_INVITE_CODE || 'FORMATEUR2026'
 
 export const useAuthStore = create((set, get) => ({
   user: null,       // profil applicatif (prénom, nom, niveau, role...)
@@ -37,19 +43,22 @@ export const useAuthStore = create((set, get) => ({
    * Inscription. Nécessite une connexion internet la première fois (création
    * du compte sécurisé). Une fois connecté une première fois, l'utilisateur
    * peut ensuite se servir de l'app hors-ligne indéfiniment (session mise en cache).
+   * Si `inviteCode` correspond au code formateur, le compte est créé avec le
+   * rôle "formateur" ; sinon c'est un compte "stagiaire" classique.
    */
-  async signUp({ prenom, nom, email, password, niveauLinguistique, niveauInformatique }) {
+  async signUp({ prenom, nom, email, password, niveauLinguistique, niveauInformatique, inviteCode }) {
     if (!auth || !isOnline()) {
       throw new Error("Une connexion internet est nécessaire pour créer un compte la première fois.")
     }
     const cred = await createUserWithEmailAndPassword(auth, email, password)
+    const role = inviteCode && inviteCode.trim() === FORMATEUR_INVITE_CODE ? 'formateur' : 'stagiaire'
 
     const profile = {
       id: cred.user.uid,
       prenom, nom, email,
-      niveau_linguistique: niveauLinguistique,
-      niveau_informatique: niveauInformatique,
-      role: 'stagiaire',
+      niveau_linguistique: niveauLinguistique || null,
+      niveau_informatique: niveauInformatique || null,
+      role,
       group_id: null,
       archived: false,
       updated_at: new Date().toISOString()
@@ -82,6 +91,13 @@ export const useAuthStore = create((set, get) => ({
       return local
     }
     throw new Error("Connexion impossible : pas de réseau et aucun compte local trouvé sur cet appareil.")
+  },
+
+  async resetPassword(email) {
+    if (!auth || !isOnline()) {
+      throw new Error("Une connexion internet est nécessaire pour réinitialiser un mot de passe.")
+    }
+    await sendPasswordResetEmail(auth, email)
   },
 
   async signOut() {

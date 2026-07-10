@@ -30,14 +30,14 @@ VITE_FIREBASE_PROJECT_ID=...
 VITE_FIREBASE_STORAGE_BUCKET=...
 VITE_FIREBASE_MESSAGING_SENDER_ID=...
 VITE_FIREBASE_APP_ID=...
+VITE_FORMATEUR_INVITE_CODE=ChoisissezVotrePropreCode
 ```
-Sur Netlify : **Site settings > Environment variables**, ajouter les mêmes 6 variables.
+Sur Netlify : **Site settings > Environment variables**, ajouter les mêmes 7 variables.
 
-### 3. Créer le premier compte formateur
-Par défaut, toute nouvelle inscription crée un compte **stagiaire**. Pour créer un compte **formateur** :
-1. Inscrivez-vous normalement dans l'app (comme stagiaire).
-2. Dans Firebase Console > **Firestore Database > Données**, ouvrez la collection `users`, trouvez votre document et changez le champ `role` de `stagiaire` à `formateur`.
-3. Reconnectez-vous dans l'app : vous arrivez sur l'espace formateur.
+### 3. Créer un compte formateur
+Deux méthodes :
+- **Recommandée** : sur le formulaire d'inscription, cochez « Je suis formateur » et entrez le code formateur (voir variable `VITE_FORMATEUR_INVITE_CODE`, étape 2). Le compte est créé directement avec le bon rôle.
+- **Manuelle** (dépannage) : inscrivez-vous normalement comme stagiaire, puis dans Firebase Console > **Firestore Database > Données**, ouvrez la collection `users`, trouvez le document et changez le champ `role` de `stagiaire` à `formateur`. Reconnectez-vous ensuite dans l'app.
 
 ### 4. Déployer sur Netlify (comme vos autres projets)
 1. Pousser ce dossier sur GitHub (interface web GitHub, comme d'habitude).
@@ -78,6 +78,15 @@ Pour ajuster le contenu, deux méthodes :
 **Non inclus volontairement** (sur votre demande) : pas de badges de réussite, pas d'attestations/certificats générés, pas de mention "RÉCIFE" dans l'application (renommée "Parcours Numérique").
 
 **Limite connue** : les illustrations restent des icônes schématiques, pas de vraies captures d'écran des interfaces réelles (Windows, sites officiels...) — je n'ai pas ces images. Si vous voulez de vraies captures à un moment, il faudra soit les fournir (photos d'écran), soit me les décrire précisément pour que je génère un visuel adapté module par module.
+
+## Nouveautés (troisième itération)
+
+- **Inscription formateur par code** : sur le formulaire d'inscription, une case « Je suis formateur » fait apparaître un champ « Code formateur ». Si le code saisi correspond à `VITE_FORMATEUR_INVITE_CODE` (par défaut `FORMATEUR2026`, à changer avant la mise en production dans `.env` et sur Netlify), le compte est créé directement avec le rôle formateur — plus besoin de modifier Firestore à la main pour chaque nouveau formateur.
+- **Mot de passe oublié** : lien sur la page de connexion, envoie un email de réinitialisation via Firebase (fonctionne uniquement en ligne).
+- **Confirmation du mot de passe** à l'inscription, avec message clair si les deux ne correspondent pas.
+- **Messages d'erreur en français** : les erreurs techniques de Firebase (email déjà utilisé, mot de passe trop court, identifiants invalides...) sont traduites en phrases compréhensibles (`src/lib/authErrors.js`).
+- **Validation en direct** sur le formulaire d'inscription : email et mot de passe vérifiés au fur et à mesure, pas seulement après clic sur le bouton.
+- **Interface responsive mobile** : menu, grille de modules, messagerie, tableaux formateur et formulaires s'adaptent aux écrans de smartphone (testé jusqu'à 375px de large).
 
 ## Structure du projet
 ```

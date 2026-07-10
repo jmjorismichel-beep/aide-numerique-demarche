@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import { getTestQuestions, scoreToNiveau, NIVEAUX_INFO } from '../data/testQuestions'
+import { translateAuthError } from '../lib/authErrors'
 
 export default function TestPositionnement() {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ export default function TestPositionnement() {
       sessionStorage.removeItem('inscription_en_attente')
       navigate('/dashboard')
     } catch (err) {
-      setError(err.message)
+      setError(translateAuthError(err))
     } finally {
       setLoading(false)
     }

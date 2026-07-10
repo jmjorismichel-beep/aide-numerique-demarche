@@ -90,7 +90,7 @@ export default function Messagerie() {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 20 }}>
+    <div className="two-col-layout" style={{ gridTemplateColumns: '260px 1fr' }}>
       <div className="card">
         <h3>{isFormateur ? 'Stagiaires' : 'Choisir un formateur'}</h3>
         {contacts.length === 0 && <p style={{ color: 'var(--muted)' }}>Aucun contact disponible.</p>}

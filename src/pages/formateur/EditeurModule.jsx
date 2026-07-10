@@ -124,7 +124,7 @@ export default function EditeurModule() {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: 20 }}>
+    <div className="two-col-layout" style={{ gridTemplateColumns: '260px 1fr' }}>
       <div className="card">
         <h3>Modules</h3>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 4, maxHeight: 600, overflowY: 'auto' }}>
