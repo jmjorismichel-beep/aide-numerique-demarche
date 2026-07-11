@@ -6,6 +6,7 @@ export default function ModuleCard({ module, completed }) {
       {completed && <span className="check" title="Module terminé">✓</span>}
       <span className="icon">{module.icon}</span>
       <h3>{module.title}</h3>
+      {module.titleFr && <p className="fr-subtitle">{module.titleFr}</p>}
       <p>{module.description}</p>
     </Link>
   )

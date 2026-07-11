@@ -10,6 +10,7 @@ import { saveRecord } from '../../lib/sync'
 import { db, uid } from '../../lib/db'
 import { speak, stopSpeaking, speechAvailable } from '../../lib/speech'
 import StepIllustration from '../../components/StepIllustration'
+import { t } from '../../data/translations/ui'
 
 const SELF_ASSESSMENT_OPTIONS = [
   { value: 'facile', label: '🙂 J\'ai réussi facilement' },
@@ -87,7 +88,9 @@ export default function ModulePage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
           <div>
             <h2>{module.icon} {module.title}</h2>
+            {module.titleFr && <p className="fr-subtitle" style={{ marginTop: -4 }}>🇫🇷 {module.titleFr}</p>}
             <p>{module.description}</p>
+            {module.descriptionFr && <p className="fr-subtitle">🇫🇷 {module.descriptionFr}</p>}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {speechAvailable && <button className="speak-btn" onClick={lireToutLeModule}>🔊 Écouter tout</button>}
@@ -99,25 +102,31 @@ export default function ModulePage() {
 
         {module.whatIsIt && (
           <div className="doc-checklist" style={{ background: '#fefce8', borderColor: '#fde68a' }}>
-            <h4>💡 {lang === 'en' ? 'What is this, and why is it useful?' : lang === 'ar' ? 'ما هذا؟ ولماذا هو مفيد؟' : "C'est quoi, et pourquoi c'est utile ?"}</h4>
+            <h4>💡 {t(lang, 'whatIsThis')}</h4>
             <p style={{ margin: 0 }}>{module.whatIsIt}</p>
+            {module.whatIsItFr && <p className="fr-subtitle" style={{ marginTop: 8, marginBottom: 0 }}>🇫🇷 {module.whatIsItFr}</p>}
           </div>
         )}
 
         {module.documents && module.documents.length > 0 && (
           <div className="doc-checklist">
-            <h4>📋 {lang === 'en' ? 'Documents to prepare before starting' : lang === 'ar' ? 'المستندات التي يجب تحضيرها قبل البدء' : 'Documents à préparer avant de commencer'}</h4>
+            <h4>📋 {t(lang, 'documentsToPrepare')}</h4>
             <ul>
               {module.documents.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
+            {module.documentsFr && module.documentsFr.length > 0 && (
+              <ul className="fr-subtitle" style={{ marginTop: 8 }}>
+                {module.documentsFr.map((d, i) => <li key={i}>🇫🇷 {d}</li>)}
+              </ul>
+            )}
           </div>
         )}
 
         {module.stepsNotTranslated && (module.steps || []).length > 0 && (
           <p style={{ background: '#eff6ff', border: '1.5px solid #bfdbfe', borderRadius: 10, padding: 10, fontSize: '.9rem' }}>
-            {lang === 'en'
-              ? 'The detailed steps below are only available in French for now.'
-              : 'الخطوات التفصيلية أدناه متوفرة باللغة الفرنسية فقط حالياً.'}
+            {lang === 'ar' || lang === 'fa'
+              ? 'الخطوات التفصيلية أدناه متوفرة باللغة الفرنسية فقط حالياً، لتساعدك أيضاً على تعلم الفرنسية.'
+              : 'The detailed steps below are only in French for now — a good opportunity to practise your French too.'}
           </p>
         )}
 
