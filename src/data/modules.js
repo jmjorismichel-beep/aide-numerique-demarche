@@ -189,15 +189,18 @@ export const DEFAULT_MODULES = [
     ] },
 
   { id: 'dem-lia', category: 'demarches', icon: '🚋', title: 'LiA (bus et tramway)',
-    description: "Utiliser le site du réseau de transport LiA (bus, tramway, funiculaire du Havre).",
-    whatIsIt: "LiA, c'est le nom du réseau de bus et de tramway au Havre. Pour se déplacer en ville sans voiture (aller en formation, au travail, faire ses courses), c'est le moyen de transport principal.",
-    documents: ["Photo d'identité", "Justificatif de ressources (pour un tarif réduit)", "Justificatif de domicile"],
+    description: "Utiliser le site du réseau de transport LiA (bus, tramway, funiculaire du Havre) et connaître les tarifs solidaires.",
+    whatIsIt: "LiA, c'est le nom du réseau de bus et de tramway au Havre. Pour se déplacer en ville sans voiture (aller en formation, au travail, faire ses courses), c'est le moyen de transport principal. Le prix normal peut être réduit fortement selon ta situation.",
+    documents: ["Pièce d'identité", "Justificatif de domicile", "Justificatifs liés à ta situation (attestation CAF, CSS, France Travail, avis d'imposition... selon ton profil)"],
     steps: [
-      { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr." },
+      { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr.", visual: "bus" },
       { title: "Consulter les horaires et itinéraires", text: "Sur transports-lia.fr, tu peux chercher un trajet en indiquant ton point de départ et ton arrivée pour connaître les horaires et la ligne à prendre." },
-      { title: "Demander un tarif réduit", text: "Certaines personnes peuvent avoir un demi-tarif ou un tarif solidaire (selon ressources). La demande se fait en ligne sur le site, dans la rubrique « Tarifs et abonnements », avec les justificatifs demandés." },
-      { title: "Recharger son Pass LiA", text: "Une fois le tarif validé, tu peux recharger ta carte de transport (Pass LiA) directement en agence ou en ligne selon les options proposées." }
+      { title: "L'abonnement Solidaire (12,50€/mois)", text: "Ce tarif est accessible si tu bénéficies de la Complémentaire Santé Solidaire (CSS), de l'Aide Médicale d'État, si tu es demandeur d'asile, invalide civil à 80% ou plus, travailleur handicapé en ESAT, ou demandeur d'emploi bénéficiaire de l'AAH.", visual: "document" },
+      { title: "Le tarif 1/2 tarif", text: "Ce tarif concerne notamment les étudiants boursiers, les demandeurs d'emploi, les personnes de plus de 65 ans non imposables, les stagiaires de la formation professionnelle et apprentis majeurs, et les personnes en Contrat d'Engagement Jeune." },
+      { title: "Faire la demande", text: "Remplis le formulaire « Demande de tarification réduite pour les transports LiA » sur lehavre.fr, ou rends-toi dans une structure municipale. En cas de question : 02 35 22 24 62 ou lia-tarifsreduits@lehavremetro.fr." },
+      { title: "Recharger son Pass LiA", text: "Une fois le tarif validé, recharge ta carte de transport (Pass LiA) en agence (La Boutique, avenue René Coty, ou La Station, parvis de la gare) ou en ligne sur transports-lia.fr." }
     ] },
+
 
   { id: 'dem-impots', category: 'demarches', icon: '💶', title: 'Les Impôts',
     description: "Faire sa déclaration et ses démarches sur impots.gouv.fr.",

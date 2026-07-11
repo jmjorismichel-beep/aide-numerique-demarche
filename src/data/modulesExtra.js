@@ -88,6 +88,18 @@ export const EXTRA_MODULES = [
       { title: "Récupérer une copie signée", text: "Une fois signé, un email de confirmation avec le document signé t'est généralement envoyé — garde-le précieusement." }
     ] },
 
+  { id: 'num-identite-numerique', category: 'numerique-base', icon: '🆔', title: 'Mon identité numérique',
+    description: "Comprendre à quoi sert une identité numérique et comment en créer une (FranceConnect+, Identité Numérique La Poste).",
+    whatIsIt: "De plus en plus de démarches sensibles (Mon Compte Formation, changement de RIB, ouverture de compte bancaire en ligne) demandent une preuve d'identité renforcée sur internet, appelée « identité numérique » — un peu comme montrer sa carte d'identité, mais en ligne. Sans elle, certains sites te bloqueront bientôt l'accès.",
+    documents: ["Pièce d'identité en cours de validité (carte d'identité, passeport, ou titre de séjour d'au moins 5 ans de validité)", "Un smartphone"],
+    steps: [
+      { title: "FranceConnect et FranceConnect+ : la différence", text: "FranceConnect (sans « + ») te permet de te connecter à des sites simples (impots.gouv.fr, ameli.fr) avec un compte existant. FranceConnect+ est une version plus sécurisée, obligatoire pour les démarches sensibles comme Mon Compte Formation.", visual: "lock" },
+      { title: "Créer son Identité Numérique La Poste", text: "C'est la solution la plus simple et gratuite. Télécharge l'application « L'Identité Numérique La Poste » sur ton téléphone, ou crée ton compte sur lidentitenumerique.laposte.fr. Il faut avoir 18 ans, une pièce d'identité valide, et un smartphone récent (Android 12+ ou iOS 16+).", visual: "phone" },
+      { title: "Se faire aider en bureau de poste", text: "Si tu n'es pas à l'aise pour le faire seul en ligne, tu peux te rendre directement dans n'importe quel bureau de poste avec ta pièce d'identité : un employé t'aide à créer ton Identité Numérique sur place." },
+      { title: "L'application France Identité (alternative)", text: "Il existe une autre solution, France Identité, gérée par l'État plutôt que La Poste. Elle demande une carte d'identité récente (format carte bancaire, depuis 2021) et est obligatoire pour voter par internet." },
+      { title: "Utiliser son identité numérique", text: "Sur un site qui le propose, clique sur le bouton « FranceConnect+ », choisis « L'Identité Numérique La Poste », entre tes identifiants, puis confirme la connexion directement depuis l'application sur ton téléphone." }
+    ] },
+
   // ============================================================
   // SANTÉ
   // ============================================================
