@@ -22,6 +22,7 @@ a { color: var(--blue); text-decoration: none; }
 .topbar {
   background: var(--blue); color: white; padding: 14px 20px;
   display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
 }
 .topbar h1 { font-size: 1.1rem; margin: 0; }
 .offline-pill {
@@ -70,9 +71,31 @@ a { color: var(--blue); text-decoration: none; }
   padding: 10px 12px; border-radius: 10px; border: 1.5px solid #d1d5db; font-size: 1rem;
 }
 .password-wrap { position: relative; }
+.password-wrap input { padding-right: 44px; }
 .password-wrap button {
-  position: absolute; right: 8px; top: 8px; background: none; border: none; font-size: .8rem; color: var(--blue);
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; font-size: 1.1rem; line-height: 1; padding: 4px;
 }
+
+.field-hint { display: block; color: var(--muted); font-size: .8rem; margin-top: 4px; }
+
+.step-progress { display: flex; justify-content: center; gap: 24px; margin: 20px 0 8px; }
+.step-dot-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: .5; }
+.step-dot-wrap.active, .step-dot-wrap.done { opacity: 1; }
+.step-dot {
+  width: 30px; height: 30px; border-radius: 50%; background: #e5e7eb; color: var(--muted);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .9rem;
+}
+.step-dot-wrap.active .step-dot { background: var(--blue); color: white; }
+.step-dot-wrap.done .step-dot { background: var(--green); color: white; }
+.step-dot-wrap span { font-size: .75rem; color: var(--muted); }
+.step-dot-wrap.active span { color: var(--blue); font-weight: 600; }
+
+.btn-link-discreet {
+  background: none; border: none; color: var(--muted); font-size: .85rem;
+  text-decoration: underline; padding: 0; cursor: pointer;
+}
+.btn-link-discreet:hover { color: var(--blue); }
 
 .auth-page { max-width: 480px; margin: 40px auto; }
 .tabs { display: flex; gap: 8px; margin-bottom: 20px; }

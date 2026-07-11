@@ -104,6 +104,18 @@ Pour ajuster le contenu, deux méthodes :
 **Ce que je n'ai volontairement pas fait : le contenu adapté par niveau linguistique (A1 à C2)**
 Réécrire chacun des 26 modules en 3 versions de complexité différente représente un travail de contenu très lourd (environ 78 versions à rédiger et maintenir), avec un risque de devenir vite incohérent si le contenu évolue. J'ai gardé une seule version en français simple pour tous les niveaux, ce qui reste lisible même en A2. Si après un premier usage réel vous sentez que c'est un vrai manque, on peut le faire — mais je recommande d'abord de tester avec de vrais stagiaires pour voir si c'est réellement bloquant avant d'investir ce temps.
 
+## Nouveautés (cinquième itération) — formulaire d'inscription
+
+- **Formulaire en 3 étapes** (Identité → Mot de passe → Niveaux) avec une barre de progression visuelle, plutôt qu'un long formulaire d'un coup — plus facile à suivre pour un public peu à l'aise avec l'informatique.
+- **Exemples dans les champs** (ex. « Ex : Fatima » dans le champ Prénom) pour clarifier ce qui est attendu sans dépendre uniquement de la lecture du label.
+- **Case « Je suis formateur » séparée visuellement** : ce n'est plus une case à cocher au même niveau que le test de positionnement, mais un lien discret en bas de page (« Vous êtes formateur ? Cliquez ici »), pour éviter toute confusion entre les deux cases.
+- **Icône œil 👁️ / 🙈** à la place du texte « Voir » / « Masquer », plus universellement compréhensible.
+- **Indice de mot de passe permanent** (« Au moins 6 caractères ») visible dès le départ, pas seulement après une erreur.
+- **En-tête du site fixe** (sticky) pendant le défilement, pour garder un repère visuel constant sur les formulaires longs.
+- **Aide contextuelle sur le niveau informatique** : une phrase sous le menu déroulant explique concrètement ce que signifie le niveau sélectionné (« Totalement débutant », « Moyen »...), pour aider à mieux se situer.
+
+
+
 ## Structure du projet
 ```
 src/
