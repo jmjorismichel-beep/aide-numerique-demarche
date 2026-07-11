@@ -5,7 +5,7 @@ export function exportModuleToPdf(module) {
   const marginX = 48
   let y = 60
 
-  doc.setFillColor(37, 99, 235)
+  doc.setFillColor(15, 92, 102)
   doc.rect(0, 0, 595, 40, 'F')
   doc.setTextColor(255, 255, 255)
   doc.setFontSize(12)
@@ -32,7 +32,7 @@ export function exportModuleToPdf(module) {
   steps.forEach((step, i) => {
     if (y > 760) { doc.addPage(); y = 60 }
     doc.setFontSize(13)
-    doc.setTextColor(37, 99, 235)
+    doc.setTextColor(15, 92, 102)
     doc.text(`${i + 1}. ${step.title}`, marginX, y)
     y += 18
     doc.setFontSize(11)

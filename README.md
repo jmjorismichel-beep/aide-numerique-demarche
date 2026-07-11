@@ -126,6 +126,22 @@ Réécrire chacun des 26 modules en 3 versions de complexité différente repré
 
 
 
+## Nouveautés (septième itération) — performance et identité visuelle
+
+**Performance**
+- **Découpage du code par page** : l'espace formateur, la messagerie, le glossaire, le test de positionnement, etc. ne sont plus téléchargés que si on visite réellement ces pages. Un stagiaire ne charge jamais le code de l'espace formateur, et inversement.
+- **Export PDF différé** : la bibliothèque qui génère les PDF (assez lourde, environ 600 Ko) ne se télécharge plus qu'au moment où quelqu'un clique sur « Imprimer en PDF » — elle ne ralentit plus le premier chargement du site pour tout le monde.
+- Résultat concret : le fichier chargé au tout premier affichage passe d'environ 1,45 Mo à 907 Ko.
+
+**Identité visuelle**
+- Nouvelle palette inspirée des **cabines de plage colorées du front de mer du Havre** : un bleu-vert profond (teal) en couleur principale évoquant le port, un corail chaud pour les boutons d'action, sur un fond frais couleur brume marine — plus proche de l'esprit joyeux et coloré de lesbonsclics.fr que l'habillage bleu générique précédent.
+- Chaque module affiche maintenant une pastille d'icône colorée, tirée d'une rotation de 5 couleurs "cabine de plage" (corail, jaune soleil, bleu mer, prune, vert feuille) — toujours la même couleur pour un module donné, pour aider à les repérer visuellement d'un coup d'œil, comme la rangée de cabines colorées sur la plage.
+- Titres en **Baloo 2**, une police à l'allure ronde et amicale, plus adaptée à un public d'apprentissage que la police système par défaut. Le corps de texte reste en police système pour rester rapide et bien s'afficher dans toutes les langues (dont l'arabe et le chinois).
+- Boutons arrondis façon "pilule", ombres plus douces, dégradé corail/jaune sur la barre de progression.
+- L'en-tête des PDF exportés reprend aussi la nouvelle couleur teal.
+
+**Limite honnête** : je n'ai pas pu prendre de capture d'écran du résultat dans cet environnement (pas de navigateur disponible ici pour générer un aperçu). Le code compile sans erreur, mais un coup d'œil de votre part une fois déployé reste utile pour ajuster si besoin — dites-moi ce qui vous plaît ou pas et j'affine.
+
 ## Structure du projet
 ```
 src/

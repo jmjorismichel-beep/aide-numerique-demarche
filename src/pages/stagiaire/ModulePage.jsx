@@ -5,7 +5,6 @@ import { useAuthStore } from '../../store/authStore'
 import { useI18nStore } from '../../store/i18nStore'
 import { translateModule } from '../../data/translations/modules'
 import { logActivity } from '../../lib/activity'
-import { exportModuleToPdf } from '../../lib/pdf'
 import { saveRecord } from '../../lib/sync'
 import { db, uid } from '../../lib/db'
 import { speak, stopSpeaking, speechAvailable } from '../../lib/speech'
@@ -27,6 +26,7 @@ export default function ModulePage() {
   const [quizAnswers, setQuizAnswers] = useState({})
   const [quizSubmitted, setQuizSubmitted] = useState(false)
   const [selfAssessment, setSelfAssessment] = useState(null)
+  const [pdfLoading, setPdfLoading] = useState(false)
 
   useEffect(() => {
     getModule(id).then(setRawModule)
@@ -81,6 +81,17 @@ export default function ModulePage() {
     speak(texte)
   }
 
+  async function handleExportPdf() {
+    setPdfLoading(true)
+    try {
+      // La bibliothèque PDF est assez lourde : on ne la télécharge que si on en a vraiment besoin.
+      const { exportModuleToPdf } = await import('../../lib/pdf')
+      exportModuleToPdf(module)
+    } finally {
+      setPdfLoading(false)
+    }
+  }
+
   return (
     <div>
       <Link to="/dashboard">&larr; Retour aux modules</Link>
@@ -94,7 +105,9 @@ export default function ModulePage() {
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {speechAvailable && <button className="speak-btn" aria-label="Écouter tout le module" onClick={lireToutLeModule}>🔊 Écouter tout</button>}
-            <button className="btn secondary" onClick={() => exportModuleToPdf(module)}>🖨️ Imprimer en PDF</button>
+            <button className="btn secondary" onClick={() => handleExportPdf()} disabled={pdfLoading}>
+              {pdfLoading ? 'Préparation du PDF…' : '🖨️ Imprimer en PDF'}
+            </button>
             {!done && <button className="btn" onClick={marquerTermine}>Marquer comme terminé</button>}
             {done && <span className="badge online">Terminé ✓</span>}
           </div>
