@@ -142,6 +142,18 @@ Réécrire chacun des 26 modules en 3 versions de complexité différente repré
 
 **Limite honnête** : je n'ai pas pu prendre de capture d'écran du résultat dans cet environnement (pas de navigateur disponible ici pour générer un aperçu). Le code compile sans erreur, mais un coup d'œil de votre part une fois déployé reste utile pour ajuster si besoin — dites-moi ce qui vous plaît ou pas et j'affine.
 
+## Nouveautés (huitième itération) — 32 nouveaux modules
+
+Le catalogue passe de 26 à **58 modules**, organisés en 9 catégories pour rester lisible : Appareils, Bases du numérique, Démarches administratives, Santé, Argent et travail, Logement, Famille, Papiers et citoyenneté, Sécurité et vie pratique.
+
+Objectif de ce lot : des modules **utiles à la fois aux nouveaux arrivants et aux personnes déjà installées au Havre**, pas seulement aux démarches liées à l'immigration — email, mot de passe, scanner un document, compte bancaire, Complémentaire Santé Solidaire, Doctolib, numéros d'urgence, Mon Compte Formation, RSA, prime d'activité, chèque énergie, logement privé, PACS/mariage, naturalisation, carte grise, permis de conduire, listes électorales, arnaques en ligne, médiathèque du Havre, et plus encore (liste complète dans `src/data/modulesExtra.js`).
+
+Sources vérifiées en juillet 2026 : ameli.fr, doctolib.fr, moncompteformation.gouv.fr (la connexion nécessite désormais FranceConnect+ depuis 2026), chequeenergie.gouv.fr, caf.fr, service-public.fr, ants.gouv.fr, justice.fr, bibliotheques.lehavre.fr.
+
+**Limites à connaître** :
+- Ces 32 nouveaux modules ne sont pour l'instant traduits qu'en français (les 26 modules précédents restent disponibles dans les 12 langues). Les étendre aux autres langues suivrait le même principe que les précédents, dans `src/data/translations/`.
+- Comme toujours avec du contenu administratif, certains montants et seuils (RSA, prime d'activité, chèque énergie, CSS) évoluent chaque année — à vérifier périodiquement.
+
 ## Structure du projet
 ```
 src/

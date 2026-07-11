@@ -13,9 +13,18 @@
 // Les organismes mettent régulièrement à jour leurs sites : à vérifier
 // périodiquement et à corriger via l'éditeur de contenu si besoin.
 
+import { EXTRA_MODULES, EXTRA_CATEGORIES } from './modulesExtra'
+
 export const CATEGORIES = {
   appareils: 'Découvrir et configurer mon appareil',
-  demarches: 'Démarches administratives en ligne'
+  'numerique-base': EXTRA_CATEGORIES['numerique-base'],
+  demarches: 'Démarches administratives en ligne',
+  sante: EXTRA_CATEGORIES.sante,
+  'argent-travail': EXTRA_CATEGORIES['argent-travail'],
+  logement: EXTRA_CATEGORIES.logement,
+  famille: EXTRA_CATEGORIES.famille,
+  'papiers-citoyennete': EXTRA_CATEGORIES['papiers-citoyennete'],
+  'securite-pratique': EXTRA_CATEGORIES['securite-pratique']
 }
 
 export const DEFAULT_MODULES = [
@@ -319,4 +328,4 @@ export const DEFAULT_MODULES = [
       { title: "Se présenter au rendez-vous", text: "Le jour du rendez-vous, présente-toi avec tous les documents originaux. Tes empreintes seront prises si tu as plus de 12 ans. Le rendez-vous dure entre 10 et 20 minutes.", visual: "house" },
       { title: "Récupérer sa carte", text: "Tu recevras un SMS quand ta carte sera prête (en général 3 à 4 semaines). Va la chercher là où tu as déposé ta demande, avec ton ancienne pièce d'identité.", visual: "phone" }
     ] }
-]
+].concat(EXTRA_MODULES)
