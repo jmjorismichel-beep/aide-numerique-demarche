@@ -143,7 +143,7 @@ export default function Messagerie() {
             onChange={choisirImage}
             style={{ display: 'none' }}
           />
-          <button type="button" className="attach-btn" onClick={() => fileInputRef.current?.click()} title="Joindre une photo">
+          <button type="button" className="attach-btn" onClick={() => fileInputRef.current?.click()} title="Joindre une photo" aria-label="Joindre une photo">
             📷
           </button>
           <input

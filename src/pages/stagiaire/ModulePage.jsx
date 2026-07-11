@@ -93,7 +93,7 @@ export default function ModulePage() {
             {module.descriptionFr && <p className="fr-subtitle">🇫🇷 {module.descriptionFr}</p>}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {speechAvailable && <button className="speak-btn" onClick={lireToutLeModule}>🔊 Écouter tout</button>}
+            {speechAvailable && <button className="speak-btn" aria-label="Écouter tout le module" onClick={lireToutLeModule}>🔊 Écouter tout</button>}
             <button className="btn secondary" onClick={() => exportModuleToPdf(module)}>🖨️ Imprimer en PDF</button>
             {!done && <button className="btn" onClick={marquerTermine}>Marquer comme terminé</button>}
             {done && <span className="badge online">Terminé ✓</span>}
@@ -144,7 +144,7 @@ export default function ModulePage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
                   <h4>{i + 1}. {s.title}</h4>
                   {speechAvailable && (
-                    <button className="speak-btn" onClick={() => speak(`${s.title}. ${s.text}`)}>🔊</button>
+                    <button className="speak-btn" aria-label={`Écouter l'étape ${i + 1}`} onClick={() => speak(`${s.title}. ${s.text}`)}>🔊</button>
                   )}
                 </div>
                 <p>{s.text}</p>

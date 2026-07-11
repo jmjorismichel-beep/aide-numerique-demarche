@@ -22,6 +22,7 @@ export default function EditeurModule() {
       description: m.description,
       steps: m.steps || [],
       documents: m.documents || [],
+      whatIsIt: m.whatIsIt || '',
       quiz: m.quiz || [],
       history: m.history || []
     })
@@ -86,7 +87,7 @@ export default function EditeurModule() {
   async function enregistrer() {
     const existing = await db.moduleContent.get(selectedId)
     const previousVersion = existing
-      ? { title: existing.title, description: existing.description, steps: existing.steps, documents: existing.documents, quiz: existing.quiz, savedAt: existing.updated_at }
+      ? { title: existing.title, description: existing.description, whatIsIt: existing.whatIsIt, steps: existing.steps, documents: existing.documents, quiz: existing.quiz, savedAt: existing.updated_at }
       : null
     const newHistory = previousVersion ? [...(existing.history || []), previousVersion].slice(-10) : (existing?.history || [])
 
@@ -100,6 +101,7 @@ export default function EditeurModule() {
       id: selectedId,
       title: form.title,
       description: form.description,
+      whatIsIt: form.whatIsIt.trim() || null,
       steps: form.steps,
       documents: cleanDocuments,
       quiz: cleanQuiz,
@@ -119,6 +121,7 @@ export default function EditeurModule() {
       description: version.description,
       steps: version.steps || [],
       documents: version.documents || [],
+      whatIsIt: version.whatIsIt || '',
       quiz: version.quiz || []
     }))
   }
@@ -154,6 +157,11 @@ export default function EditeurModule() {
               <label>Description</label>
               <textarea rows={2} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} />
             </div>
+            <div className="form-field">
+              <label>💡 « C'est quoi, et pourquoi c'est utile ? »</label>
+              <textarea rows={3} placeholder="Explication simple avant les étapes (facultatif)"
+                value={form.whatIsIt} onChange={e => setForm(f => ({ ...f, whatIsIt: e.target.value }))} />
+            </div>
 
             {/* ---- Documents à préparer ---- */}
             <h4>📋 Documents à préparer</h4>
@@ -166,7 +174,7 @@ export default function EditeurModule() {
                   onChange={e => updateDocument(i, e.target.value)}
                   style={{ flex: 1, padding: '6px 8px', borderRadius: 6, border: '1px solid #d1d5db' }}
                 />
-                <button className="btn danger" onClick={() => supprimerDocument(i)}>✕</button>
+                <button className="btn danger" aria-label="Supprimer ce document" onClick={() => supprimerDocument(i)}>✕</button>
               </div>
             ))}
             <button className="btn secondary" onClick={ajouterDocument}>+ Ajouter un document</button>
@@ -228,7 +236,7 @@ export default function EditeurModule() {
                       style={{ flex: 1, padding: '6px 8px', borderRadius: 6, border: '1px solid #d1d5db' }}
                     />
                     {q.options.length > 2 && (
-                      <button className="btn danger" onClick={() => supprimerOption(qi, oi)}>✕</button>
+                      <button className="btn danger" aria-label="Supprimer cette option" onClick={() => supprimerOption(qi, oi)}>✕</button>
                     )}
                   </div>
                 ))}

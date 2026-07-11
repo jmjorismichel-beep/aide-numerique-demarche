@@ -41,10 +41,10 @@ export default function Layout({ children }) {
       <div className="topbar">
         <h1>🧭 Parcours Numérique</h1>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-          <select className="text-size-toggle" value={lang} onChange={e => setLang(e.target.value)} title="Langue / Language">
+          <select className="text-size-toggle" value={lang} onChange={e => setLang(e.target.value)} title="Langue / Language" aria-label="Choisir la langue">
             {Object.entries(LANGUAGES).map(([code, l]) => <option key={code} value={code}>{l.label}</option>)}
           </select>
-          <button className="text-size-toggle" onClick={cycleTextSize} title="Changer la taille du texte">
+          <button className="text-size-toggle" onClick={cycleTextSize} title="Changer la taille du texte" aria-label="Changer la taille du texte">
             🔤 {TEXT_SIZE_LABELS[textSize]}
           </button>
           <span className={`offline-pill ${online ? 'online' : 'offline'}`}>

@@ -21,7 +21,18 @@ service cloud.firestore {
 
     match /users/{userId} {
       allow read: if isSelf(userId) || isFormateur();
-      allow write: if isSelf(userId) || isFormateur();
+      // À la création (inscription), on autorise le rôle choisi (stagiaire ou
+      // formateur via code d'invitation vérifié côté application).
+      allow create: if isSelf(userId);
+      // Après création : un formateur peut tout modifier ; un stagiaire ne peut
+      // modifier QUE ses informations personnelles, jamais son propre rôle, son
+      // groupe ou son statut d'archivage — cela empêche qu'un stagiaire se
+      // donne lui-même le rôle formateur en modifiant directement sa fiche.
+      allow update: if isFormateur() ||
+        (isSelf(userId) &&
+         request.resource.data.diff(resource.data).affectedKeys()
+           .hasOnly(['prenom', 'nom', 'email', 'niveau_linguistique', 'niveau_informatique', 'updated_at']));
+      allow delete: if isFormateur();
     }
 
     match /groups/{groupId} {

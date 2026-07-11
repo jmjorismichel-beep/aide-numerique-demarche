@@ -116,6 +116,16 @@ Réécrire chacun des 26 modules en 3 versions de complexité différente repré
 
 
 
+## Nouveautés (sixième itération) — sécurité et accessibilité
+
+- **🔴 Correctif de sécurité important — action requise de votre part.** Les règles Firestore permettaient auparavant à n'importe quel stagiaire de modifier son propre rôle (`stagiaire` → `formateur`) en manipulant directement sa fiche, en contournant complètement le code formateur. C'est corrigé : un compte stagiaire ne peut plus modifier que ses informations personnelles (prénom, nom, email, niveaux) ; le rôle, le groupe et le statut d'archivage ne sont modifiables que par un formateur.
+  **Pour que ce correctif s'applique, republiez les règles** : copiez le nouveau contenu de `firestore.rules` dans Firebase Console > Firestore Database > Règles > Publier (comme vous l'aviez fait la première fois).
+  **Limite technique honnête** : sur le plan gratuit (Spark), il n'est pas possible de vérifier le code formateur *pendant* la création du compte de façon totalement infalsifiable sans passer par une fonction serveur (Cloud Functions), qui nécessite un compte payant (Blaze) chez Firebase. Le correctif ferme la faille la plus simple à exploiter (modifier son propre compte après coup) ; un utilisateur très technique pourrait théoriquement encore forger une création de compte falsifiée au moment de l'inscription. Si vous voulez fermer complètement cette dernière possibilité un jour, il faudra envisager de passer sur le plan Blaze (qui reste gratuit jusqu'à un usage assez conséquent) pour ajouter cette vérification côté serveur.
+- **Édition du "C'est quoi, et pourquoi c'est utile ?"** désormais possible depuis l'espace formateur (Contenu des modules), alors qu'elle nécessitait auparavant de modifier le code.
+- **Accessibilité** : les boutons qui n'affichaient qu'une icône (🔊 écouter, 📷 joindre une photo, ✕ supprimer, sélecteurs de langue et de taille de texte) ont maintenant une description pour les lecteurs d'écran.
+
+
+
 ## Structure du projet
 ```
 src/
