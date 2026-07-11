@@ -1,3 +1,5 @@
+import { EXTRA_MODULE_TRANSLATIONS } from './modulesExtra'
+
 // Traductions du CONTENU des modules. Pour l'anglais et l'arabe : titre, description,
 // "c'est quoi" et documents. Pour les autres langues (espagnol, portugais, russe,
 // ukrainien, turc, dari/persan, albanais, tigrinya, somali, chinois) : titre et
@@ -509,7 +511,7 @@ export const MODULE_TRANSLATIONS = {
 export function translateModule(module, lang) {
   if (!module) return module
   if (lang === 'fr') return { ...module, titleFr: null, descriptionFr: null }
-  const tr = MODULE_TRANSLATIONS[module.id]?.[lang]
+  const tr = MODULE_TRANSLATIONS[module.id]?.[lang] || EXTRA_MODULE_TRANSLATIONS[module.id]?.[lang]
   if (!tr) return { ...module, titleFr: null, descriptionFr: null }
   return {
     ...module,

@@ -151,7 +151,7 @@ Objectif de ce lot : des modules **utiles à la fois aux nouveaux arrivants et a
 Sources vérifiées en juillet 2026 : ameli.fr, doctolib.fr, moncompteformation.gouv.fr (la connexion nécessite désormais FranceConnect+ depuis 2026), chequeenergie.gouv.fr, caf.fr, service-public.fr, ants.gouv.fr, justice.fr, bibliotheques.lehavre.fr.
 
 **Limites à connaître** :
-- Ces 32 nouveaux modules ne sont pour l'instant traduits qu'en français (les 26 modules précédents restent disponibles dans les 12 langues). Les étendre aux autres langues suivrait le même principe que les précédents, dans `src/data/translations/`.
+- **Mise à jour** : les 33 nouveaux modules du second lot sont désormais traduits dans les 12 langues (titre + description partout ; « C'est quoi » et documents en plus pour l'anglais et l'arabe, comme pour le premier lot). Le sous-titre français s'affiche automatiquement dès qu'une traduction existe — aucune configuration supplémentaire n'était nécessaire, le mécanisme mis en place dès le début gère ça tout seul.
 - Comme toujours avec du contenu administratif, certains montants et seuils (RSA, prime d'activité, chèque énergie, CSS) évoluent chaque année — à vérifier périodiquement.
 
 ## Structure du projet
