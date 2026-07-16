@@ -1,7 +1,14 @@
-// Le test de positionnement adapte le VOCABULAIRE des questions au niveau
-// linguistique déclaré par le stagiaire (A1-A2 = phrases très courtes et
-// concrètes, B1-B2 = phrases plus complètes, C1-C2 = formulations normales).
-// Le contenu informatique testé reste le même ; c'est la formulation qui change.
+// Le test de positionnement demande au stagiaire d'évaluer lui-même sa
+// capacité à faire, seul, une série d'actions numériques concrètes du
+// quotidien — plutôt que de tester des connaissances abstraites (comme
+// "quel bouton de la souris fait quoi"). Cette approche reflète beaucoup
+// mieux la réalité pratique de la personne : on demande "sais-tu envoyer
+// un email seul ?" plutôt que "qu'est-ce qu'un email ?".
+//
+// Le VOCABULAIRE des questions s'adapte au niveau linguistique déclaré
+// (A1-A2 = phrases très courtes et concrètes, B1-B2 = phrases plus
+// complètes, C1-C2 = formulations normales). Les actions testées restent
+// les mêmes ; seule la formulation change.
 
 const LEVEL_GROUP = {
   A1: 'simple', A2: 'simple',
@@ -9,63 +16,95 @@ const LEVEL_GROUP = {
   C1: 'avance', C2: 'avance'
 }
 
+// 4 niveaux de réponse, du moins au plus autonome. Même échelle pour
+// toutes les questions, donc affichée une seule fois dans l'interface.
+export const RESPONSE_SCALE = {
+  simple: [
+    { value: 0, label: "Jamais fait / je ne sais pas" },
+    { value: 1, label: "Avec de l'aide de quelqu'un" },
+    { value: 2, label: "Seul(e), mais c'est difficile" },
+    { value: 3, label: "Seul(e), facilement" }
+  ],
+  moyen: [
+    { value: 0, label: "Je n'ai jamais fait ça" },
+    { value: 1, label: "Je peux le faire avec de l'aide" },
+    { value: 2, label: "Je peux le faire seul(e), avec difficulté" },
+    { value: 3, label: "Je peux le faire seul(e), sans problème" }
+  ],
+  avance: [
+    { value: 0, label: "Jamais fait" },
+    { value: 1, label: "Avec accompagnement" },
+    { value: 2, label: "En autonomie, avec quelques difficultés" },
+    { value: 3, label: "En autonomie complète" }
+  ]
+}
+
 export function getTestQuestions(niveauLinguistique) {
   const group = LEVEL_GROUP[niveauLinguistique] || 'moyen'
-  return QUESTIONS.map(q => ({ id: q.id, points: q.points, ...q[group] }))
+  return QUESTIONS.map(q => ({ id: q.id, text: q[group] }))
+}
+
+export function getResponseScale(niveauLinguistique) {
+  const group = LEVEL_GROUP[niveauLinguistique] || 'moyen'
+  return RESPONSE_SCALE[group]
 }
 
 const QUESTIONS = [
   {
-    id: 'q1', points: 1,
-    simple: { text: "Tu vois une souris d'ordinateur. Tu cliques avec quel bouton pour ouvrir un menu ?",
-      options: ["Bouton gauche", "Bouton droit", "La molette"] },
-    moyen: { text: "Pour afficher un menu contextuel sur un fichier, quel bouton de la souris utilises-tu ?",
-      options: ["Bouton gauche", "Bouton droit", "La molette"] },
-    avance: { text: "Quel bouton de la souris permet d'accéder au menu contextuel d'un élément ?",
-      options: ["Bouton gauche", "Bouton droit", "La molette"] },
+    id: 'allumer',
+    simple: "Allumer un ordinateur ou une tablette, et l'utiliser (ouvrir une application).",
+    moyen: "Allumer un ordinateur ou une tablette et l'utiliser normalement.",
+    avance: "Allumer et utiliser un ordinateur ou une tablette de façon autonome."
   },
   {
-    id: 'q2', points: 1,
-    simple: { text: "Tu veux écrire un mot de passe secret. Le mot de passe doit être :",
-      options: ["Facile à deviner", "Connu de tout le monde", "Difficile à deviner et gardé secret"] },
-    moyen: { text: "Un bon mot de passe doit être :", options: ["Simple et court", "Difficile à deviner", "Le même partout"] },
-    avance: { text: "Quelle affirmation décrit le mieux une bonne pratique de mot de passe ?",
-      options: ["Réutiliser le même mot de passe partout", "Un mot de passe unique et complexe par service", "Le partager avec ses proches"] },
+    id: 'souris-ecran',
+    simple: "Utiliser une souris ou toucher un écran pour cliquer, taper, faire défiler.",
+    moyen: "Utiliser une souris ou un écran tactile (cliquer, taper, faire défiler une page).",
+    avance: "Manipuler une souris ou une interface tactile avec aisance (clic, défilement, saisie)."
   },
   {
-    id: 'q3', points: 1,
-    simple: { text: "Tu veux envoyer un message avec un fichier. Tu utilises :",
-      options: ["Un email (courriel)", "Une calculatrice", "Une imprimante"] },
-    moyen: { text: "Pour envoyer un document à quelqu'un par internet, tu utilises :",
-      options: ["Un email", "Un tableur", "Une clé USB uniquement"] },
-    avance: { text: "Quel outil est le plus adapté pour transmettre un document numérique à distance ?",
-      options: ["La messagerie électronique", "Une feuille de calcul", "Un lecteur multimédia"] },
+    id: 'email',
+    simple: "Envoyer un email avec un document ou une photo en pièce jointe.",
+    moyen: "Envoyer un email en y joignant un document ou une photo.",
+    avance: "Rédiger et envoyer un email avec une pièce jointe."
   },
   {
-    id: 'q4', points: 1,
-    simple: { text: "Sur internet, une adresse de site commence souvent par :",
-      options: ["https://", "@@@", "1234"] },
-    moyen: { text: "Une adresse internet sécurisée commence généralement par :",
-      options: ["https://", "www!!", "abc:"] },
-    avance: { text: "Quel préfixe indique qu'une connexion à un site est chiffrée ?",
-      options: ["https://", "ftp://", "mailto:"] },
+    id: 'recherche',
+    simple: "Chercher une information sur internet (une adresse, un horaire...).",
+    moyen: "Faire une recherche sur internet pour trouver une information précise.",
+    avance: "Effectuer une recherche ciblée sur internet et identifier une information fiable."
   },
   {
-    id: 'q5', points: 1,
-    simple: { text: "Tu veux garder une copie d'un document important. Tu dois :",
-      options: ["Le sauvegarder (enregistrer)", "Le fermer sans enregistrer", "L'ignorer"] },
-    moyen: { text: "Pour ne pas perdre ton travail sur un document, il faut :",
-      options: ["Le sauvegarder régulièrement", "Éteindre l'ordinateur directement", "Rien faire"] },
-    avance: { text: "Quelle est la meilleure pratique pour éviter de perdre des données ?",
-      options: ["Sauvegardes régulières", "Ne jamais fermer l'application", "Travailler uniquement hors-ligne"] },
+    id: 'formulaire',
+    simple: "Remplir un formulaire en ligne (nom, adresse, date de naissance...).",
+    moyen: "Remplir un formulaire administratif en ligne avec tes informations personnelles.",
+    avance: "Compléter un formulaire administratif en ligne de façon autonome."
+  },
+  {
+    id: 'messagerie',
+    simple: "Utiliser une application comme WhatsApp pour écrire ou appeler quelqu'un.",
+    moyen: "Utiliser une application de messagerie (WhatsApp, SMS) pour communiquer.",
+    avance: "Utiliser une application de messagerie instantanée pour échanger messages et appels."
+  },
+  {
+    id: 'scanner',
+    simple: "Prendre une photo ou scanner un document avec un téléphone.",
+    moyen: "Photographier ou scanner un document avec un téléphone pour l'envoyer.",
+    avance: "Numériser un document avec un smartphone en vue de le transmettre."
+  },
+  {
+    id: 'demarche',
+    simple: "Faire seul(e) une démarche administrative en ligne (CAF, impôts...).",
+    moyen: "Réaliser seul(e) une démarche administrative sur un site officiel.",
+    avance: "Mener à bien une démarche administrative en ligne en autonomie complète."
   }
 ]
 
-// Score sur 5 -> proposition de niveau informatique
+// Score total possible : 8 questions x 3 points = 24
 export function scoreToNiveau(score) {
-  if (score <= 1) return 'debutant'
-  if (score <= 3) return 'moyen'
-  if (score === 4) return 'aaise'
+  if (score <= 6) return 'debutant'
+  if (score <= 14) return 'moyen'
+  if (score <= 20) return 'aaise'
   return 'avance'
 }
 

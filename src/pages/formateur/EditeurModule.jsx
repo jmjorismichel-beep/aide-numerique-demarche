@@ -3,29 +3,49 @@ import { getAllModules, getModule } from '../../data/getModuleContent'
 import { saveRecord } from '../../lib/sync'
 import { db } from '../../lib/db'
 import { ICON_MAP } from '../../components/icons'
+import { useAuthStore } from '../../store/authStore'
 
 const VISUAL_OPTIONS = ['', ...Object.keys(ICON_MAP)]
 
 export default function EditeurModule() {
+  const { user } = useAuthStore()
   const [modules, setModules] = useState([])
   const [selectedId, setSelectedId] = useState(null)
   const [form, setForm] = useState(null)
+  const [draft, setDraft] = useState(null) // brouillon en attente de publication, s'il y en a un
   const [savedMessage, setSavedMessage] = useState(null)
 
   useEffect(() => { getAllModules().then(setModules) }, [])
 
-  async function selectionner(id) {
-    setSelectedId(id)
-    const m = await getModule(id)
-    setForm({
+  function toFormShape(m) {
+    return {
       title: m.title,
       description: m.description,
       steps: m.steps || [],
       documents: m.documents || [],
       whatIsIt: m.whatIsIt || '',
-      quiz: m.quiz || [],
-      history: m.history || []
-    })
+      quiz: m.quiz || []
+    }
+  }
+
+  async function selectionner(id) {
+    setSelectedId(id)
+    const m = await getModule(id)
+    const existing = await db.moduleContent.get(id)
+    setForm({ ...toFormShape(m), history: m.history || [] })
+    setDraft(existing?.draft || null)
+  }
+
+  function chargerBrouillon() {
+    if (!draft) return
+    setForm(f => ({ ...f, ...toFormShape(draft) }))
+  }
+
+  async function supprimerBrouillon() {
+    if (!confirm('Supprimer ce brouillon ?')) return
+    const existing = await db.moduleContent.get(selectedId)
+    await saveRecord('moduleContent', { ...(existing || { id: selectedId }), draft: null })
+    setDraft(null)
   }
 
   // ---- Étapes ----
@@ -84,46 +104,58 @@ export default function EditeurModule() {
     setForm(f => ({ ...f, quiz: f.quiz.map((q, idx) => idx === qi ? { ...q, correctIndex: oi } : q) }))
   }
 
-  async function enregistrer() {
-    const existing = await db.moduleContent.get(selectedId)
-    const previousVersion = existing
-      ? { title: existing.title, description: existing.description, whatIsIt: existing.whatIsIt, steps: existing.steps, documents: existing.documents, quiz: existing.quiz, savedAt: existing.updated_at }
-      : null
-    const newHistory = previousVersion ? [...(existing.history || []), previousVersion].slice(-10) : (existing?.history || [])
-
-    // On ne garde que les documents et options non vides
-    const cleanDocuments = form.documents.map(d => d.trim()).filter(Boolean)
-    const cleanQuiz = form.quiz
-      .map(q => ({ ...q, options: q.options.map(o => o.trim()).filter(Boolean) }))
-      .filter(q => q.question.trim() && q.options.length >= 2)
-
-    await saveRecord('moduleContent', {
-      id: selectedId,
+  function cleanedForm() {
+    return {
       title: form.title,
       description: form.description,
       whatIsIt: form.whatIsIt.trim() || null,
       steps: form.steps,
-      documents: cleanDocuments,
-      quiz: cleanQuiz,
+      documents: form.documents.map(d => d.trim()).filter(Boolean),
+      quiz: form.quiz
+        .map(q => ({ ...q, options: q.options.map(o => o.trim()).filter(Boolean) }))
+        .filter(q => q.question.trim() && q.options.length >= 2)
+    }
+  }
+
+  // Enregistre les changements comme brouillon : invisible pour les stagiaires
+  // tant qu'un formateur ne clique pas sur « Publier ». Utile pour se relire
+  // ou faire relire une modification avant qu'elle parte en direct.
+  async function enregistrerBrouillon() {
+    const existing = await db.moduleContent.get(selectedId)
+    const payload = {
+      ...cleanedForm(),
+      savedBy: `${user.prenom} ${user.nom}`,
+      savedAt: new Date().toISOString()
+    }
+    await saveRecord('moduleContent', { ...(existing || { id: selectedId }), id: selectedId, draft: payload })
+    setDraft(payload)
+    setSavedMessage('Brouillon enregistré (non publié) ✓')
+    setTimeout(() => setSavedMessage(null), 2500)
+  }
+
+  async function publier() {
+    const existing = await db.moduleContent.get(selectedId)
+    const previousVersion = existing
+      ? { title: existing.title, description: existing.description, whatIsIt: existing.whatIsIt, steps: existing.steps, documents: existing.documents, quiz: existing.quiz, savedAt: existing.updated_at }
+      : null
+    const newHistory = previousVersion ? [...(existing?.history || []), previousVersion].slice(-10) : (existing?.history || [])
+
+    await saveRecord('moduleContent', {
+      id: selectedId,
+      ...cleanedForm(),
+      draft: null, // la publication efface le brouillon en attente
       history: newHistory
     })
     const refreshed = await getAllModules()
     setModules(refreshed)
-    setSavedMessage('Module enregistré ✓')
+    setDraft(null)
+    setSavedMessage('Module publié ✓')
     setTimeout(() => setSavedMessage(null), 2500)
   }
 
   async function revenirVersion(version) {
     if (!confirm(`Revenir à la version du ${new Date(version.savedAt).toLocaleString('fr-FR')} ?`)) return
-    setForm(f => ({
-      ...f,
-      title: version.title,
-      description: version.description,
-      steps: version.steps || [],
-      documents: version.documents || [],
-      whatIsIt: version.whatIsIt || '',
-      quiz: version.quiz || []
-    }))
+    setForm(f => ({ ...f, ...toFormShape(version) }))
   }
 
   return (
@@ -149,6 +181,19 @@ export default function EditeurModule() {
         {!form && <p>Sélectionnez un module à modifier.</p>}
         {form && (
           <>
+            {draft && (
+              <div className="doc-checklist" style={{ background: '#FFF6F2', borderColor: 'var(--coral)' }}>
+                <h4>📝 Brouillon en attente de publication</h4>
+                <p style={{ margin: '0 0 8px' }}>
+                  Enregistré par {draft.savedBy} le {new Date(draft.savedAt).toLocaleString('fr-FR')} — les stagiaires voient encore l'ancienne version.
+                </p>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  <button className="btn secondary" onClick={chargerBrouillon}>Charger ce brouillon dans le formulaire</button>
+                  <button className="btn danger" onClick={supprimerBrouillon}>Supprimer le brouillon</button>
+                </div>
+              </div>
+            )}
+
             <div className="form-field">
               <label>Titre</label>
               <input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} />
@@ -246,10 +291,14 @@ export default function EditeurModule() {
             ))}
             <button className="btn secondary" onClick={ajouterQuestion}>+ Ajouter une question</button>
 
-            <div style={{ marginTop: 20, display: 'flex', gap: 10, alignItems: 'center' }}>
-              <button className="btn" onClick={enregistrer}>Enregistrer les modifications</button>
+            <div style={{ marginTop: 20, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+              <button className="btn secondary" onClick={enregistrerBrouillon}>💾 Enregistrer en brouillon</button>
+              <button className="btn" onClick={publier}>🚀 Publier</button>
               {savedMessage && <span style={{ color: 'var(--green)', fontWeight: 600 }}>{savedMessage}</span>}
             </div>
+            <p style={{ color: 'var(--muted)', fontSize: '.8rem', marginTop: 6 }}>
+              « Enregistrer en brouillon » garde la version actuelle visible par les stagiaires — utile pour se relire avant de publier.
+            </p>
 
             {form.history?.length > 0 && (
               <div style={{ marginTop: 24 }}>

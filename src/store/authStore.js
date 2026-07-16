@@ -1,10 +1,11 @@
 import { create } from 'zustand'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc, deleteDoc } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  deleteUser
 } from 'firebase/auth'
 import { db } from '../lib/db'
 import { auth, dbRemote, isOnline } from '../lib/firebase'
@@ -102,6 +103,34 @@ export const useAuthStore = create((set, get) => ({
 
   async signOut() {
     if (auth && isOnline()) await firebaseSignOut(auth)
+    await db.session.delete('session')
+    set({ user: null })
+  },
+
+  /**
+   * Suppression du compte par la personne elle-même (droit à l'effacement).
+   * Nécessite d'être en ligne et connecté récemment (sécurité Firebase) ;
+   * si la session est trop ancienne, on demande de se reconnecter avant.
+   */
+  async deleteMyAccount() {
+    if (!auth?.currentUser || !isOnline()) {
+      throw new Error("Une connexion internet est nécessaire pour supprimer ton compte.")
+    }
+    const uid = auth.currentUser.uid
+    try {
+      await deleteDoc(doc(dbRemote, 'users', uid))
+    } catch (e) {
+      console.warn('Suppression Firestore partielle :', e.message)
+    }
+    try {
+      await deleteUser(auth.currentUser)
+    } catch (e) {
+      if (e.code === 'auth/requires-recent-login') {
+        throw new Error("Pour des raisons de sécurité, merci de te déconnecter puis de te reconnecter avant de supprimer ton compte.")
+      }
+      throw e
+    }
+    await db.users.delete(uid)
     await db.session.delete('session')
     set({ user: null })
   },

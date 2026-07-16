@@ -5,7 +5,7 @@ import { dbRemote, isOnline } from './firebase'
 // Collections Firestore synchronisées (même nom que les tables locales Dexie)
 const SYNCED_TABLES = [
   'users', 'groups', 'moduleContent', 'moduleProgress',
-  'testResults', 'messages', 'activityLogs'
+  'testResults', 'messages', 'activityLogs', 'bugReports', 'siteMeta'
 ]
 
 let syncing = false

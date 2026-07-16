@@ -17,11 +17,16 @@ const ModulePage = lazy(() => import('./pages/stagiaire/ModulePage'))
 const ParcoursConseille = lazy(() => import('./pages/stagiaire/ParcoursConseille'))
 const Glossaire = lazy(() => import('./pages/Glossaire'))
 const Messagerie = lazy(() => import('./pages/Messagerie'))
+const MonCompte = lazy(() => import('./pages/MonCompte'))
+const SignalerProbleme = lazy(() => import('./pages/SignalerProbleme'))
 const FormateurDashboard = lazy(() => import('./pages/formateur/FormateurDashboard'))
 const Groupes = lazy(() => import('./pages/formateur/Groupes'))
 const Stagiaires = lazy(() => import('./pages/formateur/Stagiaires'))
+const Formateurs = lazy(() => import('./pages/formateur/Formateurs'))
 const EditeurModule = lazy(() => import('./pages/formateur/EditeurModule'))
 const Statistiques = lazy(() => import('./pages/formateur/Statistiques'))
+const Signalements = lazy(() => import('./pages/formateur/Signalements'))
+const Maintenance = lazy(() => import('./pages/formateur/Maintenance'))
 
 function PageLoader() {
   return <div className="container"><p>Chargement…</p></div>
@@ -49,12 +54,17 @@ export default function App() {
           <Route path="/parcours-conseille" element={<ProtectedRoute role="stagiaire"><ParcoursConseille /></ProtectedRoute>} />
           <Route path="/glossaire" element={<ProtectedRoute><Glossaire /></ProtectedRoute>} />
           <Route path="/messagerie" element={<ProtectedRoute><Messagerie /></ProtectedRoute>} />
+          <Route path="/mon-compte" element={<ProtectedRoute><MonCompte /></ProtectedRoute>} />
+          <Route path="/signaler-un-probleme" element={<ProtectedRoute><SignalerProbleme /></ProtectedRoute>} />
 
           <Route path="/formateur" element={<ProtectedRoute role="formateur"><FormateurDashboard /></ProtectedRoute>} />
           <Route path="/formateur/groupes" element={<ProtectedRoute role="formateur"><Groupes /></ProtectedRoute>} />
           <Route path="/formateur/stagiaires" element={<ProtectedRoute role="formateur"><Stagiaires /></ProtectedRoute>} />
+          <Route path="/formateur/formateurs" element={<ProtectedRoute role="formateur"><Formateurs /></ProtectedRoute>} />
           <Route path="/formateur/modules" element={<ProtectedRoute role="formateur"><EditeurModule /></ProtectedRoute>} />
           <Route path="/formateur/statistiques" element={<ProtectedRoute role="formateur"><Statistiques /></ProtectedRoute>} />
+          <Route path="/formateur/signalements" element={<ProtectedRoute role="formateur"><Signalements /></ProtectedRoute>} />
+          <Route path="/formateur/maintenance" element={<ProtectedRoute role="formateur"><Maintenance /></ProtectedRoute>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

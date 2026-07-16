@@ -32,7 +32,7 @@ service cloud.firestore {
         (isSelf(userId) &&
          request.resource.data.diff(resource.data).affectedKeys()
            .hasOnly(['prenom', 'nom', 'email', 'niveau_linguistique', 'niveau_informatique', 'updated_at']));
-      allow delete: if isFormateur();
+      allow delete: if isFormateur() || isSelf(userId);
     }
 
     match /groups/{groupId} {
@@ -64,6 +64,20 @@ service cloud.firestore {
     match /activityLogs/{logId} {
       allow read, write: if isSignedIn() &&
         (resource == null || resource.data.user_id == request.auth.uid || isFormateur());
+    }
+
+    match /bugReports/{reportId} {
+      // Tout le monde peut signaler un problème ; seuls les formateurs peuvent
+      // lire la liste et changer le statut (résolu / non résolu).
+      allow create: if isSignedIn();
+      allow read, update, delete: if isFormateur();
+    }
+
+    match /siteMeta/{docId} {
+      // Petit document partagé (ex: date de dernière relecture du contenu),
+      // lisible par tous, modifiable seulement par les formateurs.
+      allow read: if isSignedIn();
+      allow write: if isFormateur();
     }
   }
 }

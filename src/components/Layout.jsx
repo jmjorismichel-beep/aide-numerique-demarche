@@ -67,17 +67,23 @@ export default function Layout({ children }) {
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
                 Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>
+              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>Mon compte</NavLink>
+              <NavLink to="/signaler-un-probleme" className={({isActive}) => isActive ? 'active' : ''}>Signaler un problème</NavLink>
             </>}
             {isFormateur && <>
               <NavLink to="/formateur" end className={({isActive}) => isActive ? 'active' : ''}>Activité</NavLink>
               <NavLink to="/formateur/groupes" className={({isActive}) => isActive ? 'active' : ''}>Groupes</NavLink>
               <NavLink to="/formateur/stagiaires" className={({isActive}) => isActive ? 'active' : ''}>Stagiaires</NavLink>
+              <NavLink to="/formateur/formateurs" className={({isActive}) => isActive ? 'active' : ''}>Formateurs</NavLink>
               <NavLink to="/formateur/modules" className={({isActive}) => isActive ? 'active' : ''}>Contenu des modules</NavLink>
               <NavLink to="/formateur/statistiques" className={({isActive}) => isActive ? 'active' : ''}>Statistiques</NavLink>
+              <NavLink to="/formateur/signalements" className={({isActive}) => isActive ? 'active' : ''}>Signalements</NavLink>
+              <NavLink to="/formateur/maintenance" className={({isActive}) => isActive ? 'active' : ''}>Maintenance</NavLink>
               <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>Glossaire</NavLink>
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
                 Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>
+              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>Mon compte</NavLink>
             </>}
           </nav>
         </div>

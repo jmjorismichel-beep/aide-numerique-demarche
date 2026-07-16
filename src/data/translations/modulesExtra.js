@@ -1,6 +1,6 @@
 // Traductions du contenu des 33 modules ajoutés dans le second lot
 // (src/data/modulesExtra.js). Même principe que src/data/translations/modules.js :
-// titre + description dans les 12 langues ; "c'est quoi" + documents en plus
+// titre + description dans les 13 langues ; "c'est quoi" + documents en plus
 // pour l'anglais et l'arabe. Le sous-titre français s'affiche automatiquement
 // dans l'app dès qu'une traduction existe (voir translateModule).
 

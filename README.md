@@ -94,7 +94,7 @@ Pour ajuster le contenu, deux méthodes :
 - **Glossaire** (nouvel onglet "Glossaire") : une vingtaine de mots administratifs expliqués simplement (RIB, quotient familial, avis d'imposition, titre de séjour...), avec une recherche.
 - **"Par où commencer ?"** (nouvel onglet) : deux parcours conseillés — « Je viens d'arriver au Havre » et « Je vis déjà ici mais je découvre le numérique » — avec un ordre de modules suggéré et une note sur pourquoi chaque étape compte.
 - **Rappel de prudence dans la messagerie** : un message rappelle de ne pas envoyer de photo de documents sensibles (passeport, titre de séjour) par message, et de plutôt en parler en personne à son formateur.
-- **Traduction dans 12 langues** (sélecteur de langue en haut de l'écran) : français, anglais, espagnol, portugais, arabe, russe, ukrainien, turc, dari/persan, albanais, tigrinya, somali, chinois. Les titres, descriptions et listes de documents des modules sont traduits, ainsi que l'essentiel de l'interface.
+- **Traduction dans 13 langues** (sélecteur de langue en haut de l'écran) : français, anglais, espagnol, portugais, arabe, russe, ukrainien, turc, dari/persan, albanais, tigrinya, somali, chinois. Les titres, descriptions et listes de documents des modules sont traduits, ainsi que l'essentiel de l'interface.
   - **Sous-titre français partout** (nouveauté demandée) : dès qu'une langue autre que le français est choisie, chaque titre, description, "C'est quoi" et liste de documents traduits affiche systématiquement le texte français original juste en dessous (précédé de 🇫🇷), dans un but pédagogique — le stagiaire voit sa langue ET apprend le mot français correspondant.
   - **Important** : les étapes détaillées de chaque module restent en français uniquement (un message dans l'app le précise, en profitant de l'occasion pour encourager la pratique du français).
   - **Fiabilité des traductions** : elles ont été relues une fois mais **ne sont pas validées par des locuteurs natifs**. Bonne confiance pour l'anglais, l'espagnol, le portugais, le russe, l'ukrainien et le turc. **À faire vérifier par un locuteur natif avant un usage critique** pour le dari/persan, l'albanais, le tigrinya, le somali et le chinois — le vocabulaire administratif y est plus délicat à traduire correctement sans relecture native. Toutes les traductions sont dans `src/data/translations/`, faciles à corriger.
@@ -151,8 +151,36 @@ Objectif de ce lot : des modules **utiles à la fois aux nouveaux arrivants et a
 Sources vérifiées en juillet 2026 : ameli.fr, doctolib.fr, moncompteformation.gouv.fr (la connexion nécessite désormais FranceConnect+ depuis 2026), chequeenergie.gouv.fr, caf.fr, service-public.fr, ants.gouv.fr, justice.fr, bibliotheques.lehavre.fr.
 
 **Limites à connaître** :
-- **Mise à jour** : les 33 nouveaux modules du second lot sont désormais traduits dans les 12 langues (titre + description partout ; « C'est quoi » et documents en plus pour l'anglais et l'arabe, comme pour le premier lot). Le sous-titre français s'affiche automatiquement dès qu'une traduction existe — aucune configuration supplémentaire n'était nécessaire, le mécanisme mis en place dès le début gère ça tout seul.
+- **Mise à jour** : les 33 nouveaux modules du second lot sont désormais traduits dans les 13 langues (titre + description partout ; « C'est quoi » et documents en plus pour l'anglais et l'arabe, comme pour le premier lot). Le sous-titre français s'affiche automatiquement dès qu'une traduction existe — aucune configuration supplémentaire n'était nécessaire, le mécanisme mis en place dès le début gère ça tout seul.
 - Comme toujours avec du contenu administratif, certains montants et seuils (RSA, prime d'activité, chèque énergie, CSS) évoluent chaque année — à vérifier périodiquement.
+
+## Nouveautés (neuvième itération) — fiabilité et gouvernance dans la durée
+
+**Droits des utilisateurs**
+- **Suppression de compte en libre-service** : nouvel onglet « Mon compte » (stagiaires et formateurs), avec un bouton pour supprimer définitivement son compte et ses données, sans dépendre du formateur.
+
+**Gouvernance à plusieurs formateurs**
+- **Liste des formateurs** (onglet « Formateurs ») : voir qui a accès à l'espace formateur, et rétrograder un compte en stagiaire si besoin (départ, erreur, code partagé par erreur). On ne peut pas se rétrograder soi-même par erreur.
+- **Brouillon avant publication** dans l'éditeur de contenu : « Enregistrer en brouillon » garde la version actuelle visible par les stagiaires pendant qu'on prépare une modification ; « Publier » la met en ligne. Utile pour se relire ou faire relire par un collègue avant de publier une correction en direct.
+
+**Suivi dans le temps**
+- **Nouvel onglet « Maintenance »** : rappel visuel (rouge si en retard) de la dernière relecture du contenu administratif, avec un bouton pour marquer « relu aujourd'hui ». Recommandation : relire tous les 6 mois, les montants et démarches officielles changeant régulièrement.
+- **Export de sauvegarde manuel** (même onglet) : télécharge un fichier JSON avec toutes les données importantes (comptes, groupes, contenu, progression, activité). Ne remplace pas une vraie sauvegarde automatique côté serveur, mais protège contre une erreur de manipulation.
+- **Surveillance de panne** : ce n'est pas quelque chose qu'on peut coder dans le site lui-même — l'onglet Maintenance explique comment configurer gratuitement [UptimeRobot](https://uptimerobot.com) en 5 minutes pour être alerté par email si le site tombe.
+
+**Qualité et remontée de problèmes**
+- **« Signaler un problème »** : nouvel onglet accessible à tous, un stagiaire ou un formateur peut décrire un bug rencontré. Visible par les formateurs dans un nouvel onglet « Signalements », avec possibilité de marquer comme résolu.
+- **Tests automatisés de base** (`npm test`, sous `tests/basic.test.js`) : vérifient que les traductions fonctionnent, que chaque module a un titre/description, qu'il n'y a pas d'identifiant de module en double, etc. Pas une couverture complète, mais un premier filet de sécurité contre les régressions silencieuses lors de futures modifications.
+
+**Volontairement non traité** (sur votre demande) : mentions légales et politique de confidentialité. À garder en tête néanmoins — c'est une obligation légale dès qu'un site collecte des données personnelles en France, à traiter avant une diffusion large.
+
+## Nouveautés (dixième itération) — test de positionnement réaliste
+
+Le test de positionnement a été entièrement repensé. **Avant** : 5 questions de connaissances abstraites (« quel bouton de la souris... »), avec un bug qui faisait que la première option était toujours comptée comme la bonne réponse, quel que soit son contenu réel — le résultat ne reflétait donc pas fidèlement la personne.
+
+**Maintenant** : le stagiaire s'auto-évalue sur 8 actions numériques concrètes du quotidien (allumer un appareil, envoyer un email avec pièce jointe, remplir un formulaire en ligne, utiliser WhatsApp, scanner un document, faire une démarche administrative seul...), avec une échelle à 4 niveaux pour chacune : « Jamais fait », « Avec de l'aide », « Seul(e) avec difficulté », « Seul(e) facilement ». Le score total (sur 24) détermine le niveau proposé (Totalement débutant / Moyen / À l'aise / Avancé), avec un message rappelant que ce n'est qu'une première estimation que le formateur pourra ajuster.
+
+Cette approche reflète beaucoup mieux la réalité pratique de la personne qu'un test de connaissances théoriques.
 
 ## Structure du projet
 ```
