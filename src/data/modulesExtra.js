@@ -105,7 +105,7 @@ export const EXTRA_MODULES = [
   // ============================================================
   { id: 'sante-css', category: 'sante', icon: '🩺', title: 'La Complémentaire Santé Solidaire',
     description: "Vérifier ses droits et faire une demande de mutuelle gratuite ou à petit prix.",
-    whatIsIt: "La Complémentaire Santé Solidaire (CSS) complète les remboursements de l'Assurance Maladie : avec elle, tu ne payes plus chez le médecin, le dentiste ou en pharmacie. Selon tes revenus, elle est gratuite ou coûte moins d'1€ par jour. Beaucoup de personnes y ont droit sans le savoir.",
+    whatIsIt: "La Complémentaire Santé Solidaire (CSS) complète les remboursements de l'Assurance Maladie : avec elle, tu ne payes plus chez le médecin, le dentiste ou en pharmacie. Selon tes revenus, elle est gratuite ou coûte moins d'1€ par jour. Beaucoup de personnes y ont droit sans le savoir — le module « Vérifier tous mes droits en une fois » peut t'aider à le confirmer rapidement.",
     documents: ["Numéro de Sécurité Sociale", "Avis d'imposition ou de situation déclarative"],
     steps: [
       { title: "Vérifier si tu y as droit", text: "Utilise le simulateur gratuit sur mesdroitssociaux.gouv.fr pour savoir en quelques minutes si tu peux avoir la CSS.", visual: "document" },
@@ -176,7 +176,7 @@ export const EXTRA_MODULES = [
 
   { id: 'argent-rsa', category: 'argent-travail', icon: '💶', title: 'Le RSA (Revenu de Solidarité Active)',
     description: "Comprendre et demander le RSA si tes ressources sont très faibles.",
-    whatIsIt: "Le RSA est une aide financière pour les personnes avec peu ou pas de revenus, versée par la CAF, pour garantir un minimum de ressources.",
+    whatIsIt: "Le RSA est une aide financière pour les personnes avec peu ou pas de revenus, versée par la CAF, pour garantir un minimum de ressources. Si tu n'es pas sûr(e) d'y avoir droit, le module « Vérifier tous mes droits en une fois » propose un simulateur qui te le dira en quelques minutes.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "RIB", "Justificatifs de ressources"],
     steps: [
       { title: "Vérifier son éligibilité", text: "Il faut avoir au moins 25 ans (ou être plus jeune avec des enfants), résider en France, et avoir des ressources faibles.", visual: "document" },
@@ -187,7 +187,7 @@ export const EXTRA_MODULES = [
 
   { id: 'argent-prime-activite', category: 'argent-travail', icon: '💵', title: "La prime d'activité",
     description: "Une aide financière pour les travailleurs aux revenus modestes.",
-    whatIsIt: "Contrairement au RSA, la prime d'activité est faite pour les personnes qui travaillent déjà mais avec un salaire modeste. Elle complète les revenus chaque mois.",
+    whatIsIt: "Contrairement au RSA, la prime d'activité est faite pour les personnes qui travaillent déjà mais avec un salaire modeste. Elle complète les revenus chaque mois. Le module « Vérifier tous mes droits en une fois » permet de vérifier ton éligibilité en même temps que d'autres aides.",
     documents: ["Justificatifs de revenus des 3 derniers mois", "RIB"],
     steps: [
       { title: "Vérifier son éligibilité", text: "Utilise le simulateur sur caf.fr : il suffit d'indiquer tes revenus et ta situation familiale pour voir si tu y as droit.", visual: "document" },
@@ -214,6 +214,18 @@ export const EXTRA_MODULES = [
       { title: "Faire une demande si tu ne l'as pas reçu", text: "Si tu penses y avoir droit mais que tu n'as rien reçu, fais une demande sur chequeenergie.gouv.fr, jusqu'au 31 décembre." },
       { title: "Utiliser le chèque", text: "Tu peux l'utiliser en ligne (e-Chèque énergie) pour payer directement ton fournisseur, ou l'envoyer par courrier avec une facture." },
       { title: "Attention aux arnaques", text: "Aucune administration ne te demandera jamais tes coordonnées bancaires par téléphone ou SMS pour le chèque énergie." }
+    ] },
+
+  { id: 'argent-simulateurs-droits', category: 'argent-travail', icon: '🔎', title: 'Vérifier tous mes droits en une fois',
+    description: "Utiliser deux simulateurs officiels et gratuits pour découvrir en quelques minutes toutes les aides auxquelles tu as droit.",
+    whatIsIt: "Beaucoup de personnes ont droit à des aides (RSA, prime d'activité, CSS, aides au logement...) sans le savoir, simplement parce qu'elles n'ont jamais vérifié. Deux sites officiels et gratuits permettent de tout vérifier en une seule fois, plutôt que de chercher aide par aide : mesdroitssociaux.gouv.fr (pour tout le monde, plus de 50 aides) et le simulateur 1jeune1solution (spécialement pour les moins de 30 ans, plus de 1000 aides). Attention : ces sites ne remplacent pas les démarches elles-mêmes, ils t'indiquent seulement ce à quoi tu pourrais avoir droit, avec un lien vers chaque démarche à faire ensuite.",
+    documents: ["Avis d'imposition ou revenus des 12 derniers mois", "Composition du foyer (nombre de personnes, enfants à charge)", "Situation de logement (locataire, propriétaire...)"],
+    steps: [
+      { title: "mesdroitssociaux.gouv.fr — pour tout le monde", text: "Ce portail officiel simule plus de 50 aides nationales et locales en une fois (RSA, prime d'activité, aides au logement, CSS, retraite...). Compte 5 à 10 minutes.", visual: "document" },
+      { title: "Se connecter avec FranceConnect (facultatif mais plus précis)", text: "Tu peux répondre de façon anonyme, ou te connecter avec FranceConnect pour que le site pré-remplisse automatiquement tes informations déjà connues des administrations." },
+      { title: "1jeune1solution — spécialement pour les moins de 30 ans", text: "Si tu as moins de 30 ans (étudiant, en recherche d'emploi, en formation...), ce simulateur du ministère du Travail est encore plus complet sur cette tranche d'âge : bourses, logement, permis de conduire, santé, culture. Compte 7 minutes.", visual: "document" },
+      { title: "Suivre les liens proposés", text: "À la fin de la simulation, chaque aide identifiée est accompagnée d'un lien direct vers le site officiel pour faire la demande réelle — les modules de cette plateforme peuvent t'aider pour beaucoup d'entre elles." },
+      { title: "Refaire la simulation si ta situation change", text: "Un changement de revenus, de logement ou de situation familiale peut ouvrir de nouveaux droits : n'hésite pas à revenir faire la simulation régulièrement." }
     ] },
 
   { id: 'argent-auto-entrepreneur', category: 'argent-travail', icon: '💼', title: 'Créer son activité (auto-entrepreneur)',

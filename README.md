@@ -183,6 +183,16 @@ Le test de positionnement a été entièrement repensé. **Avant** : 5 questions
 
 Cette approche reflète beaucoup mieux la réalité pratique de la personne qu'un test de connaissances théoriques.
 
+## Nouveautés (onzième itération) — module « Vérifier tous mes droits en une fois »
+
+Ajout d'un module dans la catégorie « Argent et travail » présentant deux simulateurs officiels et gratuits qui recoupent plusieurs modules déjà existants :
+- **mesdroitssociaux.gouv.fr** : portail officiel de la Sécurité sociale, simule plus de 50 aides nationales et locales en une fois (RSA, prime d'activité, aides au logement, CSS, retraite...).
+- **1jeune1solution** (mes-aides.1jeune1solution.beta.gouv.fr) : simulateur du ministère du Travail spécialement pour les moins de 30 ans, plus de 1000 aides (bourses, logement, permis de conduire, santé, culture...).
+
+Ce module a été ajouté par exception à la règle générale de ne plus enrichir le catalogue sans besoin identifié : contrairement à un nouveau sujet de démarche, il s'agit d'un outil de découverte qui adresse directement le non-recours aux aides déjà couvertes par la plateforme (RSA, prime d'activité, CSS, allocation de rentrée...). Des mentions ont aussi été ajoutées dans le « C'est quoi » de ces trois modules pour y renvoyer naturellement.
+
+Contenu traduit dans les 13 langues (titre, description, « C'est quoi » et documents).
+
 ## Structure du projet
 ```
 src/
