@@ -71,7 +71,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "De plus en plus d'entretiens d'embauche, de rendez-vous avec des administrations ou des cours se font par visioconférence plutôt qu'en personne.",
     documents: [],
     steps: [
-      { title: "Cliquer sur le lien de la réunion", text: "Tu reçois souvent un lien par email (ex : « Rejoindre la réunion Zoom »). Clique dessus quelques minutes avant l'heure prévue.", visual: "calendar" },
+      { title: "Cliquer sur le lien de la réunion", text: "Tu reçois souvent un lien par email (ex : « Rejoindre la réunion Zoom »). Clique dessus quelques minutes avant l'heure prévue.", visual: "calendar", screenshot: "/screenshots/zoom-accueil.jpg", screenshotAlt: "Page d'accueil du site zoom.us" },
       { title: "Autoriser la caméra et le micro", text: "Une fenêtre demande d'autoriser l'accès à ta caméra et ton micro : clique sur « Autoriser », sinon les autres ne te verront ni ne t'entendront." },
       { title: "Se mettre en sourdine quand on ne parle pas", text: "Le bouton micro barré permet de couper ton son pour éviter les bruits de fond quand ce n'est pas ton tour de parler." },
       { title: "Bien se préparer avant l'appel", text: "Teste ta connexion internet, installe-toi dans un endroit calme et bien éclairé, et prépare tes documents à l'avance si besoin." }
@@ -82,7 +82,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "De plus en plus de contrats (travail, logement, banque) se signent maintenant en ligne plutôt que sur papier, avec des outils comme DocuSign ou YouSign.",
     documents: [],
     steps: [
-      { title: "Recevoir le document à signer", text: "Tu reçois généralement un email avec un lien « Signer le document »." },
+      { title: "Recevoir le document à signer", text: "Tu reçois généralement un email avec un lien « Signer le document ».", screenshot: "/screenshots/yousign-accueil.jpg", screenshotAlt: "Page d'accueil du site yousign.com" },
       { title: "Vérifier le document avant de signer", text: "Lis bien le contenu avant de signer — une signature électronique a la même valeur légale qu'une signature papier." },
       { title: "Signer avec le doigt ou la souris", text: "L'outil te demande de dessiner ta signature avec ton doigt (téléphone/tablette) ou ta souris, ou de taper ton nom qui sera transformé en signature." },
       { title: "Récupérer une copie signée", text: "Une fois signé, un email de confirmation avec le document signé t'est généralement envoyé — garde-le précieusement." }
@@ -234,7 +234,7 @@ export const EXTRA_MODULES = [
     documents: ["Pièce d'identité", "Justificatif de domicile"],
     steps: [
       { title: "Vérifier que l'activité est possible en micro-entreprise", text: "La plupart des activités de vente et de services sont possibles, sauf certaines professions réglementées." },
-      { title: "S'inscrire sur le site officiel", text: "La déclaration se fait sur le Guichet unique des entreprises (formalites.entreprises.gouv.fr).", visual: "document" },
+      { title: "S'inscrire sur le site officiel", text: "La déclaration se fait sur le Guichet unique des entreprises (formalites.entreprises.gouv.fr).", visual: "document", screenshot: "/screenshots/formalites-entreprises.jpg", screenshotAlt: "Page d'accueil du site officiel formalites.entreprises.gouv.fr" },
       { title: "Recevoir son numéro SIRET", text: "Après quelques jours, tu reçois un numéro SIRET qui officialise ton activité." },
       { title: "Déclarer son chiffre d'affaires", text: "Chaque mois ou trimestre, tu dois déclarer combien tu as gagné, même si c'est zéro, pour payer les cotisations correspondantes." }
     ] },
@@ -393,7 +393,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Les appels téléphoniques classiques vers l'étranger coûtent souvent cher. Les applications comme WhatsApp permettent d'appeler et de voir sa famille gratuitement via internet.",
     documents: [],
     steps: [
-      { title: "Installer WhatsApp", text: "Télécharge l'application gratuite depuis le Play Store (Android) ou l'App Store (iPhone), avec ton numéro de téléphone.", visual: "phone" },
+      { title: "Installer WhatsApp", text: "Télécharge l'application gratuite depuis le Play Store (Android) ou l'App Store (iPhone), avec ton numéro de téléphone.", visual: "phone", screenshot: "/screenshots/whatsapp-accueil.jpg", screenshotAlt: "Page d'accueil du site whatsapp.com" },
       { title: "Ajouter un contact", text: "La personne doit aussi avoir WhatsApp installé avec son numéro. Elle apparaît automatiquement dans tes contacts si son numéro est enregistré." },
       { title: "Lancer un appel vidéo", text: "Ouvre la conversation, puis appuie sur l'icône caméra 📹 pour un appel vidéo, ou sur le téléphone 📞 pour un appel audio simple." },
       { title: "Avoir du Wi-Fi ou des données", text: "Ces appels utilisent internet, pas ton forfait téléphonique classique — vérifie que tu as du Wi-Fi ou assez de données mobiles." }

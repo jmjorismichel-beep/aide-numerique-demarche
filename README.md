@@ -270,6 +270,19 @@ Deuxième vague de généralisation : 14 modules supplémentaires (CARSAT, rému
 
 **Modules restants sans capture (32 sur 60)** : les 10 modules "appareils" (nécessiteraient des captures d'interfaces système, pas de sites web), les 3 sites bloqués mentionnés ci-dessus, MDPH, Mes Événements Emploi, mobilité, logement social, logement privé, assurance habitation, auto-entrepreneur, naturalisation, regroupement familial, aide juridictionnelle, arnaques en ligne, appels à l'étranger, numéros d'urgence, mot de passe/scanner/sauvegarde/visioconférence/signature (modules de compétences générales sans site unique associé).
 
+## Nouveautés (dix-septième itération) — 34 modules avec captures d'écran réelles, quasiment tout le capturable est fait
+
+Dernière vague : 6 modules supplémentaires (Mes Événements Emploi, Pôle Mobilité, visioconférence, signature électronique, auto-entrepreneur, appels à l'étranger). **34 modules sur 60 ont désormais une vraie capture d'écran — 25 fichiers image, 1,8 Mo au total.**
+
+**Trois nouveaux sites écartés après vérification** : `demande-logement-social.gouv.fr` (même famille de blocage réseau que l'ANEF), `seloger.com` et `pap.fr` (page de vérification anti-robot Cloudflare, pas le vrai contenu). Le module Logement social et une partie du module Logement privé gardent donc leur icône schématique.
+
+**Ce qui reste sans capture (26 modules) — et pourquoi c'est la fin logique de cet exercice, pas un manque d'effort** :
+- **10 modules "appareils"** (Windows, Apple, smartphones...) : nécessiteraient des captures d'interfaces système (réglages Windows, écrans Android...), une méthode différente non traitée ici.
+- **5 modules bloqués au niveau réseau** : titre de séjour, naturalisation, regroupement familial (tous trois sur le domaine interior.gouv.fr), MDPH (seinemaritime.fr), aide juridictionnelle (justice.fr).
+- **11 modules sans site unique à capturer** : compétences générales (mot de passe, scanner, sauvegarde), sujets sans démarche en ligne dédiée (numéros d'urgence, arnaques en ligne), ou modules où la démarche se fait par plusieurs canaux différents selon la situation plutôt que sur un site unique.
+
+À ce stade, je considère que la couverture par capture d'écran a atteint sa limite raisonnable avec les moyens disponibles dans cet environnement. Pour aller plus loin sur les modules "appareils" ou les sites bloqués, il faudrait soit un accès réseau différent, soit des captures manuelles fournies par vous.
+
 ## Structure du projet
 ```
 src/

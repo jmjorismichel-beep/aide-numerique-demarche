@@ -243,7 +243,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Ce site liste les journées où des entreprises viennent recruter directement, près de chez toi. C'est une bonne occasion de rencontrer des employeurs sans passer par une candidature écrite.",
     documents: ["CV à jour (papier ou numérique)", "Ton identifiant France Travail si tu en as un"],
     steps: [
-      { title: "Qu'est-ce que Mes Événements Emploi ?", text: "C'est un site de France Travail qui liste les forums, salons et journées de recrutement organisés près de chez toi." },
+      { title: "Qu'est-ce que Mes Événements Emploi ?", text: "C'est un site de France Travail qui liste les forums, salons et journées de recrutement organisés près de chez toi.", screenshot: "/screenshots/francetravail-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel francetravail.fr" },
       { title: "Chercher un événement", text: "Sur le site, indique ta ville (Le Havre) pour voir les événements emploi à venir dans ta région." },
       { title: "S'inscrire à un événement", text: "Clique sur un événement qui t'intéresse, puis sur « S'inscrire » pour réserver ta place, si c'est demandé." },
       { title: "Préparer sa visite", text: "Certains événements demandent d'apporter des CV papier ou de préparer une présentation courte de toi (le fameux « pitch »)." }
@@ -266,7 +266,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Ne pas avoir de moyen de transport est souvent un obstacle pour trouver un travail ou suivre une formation. Le Pôle Mobilité du Havre aide justement les personnes dans cette situation : passer le permis à prix réduit, réparer sa voiture, louer un véhicule pas cher.",
     documents: ["Lettre d'orientation d'un conseiller (France Travail, mission locale...)", "Pièce d'identité"],
     steps: [
-      { title: "Le Pôle Mobilité du Havre", text: "Le Pôle Mobilité (site pole-mobilite.org) aide les personnes qui ont du mal à se déplacer pour aller travailler ou se former : auto-école solidaire, garage solidaire, location de voitures et scooters à petit prix." },
+      { title: "Le Pôle Mobilité du Havre", text: "Le Pôle Mobilité (site pole-mobilite.org) aide les personnes qui ont du mal à se déplacer pour aller travailler ou se former : auto-école solidaire, garage solidaire, location de voitures et scooters à petit prix.", screenshot: "/screenshots/polemobilite-accueil.jpg", screenshotAlt: "Page d'accueil du site pole-mobilite.org" },
       { title: "Comment y accéder", text: "L'accès au Pôle Mobilité se fait généralement sur orientation d'un conseiller (France Travail, mission locale, assistante sociale). Parle-en à ton formateur ou ton conseiller pour savoir si tu peux en bénéficier." },
       { title: "L'adresse à Le Havre", text: "LH Mobilité se trouve au 90 rue Gustave Brindeau, 76600 Le Havre. L'association MAD (Mobilité Associative Durable) y est également présente." },
       { title: "Le garage solidaire", text: "Un garage solidaire permet de faire réparer sa voiture à prix réduit, selon les revenus, ou d'apprendre à faire soi-même l'entretien de base avec de l'aide." }
