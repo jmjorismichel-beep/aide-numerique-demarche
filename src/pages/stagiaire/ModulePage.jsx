@@ -161,6 +161,19 @@ export default function ModulePage() {
                   )}
                 </div>
                 <p>{s.text}</p>
+                {s.screenshot && (
+                  <figure style={{ margin: '10px 0 0' }}>
+                    <img
+                      src={s.screenshot}
+                      alt={s.screenshotAlt || `Capture d'écran du site officiel illustrant l'étape : ${s.title}`}
+                      style={{ maxWidth: '100%', borderRadius: 10, border: '1.5px solid #D7DEDD', display: 'block' }}
+                      loading="lazy"
+                    />
+                    <figcaption style={{ fontSize: '.75rem', color: 'var(--muted)', marginTop: 4 }}>
+                      Capture d'écran du site officiel, à titre indicatif — l'apparence réelle peut varier.
+                    </figcaption>
+                  </figure>
+                )}
               </div>
             </div>
           </div>

@@ -238,6 +238,18 @@ Dès que le site tombe en panne, un email d'alerte est envoyé automatiquement. 
 
 **Vraies captures d'écran des interfaces réelles — non traité, honnêteté sur pourquoi** : remplacer les icônes schématiques par de vraies captures des sites officiels (CAF, France Travail...) dans les étapes des modules représenterait un travail considérable à l'échelle de 60 modules (plusieurs centaines de captures), avec un vrai risque d'obsolescence rapide (les interfaces de ces sites changent régulièrement) et nécessiterait une maintenance récurrente. Je préfère vous le dire clairement plutôt que de le faire à moitié. Si c'est une vraie priorité, on peut en discuter comme un chantier à part, potentiellement en commençant par un petit pilote sur 2-3 modules très utilisés (CAF, titre de séjour, France Travail) pour juger de la charge réelle avant de généraliser.
 
+## Nouveautés (quatorzième itération) — pilote captures d'écran réelles
+
+**Pilote réalisé sur 3 modules** : CAF, France Travail, Titre de séjour (ANEF) — chacun a maintenant une vraie capture d'écran de la page d'accueil du site officiel sur sa première étape, en plus de l'icône schématique. Les images sont dans `public/screenshots/`, compressées (14 à 75 Ko chacune), avec légende "Capture d'écran du site officiel, à titre indicatif" pour rester honnête sur le fait que l'interface réelle peut évoluer.
+
+**Bilan honnête après ce pilote** (pour décider si on généralise) :
+- **Temps réel constaté** : environ 15-20 minutes pour 3 modules (recherche des bonnes URLs, capture, compression, intégration, vérification). Sur cette base, les 60 modules prendraient plusieurs heures de travail, en une fois.
+- **Un vrai souci technique rencontré** : certains sites (caf.fr notamment) mettent du temps à finir de charger toutes leurs requêtes réseau, rendant la capture automatique peu fiable sans réglages spécifiques par site — ce n'est pas un simple copier-coller à l'identique pour chaque module.
+- **Le risque d'obsolescence reste réel** : ces captures sont figées à la date d'aujourd'hui (juillet 2026). Si caf.fr ou francetravail.fr changent leur page d'accueil, les captures deviendront visuellement différentes du site réel — sans casser le fonctionnement du module, juste moins fidèles.
+- **Recommandation** : plutôt que de généraliser aux 60 modules d'un coup, je suggère de le faire progressivement, en commençant par les modules les plus consultés une fois que l'usage réel sera connu (voir le suivi d'activité côté formateur), et de prévoir une re-capture annuelle des captures existantes plutôt qu'un chantier ponctuel figé.
+
+Pour ajouter une capture à une étape existante, deux nouveaux champs optionnels sur un step : `screenshot` (chemin vers l'image dans `public/screenshots/`) et `screenshotAlt` (texte alternatif descriptif).
+
 ## Structure du projet
 ```
 src/

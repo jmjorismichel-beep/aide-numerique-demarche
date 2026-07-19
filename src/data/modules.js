@@ -153,7 +153,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "La CAF (Caisse d'Allocations Familiales) verse de l'argent aux familles et aux personnes à faibles revenus : aide au logement, aide pour les enfants, prime d'activité... Si tu as des enfants ou des revenus modestes, tu as probablement droit à une aide.",
     documents: ["Numéro de Sécurité Sociale", "Adresse email", "RIB (relevé d'identité bancaire)", "Justificatif de domicile récent"],
     steps: [
-      { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r.", visual: "document" },
+      { title: "Aller sur le site de la CAF", text: "Ouvre le site officiel : caf.fr. Vérifie bien l'adresse : c-a-f point f-r.", visual: "document", screenshot: "/screenshots/caf-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel caf.fr" },
       { title: "Créer Mon Compte", text: "Clique sur « Mon Compte » puis « Créer mon compte ». Tu as besoin de ton numéro de Sécurité Sociale et d'un email.", visual: "lock" },
       { title: "Se connecter", text: "Clique sur « Mon Compte », entre ton identifiant (email) et ton mot de passe.", visual: "lock" },
       { title: "Faire une demande en ligne", text: "Une fois connecté, va dans « Mes démarches ». Tu peux déclarer ta situation, demander une aide, ou envoyer un document.", visual: "document" },
@@ -219,7 +219,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "France Travail (qui s'appelait avant Pôle Emploi) aide à chercher un travail et peut verser une allocation si tu perds ton emploi. Pour être suivi et avoir accès aux offres d'emploi, il faut s'y inscrire.",
     documents: ["Pièce d'identité", "Numéro de Sécurité Sociale", "CV si tu en as un", "Adresse email"],
     steps: [
-      { title: "Aller sur le site France Travail", text: "Ouvre le site officiel francetravail.fr (anciennement Pôle Emploi)." },
+      { title: "Aller sur le site France Travail", text: "Ouvre le site officiel francetravail.fr (anciennement Pôle Emploi).", screenshot: "/screenshots/francetravail-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel francetravail.fr" },
       { title: "S'inscrire comme demandeur d'emploi", text: "Clique sur « S'inscrire », puis suis les étapes en indiquant tes informations personnelles et ta situation professionnelle." },
       { title: "Se connecter à Mon Espace", text: "Clique sur « Se connecter », entre ton identifiant (souvent ton email) et ton mot de passe." },
       { title: "Actualiser sa situation chaque mois", text: "Chaque mois, il faut « s'actualiser » : déclarer si tu as travaillé ou non. C'est obligatoire pour continuer à être suivi et, si tu y as droit, indemnisé." },
@@ -301,7 +301,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Le titre de séjour est le document qui autorise une personne étrangère à vivre légalement en France. Il faut le demander en arrivant et le renouveler avant sa date de fin, sinon tu risques de te retrouver en situation irrégulière — c'est souvent la toute première démarche à faire en arrivant.",
     documents: ["Passeport", "Justificatif de domicile", "Photo d'identité récente", "Adresse email"],
     steps: [
-      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document" },
+      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document", screenshot: "/screenshots/anef-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel de l'ANEF" },
       { title: "Créer son compte", text: "Clique sur « Créer un compte », renseigne ton email et crée un mot de passe. Tu recevras un email de confirmation à valider.", visual: "mail" },
       { title: "Choisir sa démarche", text: "Une fois connecté, choisis le type de démarche : première demande de titre de séjour, renouvellement, ou changement de statut, selon ta situation.", visual: "idcard" },
       { title: "Remplir le formulaire et joindre les documents", text: "Le site te demande de remplir un formulaire puis de scanner ou photographier tes documents (passeport, justificatif de domicile, photo d'identité...).", visual: "phone" },
