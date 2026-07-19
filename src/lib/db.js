@@ -5,7 +5,7 @@ import Dexie from 'dexie'
 // pousse/tire les changements vers Firebase (Firestore) dès qu'une connexion est disponible.
 export const db = new Dexie('parcours_numerique')
 
-db.version(3).stores({
+db.version(4).stores({
   // Session locale (1 seule ligne, id fixe "session")
   session: 'id',
 
@@ -18,6 +18,7 @@ db.version(3).stores({
   activityLogs: 'id, user_id, created_at',
   bugReports: 'id, user_id, status, created_at',
   siteMeta: 'id',
+  formateurRequests: 'id, status, requested_at',
 
   // File d'attente de synchronisation : chaque opération locale non encore
   // confirmée par le serveur est ajoutée ici avec un statut 'pending'.

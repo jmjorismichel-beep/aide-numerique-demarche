@@ -44,30 +44,51 @@ export const useAuthStore = create((set, get) => ({
    * Inscription. Nécessite une connexion internet la première fois (création
    * du compte sécurisé). Une fois connecté une première fois, l'utilisateur
    * peut ensuite se servir de l'app hors-ligne indéfiniment (session mise en cache).
-   * Si `inviteCode` correspond au code formateur, le compte est créé avec le
-   * rôle "formateur" ; sinon c'est un compte "stagiaire" classique.
+   *
+   * Sécurité : le compte est TOUJOURS créé avec le rôle "stagiaire", même si
+   * le bon code formateur est saisi. Un code correct crée en plus une demande
+   * dans `formateurRequests`, qu'un formateur existant doit approuver depuis
+   * l'onglet Formateurs. Cela évite qu'un compte puisse s'auto-attribuer le
+   * rôle formateur en écrivant directement dans Firestore (contournement
+   * technique de l'interface), tout en gardant le code formateur comme filtre
+   * pour savoir qui a le droit de demander.
    */
   async signUp({ prenom, nom, email, password, niveauLinguistique, niveauInformatique, inviteCode }) {
     if (!auth || !isOnline()) {
       throw new Error("Une connexion internet est nécessaire pour créer un compte la première fois.")
     }
     const cred = await createUserWithEmailAndPassword(auth, email, password)
-    const role = inviteCode && inviteCode.trim() === FORMATEUR_INVITE_CODE ? 'formateur' : 'stagiaire'
+    const codeMatches = inviteCode && inviteCode.trim() === FORMATEUR_INVITE_CODE
 
     const profile = {
       id: cred.user.uid,
       prenom, nom, email,
       niveau_linguistique: niveauLinguistique || null,
       niveau_informatique: niveauInformatique || null,
-      role,
+      role: 'stagiaire',
       group_id: null,
       archived: false,
       updated_at: new Date().toISOString()
     }
     await setDoc(doc(dbRemote, 'users', profile.id), profile)
     await db.users.put(profile)
+
+    if (codeMatches) {
+      const request = {
+        id: profile.id, // même id que l'utilisateur : une seule demande active par personne
+        prenom, nom, email,
+        status: 'pending',
+        requested_at: new Date().toISOString()
+      }
+      try {
+        await setDoc(doc(dbRemote, 'formateurRequests', request.id), request)
+      } catch (e) {
+        console.warn('Demande formateur non enregistrée :', e.message)
+      }
+    }
+
     await db.session.put({ id: 'session', userId: profile.id })
-    set({ user: profile })
+    set({ user: profile, pendingFormateurRequest: codeMatches })
     return profile
   },
 

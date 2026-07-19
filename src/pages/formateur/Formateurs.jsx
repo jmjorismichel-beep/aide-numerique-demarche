@@ -7,6 +7,7 @@ import { useAuthStore } from '../../store/authStore'
 export default function Formateurs() {
   const { user } = useAuthStore()
   const formateurs = useLiveQuery(() => db.users.filter(u => u.role === 'formateur').toArray()) || []
+  const demandes = useLiveQuery(() => db.formateurRequests.filter(r => r.status === 'pending').toArray()) || []
   const [confirmingId, setConfirmingId] = useState(null)
 
   async function retrograder(formateur) {
@@ -14,9 +15,48 @@ export default function Formateurs() {
     setConfirmingId(null)
   }
 
+  async function approuver(demande) {
+    const utilisateur = await db.users.get(demande.id)
+    if (utilisateur) {
+      await saveRecord('users', { ...utilisateur, role: 'formateur' })
+    }
+    await saveRecord('formateurRequests', { ...demande, status: 'approved' })
+  }
+
+  async function refuser(demande) {
+    await saveRecord('formateurRequests', { ...demande, status: 'refused' })
+  }
+
   return (
     <div>
       <h2>👥 Formateurs</h2>
+
+      {demandes.length > 0 && (
+        <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid var(--coral)' }}>
+          <h3 style={{ marginTop: 0 }}>🔔 Demandes d'accès formateur en attente</h3>
+          <p style={{ color: 'var(--muted)' }}>
+            Ces personnes ont saisi le bon code formateur à l'inscription. Pour des raisons de sécurité,
+            leur compte n'est pas devenu formateur automatiquement : c'est à toi de valider.
+          </p>
+          <table className="table-simple">
+            <thead><tr><th>Nom</th><th>Email</th><th>Demandé le</th><th>Action</th></tr></thead>
+            <tbody>
+              {demandes.map(d => (
+                <tr key={d.id}>
+                  <td>{d.prenom} {d.nom}</td>
+                  <td>{d.email}</td>
+                  <td>{new Date(d.requested_at).toLocaleString('fr-FR')}</td>
+                  <td style={{ display: 'flex', gap: 6 }}>
+                    <button className="btn" onClick={() => approuver(d)}>✓ Approuver</button>
+                    <button className="btn danger" onClick={() => refuser(d)}>✕ Refuser</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
       <p style={{ color: 'var(--muted)' }}>
         Liste des comptes ayant accès à l'espace formateur. Utile pour vérifier qui a accès, et retirer l'accès à quelqu'un si besoin (départ, erreur, code partagé par erreur).
       </p>

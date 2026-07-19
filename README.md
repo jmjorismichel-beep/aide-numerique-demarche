@@ -193,6 +193,35 @@ Ce module a été ajouté par exception à la règle générale de ne plus enric
 
 Contenu traduit dans les 13 langues (titre, description, « C'est quoi » et documents).
 
+## Nouveautés (douzième itération) — fermeture complète de la faille résiduelle
+
+**🔴 Sécurité — la faille résiduelle est maintenant complètement fermée, gratuitement.**
+
+Auparavant, un compte pouvait obtenir le rôle formateur directement à l'inscription en saisissant le bon code. Même après le correctif précédent (empêchant de *modifier* son propre rôle après coup), il restait une faille théorique : quelqu'un de très technique aurait pu forger une création de compte falsifiée avec `role: 'formateur'` en contournant l'interface, ce qui ne pouvait être fermé qu'en passant sur le plan payant Firebase (Blaze) pour ajouter une vérification côté serveur.
+
+**Nouvelle approche, sans coût supplémentaire** : tout compte est désormais **toujours** créé avec le rôle stagiaire, sans aucune exception — les règles Firestore l'imposent strictement, il n'existe plus aucun chemin technique pour créer un compte formateur directement. Si le bon code formateur est saisi à l'inscription, une **demande d'accès formateur** est enregistrée à la place, visible dans l'onglet Formateurs, où un formateur déjà présent doit l'**approuver** (ou la refuser) en un clic.
+
+- **Onglet Formateurs** : nouvelle section "Demandes en attente" en haut, listant les demandes avec nom, email et date, avec les boutons "Approuver" / "Refuser".
+- **Pour Joris (premier formateur)** : comme vous êtes déjà formateur sur le compte existant, vous pourrez approuver toutes les nouvelles demandes vous-même dès qu'elles arrivent.
+- Cette faille est donc désormais **totalement fermée**, sans devoir passer sur le plan Blaze — la seule contrepartie est qu'un nouveau formateur doit attendre une validation manuelle au lieu d'un accès instantané, ce qui reste rapide en pratique avec un petit nombre de formateurs.
+
+**Relecture des traductions par des locuteurs natifs**
+
+Un fichier Excel (`Relecture_traductions.xlsx`) a été généré pour faciliter la relecture des 5 langues à la fiabilité la plus incertaine (dari/persan, albanais, tigrinya, somali, chinois) : un onglet par langue, avec le français original à côté de la traduction actuelle, et des colonnes vides à remplir par un locuteur natif pour proposer une correction. Une fois complété, les corrections pourront être reportées dans le code.
+
+**Surveillance de panne (UptimeRobot)**
+
+Ce n'est pas quelque chose qui se code dans le site — ça se configure une seule fois, en dehors de l'application, sur un service externe. Étapes (5 minutes) :
+1. Aller sur [uptimerobot.com](https://uptimerobot.com) et créer un compte gratuit
+2. Cliquer sur "Add New Monitor"
+3. Type de moniteur : **HTTP(s)**
+4. URL à surveiller : l'adresse de votre site (ex. `https://aide-numerique-demarche.netlify.app`)
+5. Intervalle de vérification : 5 minutes (le plan gratuit le permet)
+6. Renseigner une adresse email pour les alertes
+7. Enregistrer
+
+Dès que le site tombe en panne, un email d'alerte est envoyé automatiquement. Ce rappel figure aussi dans l'onglet Maintenance du site.
+
 ## Structure du projet
 ```
 src/

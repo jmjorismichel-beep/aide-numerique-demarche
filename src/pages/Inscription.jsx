@@ -185,7 +185,7 @@ export default function Inscription() {
           <div className="form-field">
             <label>Code formateur</label>
             <input value={form.inviteCode} onChange={e => set('inviteCode')(e.target.value)} placeholder="Donné par votre organisme" />
-            <small className="field-hint">Renseignez ce code puis complétez normalement le formulaire ci-dessus : votre compte sera créé avec le rôle formateur.</small>
+            <small className="field-hint">Renseignez ce code puis complétez normalement le formulaire ci-dessus. Pour des raisons de sécurité, ton compte n'obtient pas le rôle formateur automatiquement : un formateur déjà présent devra approuver ta demande depuis son espace, généralement rapidement.</small>
           </div>
         )}
       </div>
