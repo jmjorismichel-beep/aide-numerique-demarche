@@ -151,8 +151,9 @@ Objectif de ce lot : des modules **utiles à la fois aux nouveaux arrivants et a
 Sources vérifiées en juillet 2026 : ameli.fr, doctolib.fr, moncompteformation.gouv.fr (la connexion nécessite désormais FranceConnect+ depuis 2026), chequeenergie.gouv.fr, caf.fr, service-public.fr, ants.gouv.fr, justice.fr, bibliotheques.lehavre.fr.
 
 **Limites à connaître** :
-- **Mise à jour** : les 33 nouveaux modules du second lot sont désormais traduits dans les 13 langues (titre + description partout ; « C'est quoi » et documents en plus pour l'anglais et l'arabe, comme pour le premier lot). Le sous-titre français s'affiche automatiquement dès qu'une traduction existe — aucune configuration supplémentaire n'était nécessaire, le mécanisme mis en place dès le début gère ça tout seul.
-- Comme toujours avec du contenu administratif, certains montants et seuils (RSA, prime d'activité, chèque énergie, CSS) évoluent chaque année — à vérifier périodiquement.
+- **Mise à jour** : les 33 nouveaux modules du second lot sont désormais **entièrement** traduits dans les 13 langues (titre, description, « C'est quoi » et documents partout — plus seulement titre/description). Le sous-titre français s'affiche automatiquement dès qu'une traduction existe.
+- Comme toujours avec du contenu administratif, certains montants et seuils (RSA, prime d'activité, chèque énergie, CSS) évoluent chaque année — à vérifier périodiquement (voir onglet Maintenance).
+- Fiabilité des traductions : bonne pour en/es/pt/ru/uk/tr. À faire vérifier par un locuteur natif avant un usage critique pour fa (dari/persan), sq (albanais), ti (tigrinya), so (somali) et zh (chinois).
 
 ## Nouveautés (neuvième itération) — fiabilité et gouvernance dans la durée
 
