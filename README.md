@@ -222,6 +222,22 @@ Ce n'est pas quelque chose qui se code dans le site — ça se configure une seu
 
 Dès que le site tombe en panne, un email d'alerte est envoyé automatiquement. Ce rappel figure aussi dans l'onglet Maintenance du site.
 
+## Nouveautés (treizième itération) — messages groupés, notifications, visite guidée, accessibilité
+
+**Messages groupés** : dans l'onglet Messagerie, un formateur peut maintenant écrire à un groupe entier en une fois (en plus d'écrire à une personne). Le message est envoyé individuellement à chaque stagiaire actif du groupe — chacun le retrouve dans sa messagerie habituelle.
+
+**Notifications de nouveau message** : un bandeau propose d'activer les notifications du navigateur. Une fois activées, une notification apparaît quand un nouveau message arrive **tant que le site reste ouvert dans un onglet**, même en arrière-plan.
+**Limite honnête** : ça ne fonctionne pas si le navigateur est complètement fermé. Un vrai système de notification "push" qui fonctionnerait même site fermé nécessiterait un serveur d'envoi (Firebase Cloud Messaging + Cloud Functions), qui requiert le plan payant Blaze de Firebase — pas mis en place pour rester gratuit.
+
+**Visite guidée** : les nouveaux stagiaires voient, à leur première connexion, une présentation en 5 étapes des fonctionnalités principales (modules, parcours conseillés, langue, messagerie). Ne s'affiche qu'une seule fois par appareil, avec un bouton "Passer" à tout moment.
+
+**Accessibilité — corrections concrètes après un vrai audit de contraste** :
+- La couleur corail des boutons a été assombrie (`#F4693F` → `#D1451C`) : l'ancienne valeur n'atteignait qu'un contraste de 3:1 avec le texte blanc, insuffisant selon les normes WCAG AA (4,5:1 minimum pour du texte de taille normale). La nouvelle valeur atteint 4,6:1.
+- Ajout d'un lien d'évitement ("Aller directement au contenu"), invisible sauf au focus clavier, pour permettre de sauter directement au contenu principal sans repasser par toute la navigation à chaque page — utile pour les utilisateurs de clavier ou de lecteur d'écran.
+- L'en-tête du site utilise maintenant une balise `<header>` sémantique (les balises `<main>` et `<nav>` étaient déjà correctement utilisées).
+
+**Vraies captures d'écran des interfaces réelles — non traité, honnêteté sur pourquoi** : remplacer les icônes schématiques par de vraies captures des sites officiels (CAF, France Travail...) dans les étapes des modules représenterait un travail considérable à l'échelle de 60 modules (plusieurs centaines de captures), avec un vrai risque d'obsolescence rapide (les interfaces de ces sites changent régulièrement) et nécessiterait une maintenance récurrente. Je préfère vous le dire clairement plutôt que de le faire à moitié. Si c'est une vraie priorité, on peut en discuter comme un chantier à part, potentiellement en commençant par un petit pilote sur 2-3 modules très utilisés (CAF, titre de séjour, France Travail) pour juger de la charge réelle avant de généraliser.
+
 ## Structure du projet
 ```
 src/

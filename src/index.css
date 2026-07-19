@@ -14,9 +14,13 @@
   --sea-dark: #0B4750;
   --sea-light: #E3F0EF;
 
-  /* Accent d'action : corail chaud (cabines de plage) */
-  --coral: #F4693F;
-  --coral-dark: #D4502A;
+  /* Corail utilisé pour les boutons pleins : assombri par rapport à l'accent
+     décoratif (--coral-accent) pour que le texte blanc dessus respecte le
+     contraste minimum WCAG AA (4.5:1) — l'ancien corail plus clair ne
+     tenait qu'à 3:1, insuffisant pour du texte de taille normale. */
+  --coral: #D1451C;
+  --coral-dark: #B33E1A;
+  --coral-accent: #F4693F;
 
   /* Rotation "cabines de plage" pour les icônes de modules */
   --hut-coral: #F4693F;
@@ -200,6 +204,12 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
 
 .attach-btn { background: none; border: 1.5px solid #D7DEDD; border-radius: 999px; padding: 8px 12px; font-size: 1rem; }
 .bubble img { max-width: 100%; border-radius: 10px; display: block; margin-bottom: 4px; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 200;
+  background: var(--sea-dark); color: white; padding: 10px 16px; border-radius: 0 0 10px 0;
+}
+.skip-link:focus { left: 0; }
 
 .fr-subtitle { color: var(--muted); font-size: .8rem; font-style: italic; margin: -6px 0 4px; }
 [dir="rtl"] .fr-subtitle { font-style: normal; }

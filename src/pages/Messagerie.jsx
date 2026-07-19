@@ -11,16 +11,23 @@ export default function Messagerie() {
   const { user } = useAuthStore()
   const isFormateur = user.role === 'formateur'
   const [contactId, setContactId] = useState(null)
+  const [groupModeId, setGroupModeId] = useState(null) // si non-null : on écrit à tout un groupe plutôt qu'à une personne
   const [text, setText] = useState('')
   const [pendingImage, setPendingImage] = useState(null)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
+  const [groupSentMessage, setGroupSentMessage] = useState('')
   const fileInputRef = useRef(null)
 
   const contacts = useLiveQuery(
     () => db.users
       .filter(u => (isFormateur ? u.role === 'stagiaire' : u.role === 'formateur') && !u.archived)
       .toArray(),
+    [isFormateur]
+  ) || []
+
+  const groupes = useLiveQuery(
+    () => isFormateur ? db.groups.filter(g => !g.archived).toArray() : Promise.resolve([]),
     [isFormateur]
   ) || []
 
@@ -34,7 +41,7 @@ export default function Messagerie() {
     unreadByContact[m.sender_id] = (unreadByContact[m.sender_id] || 0) + 1
   }
 
-  useEffect(() => { if (!contactId && contacts.length) setContactId(contacts[0].id) }, [contacts])
+  useEffect(() => { if (!contactId && !groupModeId && contacts.length) setContactId(contacts[0].id) }, [contacts])
 
   const messages = useLiveQuery(
     () => contactId
@@ -67,21 +74,51 @@ export default function Messagerie() {
     }
   }
 
+  function choisirContact(id) {
+    setGroupModeId(null)
+    setContactId(id)
+  }
+
+  function choisirGroupe(id) {
+    setContactId(null)
+    setGroupModeId(id)
+    setGroupSentMessage('')
+  }
+
   async function envoyer(e) {
     e.preventDefault()
-    if ((!text.trim() && !pendingImage) || !contactId) return
+    if (!text.trim() && !pendingImage) return
     setSending(true)
     try {
-      await saveRecord('messages', {
-        id: uid(),
-        thread_id: makeThreadId(user.id, contactId),
-        sender_id: user.id,
-        recipient_id: contactId,
-        text: text.trim(),
-        image: pendingImage || null,
-        read: false,
-        created_at: new Date().toISOString()
-      })
+      if (groupModeId) {
+        // Message groupé : un message individuel est créé pour chaque membre actif du groupe,
+        // pour que chacun le retrouve dans sa messagerie normale (pas de vraie "conversation de groupe").
+        const membres = await db.users.filter(u => u.role === 'stagiaire' && !u.archived && u.group_id === groupModeId).toArray()
+        for (const membre of membres) {
+          await saveRecord('messages', {
+            id: uid(),
+            thread_id: makeThreadId(user.id, membre.id),
+            sender_id: user.id,
+            recipient_id: membre.id,
+            text: text.trim(),
+            image: pendingImage || null,
+            read: false,
+            created_at: new Date().toISOString()
+          })
+        }
+        setGroupSentMessage(`Message envoyé à ${membres.length} stagiaire${membres.length > 1 ? 's' : ''} du groupe.`)
+      } else if (contactId) {
+        await saveRecord('messages', {
+          id: uid(),
+          thread_id: makeThreadId(user.id, contactId),
+          sender_id: user.id,
+          recipient_id: contactId,
+          text: text.trim(),
+          image: pendingImage || null,
+          read: false,
+          created_at: new Date().toISOString()
+        })
+      }
       setText('')
       setPendingImage(null)
     } finally {
@@ -100,7 +137,7 @@ export default function Messagerie() {
               <button
                 className="btn secondary"
                 style={{ width: '100%', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: c.id === contactId ? 'var(--blue)' : undefined, color: c.id === contactId ? 'white' : undefined }}
-                onClick={() => setContactId(c.id)}
+                onClick={() => choisirContact(c.id)}
               >
                 <span>{c.prenom} {c.nom}</span>
                 {unreadByContact[c.id] > 0 && <span className="unread-dot">{unreadByContact[c.id]}</span>}
@@ -108,23 +145,54 @@ export default function Messagerie() {
             </li>
           ))}
         </ul>
+
+        {isFormateur && groupes.length > 0 && (
+          <>
+            <h3 style={{ marginTop: 20 }}>✉️ Écrire à un groupe entier</h3>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {groupes.map(g => (
+                <li key={g.id}>
+                  <button
+                    className="btn secondary"
+                    style={{ width: '100%', textAlign: 'left', background: g.id === groupModeId ? 'var(--coral)' : undefined, color: g.id === groupModeId ? 'white' : undefined }}
+                    onClick={() => choisirGroupe(g.id)}
+                  >
+                    👥 {g.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
 
       <div className="card">
-        <h3>Conversation</h3>
-        <p style={{ fontSize: '.8rem', color: 'var(--muted)', marginTop: -6 }}>
-          ⚠️ Évite d'envoyer une photo de tes papiers (passeport, titre de séjour...) par message. Pour ça, préviens plutôt ton formateur en personne.
-        </p>
-        <div className="chat-thread">
-          {messages.length === 0 && <p style={{ color: 'var(--muted)' }}>Aucun message pour l'instant.</p>}
-          {messages.map(m => (
-            <div key={m.id} className={`bubble ${m.sender_id === user.id ? 'mine' : 'theirs'}`}>
-              {m.image && <img src={m.image} alt="Pièce jointe envoyée dans la conversation" />}
-              {m.text}
-              <time>{new Date(m.created_at).toLocaleString('fr-FR')}</time>
+        {groupModeId ? (
+          <>
+            <h3>Message à tout le groupe « {groupes.find(g => g.id === groupModeId)?.name} »</h3>
+            <p style={{ fontSize: '.85rem', color: 'var(--muted)', marginTop: -6 }}>
+              Ce message sera envoyé individuellement à chaque stagiaire actif du groupe (ils le verront dans leur messagerie habituelle, pas de fil de discussion commun).
+            </p>
+            {groupSentMessage && <p style={{ color: 'var(--green)', fontWeight: 600 }}>{groupSentMessage}</p>}
+          </>
+        ) : (
+          <>
+            <h3>Conversation</h3>
+            <p style={{ fontSize: '.8rem', color: 'var(--muted)', marginTop: -6 }}>
+              ⚠️ Évite d'envoyer une photo de tes papiers (passeport, titre de séjour...) par message. Pour ça, préviens plutôt ton formateur en personne.
+            </p>
+            <div className="chat-thread">
+              {messages.length === 0 && <p style={{ color: 'var(--muted)' }}>Aucun message pour l'instant.</p>}
+              {messages.map(m => (
+                <div key={m.id} className={`bubble ${m.sender_id === user.id ? 'mine' : 'theirs'}`}>
+                  {m.image && <img src={m.image} alt="Pièce jointe envoyée dans la conversation" />}
+                  {m.text}
+                  <time>{new Date(m.created_at).toLocaleString('fr-FR')}</time>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
 
         {error && <p style={{ color: 'var(--red)', fontSize: '.85rem', marginTop: 8 }}>{error}</p>}
 
@@ -135,25 +203,27 @@ export default function Messagerie() {
           </div>
         )}
 
-        <form onSubmit={envoyer} style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-          <input
-            type="file"
-            accept="image/*"
-            ref={fileInputRef}
-            onChange={choisirImage}
-            style={{ display: 'none' }}
-          />
-          <button type="button" className="attach-btn" onClick={() => fileInputRef.current?.click()} title="Joindre une photo" aria-label="Joindre une photo">
-            📷
-          </button>
-          <input
-            style={{ flex: 1, padding: '10px 12px', borderRadius: 10, border: '1.5px solid #d1d5db' }}
-            placeholder="Écrire un message…"
-            value={text}
-            onChange={e => setText(e.target.value)}
-          />
-          <button className="btn" type="submit" disabled={sending}>{sending ? 'Envoi…' : 'Envoyer'}</button>
-        </form>
+        {(contactId || groupModeId) && (
+          <form onSubmit={envoyer} style={{ display: 'flex', gap: 8, marginTop: 12 }}>
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              onChange={choisirImage}
+              style={{ display: 'none' }}
+            />
+            <button type="button" className="attach-btn" onClick={() => fileInputRef.current?.click()} title="Joindre une photo" aria-label="Joindre une photo">
+              📷
+            </button>
+            <input
+              style={{ flex: 1, padding: '10px 12px', borderRadius: 10, border: '1.5px solid #d1d5db' }}
+              placeholder="Écrire un message…"
+              value={text}
+              onChange={e => setText(e.target.value)}
+            />
+            <button className="btn" type="submit" disabled={sending}>{sending ? 'Envoi…' : 'Envoyer'}</button>
+          </form>
+        )}
       </div>
     </div>
   )

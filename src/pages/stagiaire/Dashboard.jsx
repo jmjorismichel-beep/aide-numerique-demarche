@@ -8,15 +8,18 @@ import { useI18nStore } from '../../store/i18nStore'
 import { translateModule } from '../../data/translations/modules'
 import { logActivity } from '../../lib/activity'
 import { db } from '../../lib/db'
+import VisiteGuidee, { tourDejaVue } from '../../components/VisiteGuidee'
 
 export default function Dashboard() {
   const { user } = useAuthStore()
   const { lang } = useI18nStore()
   const [modules, setModules] = useState([])
+  const [afficherTour, setAfficherTour] = useState(false)
 
   useEffect(() => {
     getAllModules().then(setModules)
     logActivity(user.id, 'Consulte son tableau de bord')
+    if (!tourDejaVue()) setAfficherTour(true)
   }, [])
 
   const translatedModules = modules.map(m => translateModule(m, lang))
@@ -48,6 +51,7 @@ export default function Dashboard() {
 
   return (
     <div>
+      {afficherTour && <VisiteGuidee onFinish={() => setAfficherTour(false)} />}
       <h2>Bonjour {user.prenom} 👋</h2>
       <p>Niveau linguistique : <strong>{user.niveau_linguistique}</strong> — Choisis un module pour commencer.</p>
 
