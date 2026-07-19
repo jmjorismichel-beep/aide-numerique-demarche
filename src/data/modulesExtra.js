@@ -108,7 +108,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "La Complémentaire Santé Solidaire (CSS) complète les remboursements de l'Assurance Maladie : avec elle, tu ne payes plus chez le médecin, le dentiste ou en pharmacie. Selon tes revenus, elle est gratuite ou coûte moins d'1€ par jour. Beaucoup de personnes y ont droit sans le savoir — le module « Vérifier tous mes droits en une fois » peut t'aider à le confirmer rapidement.",
     documents: ["Numéro de Sécurité Sociale", "Avis d'imposition ou de situation déclarative"],
     steps: [
-      { title: "Vérifier si tu y as droit", text: "Utilise le simulateur gratuit sur mesdroitssociaux.gouv.fr pour savoir en quelques minutes si tu peux avoir la CSS.", visual: "document" },
+      { title: "Vérifier si tu y as droit", text: "Utilise le simulateur gratuit sur mesdroitssociaux.gouv.fr pour savoir en quelques minutes si tu peux avoir la CSS.", visual: "document", screenshot: "/screenshots/mesdroitssociaux-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel mesdroitssociaux.gouv.fr" },
       { title: "Faire la demande sur ameli.fr", text: "Connecte-toi à ton compte ameli, puis va dans « Mes démarches » > « Demande de Complémentaire santé solidaire ».", visual: "lock" },
       { title: "Choisir un organisme gestionnaire", text: "Au moment de la demande, tu dois choisir l'organisme (mutuelle) qui gérera ta CSS. Si tu ne sais pas, l'Assurance Maladie peut s'en charger directement." },
       { title: "Attendre la réponse", text: "Ta CPAM étudie ta demande sous 2 mois. Ton attestation de droits apparaît ensuite dans ton compte ameli." },
@@ -120,7 +120,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Doctolib est le site le plus utilisé en France pour prendre rendez-vous médical, souvent plus rapide que d'appeler par téléphone. La plupart des médecins et spécialistes du Havre y sont inscrits.",
     documents: ["Carte Vitale ou numéro de Sécurité Sociale"],
     steps: [
-      { title: "Aller sur doctolib.fr", text: "Ouvre le site officiel doctolib.fr ou l'application mobile Doctolib.", visual: "document" },
+      { title: "Aller sur doctolib.fr", text: "Ouvre le site officiel doctolib.fr ou l'application mobile Doctolib.", visual: "document", screenshot: "/screenshots/doctolib-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel doctolib.fr" },
       { title: "Chercher un professionnel", text: "Indique le type de médecin recherché (généraliste, dentiste...) et ta ville (Le Havre). La liste des créneaux disponibles s'affiche directement." },
       { title: "Choisir un créneau", text: "Clique sur un horaire qui te convient. Si c'est ta première visite, crée un compte avec ton email et tes informations." },
       { title: "Confirmer et gérer son rendez-vous", text: "Tu reçois un email et un SMS de confirmation. Tu peux annuler ou modifier ton rendez-vous directement depuis le site si besoin." }
@@ -157,7 +157,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Toute personne qui a travaillé en France cumule chaque année des droits à la formation sur son Compte Personnel de Formation (CPF), utilisables pour financer une formation qui t'intéresse. Beaucoup de gens ne savent pas qu'ils ont ce crédit disponible.",
     documents: ["Numéro de Sécurité Sociale", "Une identité numérique FranceConnect+ (via La Poste par exemple)"],
     steps: [
-      { title: "Aller sur moncompteformation.gouv.fr", text: "C'est le seul site officiel. Méfie-toi des organismes qui proposent de « débloquer ton CPF » par téléphone : c'est souvent une arnaque.", visual: "document" },
+      { title: "Aller sur moncompteformation.gouv.fr", text: "C'est le seul site officiel. Méfie-toi des organismes qui proposent de « débloquer ton CPF » par téléphone : c'est souvent une arnaque.", visual: "document", screenshot: "/screenshots/moncompteformation-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel moncompteformation.gouv.fr" },
       { title: "Se connecter avec FranceConnect+", text: "Depuis 2026, la connexion nécessite une vérification d'identité renforcée (FranceConnect+), par exemple avec l'identité numérique de La Poste.", visual: "lock" },
       { title: "Consulter ses droits", text: "La rubrique « Mes droits formation » indique le montant disponible (en euros). Il est alimenté chaque année si tu as travaillé." },
       { title: "Chercher et choisir une formation", text: "Le moteur de recherche liste les formations éligibles (langue, informatique, métier...). Vérifie que l'organisme est bien certifié Qualiopi." }
@@ -211,7 +211,7 @@ export const EXTRA_MODULES = [
     documents: ["Dernière facture d'électricité ou de gaz", "Avis d'imposition"],
     steps: [
       { title: "Vérifier si tu es concerné", text: "Le chèque est envoyé automatiquement aux foyers identifiés selon leurs revenus, entre avril et mai chaque année.", visual: "document" },
-      { title: "Faire une demande si tu ne l'as pas reçu", text: "Si tu penses y avoir droit mais que tu n'as rien reçu, fais une demande sur chequeenergie.gouv.fr, jusqu'au 31 décembre." },
+      { title: "Faire une demande si tu ne l'as pas reçu", text: "Si tu penses y avoir droit mais que tu n'as rien reçu, fais une demande sur chequeenergie.gouv.fr, jusqu'au 31 décembre.", screenshot: "/screenshots/chequeenergie-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel chequeenergie.gouv.fr" },
       { title: "Utiliser le chèque", text: "Tu peux l'utiliser en ligne (e-Chèque énergie) pour payer directement ton fournisseur, ou l'envoyer par courrier avec une facture." },
       { title: "Attention aux arnaques", text: "Aucune administration ne te demandera jamais tes coordonnées bancaires par téléphone ou SMS pour le chèque énergie." }
     ] },
@@ -221,7 +221,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Beaucoup de personnes ont droit à des aides (RSA, prime d'activité, CSS, aides au logement...) sans le savoir, simplement parce qu'elles n'ont jamais vérifié. Deux sites officiels et gratuits permettent de tout vérifier en une seule fois, plutôt que de chercher aide par aide : mesdroitssociaux.gouv.fr (pour tout le monde, plus de 50 aides) et le simulateur 1jeune1solution (spécialement pour les moins de 30 ans, plus de 1000 aides). Attention : ces sites ne remplacent pas les démarches elles-mêmes, ils t'indiquent seulement ce à quoi tu pourrais avoir droit, avec un lien vers chaque démarche à faire ensuite.",
     documents: ["Avis d'imposition ou revenus des 12 derniers mois", "Composition du foyer (nombre de personnes, enfants à charge)", "Situation de logement (locataire, propriétaire...)"],
     steps: [
-      { title: "mesdroitssociaux.gouv.fr — pour tout le monde", text: "Ce portail officiel simule plus de 50 aides nationales et locales en une fois (RSA, prime d'activité, aides au logement, CSS, retraite...). Compte 5 à 10 minutes.", visual: "document" },
+      { title: "mesdroitssociaux.gouv.fr — pour tout le monde", text: "Ce portail officiel simule plus de 50 aides nationales et locales en une fois (RSA, prime d'activité, aides au logement, CSS, retraite...). Compte 5 à 10 minutes.", visual: "document", screenshot: "/screenshots/mesdroitssociaux-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel mesdroitssociaux.gouv.fr" },
       { title: "Se connecter avec FranceConnect (facultatif mais plus précis)", text: "Tu peux répondre de façon anonyme, ou te connecter avec FranceConnect pour que le site pré-remplisse automatiquement tes informations déjà connues des administrations." },
       { title: "1jeune1solution — spécialement pour les moins de 30 ans", text: "Si tu as moins de 30 ans (étudiant, en recherche d'emploi, en formation...), ce simulateur du ministère du Travail est encore plus complet sur cette tranche d'âge : bourses, logement, permis de conduire, santé, culture. Compte 7 minutes.", visual: "document" },
       { title: "Suivre les liens proposés", text: "À la fin de la simulation, chaque aide identifiée est accompagnée d'un lien direct vers le site officiel pour faire la demande réelle — les modules de cette plateforme peuvent t'aider pour beaucoup d'entre elles." },
@@ -337,7 +337,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "La carte grise (certificat d'immatriculation) prouve que tu es le propriétaire officiel d'un véhicule. Depuis plusieurs années, cette démarche se fait uniquement en ligne, plus au guichet.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "Ancienne carte grise barrée (si achat d'occasion)", "Certificat de cession"],
     steps: [
-      { title: "Aller sur le site officiel ANTS", text: "La démarche se fait sur ants.gouv.fr, le seul site officiel — méfie-toi des sites payants qui imitent ce service.", visual: "document" },
+      { title: "Aller sur le site officiel ANTS", text: "La démarche se fait sur ants.gouv.fr, le seul site officiel — méfie-toi des sites payants qui imitent ce service.", visual: "document", screenshot: "/screenshots/ants-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel ants.gouv.fr" },
       { title: "Créer son compte", text: "Un compte ANTS est nécessaire, avec ton email et tes informations personnelles." },
       { title: "Remplir la demande et payer la taxe", text: "Le prix dépend du véhicule (puissance, âge, région). Le paiement se fait directement en ligne par carte bancaire." },
       { title: "Recevoir sa carte grise", text: "Le document est envoyé par courrier sous quelques jours à ton domicile." }

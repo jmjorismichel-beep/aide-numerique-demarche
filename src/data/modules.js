@@ -143,7 +143,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "En France, beaucoup de démarches administratives (famille, santé, travail, logement, papiers...) se font maintenant sur internet plutôt qu'au guichet. Savoir reconnaître un site officiel évite de perdre du temps ou de tomber sur une arnaque.",
     steps: [
       { title: "Reconnaître un site officiel", text: "Un site officiel du gouvernement se termine presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr, service-public.fr. Méfie-toi des sites qui ressemblent mais demandent de payer pour un service normalement gratuit." },
-      { title: "Le site service-public.fr", text: "C'est le site officiel qui rassemble des informations sur toutes les démarches administratives françaises (identité, famille, travail, logement...). Il explique clairement quoi faire et donne les liens vers les bons sites." },
+      { title: "Le site service-public.fr", text: "C'est le site officiel qui rassemble des informations sur toutes les démarches administratives françaises (identité, famille, travail, logement...). Il explique clairement quoi faire et donne les liens vers les bons sites.", screenshot: "/screenshots/servicepublic-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel service-public.fr" },
       { title: "FranceConnect : un seul mot de passe pour plusieurs sites", text: "FranceConnect permet de se connecter à plusieurs services publics (impots.gouv.fr, ameli.fr, caf.fr...) avec un seul compte, par exemple ton compte des impôts ou ta carte Vitale. Cherche le bouton « FranceConnect » sur la page de connexion." },
       { title: "Vérifier avant de cliquer", text: "Avant d'entrer des informations personnelles, regarde bien l'adresse du site dans la barre du haut. Si tu as un doute, demande à ton formateur avant de continuer." }
     ] },
@@ -169,7 +169,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "La CPAM (Assurance Maladie) rembourse une partie de tes frais médicaux (médecin, pharmacie, hôpital). Elle délivre aussi la carte Vitale, indispensable pour être bien remboursé. Sans elle, tu payes tes soins beaucoup plus cher.",
     documents: ["Numéro de Sécurité Sociale", "Pièce d'identité", "Adresse email"],
     steps: [
-      { title: "Aller sur le site ameli.fr", text: "Ouvre le site officiel de l'Assurance Maladie : ameli.fr. C'est le site de la CPAM (Caisse Primaire d'Assurance Maladie)." },
+      { title: "Aller sur le site ameli.fr", text: "Ouvre le site officiel de l'Assurance Maladie : ameli.fr. C'est le site de la CPAM (Caisse Primaire d'Assurance Maladie).", screenshot: "/screenshots/ameli-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel ameli.fr" },
       { title: "Créer ou retrouver son compte", text: "Clique sur « Mon compte ». Si c'est ta première visite, clique sur « Créer mon compte » et suis les étapes avec ton numéro de Sécurité Sociale." },
       { title: "Suivre ses remboursements", text: "Une fois connecté, la rubrique « Mes remboursements » montre l'historique de tes soins remboursés (médecin, pharmacie...)." },
       { title: "Commander une carte Vitale", text: "Dans « Mes démarches », tu peux demander une nouvelle carte Vitale (première demande, perte, vol) ou signaler un changement de situation." },
@@ -193,7 +193,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "LiA, c'est le nom du réseau de bus et de tramway au Havre. Pour se déplacer en ville sans voiture (aller en formation, au travail, faire ses courses), c'est le moyen de transport principal. Le prix normal peut être réduit fortement selon ta situation.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "Justificatifs liés à ta situation (attestation CAF, CSS, France Travail, avis d'imposition... selon ton profil)"],
     steps: [
-      { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr.", visual: "bus" },
+      { title: "Le réseau LiA", text: "LiA est le réseau de transport en commun du Havre : bus, tramway et funiculaire. Le site officiel est transports-lia.fr.", visual: "bus", screenshot: "/screenshots/transportslia-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel transports-lia.fr" },
       { title: "Consulter les horaires et itinéraires", text: "Sur transports-lia.fr, tu peux chercher un trajet en indiquant ton point de départ et ton arrivée pour connaître les horaires et la ligne à prendre." },
       { title: "L'abonnement Solidaire (12,50€/mois)", text: "Ce tarif est accessible si tu bénéficies de la Complémentaire Santé Solidaire (CSS), de l'Aide Médicale d'État, si tu es demandeur d'asile, invalide civil à 80% ou plus, travailleur handicapé en ESAT, ou demandeur d'emploi bénéficiaire de l'AAH.", visual: "document" },
       { title: "Le tarif 1/2 tarif", text: "Ce tarif concerne notamment les étudiants boursiers, les demandeurs d'emploi, les personnes de plus de 65 ans non imposables, les stagiaires de la formation professionnelle et apprentis majeurs, et les personnes en Contrat d'Engagement Jeune." },
@@ -207,7 +207,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "En France, presque tout le monde doit déclarer ses revenus chaque année aux impôts, même les personnes avec peu d'argent. C'est obligatoire, et beaucoup d'autres démarches (aides, logement...) demandent ensuite un document appelé « avis d'imposition ».",
     documents: ["Numéro fiscal (sur un avis d'imposition précédent)", "Adresse email", "Justificatifs de revenus de l'année"],
     steps: [
-      { title: "Aller sur le site des impôts", text: "Ouvre le site officiel impots.gouv.fr. Vérifie bien l'adresse avant de continuer." },
+      { title: "Aller sur le site des impôts", text: "Ouvre le site officiel impots.gouv.fr. Vérifie bien l'adresse avant de continuer.", screenshot: "/screenshots/impots-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel impots.gouv.fr" },
       { title: "Créer son espace particulier", text: "Clique sur « Votre espace particulier » puis « Vous n'avez pas de compte fiscal en ligne ? ». Tu auras besoin de ton numéro fiscal (sur un avis d'imposition) pour t'inscrire." },
       { title: "Se connecter", text: "Clique sur « Votre espace particulier », entre ton numéro fiscal et ton mot de passe pour accéder à ton dossier." },
       { title: "Faire sa déclaration de revenus", text: "Chaque année au printemps, la rubrique « Déclarer » permet de remplir sa déclaration de revenus en ligne, étape par étape." },
@@ -289,7 +289,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Si tu as des enfants scolarisés au Havre, la cantine et la garde avant/après l'école (périscolaire) ne sont pas automatiques : il faut inscrire ton enfant chaque année sur le site de la ville, sinon il ne pourra pas manger à la cantine ou être gardé.",
     documents: ["Attestation de quotient familial CAF de moins de 2 mois", "Adresse email", "Livret de famille"],
     steps: [
-      { title: "Le Kiosque Famille du Havre", text: "La Ville du Havre regroupe toutes les démarches liées aux enfants (cantine, périscolaire, centres de loisirs) sur un seul site : kiosquefamille.lehavre.fr." },
+      { title: "Le Kiosque Famille du Havre", text: "La Ville du Havre regroupe toutes les démarches liées aux enfants (cantine, périscolaire, centres de loisirs) sur un seul site : kiosquefamille.lehavre.fr.", screenshot: "/screenshots/lehavre-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel lehavre.fr" },
       { title: "Créer son compte", text: "Si c'est ta première inscription, crée un compte sur le Kiosque famille avec ton email et les informations de ton enfant." },
       { title: "S'inscrire à la cantine et au périscolaire", text: "Une fois connecté, choisis les jours où ton enfant mangera à la cantine ou ira au périscolaire (matin ou soir), selon une semaine type ou au calendrier." },
       { title: "Fournir son quotient familial CAF", text: "Le tarif dépend de ton quotient familial. Dépose ton attestation CAF de moins de 2 mois sur le Kiosque famille chaque année en janvier pour avoir le bon tarif." },
@@ -301,7 +301,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Le titre de séjour est le document qui autorise une personne étrangère à vivre légalement en France. Il faut le demander en arrivant et le renouveler avant sa date de fin, sinon tu risques de te retrouver en situation irrégulière — c'est souvent la toute première démarche à faire en arrivant.",
     documents: ["Passeport", "Justificatif de domicile", "Photo d'identité récente", "Adresse email"],
     steps: [
-      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document", screenshot: "/screenshots/anef-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel de l'ANEF" },
+      { title: "Le site officiel ANEF", text: "Les démarches de titre de séjour se font en ligne sur le site officiel administration-etrangers-en-france.interieur.gouv.fr (site de l'ANEF, Administration Numérique des Étrangers en France).", visual: "document" },
       { title: "Créer son compte", text: "Clique sur « Créer un compte », renseigne ton email et crée un mot de passe. Tu recevras un email de confirmation à valider.", visual: "mail" },
       { title: "Choisir sa démarche", text: "Une fois connecté, choisis le type de démarche : première demande de titre de séjour, renouvellement, ou changement de statut, selon ta situation.", visual: "idcard" },
       { title: "Remplir le formulaire et joindre les documents", text: "Le site te demande de remplir un formulaire puis de scanner ou photographier tes documents (passeport, justificatif de domicile, photo d'identité...).", visual: "phone" },

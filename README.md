@@ -250,6 +250,16 @@ Dès que le site tombe en panne, un email d'alerte est envoyé automatiquement. 
 
 Pour ajouter une capture à une étape existante, deux nouveaux champs optionnels sur un step : `screenshot` (chemin vers l'image dans `public/screenshots/`) et `screenshotAlt` (texte alternatif descriptif).
 
+## Nouveautés (quinzième itération) — généralisation des captures d'écran (14 modules)
+
+Suite au pilote, généralisation à 11 modules supplémentaires : sites officiels, CPAM (ameli.fr), LiA, impôts, école/cantine, Complémentaire Santé Solidaire, Doctolib, Mon Compte Formation, chèque énergie, simulateurs de droits, carte grise (ANTS). **14 modules ont maintenant une vraie capture d'écran au total.**
+
+Faute de données d'usage réelles (le site n'a pas encore été utilisé par de vrais stagiaires), la priorisation s'est appuyée sur les parcours conseillés déjà en place dans l'app plutôt que sur des statistiques de consultation.
+
+**Une vraie limite technique découverte pendant ce lot** : le domaine de l'ANEF (`administration-etrangers-en-france.interieur.gouv.fr`, pour le titre de séjour) est inaccessible depuis mon environnement de travail — probablement un pare-feu spécifique aux sites sensibles du ministère de l'Intérieur. La première capture obtenue était en réalité une page d'erreur réseau, pas le vrai site ; je l'ai retirée avant qu'elle ne se retrouve en ligne. Le module Titre de séjour garde donc son icône schématique pour cette étape, sans fausse capture.
+
+**Modules restants sans capture (46 sur 60)** : essentiellement les modules "appareils" (Windows, smartphone...) qui nécessiteraient des captures d'interfaces système plutôt que de sites web (approche différente, non traitée ici), et les modules moins prioritaires selon les parcours conseillés. À poursuivre progressivement, idéalement une fois que de vraies données d'usage seront disponibles.
+
 ## Structure du projet
 ```
 src/
