@@ -181,7 +181,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "La CARSAT s'occupe de ta future retraite : elle compte les années et trimestres que tu travailles. Même si la retraite semble loin, chaque période de travail déclarée compte pour plus tard.",
     documents: ["Numéro de Sécurité Sociale", "Adresse email", "Relevé de carrière si tu en as un"],
     steps: [
-      { title: "Aller sur le site officiel", text: "Ouvre le site lassuranceretraite.fr, le site officiel de l'Assurance Retraite (CARSAT en Normandie)." },
+      { title: "Aller sur le site officiel", text: "Ouvre le site lassuranceretraite.fr, le site officiel de l'Assurance Retraite (CARSAT en Normandie).", screenshot: "/screenshots/lassuranceretraite-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel lassuranceretraite.fr" },
       { title: "Créer Mon compte retraite", text: "Clique sur « Mon compte » puis « Créer mon compte », ou connecte-toi directement avec FranceConnect si tu en as déjà un." },
       { title: "Consulter son relevé de carrière", text: "Une fois connecté, tu peux voir toutes les années et tous les trimestres de travail déjà enregistrés pour ta future retraite." },
       { title: "Faire une simulation ou une demande", text: "Le site permet de simuler l'âge de départ à la retraite, et de faire une demande de retraite en ligne le moment venu." },
@@ -277,7 +277,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Si tu suis une formation financée par la Région Normandie et que tu n'es pas indemnisé par France Travail, tu peux être payé pendant ta formation. Ce site permet de suivre ces paiements.",
     documents: ["Identifiants transmis par ton organisme de formation", "RIB"],
     steps: [
-      { title: "Aller sur la plateforme", text: "Ouvre le site remuneration.normandie.fr, la plateforme officielle de gestion de la rémunération des stagiaires de la formation professionnelle en Normandie." },
+      { title: "Aller sur la plateforme", text: "Ouvre le site remuneration.normandie.fr, la plateforme officielle de gestion de la rémunération des stagiaires de la formation professionnelle en Normandie.", screenshot: "/screenshots/remuneration-normandie.jpg", screenshotAlt: "Page d'accueil du site officiel remuneration.normandie.fr" },
       { title: "Choisir son portail", text: "Sur la page d'accueil, choisis le portail « Stagiaire » (les autres portails sont réservés aux organismes de formation et aux agents de la Région)." },
       { title: "Se connecter", text: "Utilise les identifiants qui t'ont été communiqués par la Région ou ton organisme de formation pour te connecter à ton espace." },
       { title: "Suivre son dossier", text: "Une fois connecté, tu peux consulter tes paiements, tes feuilles de paie, et l'avancée de ton dossier de rémunération et d'aide à la mobilité." },
@@ -314,7 +314,7 @@ export const DEFAULT_MODULES = [
     whatIsIt: "Le casier judiciaire est un document qui prouve que tu n'as pas de condamnation (ou liste les condamnations éventuelles). Beaucoup d'employeurs ou d'administrations le demandent, notamment pour certains métiers (enfance, sécurité...).",
     documents: ["Nom, prénom, date et lieu de naissance exacts (comme sur ta carte d'identité)"],
     steps: [
-      { title: "Le site officiel", text: "Ouvre le site officiel casier-judiciaire.justice.gouv.fr pour demander ton extrait de casier judiciaire (bulletin n°3), souvent demandé pour un emploi." },
+      { title: "Le site officiel", text: "Ouvre le site officiel casier-judiciaire.justice.gouv.fr pour demander ton extrait de casier judiciaire (bulletin n°3), souvent demandé pour un emploi.", screenshot: "/screenshots/casier-judiciaire.jpg", screenshotAlt: "Page d'accueil du site officiel casier-judiciaire.justice.gouv.fr" },
       { title: "Remplir le formulaire", text: "Clique sur « Effectuer une demande », puis indique ton nom, prénom, date et lieu de naissance exactement comme sur ta carte d'identité." },
       { title: "Aucun compte nécessaire", text: "Cette démarche est gratuite et ne demande pas de créer de compte : il suffit de remplir le formulaire en ligne à chaque demande." },
       { title: "Recevoir le document", text: "Le bulletin est envoyé par courrier postal à ton domicile sous quelques jours. Il n'est pas envoyé par email pour des raisons de sécurité." }
@@ -325,8 +325,8 @@ export const DEFAULT_MODULES = [
     whatIsIt: "La carte d'identité prouve qui tu es en France. Elle est différente du titre de séjour : elle concerne surtout les personnes de nationalité française. Beaucoup de démarches administratives te demanderont une pièce d'identité valide.",
     documents: ["Photo d'identité récente aux normes", "Justificatif de domicile", "Ancienne carte d'identité si tu en as une"],
     steps: [
-      { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder.", visual: "document" },
-      { title: "Prendre rendez-vous à la mairie du Havre", text: "Va sur le site lehavre.fr, rubrique État civil > Carte nationale d'identité et passeport, pour réserver un créneau à l'Hôtel de Ville ou dans une mairie annexe (Bléville, Graville, Rouelles).", visual: "calendar" },
+      { title: "Faire la pré-demande en ligne", text: "Avant tout rendez-vous, fais ta pré-demande sur le site officiel service-public.fr ou directement sur passeport.ants.gouv.fr (ANTS). Tu obtiens un numéro de dossier à garder.", visual: "document", screenshot: "/screenshots/ants-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel ants.gouv.fr" },
+      { title: "Prendre rendez-vous à la mairie du Havre", text: "Va sur le site lehavre.fr, rubrique État civil > Carte nationale d'identité et passeport, pour réserver un créneau à l'Hôtel de Ville ou dans une mairie annexe (Bléville, Graville, Rouelles).", visual: "calendar", screenshot: "/screenshots/lehavre-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel lehavre.fr" },
       { title: "Préparer son dossier", text: "Prépare une photo d'identité récente aux normes, un justificatif de domicile, et ton ancienne carte d'identité si tu en as une. Le dossier incomplet ne sera pas accepté.", visual: "idcard" },
       { title: "Se présenter au rendez-vous", text: "Le jour du rendez-vous, présente-toi avec tous les documents originaux. Tes empreintes seront prises si tu as plus de 12 ans. Le rendez-vous dure entre 10 et 20 minutes.", visual: "house" },
       { title: "Récupérer sa carte", text: "Tu recevras un SMS quand ta carte sera prête (en général 3 à 4 semaines). Va la chercher là où tu as déposé ta demande, avec ton ancienne pièce d'identité.", visual: "phone" }

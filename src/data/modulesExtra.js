@@ -28,7 +28,7 @@ export const EXTRA_MODULES = [
     documents: [],
     steps: [
       { title: "Choisir un service gratuit", text: "Les plus utilisés sont Gmail (Google) et Outlook (Microsoft). Les deux sont gratuits et fonctionnent aussi bien.", visual: "mail" },
-      { title: "Créer son compte", text: "Va sur gmail.com ou outlook.com, clique sur « Créer un compte », choisis un nom (souvent prénom.nom) et un mot de passe.", visual: "lock" },
+      { title: "Créer son compte", text: "Va sur gmail.com ou outlook.com, clique sur « Créer un compte », choisis un nom (souvent prénom.nom) et un mot de passe.", visual: "lock", screenshot: "/screenshots/gmail-accueil.jpg", screenshotAlt: "Page de connexion Gmail" },
       { title: "Écrire un message", text: "Clique sur « Nouveau message », écris l'adresse du destinataire, un objet (le sujet), puis ton message. Clique sur « Envoyer ».", visual: "mail" },
       { title: "Joindre un document", text: "Pour envoyer un fichier (photo, PDF), clique sur l'icône trombone 📎 avant d'envoyer, et choisis le fichier sur ton téléphone ou ordinateur.", visual: "document" },
       { title: "Retrouver un message important", text: "Utilise la barre de recherche en haut de ta boîte mail pour retrouver un message par un mot-clé (ex : « CAF », « impôts »)." }
@@ -94,7 +94,7 @@ export const EXTRA_MODULES = [
     documents: ["Pièce d'identité en cours de validité (carte d'identité, passeport, ou titre de séjour d'au moins 5 ans de validité)", "Un smartphone"],
     steps: [
       { title: "FranceConnect et FranceConnect+ : la différence", text: "FranceConnect (sans « + ») te permet de te connecter à des sites simples (impots.gouv.fr, ameli.fr) avec un compte existant. FranceConnect+ est une version plus sécurisée, obligatoire pour les démarches sensibles comme Mon Compte Formation.", visual: "lock" },
-      { title: "Créer son Identité Numérique La Poste", text: "C'est la solution la plus simple et gratuite. Télécharge l'application « L'Identité Numérique La Poste » sur ton téléphone, ou crée ton compte sur lidentitenumerique.laposte.fr. Il faut avoir 18 ans, une pièce d'identité valide, et un smartphone récent (Android 12+ ou iOS 16+).", visual: "phone" },
+      { title: "Créer son Identité Numérique La Poste", text: "C'est la solution la plus simple et gratuite. Télécharge l'application « L'Identité Numérique La Poste » sur ton téléphone, ou crée ton compte sur lidentitenumerique.laposte.fr. Il faut avoir 18 ans, une pièce d'identité valide, et un smartphone récent (Android 12+ ou iOS 16+).", visual: "phone", screenshot: "/screenshots/identitenumerique-laposte.jpg", screenshotAlt: "Page d'accueil du site officiel lidentitenumerique.laposte.fr" },
       { title: "Se faire aider en bureau de poste", text: "Si tu n'es pas à l'aise pour le faire seul en ligne, tu peux te rendre directement dans n'importe quel bureau de poste avec ta pièce d'identité : un employé t'aide à créer ton Identité Numérique sur place." },
       { title: "L'application France Identité (alternative)", text: "Il existe une autre solution, France Identité, gérée par l'État plutôt que La Poste. Elle demande une carte d'identité récente (format carte bancaire, depuis 2021) et est obligatoire pour voter par internet." },
       { title: "Utiliser son identité numérique", text: "Sur un site qui le propose, clique sur le bouton « FranceConnect+ », choisis « L'Identité Numérique La Poste », entre tes identifiants, puis confirme la connexion directement depuis l'application sur ton téléphone." }
@@ -179,7 +179,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Le RSA est une aide financière pour les personnes avec peu ou pas de revenus, versée par la CAF, pour garantir un minimum de ressources. Si tu n'es pas sûr(e) d'y avoir droit, le module « Vérifier tous mes droits en une fois » propose un simulateur qui te le dira en quelques minutes.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "RIB", "Justificatifs de ressources"],
     steps: [
-      { title: "Vérifier son éligibilité", text: "Il faut avoir au moins 25 ans (ou être plus jeune avec des enfants), résider en France, et avoir des ressources faibles.", visual: "document" },
+      { title: "Vérifier son éligibilité", text: "Il faut avoir au moins 25 ans (ou être plus jeune avec des enfants), résider en France, et avoir des ressources faibles.", visual: "document", screenshot: "/screenshots/caf-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel caf.fr" },
       { title: "Faire la demande sur caf.fr", text: "Connecte-toi à ton compte CAF, puis va dans « Mes démarches » > « Faire une demande de RSA »." },
       { title: "Actualiser sa situation chaque trimestre", text: "Tu dois déclarer tes ressources tous les 3 mois pour continuer à recevoir le RSA." },
       { title: "L'accompagnement obligatoire", text: "En échange du RSA, tu dois signer un contrat d'engagement avec un accompagnement vers l'emploi ou la formation, souvent via France Travail." }
@@ -190,7 +190,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Contrairement au RSA, la prime d'activité est faite pour les personnes qui travaillent déjà mais avec un salaire modeste. Elle complète les revenus chaque mois. Le module « Vérifier tous mes droits en une fois » permet de vérifier ton éligibilité en même temps que d'autres aides.",
     documents: ["Justificatifs de revenus des 3 derniers mois", "RIB"],
     steps: [
-      { title: "Vérifier son éligibilité", text: "Utilise le simulateur sur caf.fr : il suffit d'indiquer tes revenus et ta situation familiale pour voir si tu y as droit.", visual: "document" },
+      { title: "Vérifier son éligibilité", text: "Utilise le simulateur sur caf.fr : il suffit d'indiquer tes revenus et ta situation familiale pour voir si tu y as droit.", visual: "document", screenshot: "/screenshots/caf-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel caf.fr" },
       { title: "Faire la demande sur caf.fr", text: "Dans ton compte CAF, va dans « Mes démarches » > « Faire une demande de prime d'activité »." },
       { title: "Déclarer ses revenus chaque trimestre", text: "Comme pour le RSA, une déclaration trimestrielle est nécessaire pour continuer à toucher la prime." }
     ] },
@@ -200,7 +200,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Si tu es malade et que ton médecin t'arrête, il faut transmettre l'arrêt à ton employeur et à la Sécurité Sociale rapidement pour être indemnisé et éviter des problèmes.",
     documents: ["Volet de l'arrêt de travail donné par le médecin"],
     steps: [
-      { title: "Le médecin envoie l'arrêt automatiquement", text: "Aujourd'hui, la plupart des médecins transmettent l'arrêt de travail directement à l'Assurance Maladie en ligne — tu n'as rien à faire de ce côté.", visual: "document" },
+      { title: "Le médecin envoie l'arrêt automatiquement", text: "Aujourd'hui, la plupart des médecins transmettent l'arrêt de travail directement à l'Assurance Maladie en ligne — tu n'as rien à faire de ce côté.", visual: "document", screenshot: "/screenshots/ameli-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel ameli.fr" },
       { title: "Envoyer le volet employeur", text: "Le médecin te donne un « volet 3 » à envoyer ou remettre à ton employeur dans les 48 heures." },
       { title: "Suivre son arrêt sur ameli.fr", text: "Dans ton compte ameli, la rubrique « Mes démarches » permet de voir si ton arrêt a bien été reçu et le calcul de tes indemnités." }
     ] },
@@ -268,7 +268,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "En arrivant dans un nouveau logement, l'électricité (et parfois le gaz) doivent être ouverts à ton nom, sinon tu n'as pas de courant.",
     documents: ["Adresse exacte du logement", "Date d'entrée souhaitée", "RIB pour le prélèvement"],
     steps: [
-      { title: "Choisir un fournisseur", text: "EDF est l'ancien fournisseur historique, mais il en existe d'autres (Engie, TotalEnergies...). Tu peux choisir librement.", visual: "document" },
+      { title: "Choisir un fournisseur", text: "EDF est l'ancien fournisseur historique, mais il en existe d'autres (Engie, TotalEnergies...). Tu peux choisir librement.", visual: "document", screenshot: "/screenshots/edf-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel EDF Particulier" },
       { title: "Faire la demande en ligne", text: "Sur le site du fournisseur choisi, indique l'adresse du logement et la date à laquelle tu veux que ça soit ouvert." },
       { title: "Relever le compteur à l'entrée", text: "Note le chiffre affiché sur le compteur le jour de ton entrée dans les lieux, pour éviter de payer la consommation du locataire précédent." }
     ] },
@@ -281,7 +281,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Le livret de famille regroupe les informations officielles sur ton mariage et tes enfants. Un acte de naissance est souvent demandé pour de nombreuses démarches (carte d'identité, mariage, retraite...).",
     documents: [],
     steps: [
-      { title: "Demander un acte de naissance en ligne", text: "Si tu es né en France, la demande se fait sur service-public.fr, en indiquant la mairie de naissance.", visual: "document" },
+      { title: "Demander un acte de naissance en ligne", text: "Si tu es né en France, la demande se fait sur service-public.fr, en indiquant la mairie de naissance.", visual: "document", screenshot: "/screenshots/servicepublic-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel service-public.fr" },
       { title: "Pour une naissance à l'étranger", text: "Il faut s'adresser au Service Central d'État Civil de Nantes (pour les Français nés à l'étranger) ou à l'ambassade du pays concerné." },
       { title: "Garder le livret de famille en lieu sûr", text: "C'est un document important à conserver : il sert par exemple pour inscrire un enfant à l'école ou faire une demande de prestations familiales." }
     ] },
@@ -312,7 +312,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Le PACS (Pacte Civil de Solidarité) et le mariage sont deux façons différentes d'officialiser une vie de couple en France, avec des droits différents.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "Acte de naissance de moins de 3 mois"],
     steps: [
-      { title: "PACS : où faire la demande", text: "Le PACS se fait à la mairie ou chez un notaire, avec une convention signée par les deux partenaires." },
+      { title: "PACS : où faire la demande", text: "Le PACS se fait à la mairie ou chez un notaire, avec une convention signée par les deux partenaires.", screenshot: "/screenshots/servicepublic-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel service-public.fr" },
       { title: "Mariage : le dossier à la mairie", text: "Il faut déposer un dossier à la mairie du lieu de résidence, avec les pièces d'identité et actes de naissance des deux futurs époux." },
       { title: "La publication des bans", text: "Avant un mariage, la mairie affiche une annonce publique (« bans ») pendant 10 jours minimum." },
       { title: "Mettre à jour ses papiers après", text: "Après un mariage ou un PACS, pense à mettre à jour ta situation auprès de la CAF, des impôts et de ton employeur." }
@@ -348,7 +348,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Le permis de conduire est souvent nécessaire pour travailler ou se déplacer, surtout hors du centre-ville. Les démarches varient si tu débutes ou si tu as déjà un permis d'un autre pays.",
     documents: ["Pièce d'identité", "Justificatif de domicile", "Photo d'identité"],
     steps: [
-      { title: "S'inscrire au code de la route", text: "Le code peut se préparer en auto-école ou en ligne (applications comme Ornikar, Code de la route ANTS gratuit)." },
+      { title: "S'inscrire au code de la route", text: "Le code peut se préparer en auto-école ou en ligne (applications comme Ornikar, Code de la route ANTS gratuit).", screenshot: "/screenshots/permis-ants.jpg", screenshotAlt: "Page d'accueil du site officiel permisdeconduire.ants.gouv.fr" },
       { title: "Passer l'examen du code", text: "L'examen se passe dans un centre agréé, sur ordinateur, avec 40 questions." },
       { title: "Prendre des leçons de conduite", text: "Une fois le code obtenu, les leçons pratiques se font en auto-école, jusqu'à ce que le moniteur te juge prêt pour l'examen." },
       { title: "Échanger un permis étranger", text: "Si tu as déjà un permis obtenu à l'étranger, une procédure d'échange existe sur permisdeconduire.ants.gouv.fr, sous certaines conditions selon le pays d'origine." }
@@ -359,7 +359,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Pour voter en France, il faut être inscrit sur les listes électorales de sa commune. Ce droit concerne les citoyens français, et pour certaines élections locales, les citoyens européens.",
     documents: ["Pièce d'identité", "Justificatif de domicile"],
     steps: [
-      { title: "Vérifier son inscription", text: "Sur service-public.fr, tu peux vérifier si tu es déjà inscrit sur les listes électorales de ta commune.", visual: "document" },
+      { title: "Vérifier son inscription", text: "Sur service-public.fr, tu peux vérifier si tu es déjà inscrit sur les listes électorales de ta commune.", visual: "document", screenshot: "/screenshots/servicepublic-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel service-public.fr" },
       { title: "S'inscrire en ligne", text: "Si tu ne l'es pas, l'inscription se fait directement sur service-public.fr, avec une pièce d'identité et un justificatif de domicile." },
       { title: "Respecter les délais", text: "L'inscription doit être faite avant une date limite fixée avant chaque élection, généralement plusieurs semaines avant le scrutin." }
     ] },
@@ -404,7 +404,7 @@ export const EXTRA_MODULES = [
     whatIsIt: "Le réseau des bibliothèques du Havre (plusieurs médiathèques dans différents quartiers) propose un accès gratuit à internet, des ordinateurs en libre-service, et des ateliers d'initiation à l'informatique — un bon complément à ta formation.",
     documents: ["Justificatif de domicile pour s'inscrire"],
     steps: [
-      { title: "S'inscrire gratuitement", text: "L'inscription au réseau des bibliothèques du Havre (bibliotheques.lehavre.fr) est gratuite et donne accès à toutes les médiathèques de la ville.", visual: "document" },
+      { title: "S'inscrire gratuitement", text: "L'inscription au réseau des bibliothèques du Havre (bibliotheques.lehavre.fr) est gratuite et donne accès à toutes les médiathèques de la ville.", visual: "document", screenshot: "/screenshots/bibliotheques-lehavre.jpg", screenshotAlt: "Page d'accueil du site officiel bibliotheques.lehavre.fr" },
       { title: "Utiliser les ordinateurs sur place", text: "Chaque médiathèque (Léopold Sédar Senghor, Martin Luther King, Caucriauville, Oscar Niemeyer...) dispose de postes informatiques avec internet, scanner et imprimante." },
       { title: "Profiter du Wi-Fi gratuit", text: "Toutes les médiathèques proposent un Wi-Fi gratuit, utile si tu n'as pas internet chez toi." },
       { title: "Participer aux ateliers", text: "Des ateliers « Initiation à l'informatique » sont régulièrement organisés — demande le programme sur place ou sur le site." }

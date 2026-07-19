@@ -260,6 +260,16 @@ Faute de données d'usage réelles (le site n'a pas encore été utilisé par de
 
 **Modules restants sans capture (46 sur 60)** : essentiellement les modules "appareils" (Windows, smartphone...) qui nécessiteraient des captures d'interfaces système plutôt que de sites web (approche différente, non traitée ici), et les modules moins prioritaires selon les parcours conseillés. À poursuivre progressivement, idéalement une fois que de vraies données d'usage seront disponibles.
 
+## Nouveautés (seizième itération) — 28 modules avec captures d'écran réelles
+
+Deuxième vague de généralisation : 14 modules supplémentaires (CARSAT, rémunération Normandie, casier judiciaire, carte d'identité, email, identité numérique, RSA, prime d'activité, arrêt maladie, compteur électricité/gaz, livret de famille, PACS/mariage, permis de conduire, listes électorales, médiathèque). **28 modules sur 60 ont désormais une vraie capture d'écran.**
+
+**Deux nouveaux blocages réseau détectés et évités** (même famille de problème que l'ANEF) : `solidarites.seinemaritime.fr` (MDPH 76) et `justice.fr` sont inaccessibles depuis mon environnement de travail. Un troisième site, `leboncoin.fr`, a renvoyé une page vide (probablement une protection anti-robot). Les trois ont été vérifiés avant intégration et écartés plutôt que d'utiliser une capture invalide — ces modules gardent leur icône schématique pour l'instant.
+
+**20 fichiers image au total, 1,3 Mo** — reste très léger. Certaines images sont réutilisées sur plusieurs étapes/modules quand le site officiel est le même (ex. caf.fr pour RSA et prime d'activité, service-public.fr pour plusieurs démarches).
+
+**Modules restants sans capture (32 sur 60)** : les 10 modules "appareils" (nécessiteraient des captures d'interfaces système, pas de sites web), les 3 sites bloqués mentionnés ci-dessus, MDPH, Mes Événements Emploi, mobilité, logement social, logement privé, assurance habitation, auto-entrepreneur, naturalisation, regroupement familial, aide juridictionnelle, arnaques en ligne, appels à l'étranger, numéros d'urgence, mot de passe/scanner/sauvegarde/visioconférence/signature (modules de compétences générales sans site unique associé).
+
 ## Structure du projet
 ```
 src/
