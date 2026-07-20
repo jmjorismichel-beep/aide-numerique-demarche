@@ -283,6 +283,14 @@ Dernière vague : 6 modules supplémentaires (Mes Événements Emploi, Pôle Mob
 
 À ce stade, je considère que la couverture par capture d'écran a atteint sa limite raisonnable avec les moyens disponibles dans cet environnement. Pour aller plus loin sur les modules "appareils" ou les sites bloqués, il faudrait soit un accès réseau différent, soit des captures manuelles fournies par vous.
 
+## Nouveautés (dix-huitième itération) — correctif important : boucle de synchronisation sur les pages publiques
+
+**Bug identifié et corrigé** : le mécanisme de synchronisation tentait de lire toutes les collections Firestore (users, groups, messages...) toutes les 30 secondes, **même quand personne n'était connecté** — par exemple sur la page d'inscription. Comme les règles de sécurité exigent d'être authentifié pour lire ces données, chaque tentative échouait avec une erreur "permissions insuffisantes", répétée indéfiniment en boucle. Selon les conditions réseau, cela pouvait ralentir sensiblement le chargement de la page d'inscription ou de connexion, avec parfois un chargement qui semblait ne jamais se terminer.
+
+**Correctif** : la synchronisation ne se déclenche désormais que si un utilisateur est réellement connecté. Sur les pages publiques (inscription, connexion), plus aucune tentative inutile n'est faite.
+
+**Si vous rencontriez un problème de langues manquantes, de chargement bloqué, ou d'affichage partiel sur la page d'inscription, ce correctif devrait le résoudre.** Après avoir redéployé cette version, testez en navigation privée (Ctrl+Shift+N) pour être certain de ne pas voir une ancienne version mise en cache par votre navigateur.
+
 ## Structure du projet
 ```
 src/

@@ -1,6 +1,6 @@
 import { doc, setDoc, deleteDoc, collection, getDocs } from 'firebase/firestore'
 import { db, uid } from './db'
-import { dbRemote, isOnline } from './firebase'
+import { dbRemote, isOnline, auth } from './firebase'
 
 // Collections Firestore synchronisées (même nom que les tables locales Dexie)
 const SYNCED_TABLES = [
@@ -37,7 +37,12 @@ export async function deleteRecord(table, id) {
 }
 
 export async function processSyncQueue() {
-  if (syncing || !dbRemote || !isOnline()) return
+  // Sans utilisateur connecté (ex: pages d'inscription/connexion), toute
+  // tentative de lecture/écriture Firestore est de toute façon refusée par
+  // les règles de sécurité — inutile de la tenter, ça ne faisait
+  // qu'accumuler des erreurs "permissions insuffisantes" en boucle toutes
+  // les 30 secondes sans jamais aboutir.
+  if (syncing || !dbRemote || !isOnline() || !auth?.currentUser) return
   syncing = true
   notify('syncing')
   try {
@@ -67,7 +72,7 @@ export async function processSyncQueue() {
 // comparaison sur updated_at) — sauf s'il existe une opération locale pending
 // sur le même id, auquel cas on garde la version locale pour ne pas l'écraser.
 export async function pullRemoteChanges() {
-  if (!dbRemote || !isOnline()) return
+  if (!dbRemote || !isOnline() || !auth?.currentUser) return
   const pendingIds = new Set((await db.syncQueue.toArray()).map(i => i.record?.id))
 
   for (const table of SYNCED_TABLES) {
