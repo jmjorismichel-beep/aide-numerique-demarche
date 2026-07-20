@@ -198,6 +198,12 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
 .speak-btn { background: none; border: 1.5px solid var(--sea); color: var(--sea); border-radius: 999px; padding: 4px 12px; font-size: .8rem; font-weight: 600; }
 
 .text-size-toggle { background: rgba(255,255,255,.2); color: white; border: none; border-radius: 999px; padding: 4px 12px; font-size: .8rem; }
+/* Sur certains navigateurs (Chrome/Windows notamment), la couleur du <select>
+   "fuit" dans la liste déroulante native (fond blanc), rendant le texte des
+   options non sélectionnées invisible (blanc sur blanc). On force donc une
+   couleur de texte lisible spécifiquement sur les <option>, indépendamment
+   de la couleur blanche utilisée pour le <select> lui-même sur le bandeau bleu. */
+.text-size-toggle option { color: var(--text); background: white; }
 
 .step-illustration { flex-shrink: 0; width: 40px; height: 40px; color: var(--coral); background: white; border-radius: 10px; padding: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
 .step-card-body { display: flex; gap: 12px; align-items: flex-start; }

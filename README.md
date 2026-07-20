@@ -291,6 +291,16 @@ Dernière vague : 6 modules supplémentaires (Mes Événements Emploi, Pôle Mob
 
 **Si vous rencontriez un problème de langues manquantes, de chargement bloqué, ou d'affichage partiel sur la page d'inscription, ce correctif devrait le résoudre.** Après avoir redéployé cette version, testez en navigation privée (Ctrl+Shift+N) pour être certain de ne pas voir une ancienne version mise en cache par votre navigateur.
 
+## Nouveautés (dix-neuvième itération) — le vrai bug des langues invisibles, enfin trouvé et corrigé
+
+Après une investigation approfondie (cache navigateur, service worker, cache Netlify, boucle de synchronisation...), la cause réelle du menu de langue qui semblait n'afficher que le français était **un bug CSS**, sans rapport avec le déploiement ou la mise en cache :
+
+Le sélecteur de langue utilise du texte blanc (`color: white`) pour rester lisible sur le bandeau bleu foncé du site. Mais sur certains navigateurs — Chrome sous Windows en particulier — cette couleur de texte "fuit" dans la liste déroulante elle-même une fois ouverte, qui a un fond blanc natif du système d'exploitation. Résultat : le texte des langues non sélectionnées s'affichait en **blanc sur fond blanc, donc invisible** — seul "Français" restait lisible car sélectionné (surligné en bleu). Les 13 langues étaient donc bien présentes et fonctionnelles depuis le début, simplement invisibles à l'œil dans la liste déroulante.
+
+**Correctif** : une couleur de texte est désormais forcée explicitement sur les options de la liste, indépendamment de la couleur du sélecteur lui-même.
+
+Cette investigation a aussi permis de découvrir et corriger un vrai problème de fond (voir itération précédente) : la boucle de synchronisation qui tournait inutilement sur les pages publiques. Les deux correctifs sont indépendants mais ont été trouvés dans la même série d'échanges.
+
 ## Structure du projet
 ```
 src/
