@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
+import { useI18nStore } from '../store/i18nStore'
+import { t } from '../data/translations/ui'
 import PasswordInput from '../components/PasswordInput'
 import { translateAuthError } from '../lib/authErrors'
 
 export default function Connexion() {
   const navigate = useNavigate()
   const { signIn, resetPassword } = useAuthStore()
+  const { lang } = useI18nStore()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -76,7 +79,7 @@ export default function Connexion() {
   return (
     <div className="auth-page">
       <div className="card">
-        <h2>Connexion</h2>
+        <h2>{t(lang, 'loginTitle')}</h2>
         {error && <p style={{ color: 'var(--red)' }}>{error}</p>}
         {!navigator.onLine && (
           <p style={{ color: 'var(--orange)', fontSize: '.9rem' }}>
@@ -85,21 +88,21 @@ export default function Connexion() {
         )}
         <form onSubmit={handleSubmit}>
           <div className="form-field">
-            <label>Adresse mail</label>
+            <label>{t(lang, 'email')}</label>
             <input required type="email" value={email} onChange={e => setEmail(e.target.value)} />
           </div>
-          <PasswordInput value={password} onChange={setPassword} />
+          <PasswordInput value={password} onChange={setPassword} label={t(lang, 'password')} />
           <p style={{ marginTop: -6, marginBottom: 14 }}>
             <button type="button" className="btn ghost" style={{ padding: 0, fontSize: '.85rem' }}
               onClick={() => { setModeOubli(true); setResetEmail(email) }}>
-              Mot de passe oublié ?
+              {t(lang, 'forgotPassword')}
             </button>
           </p>
           <button className="btn" type="submit" disabled={loading} style={{ width: '100%' }}>
-            {loading ? 'Connexion…' : 'Se connecter'}
+            {loading ? t(lang, 'signingIn') : t(lang, 'login')}
           </button>
         </form>
-        <p style={{ marginTop: 14 }}>Pas encore de compte ? <Link to="/inscription">S'inscrire</Link></p>
+        <p style={{ marginTop: 14 }}>Pas encore de compte ? <Link to="/inscription">{t(lang, 'signup')}</Link></p>
       </div>
     </div>
   )

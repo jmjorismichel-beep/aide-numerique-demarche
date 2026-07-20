@@ -5,6 +5,7 @@ import { useSettingsStore, TEXT_SIZE_LABELS } from '../store/settingsStore'
 import { useI18nStore, LANGUAGES } from '../store/i18nStore'
 import { onSyncStatusChange } from '../lib/sync'
 import { useUnreadCount } from '../lib/useUnreadCount'
+import { t } from '../data/translations/ui'
 import { db } from '../lib/db'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { notificationsSupported, requestNotificationPermission, shouldAskForPermission, notifyNewMessage } from '../lib/notifications'
@@ -99,29 +100,29 @@ export default function Layout({ children }) {
         <div className="container" style={{ paddingBottom: 0 }}>
           <nav className="nav-tabs">
             {!isFormateur && <>
-              <NavLink to="/dashboard" className={({isActive}) => isActive ? 'active' : ''}>Mes modules</NavLink>
-              <NavLink to="/parcours-conseille" className={({isActive}) => isActive ? 'active' : ''}>Par où commencer</NavLink>
-              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>Glossaire</NavLink>
+              <NavLink to="/dashboard" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'myModules')}</NavLink>
+              <NavLink to="/parcours-conseille" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'whereToStart')}</NavLink>
+              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'glossary')}</NavLink>
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
-                Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
+                {t(lang, 'messaging')} {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>
-              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>Mon compte</NavLink>
-              <NavLink to="/signaler-un-probleme" className={({isActive}) => isActive ? 'active' : ''}>Signaler un problème</NavLink>
+              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'myAccount')}</NavLink>
+              <NavLink to="/signaler-un-probleme" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'reportProblem')}</NavLink>
             </>}
             {isFormateur && <>
-              <NavLink to="/formateur" end className={({isActive}) => isActive ? 'active' : ''}>Activité</NavLink>
-              <NavLink to="/formateur/groupes" className={({isActive}) => isActive ? 'active' : ''}>Groupes</NavLink>
-              <NavLink to="/formateur/stagiaires" className={({isActive}) => isActive ? 'active' : ''}>Stagiaires</NavLink>
-              <NavLink to="/formateur/formateurs" className={({isActive}) => isActive ? 'active' : ''}>Formateurs</NavLink>
-              <NavLink to="/formateur/modules" className={({isActive}) => isActive ? 'active' : ''}>Contenu des modules</NavLink>
-              <NavLink to="/formateur/statistiques" className={({isActive}) => isActive ? 'active' : ''}>Statistiques</NavLink>
-              <NavLink to="/formateur/signalements" className={({isActive}) => isActive ? 'active' : ''}>Signalements</NavLink>
-              <NavLink to="/formateur/maintenance" className={({isActive}) => isActive ? 'active' : ''}>Maintenance</NavLink>
-              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>Glossaire</NavLink>
+              <NavLink to="/formateur" end className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'activity')}</NavLink>
+              <NavLink to="/formateur/groupes" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'groups')}</NavLink>
+              <NavLink to="/formateur/stagiaires" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'trainees')}</NavLink>
+              <NavLink to="/formateur/formateurs" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'trainers')}</NavLink>
+              <NavLink to="/formateur/modules" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'moduleContent')}</NavLink>
+              <NavLink to="/formateur/statistiques" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'statistics')}</NavLink>
+              <NavLink to="/formateur/signalements" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'reports')}</NavLink>
+              <NavLink to="/formateur/maintenance" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'maintenance')}</NavLink>
+              <NavLink to="/glossaire" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'glossary')}</NavLink>
               <NavLink to="/messagerie" className={({isActive}) => isActive ? 'active' : ''}>
-                Messagerie {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
+                {t(lang, 'messaging')} {unreadCount > 0 && <span className="unread-dot">{unreadCount}</span>}
               </NavLink>
-              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>Mon compte</NavLink>
+              <NavLink to="/mon-compte" className={({isActive}) => isActive ? 'active' : ''}>{t(lang, 'myAccount')}</NavLink>
             </>}
           </nav>
         </div>

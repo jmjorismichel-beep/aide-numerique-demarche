@@ -1,14 +1,7 @@
-// Traductions de l'interface (hors contenu des modules, voir moduleTranslations.js).
+// Traductions de l'interface (hors contenu des modules, voir modules.js).
 // Traduction automatique relue une fois mais PAS validée par des locuteurs natifs :
 // à faire vérifier avant un usage à grande échelle si l'exactitude est critique,
 // en particulier pour le dari/persan, l'albanais, le tigrinya et le somali.
-
-const KEYS = [
-  'myModules', 'messaging', 'activity', 'groups', 'trainees', 'moduleContent', 'statistics',
-  'glossary', 'whereToStart', 'logout', 'online', 'offline', 'syncing', 'login', 'signup',
-  'email', 'password', 'firstName', 'lastName', 'markAsDone', 'done', 'printPdf', 'listenAll',
-  'documentsToPrepare', 'whatIsThis', 'language'
-]
 
 export const UI = {
   fr: {
@@ -19,7 +12,21 @@ export const UI = {
     login: 'Connexion', signup: "S'inscrire", email: 'Adresse mail', password: 'Mot de passe',
     firstName: 'Prénom', lastName: 'Nom', markAsDone: 'Marquer comme terminé', done: 'Terminé',
     printPdf: 'Imprimer en PDF', listenAll: 'Écouter tout', documentsToPrepare: 'Documents à préparer avant de commencer',
-    whatIsThis: "C'est quoi, et pourquoi c'est utile ?", language: 'Langue'
+    whatIsThis: "C'est quoi, et pourquoi c'est utile ?", language: 'Langue',
+    myAccount: 'Mon compte', reportProblem: 'Signaler un problème', trainers: 'Formateurs',
+    reports: 'Signalements', maintenance: 'Maintenance',
+    signupTitle: 'Créer mon compte stagiaire', signupIntro: 'Ce formulaire crée un compte stagiaire.',
+    step1: 'Identité', step2: 'Mot de passe', step3: 'Niveaux', stepOf: 'Étape',
+    firstNamePh: 'Ex : Fatima', lastNamePh: 'Ex : Diallo', emailPh: 'Ex : fatima.diallo@email.fr',
+    next: 'Suivant', back: 'Retour', confirmPassword: 'Confirmer le mot de passe',
+    passwordHint: 'Au moins 6 caractères.', linguisticLevel: 'Niveau linguistique', computerLevel: 'Niveau informatique',
+    preferTest: 'Je préfère faire un test de positionnement pour déterminer mon niveau informatique',
+    createAccount: 'Créer mon compte', continueToTest: 'Continuer vers le test', creating: 'Création…',
+    alreadyRegistered: 'Déjà inscrit ?', areYouTrainer: 'Vous êtes formateur ? Cliquez ici',
+    trainerCode: 'Code formateur', emailInvalid: 'Cette adresse email ne semble pas valide.',
+    passwordTooShort: 'Le mot de passe doit contenir au moins 6 caractères.',
+    passwordMismatch: 'Les deux mots de passe ne sont pas identiques.',
+    loginTitle: 'Connexion', forgotPassword: 'Mot de passe oublié ?', signingIn: 'Connexion…'
   },
   en: {
     myModules: 'My modules', messaging: 'Messages', activity: 'Activity', groups: 'Groups',
@@ -29,7 +36,21 @@ export const UI = {
     login: 'Log in', signup: 'Sign up', email: 'Email address', password: 'Password',
     firstName: 'First name', lastName: 'Last name', markAsDone: 'Mark as done', done: 'Done',
     printPdf: 'Print as PDF', listenAll: 'Listen to all', documentsToPrepare: 'Documents to prepare before starting',
-    whatIsThis: 'What is this, and why is it useful?', language: 'Language'
+    whatIsThis: 'What is this, and why is it useful?', language: 'Language',
+    myAccount: 'My account', reportProblem: 'Report a problem', trainers: 'Trainers',
+    reports: 'Reports', maintenance: 'Maintenance',
+    signupTitle: 'Create my trainee account', signupIntro: 'This form creates a trainee account.',
+    step1: 'Identity', step2: 'Password', step3: 'Levels', stepOf: 'Step',
+    firstNamePh: 'E.g.: Fatima', lastNamePh: 'E.g.: Diallo', emailPh: 'E.g.: fatima.diallo@email.fr',
+    next: 'Next', back: 'Back', confirmPassword: 'Confirm password',
+    passwordHint: 'At least 6 characters.', linguisticLevel: 'Language level', computerLevel: 'Computer skill level',
+    preferTest: 'I\u2019d rather take a placement test to find out my computer skill level',
+    createAccount: 'Create my account', continueToTest: 'Continue to the test', creating: 'Creating…',
+    alreadyRegistered: 'Already registered?', areYouTrainer: 'Are you a trainer? Click here',
+    trainerCode: 'Trainer code', emailInvalid: 'This email address doesn\u2019t look valid.',
+    passwordTooShort: 'The password must be at least 6 characters.',
+    passwordMismatch: 'The two passwords don\u2019t match.',
+    loginTitle: 'Log in', forgotPassword: 'Forgot password?', signingIn: 'Logging in…'
   },
   es: {
     myModules: 'Mis módulos', messaging: 'Mensajes', activity: 'Actividad', groups: 'Grupos',
@@ -39,7 +60,21 @@ export const UI = {
     login: 'Iniciar sesión', signup: 'Registrarse', email: 'Correo electrónico', password: 'Contraseña',
     firstName: 'Nombre', lastName: 'Apellido', markAsDone: 'Marcar como terminado', done: 'Terminado',
     printPdf: 'Imprimir en PDF', listenAll: 'Escuchar todo', documentsToPrepare: 'Documentos a preparar antes de empezar',
-    whatIsThis: '¿Qué es esto y por qué es útil?', language: 'Idioma'
+    whatIsThis: '¿Qué es esto y por qué es útil?', language: 'Idioma',
+    myAccount: 'Mi cuenta', reportProblem: 'Informar de un problema', trainers: 'Formadores',
+    reports: 'Incidencias', maintenance: 'Mantenimiento',
+    signupTitle: 'Crear mi cuenta de alumno', signupIntro: 'Este formulario crea una cuenta de alumno.',
+    step1: 'Identidad', step2: 'Contraseña', step3: 'Niveles', stepOf: 'Paso',
+    firstNamePh: 'Ej.: Fatima', lastNamePh: 'Ej.: Diallo', emailPh: 'Ej.: fatima.diallo@email.fr',
+    next: 'Siguiente', back: 'Atrás', confirmPassword: 'Confirmar contraseña',
+    passwordHint: 'Al menos 6 caracteres.', linguisticLevel: 'Nivel de idioma', computerLevel: 'Nivel informático',
+    preferTest: 'Prefiero hacer una prueba de nivel para determinar mi nivel informático',
+    createAccount: 'Crear mi cuenta', continueToTest: 'Continuar a la prueba', creating: 'Creando…',
+    alreadyRegistered: '¿Ya tienes cuenta?', areYouTrainer: '¿Eres formador? Haz clic aquí',
+    trainerCode: 'Código de formador', emailInvalid: 'Esta dirección de correo no parece válida.',
+    passwordTooShort: 'La contraseña debe tener al menos 6 caracteres.',
+    passwordMismatch: 'Las dos contraseñas no coinciden.',
+    loginTitle: 'Iniciar sesión', forgotPassword: '¿Contraseña olvidada?', signingIn: 'Iniciando sesión…'
   },
   pt: {
     myModules: 'Meus módulos', messaging: 'Mensagens', activity: 'Atividade', groups: 'Grupos',
@@ -49,7 +84,21 @@ export const UI = {
     login: 'Entrar', signup: 'Cadastrar-se', email: 'E-mail', password: 'Senha',
     firstName: 'Nome', lastName: 'Sobrenome', markAsDone: 'Marcar como concluído', done: 'Concluído',
     printPdf: 'Imprimir em PDF', listenAll: 'Ouvir tudo', documentsToPrepare: 'Documentos a preparar antes de começar',
-    whatIsThis: 'O que é isso e por que é útil?', language: 'Idioma'
+    whatIsThis: 'O que é isso e por que é útil?', language: 'Idioma',
+    myAccount: 'Minha conta', reportProblem: 'Relatar um problema', trainers: 'Formadores',
+    reports: 'Relatos', maintenance: 'Manutenção',
+    signupTitle: 'Criar minha conta de formando', signupIntro: 'Este formulário cria uma conta de formando.',
+    step1: 'Identidade', step2: 'Senha', step3: 'Níveis', stepOf: 'Etapa',
+    firstNamePh: 'Ex.: Fatima', lastNamePh: 'Ex.: Diallo', emailPh: 'Ex.: fatima.diallo@email.fr',
+    next: 'Próximo', back: 'Voltar', confirmPassword: 'Confirmar senha',
+    passwordHint: 'Pelo menos 6 caracteres.', linguisticLevel: 'Nível de idioma', computerLevel: 'Nível de informática',
+    preferTest: 'Prefiro fazer um teste de nivelamento para determinar meu nível de informática',
+    createAccount: 'Criar minha conta', continueToTest: 'Continuar para o teste', creating: 'Criando…',
+    alreadyRegistered: 'Já tem conta?', areYouTrainer: 'É formador? Clique aqui',
+    trainerCode: 'Código de formador', emailInvalid: 'Este endereço de e-mail não parece válido.',
+    passwordTooShort: 'A senha deve ter pelo menos 6 caracteres.',
+    passwordMismatch: 'As duas senhas não coincidem.',
+    loginTitle: 'Entrar', forgotPassword: 'Esqueceu a senha?', signingIn: 'Entrando…'
   },
   ar: {
     myModules: 'وحداتي', messaging: 'الرسائل', activity: 'النشاط', groups: 'المجموعات',
@@ -59,7 +108,21 @@ export const UI = {
     login: 'تسجيل الدخول', signup: 'إنشاء حساب', email: 'البريد الإلكتروني', password: 'كلمة المرور',
     firstName: 'الاسم الأول', lastName: 'اسم العائلة', markAsDone: 'تم الانتهاء', done: 'مكتمل',
     printPdf: 'طباعة PDF', listenAll: 'استماع للكل', documentsToPrepare: 'المستندات التي يجب تحضيرها قبل البدء',
-    whatIsThis: 'ما هذا؟ ولماذا هو مفيد؟', language: 'اللغة'
+    whatIsThis: 'ما هذا؟ ولماذا هو مفيد؟', language: 'اللغة',
+    myAccount: 'حسابي', reportProblem: 'الإبلاغ عن مشكلة', trainers: 'المدربون',
+    reports: 'البلاغات', maintenance: 'الصيانة',
+    signupTitle: 'إنشاء حساب متدرب', signupIntro: 'هذا النموذج ينشئ حساب متدرب.',
+    step1: 'الهوية', step2: 'كلمة المرور', step3: 'المستويات', stepOf: 'الخطوة',
+    firstNamePh: 'مثال: فاطمة', lastNamePh: 'مثال: ديالو', emailPh: 'مثال: fatima.diallo@email.fr',
+    next: 'التالي', back: 'رجوع', confirmPassword: 'تأكيد كلمة المرور',
+    passwordHint: '6 أحرف على الأقل.', linguisticLevel: 'المستوى اللغوي', computerLevel: 'المستوى المعلوماتي',
+    preferTest: 'أفضل إجراء اختبار تحديد المستوى لمعرفة مستواي المعلوماتي',
+    createAccount: 'إنشاء حسابي', continueToTest: 'المتابعة إلى الاختبار', creating: 'جارٍ الإنشاء…',
+    alreadyRegistered: 'لديك حساب بالفعل؟', areYouTrainer: 'هل أنت مدرب؟ انقر هنا',
+    trainerCode: 'رمز المدرب', emailInvalid: 'عنوان البريد الإلكتروني هذا لا يبدو صالحاً.',
+    passwordTooShort: 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.',
+    passwordMismatch: 'كلمتا المرور غير متطابقتين.',
+    loginTitle: 'تسجيل الدخول', forgotPassword: 'نسيت كلمة المرور؟', signingIn: 'جارٍ تسجيل الدخول…'
   },
   ru: {
     myModules: 'Мои модули', messaging: 'Сообщения', activity: 'Активность', groups: 'Группы',
@@ -69,7 +132,21 @@ export const UI = {
     login: 'Вход', signup: 'Регистрация', email: 'Электронная почта', password: 'Пароль',
     firstName: 'Имя', lastName: 'Фамилия', markAsDone: 'Отметить как выполнено', done: 'Выполнено',
     printPdf: 'Распечатать PDF', listenAll: 'Прослушать всё', documentsToPrepare: 'Документы для подготовки перед началом',
-    whatIsThis: 'Что это и зачем это нужно?', language: 'Язык'
+    whatIsThis: 'Что это и зачем это нужно?', language: 'Язык',
+    myAccount: 'Мой аккаунт', reportProblem: 'Сообщить о проблеме', trainers: 'Тренеры',
+    reports: 'Обращения', maintenance: 'Обслуживание',
+    signupTitle: 'Создать аккаунт стажёра', signupIntro: 'Эта форма создаёт аккаунт стажёра.',
+    step1: 'Личность', step2: 'Пароль', step3: 'Уровни', stepOf: 'Шаг',
+    firstNamePh: 'Напр.: Fatima', lastNamePh: 'Напр.: Diallo', emailPh: 'Напр.: fatima.diallo@email.fr',
+    next: 'Далее', back: 'Назад', confirmPassword: 'Подтвердите пароль',
+    passwordHint: 'Минимум 6 символов.', linguisticLevel: 'Уровень языка', computerLevel: 'Уровень владения компьютером',
+    preferTest: 'Я предпочитаю пройти тест для определения моего уровня владения компьютером',
+    createAccount: 'Создать аккаунт', continueToTest: 'Перейти к тесту', creating: 'Создание…',
+    alreadyRegistered: 'Уже зарегистрированы?', areYouTrainer: 'Вы тренер? Нажмите здесь',
+    trainerCode: 'Код тренера', emailInvalid: 'Этот адрес электронной почты недействителен.',
+    passwordTooShort: 'Пароль должен содержать не менее 6 символов.',
+    passwordMismatch: 'Пароли не совпадают.',
+    loginTitle: 'Вход', forgotPassword: 'Забыли пароль?', signingIn: 'Вход…'
   },
   uk: {
     myModules: 'Мої модулі', messaging: 'Повідомлення', activity: 'Активність', groups: 'Групи',
@@ -79,7 +156,21 @@ export const UI = {
     login: 'Увійти', signup: 'Реєстрація', email: 'Електронна пошта', password: 'Пароль',
     firstName: "Ім'я", lastName: 'Прізвище', markAsDone: 'Позначити як виконано', done: 'Виконано',
     printPdf: 'Друк PDF', listenAll: 'Прослухати все', documentsToPrepare: 'Документи для підготовки перед початком',
-    whatIsThis: 'Що це і навіщо це потрібно?', language: 'Мова'
+    whatIsThis: 'Що це і навіщо це потрібно?', language: 'Мова',
+    myAccount: 'Мій акаунт', reportProblem: 'Повідомити про проблему', trainers: 'Тренери',
+    reports: 'Звернення', maintenance: 'Обслуговування',
+    signupTitle: 'Створити акаунт стажера', signupIntro: 'Ця форма створює акаунт стажера.',
+    step1: 'Особистість', step2: 'Пароль', step3: 'Рівні', stepOf: 'Крок',
+    firstNamePh: 'Напр.: Fatima', lastNamePh: 'Напр.: Diallo', emailPh: 'Напр.: fatima.diallo@email.fr',
+    next: 'Далі', back: 'Назад', confirmPassword: 'Підтвердіть пароль',
+    passwordHint: 'Щонайменше 6 символів.', linguisticLevel: 'Мовний рівень', computerLevel: 'Рівень володіння комп\u2019ютером',
+    preferTest: 'Я хочу пройти тест для визначення мого рівня володіння комп\u2019ютером',
+    createAccount: 'Створити акаунт', continueToTest: 'Перейти до тесту', creating: 'Створення…',
+    alreadyRegistered: 'Вже зареєстровані?', areYouTrainer: 'Ви тренер? Натисніть тут',
+    trainerCode: 'Код тренера', emailInvalid: 'Ця електронна адреса виглядає недійсною.',
+    passwordTooShort: 'Пароль має містити щонайменше 6 символів.',
+    passwordMismatch: 'Паролі не збігаються.',
+    loginTitle: 'Увійти', forgotPassword: 'Забули пароль?', signingIn: 'Вхід…'
   },
   tr: {
     myModules: 'Modüllerim', messaging: 'Mesajlar', activity: 'Etkinlik', groups: 'Gruplar',
@@ -89,7 +180,21 @@ export const UI = {
     login: 'Giriş yap', signup: 'Kayıt ol', email: 'E-posta adresi', password: 'Şifre',
     firstName: 'Ad', lastName: 'Soyad', markAsDone: 'Tamamlandı olarak işaretle', done: 'Tamamlandı',
     printPdf: "PDF olarak yazdır", listenAll: 'Tümünü dinle', documentsToPrepare: 'Başlamadan önce hazırlanacak belgeler',
-    whatIsThis: 'Bu nedir ve neden faydalı?', language: 'Dil'
+    whatIsThis: 'Bu nedir ve neden faydalı?', language: 'Dil',
+    myAccount: 'Hesabım', reportProblem: 'Sorun bildir', trainers: 'Eğitmenler',
+    reports: 'Bildirimler', maintenance: 'Bakım',
+    signupTitle: 'Kursiyer hesabımı oluştur', signupIntro: 'Bu form bir kursiyer hesabı oluşturur.',
+    step1: 'Kimlik', step2: 'Şifre', step3: 'Seviyeler', stepOf: 'Adım',
+    firstNamePh: 'Örn: Fatima', lastNamePh: 'Örn: Diallo', emailPh: 'Örn: fatima.diallo@email.fr',
+    next: 'İleri', back: 'Geri', confirmPassword: 'Şifreyi onaylayın',
+    passwordHint: 'En az 6 karakter.', linguisticLevel: 'Dil seviyesi', computerLevel: 'Bilgisayar seviyesi',
+    preferTest: 'Bilgisayar seviyemi belirlemek için bir seviye tespit testi yapmayı tercih ederim',
+    createAccount: 'Hesabımı oluştur', continueToTest: 'Teste devam et', creating: 'Oluşturuluyor…',
+    alreadyRegistered: 'Zaten kayıtlı mısınız?', areYouTrainer: 'Eğitmen misiniz? Buraya tıklayın',
+    trainerCode: 'Eğitmen kodu', emailInvalid: 'Bu e-posta adresi geçerli görünmüyor.',
+    passwordTooShort: 'Şifre en az 6 karakter olmalıdır.',
+    passwordMismatch: 'İki şifre eşleşmiyor.',
+    loginTitle: 'Giriş yap', forgotPassword: 'Şifrenizi mi unuttunuz?', signingIn: 'Giriş yapılıyor…'
   },
   fa: {
     myModules: 'ماژول‌های من', messaging: 'پیام‌ها', activity: 'فعالیت', groups: 'گروه‌ها',
@@ -99,7 +204,21 @@ export const UI = {
     login: 'ورود', signup: 'ثبت‌نام', email: 'ایمیل', password: 'رمز عبور',
     firstName: 'نام', lastName: 'نام خانوادگی', markAsDone: 'علامت‌گذاری به‌عنوان انجام‌شده', done: 'انجام‌شده',
     printPdf: 'چاپ PDF', listenAll: 'شنیدن همه', documentsToPrepare: 'مدارک لازم قبل از شروع',
-    whatIsThis: 'این چیست و چرا مفید است؟', language: 'زبان'
+    whatIsThis: 'این چیست و چرا مفید است؟', language: 'زبان',
+    myAccount: 'حساب من', reportProblem: 'گزارش یک مشکل', trainers: 'مربیان',
+    reports: 'گزارش‌ها', maintenance: 'نگهداری',
+    signupTitle: 'ایجاد حساب کارآموز', signupIntro: 'این فرم یک حساب کارآموز ایجاد می‌کند.',
+    step1: 'هویت', step2: 'رمز عبور', step3: 'سطوح', stepOf: 'مرحله',
+    firstNamePh: 'مثال: فاطمه', lastNamePh: 'مثال: دیالو', emailPh: 'مثال: fatima.diallo@email.fr',
+    next: 'بعدی', back: 'بازگشت', confirmPassword: 'تأیید رمز عبور',
+    passwordHint: 'حداقل ۶ کاراکتر.', linguisticLevel: 'سطح زبان', computerLevel: 'سطح کامپیوتر',
+    preferTest: 'ترجیح می‌دهم آزمون تعیین سطح بدهم تا سطح کامپیوتری‌ام مشخص شود',
+    createAccount: 'ایجاد حساب من', continueToTest: 'ادامه به آزمون', creating: 'در حال ایجاد…',
+    alreadyRegistered: 'قبلاً ثبت‌نام کرده‌اید؟', areYouTrainer: 'آیا مربی هستید؟ اینجا کلیک کنید',
+    trainerCode: 'کد مربی', emailInvalid: 'این آدرس ایمیل معتبر به نظر نمی‌رسد.',
+    passwordTooShort: 'رمز عبور باید حداقل ۶ کاراکتر باشد.',
+    passwordMismatch: 'دو رمز عبور یکسان نیستند.',
+    loginTitle: 'ورود', forgotPassword: 'رمز عبور را فراموش کرده‌اید؟', signingIn: 'در حال ورود…'
   },
   sq: {
     myModules: 'Modulet e mia', messaging: 'Mesazhet', activity: 'Aktiviteti', groups: 'Grupet',
@@ -109,7 +228,21 @@ export const UI = {
     login: 'Hyni', signup: 'Regjistrohuni', email: 'Adresa e email-it', password: 'Fjalëkalimi',
     firstName: 'Emri', lastName: 'Mbiemri', markAsDone: 'Shëno si të përfunduar', done: 'Përfunduar',
     printPdf: 'Printo si PDF', listenAll: 'Dëgjo gjithçka', documentsToPrepare: 'Dokumentet për t\'u përgatitur para se të fillosh',
-    whatIsThis: 'Çfarë është kjo, dhe pse është e dobishme?', language: 'Gjuha'
+    whatIsThis: 'Çfarë është kjo, dhe pse është e dobishme?', language: 'Gjuha',
+    myAccount: 'Llogaria ime', reportProblem: 'Raportoni një problem', trainers: 'Formuesit',
+    reports: 'Raportimet', maintenance: 'Mirëmbajtja',
+    signupTitle: 'Krijo llogarinë time të kursantit', signupIntro: 'Ky formular krijon një llogari kursanti.',
+    step1: 'Identiteti', step2: 'Fjalëkalimi', step3: 'Nivelet', stepOf: 'Hapi',
+    firstNamePh: 'P.sh.: Fatima', lastNamePh: 'P.sh.: Diallo', emailPh: 'P.sh.: fatima.diallo@email.fr',
+    next: 'Tjetra', back: 'Prapa', confirmPassword: 'Konfirmoni fjalëkalimin',
+    passwordHint: 'Të paktën 6 karaktere.', linguisticLevel: 'Niveli gjuhësor', computerLevel: 'Niveli i kompjuterit',
+    preferTest: 'Preferoj të bëj një test vlerësimi për të përcaktuar nivelin tim të kompjuterit',
+    createAccount: 'Krijo llogarinë time', continueToTest: 'Vazhdo te testi', creating: 'Duke krijuar…',
+    alreadyRegistered: 'Tashmë të regjistruar?', areYouTrainer: 'Jeni formues? Klikoni këtu',
+    trainerCode: 'Kodi i formuesit', emailInvalid: 'Kjo adresë email nuk duket e vlefshme.',
+    passwordTooShort: 'Fjalëkalimi duhet të ketë të paktën 6 karaktere.',
+    passwordMismatch: 'Dy fjalëkalimet nuk përputhen.',
+    loginTitle: 'Hyni', forgotPassword: 'Keni harruar fjalëkalimin?', signingIn: 'Duke hyrë…'
   },
   ti: {
     myModules: 'ናይ ኣነ ሞጁላት', messaging: 'መልእኽትታት', activity: 'ንጥፈት', groups: 'ጉጅለታት',
@@ -119,7 +252,21 @@ export const UI = {
     login: 'እቶ', signup: 'ተመዝገብ', email: 'ኢመይል', password: 'መሕለፊ ቃል',
     firstName: 'ቀዳማይ ስም', lastName: 'ስም ስድራ', markAsDone: 'ከም ዝተወደአ ምልክት ግበር', done: 'ተወዲኡ',
     printPdf: 'ሕተም PDF', listenAll: 'ኩሉ ስማዕ', documentsToPrepare: 'ቅድሚ ምጅማርካ ክትዳሎ ዘለካ ሰነዳት',
-    whatIsThis: 'እዚ እንታይ እዩ፣ ስለምንታይከ ጠቓሚ ይኸውን?', language: 'ቋንቋ'
+    whatIsThis: 'እዚ እንታይ እዩ፣ ስለምንታይከ ጠቓሚ ይኸውን?', language: 'ቋንቋ',
+    myAccount: 'ሕሳበይ', reportProblem: 'ጸገም ምሕባር', trainers: 'ኣሰልጠንቲ',
+    reports: 'ጸብጻባት', maintenance: 'ጥገና',
+    signupTitle: 'ናይ ተሳታፊ ሕሳብ ምፍጣር', signupIntro: 'እዚ ቅጥዒ ናይ ተሳታፊ ሕሳብ ይፈጥር።',
+    step1: 'መንነት', step2: 'መሕለፊ ቃል', step3: 'ደረጃታት', stepOf: 'ደረጃ',
+    firstNamePh: 'ንኣብነት፦ ፋጢማ', lastNamePh: 'ንኣብነት፦ ድያሎ', emailPh: 'ንኣብነት፦ fatima.diallo@email.fr',
+    next: 'ቀጺሉ', back: 'ንድሕሪት', confirmPassword: 'መሕለፊ ቃል ኣረጋግጽ',
+    passwordHint: 'ውሑድ 6 ፊደላት።', linguisticLevel: 'ናይ ቋንቋ ደረጃ', computerLevel: 'ናይ ኮምፒተር ደረጃ',
+    preferTest: 'ደረጃይ ንምፍላጥ ናይ ደረጃ መርመራ ክገብር እመርጽ',
+    createAccount: 'ሕሳበይ ፍጠር', continueToTest: 'ናብ መርመራ ቀጽል', creating: 'ይፍጠር ኣሎ…',
+    alreadyRegistered: 'ቅድሚ ሕጂ ተመዝጊብካ?', areYouTrainer: 'ኣሰልጣኒ ዲኻ? ኣብዚ ጠውቕ',
+    trainerCode: 'ኮድ ኣሰልጣኒ', emailInvalid: 'እዚ ኢመይል ትኽክል ኣይመስልን።',
+    passwordTooShort: 'መሕለፊ ቃል ውሑድ 6 ፊደላት ክህልዎ ኣለዎ።',
+    passwordMismatch: 'ክልቲኦም መሕለፊ ቃላት ኣይሰማምዑን።',
+    loginTitle: 'እቶ', forgotPassword: 'መሕለፊ ቃል ረሲዕካ?', signingIn: 'ይኣቱ ኣሎ…'
   },
   so: {
     myModules: 'Casharradayda', messaging: 'Fariimaha', activity: 'Howsha', groups: 'Kooxaha',
@@ -129,7 +276,21 @@ export const UI = {
     login: 'Gal', signup: 'Isdiiwaangeli', email: 'Ciwaanka email-ka', password: 'Furaha sirta ah',
     firstName: 'Magaca', lastName: 'Magaca dambe', markAsDone: 'Calaamadee dhammaystiran', done: 'Dhammaystiran',
     printPdf: 'Daabac PDF', listenAll: 'Dhagayso dhammaan', documentsToPrepare: 'Dukumentiga la diyaarin lahaa ka hor bilowga',
-    whatIsThis: 'Waa maxay tan, iyo maxay faa\'iido u leedahay?', language: 'Luqadda'
+    whatIsThis: 'Waa maxay tan, iyo maxay faa\'iido u leedahay?', language: 'Luqadda',
+    myAccount: 'Akoonkayga', reportProblem: 'Ka warbixi dhibaato', trainers: 'Tababarayaasha',
+    reports: 'Warbixinnada', maintenance: 'Dayactirka',
+    signupTitle: 'Samee akoonkayga tababarayaasha', signupIntro: 'Foomkani wuxuu abuuraa akoon tababare.',
+    step1: 'Aqoonsiga', step2: 'Furaha sirta ah', step3: 'Heerarka', stepOf: 'Tallaabo',
+    firstNamePh: 'Tusaale: Fatima', lastNamePh: 'Tusaale: Diallo', emailPh: 'Tusaale: fatima.diallo@email.fr',
+    next: 'Xiga', back: 'Dib u noqo', confirmPassword: 'Xaqiiji furaha sirta ah',
+    passwordHint: 'Ugu yaraan 6 xaraf.', linguisticLevel: 'Heerka luqadda', computerLevel: 'Heerka kombiyuutarka',
+    preferTest: 'Waxaan doorbidayaa inaan sameeyo imtixaan cabbir si loo ogaado heerkayga kombiyuutarka',
+    createAccount: 'Samee akoonkayga', continueToTest: 'Sii wad imtixaanka', creating: 'Waa la samaynayaa…',
+    alreadyRegistered: 'Horeba ma u diiwaan gashan tahay?', areYouTrainer: 'Ma tahay tababare? Halkan guji',
+    trainerCode: 'Koodhka tababare', emailInvalid: 'Ciwaankan email-ka ma eegto mid sax ah.',
+    passwordTooShort: 'Furaha sirta ah waa inuu yeeshaa ugu yaraan 6 xaraf.',
+    passwordMismatch: 'Labada furayaal sirta ah isku mid ma aha.',
+    loginTitle: 'Gal', forgotPassword: 'Ma illowday furahaaga sirta ah?', signingIn: 'Waa la galayaa…'
   },
   zh: {
     myModules: '我的课程', messaging: '消息', activity: '活动', groups: '小组',
@@ -139,7 +300,21 @@ export const UI = {
     login: '登录', signup: '注册', email: '电子邮箱', password: '密码',
     firstName: '名字', lastName: '姓氏', markAsDone: '标记为已完成', done: '已完成',
     printPdf: '打印为PDF', listenAll: '收听全部', documentsToPrepare: '开始前需准备的文件',
-    whatIsThis: '这是什么，为什么有用？', language: '语言'
+    whatIsThis: '这是什么，为什么有用？', language: '语言',
+    myAccount: '我的账户', reportProblem: '报告问题', trainers: '培训师',
+    reports: '举报', maintenance: '维护',
+    signupTitle: '创建我的学员账户', signupIntro: '此表格用于创建学员账户。',
+    step1: '身份信息', step2: '密码', step3: '等级', stepOf: '步骤',
+    firstNamePh: '例：Fatima', lastNamePh: '例：Diallo', emailPh: '例：fatima.diallo@email.fr',
+    next: '下一步', back: '返回', confirmPassword: '确认密码',
+    passwordHint: '至少6个字符。', linguisticLevel: '语言水平', computerLevel: '计算机水平',
+    preferTest: '我更愿意做一个水平测试来确定我的计算机水平',
+    createAccount: '创建我的账户', continueToTest: '继续测试', creating: '创建中…',
+    alreadyRegistered: '已经注册了？', areYouTrainer: '您是培训师吗？点击这里',
+    trainerCode: '培训师代码', emailInvalid: '此电子邮箱地址似乎无效。',
+    passwordTooShort: '密码必须至少包含6个字符。',
+    passwordMismatch: '两次输入的密码不一致。',
+    loginTitle: '登录', forgotPassword: '忘记密码？', signingIn: '登录中…'
   }
 }
 

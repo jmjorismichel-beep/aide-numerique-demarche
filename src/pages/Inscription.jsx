@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
+import { useI18nStore } from '../store/i18nStore'
+import { t } from '../data/translations/ui'
 import PasswordInput from '../components/PasswordInput'
 import { translateAuthError } from '../lib/authErrors'
 import { NIVEAUX_INFO } from '../data/testQuestions'
@@ -15,11 +17,11 @@ const NIVEAU_INFO_HELP = {
   avance: "Tu es autonome avec un ordinateur ou un smartphone au quotidien."
 }
 
-const STEPS = ['Identité', 'Mot de passe', 'Niveaux']
-
 export default function Inscription() {
   const navigate = useNavigate()
   const { signUp } = useAuthStore()
+  const { lang } = useI18nStore()
+  const STEPS = [t(lang, 'step1'), t(lang, 'step2'), t(lang, 'step3')]
   const [step, setStep] = useState(0)
   const [form, setForm] = useState({
     prenom: '', nom: '', email: '', password: '', confirmPassword: '', inviteCode: '',
@@ -36,11 +38,11 @@ export default function Inscription() {
 
   // Validation en direct, affichée sous chaque champ une fois qu'on l'a quitté
   const emailError = touched.email && form.email && !EMAIL_REGEX.test(form.email)
-    ? "Cette adresse email ne semble pas valide." : null
+    ? t(lang, 'emailInvalid') : null
   const passwordError = touched.password && form.password && form.password.length < 6
-    ? "Le mot de passe doit contenir au moins 6 caractères." : null
+    ? t(lang, 'passwordTooShort') : null
   const confirmError = touched.confirmPassword && form.confirmPassword && form.confirmPassword !== form.password
-    ? "Les deux mots de passe ne sont pas identiques." : null
+    ? t(lang, 'passwordMismatch') : null
 
   const step1Valid = form.prenom.trim() && form.nom.trim() && EMAIL_REGEX.test(form.email)
   const step2Valid = form.password.length >= 6 && form.password === form.confirmPassword
@@ -85,9 +87,9 @@ export default function Inscription() {
   return (
     <div className="auth-page">
       <div className="card">
-        <h2>Créer mon compte stagiaire</h2>
+        <h2>{t(lang, 'signupTitle')}</h2>
         <p style={{ color: 'var(--muted)', fontSize: '.9rem', marginTop: -8 }}>
-          Ce formulaire crée un compte stagiaire.
+          {t(lang, 'signupIntro')}
         </p>
 
         <div className="step-progress">
@@ -99,7 +101,7 @@ export default function Inscription() {
           ))}
         </div>
         <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '.85rem', marginTop: -6 }}>
-          Étape {step + 1} sur {STEPS.length}
+          {t(lang, 'stepOf')} {step + 1} / {STEPS.length}
         </p>
 
         {error && <p style={{ color: 'var(--red)' }}>{error}</p>}
@@ -108,34 +110,34 @@ export default function Inscription() {
           {step === 0 && (
             <>
               <div className="form-field">
-                <label>Prénom</label>
-                <input required placeholder="Ex : Fatima" value={form.prenom} onChange={e => set('prenom')(e.target.value)} />
+                <label>{t(lang, 'firstName')}</label>
+                <input required placeholder={t(lang, 'firstNamePh')} value={form.prenom} onChange={e => set('prenom')(e.target.value)} />
               </div>
               <div className="form-field">
-                <label>Nom</label>
-                <input required placeholder="Ex : Diallo" value={form.nom} onChange={e => set('nom')(e.target.value)} />
+                <label>{t(lang, 'lastName')}</label>
+                <input required placeholder={t(lang, 'lastNamePh')} value={form.nom} onChange={e => set('nom')(e.target.value)} />
               </div>
               <div className="form-field">
-                <label>Adresse mail</label>
-                <input required type="email" placeholder="Ex : fatima.diallo@email.fr" value={form.email}
+                <label>{t(lang, 'email')}</label>
+                <input required type="email" placeholder={t(lang, 'emailPh')} value={form.email}
                   onChange={e => set('email')(e.target.value)} onBlur={markTouched('email')} />
                 {emailError && <small style={{ color: 'var(--red)' }}>{emailError}</small>}
               </div>
-              <button type="button" className="btn" style={{ width: '100%' }} onClick={suivant}>Suivant →</button>
+              <button type="button" className="btn" style={{ width: '100%' }} onClick={suivant}>{t(lang, 'next')} →</button>
             </>
           )}
 
           {step === 1 && (
             <>
-              <PasswordInput value={form.password} onChange={set('password')} id="password" label="Mot de passe" showHint />
+              <PasswordInput value={form.password} onChange={set('password')} id="password" label={t(lang, 'password')} showHint />
               {passwordError && <small style={{ color: 'var(--red)', display: 'block', marginTop: -12, marginBottom: 12 }}>{passwordError}</small>}
               <div onBlur={markTouched('confirmPassword')}>
-                <PasswordInput value={form.confirmPassword} onChange={set('confirmPassword')} id="confirmPassword" label="Confirmer le mot de passe" />
+                <PasswordInput value={form.confirmPassword} onChange={set('confirmPassword')} id="confirmPassword" label={t(lang, 'confirmPassword')} />
               </div>
               {confirmError && <small style={{ color: 'var(--red)', display: 'block', marginTop: -12, marginBottom: 12 }}>{confirmError}</small>}
               <div style={{ display: 'flex', gap: 10 }}>
-                <button type="button" className="btn secondary" onClick={precedent}>← Retour</button>
-                <button type="button" className="btn" style={{ flex: 1 }} onClick={suivant}>Suivant →</button>
+                <button type="button" className="btn secondary" onClick={precedent}>← {t(lang, 'back')}</button>
+                <button type="button" className="btn" style={{ flex: 1 }} onClick={suivant}>{t(lang, 'next')} →</button>
               </div>
             </>
           )}
@@ -143,14 +145,14 @@ export default function Inscription() {
           {step === 2 && (
             <>
               <div className="form-field">
-                <label>Niveau linguistique</label>
+                <label>{t(lang, 'linguisticLevel')}</label>
                 <select value={form.niveauLinguistique} onChange={e => set('niveauLinguistique')(e.target.value)}>
                   {NIVEAUX_LINGUISTIQUES.map(n => <option key={n} value={n}>{n}</option>)}
                 </select>
               </div>
 
               <div className="form-field">
-                <label>Niveau informatique</label>
+                <label>{t(lang, 'computerLevel')}</label>
                 <select value={form.niveauInformatique} onChange={e => set('niveauInformatique')(e.target.value)}>
                   {Object.entries(NIVEAUX_INFO).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
                 </select>
@@ -160,30 +162,30 @@ export default function Inscription() {
               <div className="form-field" style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                 <input type="checkbox" id="test" checked={voulTest} onChange={e => setVoulTest(e.target.checked)} style={{ width: 18, height: 18 }} />
                 <label htmlFor="test" style={{ fontWeight: 400 }}>
-                  Je préfère faire un test de positionnement pour déterminer mon niveau informatique
+                  {t(lang, 'preferTest')}
                 </label>
               </div>
 
               <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-                <button type="button" className="btn secondary" onClick={precedent}>← Retour</button>
+                <button type="button" className="btn secondary" onClick={precedent}>← {t(lang, 'back')}</button>
                 <button className="btn" type="submit" disabled={loading} style={{ flex: 1 }}>
-                  {voulTest ? 'Continuer vers le test' : loading ? 'Création…' : 'Créer mon compte'}
+                  {voulTest ? t(lang, 'continueToTest') : loading ? t(lang, 'creating') : t(lang, 'createAccount')}
                 </button>
               </div>
             </>
           )}
         </form>
 
-        <p style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid #e5e7eb' }}>Déjà inscrit ? <Link to="/connexion">Se connecter</Link></p>
+        <p style={{ marginTop: 20, paddingTop: 16, borderTop: '1px solid #e5e7eb' }}>{t(lang, 'alreadyRegistered')} <Link to="/connexion">{t(lang, 'login')}</Link></p>
 
         <p style={{ marginTop: 10 }}>
           <button type="button" className="btn-link-discreet" onClick={() => setAfficherCodeFormateur(v => !v)}>
-            Vous êtes formateur ? Cliquez ici
+            {t(lang, 'areYouTrainer')}
           </button>
         </p>
         {afficherCodeFormateur && (
           <div className="form-field">
-            <label>Code formateur</label>
+            <label>{t(lang, 'trainerCode')}</label>
             <input value={form.inviteCode} onChange={e => set('inviteCode')(e.target.value)} placeholder="Donné par votre organisme" />
             <small className="field-hint">Renseignez ce code puis complétez normalement le formulaire ci-dessus. Pour des raisons de sécurité, ton compte n'obtient pas le rôle formateur automatiquement : un formateur déjà présent devra approuver ta demande depuis son espace, généralement rapidement.</small>
           </div>

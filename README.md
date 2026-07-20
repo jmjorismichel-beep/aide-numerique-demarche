@@ -301,6 +301,14 @@ Le sélecteur de langue utilise du texte blanc (`color: white`) pour rester lisi
 
 Cette investigation a aussi permis de découvrir et corriger un vrai problème de fond (voir itération précédente) : la boucle de synchronisation qui tournait inutilement sur les pages publiques. Les deux correctifs sont indépendants mais ont été trouvés dans la même série d'échanges.
 
+## Nouveautés (vingtième itération) — le formulaire d'inscription et la navigation basculent enfin de langue
+
+**Le vrai manque révélé par votre question** : les modules changeaient bien de langue, mais le formulaire d'inscription et les menus de navigation ("Mes modules", "Glossaire", "Messagerie"...) étaient codés uniquement en français, sans jamais être branchés au système de traduction — un oubli qui n'était pas visible tant qu'on ne changeait pas la langue avant de s'inscrire.
+
+**Corrigé** : le formulaire d'inscription en 3 étapes (titres, champs, boutons, messages d'erreur), la page de connexion, et tous les libellés de navigation (stagiaire et formateur) basculent maintenant correctement dans la langue choisie, avec le même mécanisme que les modules. Ajout d'environ 25 nouvelles clés de traduction dans les 13 langues (`src/data/translations/ui.js`).
+
+**Ce qui reste en français pour l'instant** (périmètre volontairement limité pour cette passe) : les libellés détaillés des 4 niveaux informatiques ("Totalement débutant", "Moyen"...) et leurs textes d'aide, le contenu de la page "Mot de passe oublié", et les pages internes de l'espace formateur (Groupes, Stagiaires, Statistiques...) qui n'étaient de toute façon destinées qu'aux formateurs, présumés plus à l'aise en français dans ce contexte. Le glossaire, la messagerie et les autres pages stagiaire restent aussi en français pour leur propre contenu (au-delà de la navigation) — un chantier à part si souhaité.
+
 ## Structure du projet
 ```
 src/
