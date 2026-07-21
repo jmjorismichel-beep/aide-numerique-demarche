@@ -309,6 +309,12 @@ Cette investigation a aussi permis de découvrir et corriger un vrai problème d
 
 **Ce qui reste en français pour l'instant** (périmètre volontairement limité pour cette passe) : les libellés détaillés des 4 niveaux informatiques ("Totalement débutant", "Moyen"...) et leurs textes d'aide, le contenu de la page "Mot de passe oublié", et les pages internes de l'espace formateur (Groupes, Stagiaires, Statistiques...) qui n'étaient de toute façon destinées qu'aux formateurs, présumés plus à l'aise en français dans ce contexte. Le glossaire, la messagerie et les autres pages stagiaire restent aussi en français pour leur propre contenu (au-delà de la navigation) — un chantier à part si souhaité.
 
+## Nouveautés (vingt-et-unième itération) — explication des niveaux A1 à C2
+
+Ajout d'une explication en langage simple sous le menu "Niveau linguistique" du formulaire d'inscription, qui change selon le niveau sélectionné — utile pour les personnes qui ne connaissent pas le Cadre européen commun de référence pour les langues (CECRL). Par exemple, en sélectionnant A1 : *"Découverte : tu comprends et utilises quelques mots et phrases très simples."*
+
+Les 6 niveaux (A1 à C2) restent inchangés dans leur structure ; seule l'explication qui les accompagne est nouvelle. Traduit dans les 13 langues, avec le même mécanisme que le reste du formulaire.
+
 ## Structure du projet
 ```
 src/

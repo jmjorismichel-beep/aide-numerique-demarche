@@ -149,6 +149,7 @@ export default function Inscription() {
                 <select value={form.niveauLinguistique} onChange={e => set('niveauLinguistique')(e.target.value)}>
                   {NIVEAUX_LINGUISTIQUES.map(n => <option key={n} value={n}>{n}</option>)}
                 </select>
+                <small className="field-hint">{t(lang, `cecr${form.niveauLinguistique}`)}</small>
               </div>
 
               <div className="form-field">
