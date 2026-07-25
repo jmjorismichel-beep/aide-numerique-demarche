@@ -217,6 +217,15 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
 }
 .skip-link:focus { left: 0; }
 
+.site-footer {
+  text-align: center;
+  padding: 24px 20px 32px;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.site-footer a { color: var(--muted); text-decoration: underline; }
+.site-footer a:hover { color: var(--sea); }
+
 .fr-subtitle { color: var(--muted); font-size: .8rem; font-style: italic; margin: -6px 0 4px; }
 [dir="rtl"] .fr-subtitle { font-style: normal; }
 

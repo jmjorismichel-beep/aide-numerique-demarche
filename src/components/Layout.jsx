@@ -128,6 +128,9 @@ export default function Layout({ children }) {
         </div>
       )}
       <main id="contenu-principal" className="container">{children}</main>
+      <footer className="site-footer">
+        Réalisé par <a href="https://pharenumeriquehavre.fr" target="_blank" rel="noreferrer">Phare Numérique Havre</a>
+      </footer>
     </div>
   )
 }

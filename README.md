@@ -315,6 +315,12 @@ Ajout d'une explication en langage simple sous le menu "Niveau linguistique" du 
 
 Les 6 niveaux (A1 à C2) restent inchangés dans leur structure ; seule l'explication qui les accompagne est nouvelle. Traduit dans les 13 langues, avec le même mécanisme que le reste du formulaire.
 
+## Nouveautés (vingt-deuxième itération) — crédit discret en pied de page
+
+Ajout d'un pied de page sobre sur toutes les pages : *"Réalisé par Phare Numérique Havre"*, avec un lien vers pharenumeriquehavre.fr. Volontairement discret (petit texte gris clair), pour donner de la visibilité à la micro-entreprise sans nuire à l'image professionnelle de l'outil pédagogique.
+
+**À vérifier de votre côté** : comme ce site sert d'outil de formation à RÉCIFE, ça vaut le coup de confirmer avec eux que cette mention leur convient avant diffusion large — une question de bon relationnel plutôt que d'obligation.
+
 ## Structure du projet
 ```
 src/
