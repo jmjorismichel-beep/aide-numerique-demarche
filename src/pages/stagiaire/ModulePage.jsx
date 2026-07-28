@@ -4,6 +4,7 @@ import { getModule } from '../../data/getModuleContent'
 import { useAuthStore } from '../../store/authStore'
 import { useI18nStore } from '../../store/i18nStore'
 import { translateModule } from '../../data/translations/modules'
+import { applySimplification } from '../../data/simplify'
 import { logActivity } from '../../lib/activity'
 import { saveRecord } from '../../lib/sync'
 import { db, uid } from '../../lib/db'
@@ -41,7 +42,7 @@ export default function ModulePage() {
     })
   }, [id])
 
-  const module = translateModule(rawModule, lang)
+  const module = applySimplification(translateModule(rawModule, lang), lang, user.niveau_linguistique, user.niveau_informatique)
   if (!module) return <p>Chargement…</p>
 
   async function marquerTermine() {
@@ -100,6 +101,7 @@ export default function ModulePage() {
           <div>
             <h2>{module.icon} {module.title}</h2>
             {module.titleFr && <p className="fr-subtitle" style={{ marginTop: -4 }}>🇫🇷 {module.titleFr}</p>}
+            {module.simplified && <span className="badge online" style={{ marginBottom: 6, display: 'inline-block' }}>Texte simplifié</span>}
             <p>{module.description}</p>
             {module.descriptionFr && <p className="fr-subtitle">🇫🇷 {module.descriptionFr}</p>}
           </div>

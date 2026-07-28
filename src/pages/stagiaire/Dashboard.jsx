@@ -6,6 +6,7 @@ import { CATEGORIES } from '../../data/modules'
 import { useAuthStore } from '../../store/authStore'
 import { useI18nStore } from '../../store/i18nStore'
 import { translateModule } from '../../data/translations/modules'
+import { applySimplification } from '../../data/simplify'
 import { logActivity } from '../../lib/activity'
 import { db } from '../../lib/db'
 import VisiteGuidee, { tourDejaVue } from '../../components/VisiteGuidee'
@@ -22,7 +23,9 @@ export default function Dashboard() {
     if (!tourDejaVue()) setAfficherTour(true)
   }, [])
 
-  const translatedModules = modules.map(m => translateModule(m, lang))
+  const translatedModules = modules
+    .map(m => translateModule(m, lang))
+    .map(m => applySimplification(m, lang, user.niveau_linguistique, user.niveau_informatique))
 
   const progress = useLiveQuery(
     () => db.moduleProgress.filter(p => p.user_id === user.id && p.completed).toArray(),

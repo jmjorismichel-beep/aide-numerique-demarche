@@ -82,4 +82,12 @@ describe('module catalog integrity', () => {
       expect(m.description).toBeTruthy()
     }
   })
+  it('every module has a simplified French version for A1/A2 and débutant informatique', () => {
+    for (const m of DEFAULT_MODULES) {
+      expect(m.simple, `${m.id} is missing a "simple" field`).toBeTruthy()
+      expect(m.simple.description).toBeTruthy()
+      expect(Array.isArray(m.simple.steps)).toBe(true)
+      expect(m.simple.steps.length).toBeGreaterThan(0)
+    }
+  })
 })

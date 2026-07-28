@@ -84,18 +84,18 @@ export const MODULE_TRANSLATIONS = {
     zh: { title: 'Apple (macOS)', description: '了解并配置 Mac 设置。' }
   },
   'app-linux': {
-    en: { title: 'Linux', description: 'Discover and configure Linux settings.' },
-    es: { title: 'Linux', description: 'Descubrir y configurar los ajustes de Linux.' },
-    pt: { title: 'Linux', description: 'Descobrir e configurar as definições do Linux.' },
-    ar: { title: 'لينكس', description: 'التعرف على إعدادات نظام لينكس.' },
-    ru: { title: 'Linux', description: 'Знакомство с настройками Linux.' },
-    uk: { title: 'Linux', description: 'Знайомство з налаштуваннями Linux.' },
-    tr: { title: 'Linux', description: 'Linux ayarlarını tanıma ve yapılandırma.' },
-    fa: { title: 'لینوکس', description: 'آشنایی با تنظیمات لینوکس.' },
-    sq: { title: 'Linux', description: 'Njihuni dhe konfiguroni cilësimet e Linux.' },
-    ti: { title: 'ሊኑክስ', description: 'ኣቀማምጣ ሊኑክስ ምፍላጥን ምስራሕን።' },
-    so: { title: 'Linux', description: 'Bar oo habee dejinta Linux.' },
-    zh: { title: 'Linux', description: '了解并配置 Linux 设置。' }
+    en: { title: 'Linux', description: 'Discover and configure Linux settings.', whatIsIt: "Linux is an operating system, like Windows or macOS, but it's free and less resource-intensive: it works well even on an older or less powerful computer. There are several versions (Ubuntu, Debian, Linux Mint...), but they all work in a similar way." },
+    es: { title: 'Linux', description: 'Descubrir y configurar los ajustes de Linux.', whatIsIt: 'Linux es un sistema operativo, como Windows o macOS, pero es gratuito y consume menos recursos: funciona bien incluso en un ordenador más antiguo o menos potente. Existen varias versiones (Ubuntu, Debian, Linux Mint...), pero todas funcionan de forma parecida.' },
+    pt: { title: 'Linux', description: 'Descobrir e configurar as definições do Linux.', whatIsIt: 'O Linux é um sistema operativo, como o Windows ou o macOS, mas é gratuito e consome menos recursos: funciona bem mesmo num computador mais antigo ou menos potente. Existem várias versões (Ubuntu, Debian, Linux Mint...), mas todas funcionam de forma semelhante.' },
+    ar: { title: 'لينكس', description: 'التعرف على إعدادات نظام لينكس.', whatIsIt: 'لينكس هو نظام تشغيل، مثل ويندوز أو macOS، لكنه مجاني ويستهلك موارد أقل: يعمل بشكل جيد حتى على حاسوب أقدم أو أقل قوة. توجد عدة إصدارات (Ubuntu، Debian، Linux Mint...)، لكنها جميعاً تعمل بطريقة متشابهة.' },
+    ru: { title: 'Linux', description: 'Знакомство с настройками Linux.', whatIsIt: 'Linux — это операционная система, как Windows или macOS, но бесплатная и менее требовательная к ресурсам: она хорошо работает даже на старом или менее мощном компьютере. Существует несколько версий (Ubuntu, Debian, Linux Mint...), но все они работают похожим образом.' },
+    uk: { title: 'Linux', description: 'Знайомство з налаштуваннями Linux.', whatIsIt: 'Linux — це операційна система, як Windows або macOS, але безкоштовна і менш вимоглива до ресурсів: вона добре працює навіть на старому або менш потужному комп\u2019ютері. Існує кілька версій (Ubuntu, Debian, Linux Mint...), але всі вони працюють подібним чином.' },
+    tr: { title: 'Linux', description: 'Linux ayarlarını tanıma ve yapılandırma.', whatIsIt: "Linux, Windows veya macOS gibi bir işletim sistemidir, ancak ücretsizdir ve daha az kaynak tüketir: daha eski veya daha az güçlü bir bilgisayarda bile iyi çalışır. Birkaç sürümü vardır (Ubuntu, Debian, Linux Mint...), ancak hepsi benzer şekilde çalışır." },
+    fa: { title: 'لینوکس', description: 'آشنایی با تنظیمات لینوکس.', whatIsIt: 'لینوکس یک سیستم‌عامل است، مانند ویندوز یا macOS، اما رایگان است و منابع کمتری مصرف می‌کند: حتی روی رایانه قدیمی‌تر یا کم‌قدرت‌تر هم خوب کار می‌کند. نسخه‌های مختلفی وجود دارد (Ubuntu، Debian، Linux Mint...)، اما همه به شکلی مشابه کار می‌کنند.' },
+    sq: { title: 'Linux', description: 'Njihuni dhe konfiguroni cilësimet e Linux.', whatIsIt: 'Linux është një sistem operativ, si Windows apo macOS, por është falas dhe përdor më pak burime: funksionon mirë edhe në një kompjuter më të vjetër ose më pak të fuqishëm. Ekzistojnë disa versione (Ubuntu, Debian, Linux Mint...), por të gjitha funksionojnë në mënyrë të ngjashme.' },
+    ti: { title: 'ሊኑክስ', description: 'ኣቀማምጣ ሊኑክስ ምፍላጥን ምስራሕን።', whatIsIt: 'ሊኑክስ ልክዕ ከም Windows ወይ macOS ናይ ኦፐረቲንግ ሲስተም እዩ፣ ግን ናጻ እዩ ከምኡውን ውሑድ ጸጋታት ይጥቀም፦ ኣብ ዝሓሸ ወይ ትሑት ሓይሊ ዘለዎ ኮምፒተር እውን ጽቡቕ ይሰርሕ። ብዙሓት ስሪታት ኣለዉ (Ubuntu, Debian, Linux Mint...)፣ ኩሎም ግን ብተመሳሳሊ መንገዲ ይሰርሑ።' },
+    so: { title: 'Linux', description: 'Bar oo habee dejinta Linux.', whatIsIt: 'Linux waa nidaam hawlgal, sida Windows ama macOS, laakiin waa bilaash waxaana u baahan kheyraad yar: si fiican ayuu ugu shaqeeyaa xitaa kombiyuutar duq ah ama xoog yar leh. Waxaa jira dhowr nooc (Ubuntu, Debian, Linux Mint...), laakiin dhammaantood si isku mid ah ayay u shaqeeyaan.' },
+    zh: { title: 'Linux', description: '了解并配置 Linux 设置。', whatIsIt: 'Linux 是一种操作系统，就像 Windows 或 macOS 一样，但它是免费的，占用资源更少：即使在较旧或性能较弱的电脑上也能良好运行。它有多个版本（Ubuntu、Debian、Linux Mint 等），但它们的基本操作方式都很相似。' }
   },
   'app-tablette-android': {
     en: { title: 'Android tablet', description: 'Discover and configure the settings of an Android tablet.' },

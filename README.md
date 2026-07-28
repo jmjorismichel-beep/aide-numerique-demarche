@@ -321,7 +321,57 @@ Ajout d'un pied de page sobre sur toutes les pages : *"Réalisé par Phare Numé
 
 **À vérifier de votre côté** : comme ce site sert d'outil de formation à RÉCIFE, ça vaut le coup de confirmer avec eux que cette mention leur convient avant diffusion large — une question de bon relationnel plutôt que d'obligation.
 
+## Nouveautés (vingt-troisième itération) — investigation mobile
+
+**Ce que j'ai vérifié concrètement** (pas juste en relisant le code) : j'ai testé le site avec un vrai navigateur mobile simulé (iPhone, largeurs 320px et 375px, les plus petits écrans courants) sur la page d'inscription. **Aucun débordement horizontal détecté** — le code actuel semble donc correctement adapté aux petits écrans.
+
+**Renforcement préventif** : la zone de mise en page mobile a quand même été étendue pour couvrir des éléments ajoutés récemment et pas encore testés sur petit écran (bandeau de notifications, progression de l'inscription).
+
+**Mon hypothèse principale** : puisque ce site est une PWA avec mise en cache hors-ligne, il est très probable que votre téléphone garde en mémoire une **ancienne version du site**, testée avant les nombreuses évolutions récentes — exactement le même phénomène que celui rencontré (et résolu) sur ordinateur avec le menu des langues. Chaque appareil garde son propre cache indépendamment.
+
+**À essayer sur le téléphone concerné** :
+1. Si le site a été "installé" comme application, le désinstaller
+2. Dans les réglages du navigateur mobile, vider les données de navigation pour ce site (historique, cookies, données de site)
+3. Rouvrir le site dans le navigateur (pas l'app installée) et retester
+
+Si le problème persiste après ça, une capture d'écran du téléphone (comme celles fournies précédemment sur ordinateur) permettrait d'identifier précisément ce qui ne s'affiche pas correctement.
+
+## Nouveautés (vingt-quatrième itération) — retours de vrais utilisateurs
+
+Premiers vrais retours d'usage reçus, traités un par un :
+
+**Module Linux** : ajout de l'explication demandée — "Linux est un système d'exploitation, comme Windows ou macOS, mais il est gratuit et moins gourmand en ressources."
+
+**Module Doctolib** : nouvelle étape pour trouver un médecin qui accepte de nouveaux patients, via le site officiel de l'Assurance Maladie (annuairesante.ameli.fr), avec filtre dédié et recours possible auprès de la CPAM en cas d'échec.
+
+**Module Numéros d'urgence, étendu** : ajout du 3919 (violences conjugales, écoute 24h/24 en 200+ langues), du 119 (enfance en danger), du 115 (hébergement d'urgence), et des coordonnées vérifiées des associations d'aide alimentaire au Havre (Banque Alimentaire, Restos du Cœur, Secours Populaire).
+
+**Le point le plus important : niveau de français A2** — un vrai mécanisme a été mis en place (indépendant du système de traduction en langue étrangère) : un stagiaire dont le niveau linguistique déclaré est A1 ou A2, et qui utilise le site en français, voit désormais une **version simplifiée du texte** (phrases courtes, vocabulaire courant) plutôt que le texte standard. Un badge "Texte simplifié" s'affiche discrètement pour que ce soit transparent.
+
+**Pilote sur 3 modules** (CAF, Doctolib, Linux) pour valider l'approche avant de généraliser — même méthode que pour les captures d'écran. Généraliser aux 60 modules demande un vrai travail de réécriture (proche de la traduction en langue étrangère en termes de charge), donc je recommande d'attendre de voir si l'approche convient sur ces 3 modules avant de poursuivre.
+
+## Nouveautés (vingt-cinquième itération) — Le Grenier, Doctoome, adaptation selon les deux niveaux
+
+**Le Grenier (vêtements)** : coordonnées ajoutées au module Numéros d'urgence, juste après l'aide alimentaire — deux boutiques « Frip et Chic », une Ressourcerie, carte éthik'do pour un accès à prix réduit.
+
+**Nouveau module Doctoome** (61ᵉ module) : présente doctoome.com, qui complète Doctolib avec la recherche de médicament disponible en pharmacie et un profil santé personnalisé.
+
+**Adaptation selon les deux niveaux, pas seulement la langue française** : le mécanisme de simplification (mis en place au tour précédent pour le niveau A1/A2) prend maintenant aussi en compte le **niveau informatique** — un stagiaire "débutant" en informatique voit lui aussi le texte simplifié, même si son français est bon. Les deux critères se déclenchent indépendamment (l'un ou l'autre suffit).
+
+**Nouveau : modification manuelle des niveaux** — jusqu'ici, les niveaux n'étaient fixés qu'à l'inscription (ou via le test de positionnement). Un stagiaire peut désormais les modifier à tout moment depuis l'onglet « Mon compte », avec effet immédiat sur l'affichage des modules.
+
+**Limite à garder en tête** : la simplification ne s'applique que sur les modules qui ont un contenu simplifié rédigé (3 modules pour l'instant : CAF, Doctolib, Linux). Les autres continuent d'afficher le texte standard même pour un profil A1/A2 ou débutant informatique, en attendant que la généralisation soit décidée.
+
+## Nouveautés (vingt-sixième itération) — généralisation complète du texte simplifié à tous les modules
+
+Suite au pilote sur 3 modules puis à l'extension à un second critère (niveau informatique), le contenu simplifié a été généralisé aux **61 modules du catalogue, sans exception**. Un stagiaire dont le niveau linguistique est A1/A2, ou dont le niveau informatique est "débutant", voit désormais un texte en phrases courtes et vocabulaire courant sur absolument tous les modules — plus seulement les 3 modules pilotes.
+
+**Un test automatisé a été ajouté** (`npm test`) qui vérifie que chaque module a bien un contenu simplifié complet — si un futur module est ajouté sans ce champ, le test le signalera avant la mise en ligne.
+
+**Limite à connaître** : cette généralisation a été faite rapidement, pour couvrir l'ensemble du catalogue en une fois plutôt que d'attendre indéfiniment. La qualité du texte simplifié n'a donc pas été relue par un formateur ou un locuteur natif A1/A2 — contrairement aux 3 modules pilotes, plus soignés. Une relecture progressive par un formateur serait utile, en particulier sur les modules les plus consultés, pour ajuster le ton et vérifier que rien d'important n'a été perdu dans la simplification.
+
 ## Structure du projet
+
 ```
 src/
   lib/db.js          -> base locale (IndexedDB / Dexie)

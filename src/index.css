@@ -245,4 +245,10 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
   .table-simple { display: block; overflow-x: auto; white-space: nowrap; }
   .step-card-body { flex-direction: column; }
   .card { padding: 16px; }
+  .step-progress { gap: 4px; }
+  .step-progress span { font-size: .7rem; }
+}
+@media (max-width: 480px) {
+  /* Bandeau notifications : passe en colonne pour éviter que texte + 2 boutons se compressent trop */
+  .container + div[style*="FFF6F2"] { flex-direction: column; text-align: center; }
 }
