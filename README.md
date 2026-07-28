@@ -370,6 +370,18 @@ Suite au pilote sur 3 modules puis à l'extension à un second critère (niveau 
 
 **Limite à connaître** : cette généralisation a été faite rapidement, pour couvrir l'ensemble du catalogue en une fois plutôt que d'attendre indéfiniment. La qualité du texte simplifié n'a donc pas été relue par un formateur ou un locuteur natif A1/A2 — contrairement aux 3 modules pilotes, plus soignés. Une relecture progressive par un formateur serait utile, en particulier sur les modules les plus consultés, pour ajuster le ton et vérifier que rien d'important n'a été perdu dans la simplification.
 
+## Nouveautés (vingt-septième itération) — Web Solidarité, Graine en Main, et une décision argumentée sur DORA
+
+**Trois sources vérifiées avant tout ajout** :
+- **DORA** (dora.inclusion.gouv.fr) : outil professionnel pour travailleurs sociaux, contenu dynamique en JavaScript qui change en continu. Décision : ne pas recopier son contenu (deviendrait vite obsolète), mais le **signaler comme ressource complémentaire** pour les formateurs.
+- **Web Solidarité** (asso-websolidarite.org) : association réelle du Havre depuis 2015, vend des ordinateurs reconditionnés à prix solidaire, avec des offres spéciales pour les bénéficiaires du RSA. **Ajouté** au module Médiathèque.
+- **Graine en Main** (graineenmain.cocagnebio.fr) : jardin d'insertion avec paniers de légumes bio par abonnement, nombreux points de retrait au Havre. **Ajouté** au module Numéros d'urgence et d'aide, à côté de l'aide alimentaire.
+- **Annuaire des associations du Havre** (mesdemarches.lehavreseinemetropole.fr) : même logique que DORA — signalé comme point d'entrée pour trouver d'autres ressources locales, plutôt que recopié.
+
+**Pourquoi cette distinction entre "ajouter" et "juste signaler"** : Web Solidarité et Graine en Main sont des ressources ponctuelles et stables (une association, un service). DORA et l'annuaire associatif sont eux-mêmes des **répertoires** qui listent des dizaines de structures changeantes — les recopier reviendrait à dupliquer un travail déjà fait ailleurs, avec le risque que notre copie devienne fausse avec le temps. Les signaler comme ressources complémentaires évite ce problème tout en aidant les utilisateurs à aller plus loin si besoin.
+
+
+
 ## Structure du projet
 
 ```
@@ -385,6 +397,14 @@ src/
   pages/Messagerie.jsx                -> messagerie stagiaire <-> formateur
 firestore.rules                        -> règles de sécurité à publier dans Firebase
 ```
+
+## Nouveautés (vingt-huitième itération) — clarification du mode d'emploi et point sur les traductions
+
+**Explication et mode d'emploi clarifiés** (suite à une remarque justifiée) : les nouvelles étapes n'étaient pas assez claires sur "à quoi ça sert et comment s'en servir concrètement". Corrigé — chaque ressource ajoutée explique maintenant clairement son usage :
+- L'annuaire des associations : où aller, quoi chercher, avec un exemple de recherche par mot-clé.
+- DORA : clarifié que ce n'est pas un outil pour le stagiaire lui-même, mais pour son formateur — avec l'instruction claire "explique ton besoin à ton formateur, il fera la recherche pour toi".
+
+**Sur la traduction** : comme pour les 61 autres modules, les étapes détaillées restent en français uniquement (seuls le titre, la description et le "C'est quoi" sont traduits dans les 13 langues) — c'est la règle appliquée uniformément depuis le début du projet, donc rien à changer sur ce point pour ces nouvelles étapes.
 
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.

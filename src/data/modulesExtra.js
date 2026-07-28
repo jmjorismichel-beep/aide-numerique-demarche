@@ -258,6 +258,7 @@ export const EXTRA_MODULES = [
         { title: "119 — Enfance en danger", text: "Numéro gratuit, 24h/24. Pour signaler un enfant en danger." },
         { title: "115 — Hébergement d'urgence (SAMU social)", text: "Numéro gratuit. Pas de logement pour la nuit ? Appelle ce numéro. On t'oriente vers une solution." },
         { title: "Trouver de l'aide alimentaire au Havre", text: "Plusieurs associations donnent gratuitement à manger : Banque Alimentaire (170 boulevard Jules Durand), Restos du Cœur (40 rue des Chantiers, ☎ 02 35 24 53 50), Secours Populaire (10 allée Georges Pollitzer, ☎ 02 35 45 73 69)." },
+        { title: "Des paniers de légumes pas chers : Graine en Main", text: "Graine en Main vend des paniers de légumes bio chaque semaine. Beaucoup de points de retrait au Havre. Téléphone : 09 62 51 16 15." },
         { title: "Trouver des vêtements à petit prix ou gratuits", text: "L'association Le Grenier (28 rue du Capuchet) vend des vêtements pas chers. Deux boutiques « Frip et Chic ». La carte éthik'do donne un prix réduit." }
       ]
     },
@@ -271,6 +272,7 @@ export const EXTRA_MODULES = [
       { title: "119 — Enfance en danger", text: "Numéro national gratuit, 24h/24, pour signaler une situation où un enfant est en danger ou risque de l'être." },
       { title: "115 — Hébergement d'urgence (SAMU social)", text: "Numéro gratuit à appeler si tu n'as pas de logement pour la nuit. Une personne évalue ta situation et t'oriente vers une solution d'urgence (hébergement, association, service social)." },
       { title: "Trouver de l'aide alimentaire au Havre", text: "Plusieurs associations distribuent gratuitement des colis alimentaires ou des repas aux personnes qui en ont besoin, sans jugement : Banque Alimentaire du Havre et de la Pointe de Caux (170 boulevard Jules Durand), Restos du Cœur (40 rue des Chantiers, ☎ 02 35 24 53 50), Secours Populaire (10 allée Georges Pollitzer, ☎ 02 35 45 73 69). Le CCAS du Havre peut aussi orienter vers la structure la plus adaptée à ta situation.", visual: "document" },
+      { title: "Des paniers de légumes à prix accessible : Graine en Main", text: "Graine en Main est un jardin d'insertion qui propose des paniers de légumes bio par abonnement (Petit Panier 4-5 légumes, ou Grand Panier 7-8 légumes), avec de nombreux points de retrait au Havre et alentours (marchés, quartiers, structures sociales). Renseignements au 09 62 51 16 15 ou sur graineenmain.cocagnebio.fr." },
       { title: "Trouver des vêtements à petit prix ou gratuits", text: "L'association Le Grenier (28 rue du Capuchet) collecte et revend des vêtements, chaussures et objets de seconde main à très petit prix, dans deux boutiques « Frip et Chic » (71 cours de la République, et 241 avenue du 8 mai 1945 à Caucriauville) et une Ressourcerie (31 rue Denis Cordonnier). La carte éthik'do, disponible gratuitement sur place, permet un accès à prix réduit pour les personnes qui en ont besoin.", visual: "document" }
     ] },
 
@@ -769,13 +771,19 @@ export const EXTRA_MODULES = [
         { title: "S'inscrire gratuitement", text: "L'inscription sur bibliotheques.lehavre.fr est gratuite. Elle donne accès à toutes les médiathèques." },
         { title: "Utiliser les ordinateurs sur place", text: "Chaque médiathèque a des ordinateurs avec internet, scanner, imprimante." },
         { title: "Profiter du Wi-Fi gratuit", text: "Toutes les médiathèques ont un Wi-Fi gratuit. Utile si tu n'as pas internet chez toi." },
-        { title: "Participer aux ateliers", text: "Des ateliers « Initiation à l'informatique » existent. Demande le programme sur place." }
+        { title: "Participer aux ateliers", text: "Des ateliers « Initiation à l'informatique » existent. Demande le programme sur place." },
+        { title: "Besoin d'un ordinateur pas cher ? Web Solidarité", text: "L'association Web Solidarité au Havre vend des ordinateurs remis en état, à prix réduit. Encore mieux si tu as le RSA. Regarde sur asso-websolidarite.org." },
+        { title: "L'annuaire des associations du Havre", text: "C'est un site de la Ville. Il liste toutes les associations du Havre. Aide alimentaire, insertion, loisirs... Va sur mesdemarches.lehavreseinemetropole.fr. Cherche « Annuaire des associations »." },
+        { title: "DORA, l'outil de ton formateur", text: "DORA est un site pour les professionnels. Il aide à trouver la bonne aide pour toi (logement, garde d'enfant...). Tu n'as rien à faire. Parle de ton besoin à ton formateur. Il fera la recherche pour toi." }
       ]
     },
     steps: [
       { title: "S'inscrire gratuitement", text: "L'inscription au réseau des bibliothèques du Havre (bibliotheques.lehavre.fr) est gratuite et donne accès à toutes les médiathèques de la ville.", visual: "document", screenshot: "/screenshots/bibliotheques-lehavre.jpg", screenshotAlt: "Page d'accueil du site officiel bibliotheques.lehavre.fr" },
       { title: "Utiliser les ordinateurs sur place", text: "Chaque médiathèque (Léopold Sédar Senghor, Martin Luther King, Caucriauville, Oscar Niemeyer...) dispose de postes informatiques avec internet, scanner et imprimante." },
       { title: "Profiter du Wi-Fi gratuit", text: "Toutes les médiathèques proposent un Wi-Fi gratuit, utile si tu n'as pas internet chez toi." },
-      { title: "Participer aux ateliers", text: "Des ateliers « Initiation à l'informatique » sont régulièrement organisés — demande le programme sur place ou sur le site." }
+      { title: "Participer aux ateliers", text: "Des ateliers « Initiation à l'informatique » sont régulièrement organisés — demande le programme sur place ou sur le site." },
+      { title: "Besoin d'un ordinateur pas cher ? Web Solidarité", text: "L'association Web Solidarité (Le Havre) reconditionne des ordinateurs donnés par des entreprises et les revend à prix solidaire aux familles à faibles revenus, avec des offres spéciales pour les bénéficiaires du RSA. Elle organise aussi des ateliers d'initiation. Renseigne-toi sur asso-websolidarite.org." },
+      { title: "L'annuaire des associations du Havre", text: "C'est un site officiel de la Ville qui liste toutes les associations locales, classées par thème : aide alimentaire, insertion, accompagnement, loisirs, culture... Utile si tu cherches une aide précise que cette application ne couvre pas. Va sur mesdemarches.lehavreseinemetropole.fr, cherche « Annuaire des associations », puis filtre par thème ou fais une recherche par mot-clé (exemple : « aide aux devoirs », « couture », « insertion »)." },
+      { title: "DORA, l'outil utilisé par ton formateur pour t'orienter", text: "DORA (dora.inclusion.gouv.fr) est un site professionnel utilisé par les travailleurs sociaux et les formateurs pour trouver rapidement le bon service selon ta situation (logement, garde d'enfant, mobilité, budget, accès aux droits...). Tu n'as pas besoin de l'utiliser toi-même : explique simplement ton besoin à ton formateur ou à un travailleur social, il pourra faire la recherche pour toi et t'orienter vers la bonne structure." }
     ] }
 ]
