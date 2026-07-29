@@ -416,6 +416,17 @@ Deux structures locales vérifiées et ajoutées au module Numéros d'urgence et
 
 **Une vigilance particulière a été appliquée à ces deux ajouts**, étant donné la sensibilité du sujet des violences faites aux femmes : les informations ont été vérifiées via plusieurs sources récentes et concordantes (Groupe Hospitalier du Havre, Ville du Havre) avant intégration.
 
+## Nouveautés (trentième itération) — la demande formateur en attente est enfin visible
+
+**Bug réel corrigé** : une personne qui s'inscrivait avec le bon code formateur atterrissait sur l'espace stagiaire sans aucune explication — ce qui ressemblait exactement à un bug, alors que c'était le comportement voulu (l'approbation par un formateur existant, mise en place pour la sécurité). Le signal existait techniquement en mémoire, mais n'était affiché nulle part, et disparaissait en plus à chaque reconnexion.
+
+**Corrigé en trois temps** :
+1. Un bandeau clair apparaît désormais sur le tableau de bord : *« ⏳ Ta demande d'accès formateur est en attente »*, expliquant que c'est normal et temporaire.
+2. Ce bandeau reste visible à chaque connexion tant que la demande n'est pas traitée — plus seulement juste après l'inscription.
+3. **Faille de sécurité mineure corrigée au passage** : les règles Firestore empêchaient même la personne concernée de lire sa propre demande (seuls les formateurs le pouvaient) — corrigé pour autoriser la lecture de sa propre demande, sans toucher au fait que seul un formateur peut l'approuver ou la refuser.
+
+**À savoir** : une fois la demande approuvée par un formateur, la personne doit se reconnecter (ou recharger la page) pour que son nouvel accès formateur soit pris en compte — ce n'est pas instantané entre deux sessions différentes.
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).

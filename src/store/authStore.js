@@ -82,6 +82,7 @@ export const useAuthStore = create((set, get) => ({
       }
       try {
         await setDoc(doc(dbRemote, 'formateurRequests', request.id), request)
+        await db.formateurRequests.put(request)
       } catch (e) {
         console.warn('Demande formateur non enregistrée :', e.message)
       }

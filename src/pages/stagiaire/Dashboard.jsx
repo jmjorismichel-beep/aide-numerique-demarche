@@ -17,6 +17,11 @@ export default function Dashboard() {
   const [modules, setModules] = useState([])
   const [afficherTour, setAfficherTour] = useState(false)
 
+  const demandeFormateurEnAttente = useLiveQuery(
+    () => db.formateurRequests.get(user.id).then(r => r && r.status === 'pending' ? r : null),
+    [user.id]
+  )
+
   useEffect(() => {
     getAllModules().then(setModules)
     logActivity(user.id, 'Consulte son tableau de bord')
@@ -55,6 +60,15 @@ export default function Dashboard() {
   return (
     <div>
       {afficherTour && <VisiteGuidee onFinish={() => setAfficherTour(false)} />}
+      {demandeFormateurEnAttente && (
+        <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid var(--coral)', background: '#FFF6F2' }}>
+          <h3 style={{ marginTop: 0 }}>⏳ Ta demande d'accès formateur est en attente</h3>
+          <p style={{ marginBottom: 0 }}>
+            Tu as saisi le bon code formateur à l'inscription. Pour des raisons de sécurité, ton compte n'obtient pas ce rôle automatiquement :
+            un formateur déjà présent doit d'abord approuver ta demande depuis son espace. En attendant, tu utilises le site normalement, en tant que stagiaire — c'est temporaire, et ça se met à jour automatiquement dès que ta demande est approuvée.
+          </p>
+        </div>
+      )}
       <h2>Bonjour {user.prenom} 👋</h2>
       <p>Niveau linguistique : <strong>{user.niveau_linguistique}</strong> — Choisis un module pour commencer.</p>
 

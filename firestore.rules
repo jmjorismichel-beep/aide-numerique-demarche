@@ -92,12 +92,14 @@ service cloud.firestore {
       // Créée automatiquement à l'inscription si le bon code formateur est
       // saisi (voir authStore.signUp). La personne ne peut créer QUE sa
       // propre demande, avec le statut "pending" — jamais s'approuver
-      // elle-même. Seul un formateur existant peut lire, approuver
-      // (en modifiant le rôle de l'utilisateur via /users, ce qui passe par
-      // isFormateur()) ou supprimer une demande.
+      // elle-même. La personne peut voir sa propre demande (pour savoir si
+      // elle est encore en attente), mais seul un formateur existant peut
+      // l'approuver (en modifiant le rôle de l'utilisateur via /users, ce
+      // qui passe par isFormateur()) ou la refuser/supprimer.
       allow create: if isSignedIn() && isSelf(requestId) &&
         request.resource.data.status == 'pending';
-      allow read, update, delete: if isFormateur();
+      allow read: if isFormateur() || isSelf(requestId);
+      allow update, delete: if isFormateur();
     }
   }
 }
