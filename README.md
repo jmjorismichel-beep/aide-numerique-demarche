@@ -427,6 +427,20 @@ Deux structures locales vérifiées et ajoutées au module Numéros d'urgence et
 
 **À savoir** : une fois la demande approuvée par un formateur, la personne doit se reconnecter (ou recharger la page) pour que son nouvel accès formateur soit pris en compte — ce n'est pas instantané entre deux sessions différentes.
 
+## Nouveautés (trente-et-unième itération) — les stagiaires ne restaient pas bloqués sur une ancienne version
+
+**Problème signalé** : des stagiaires déjà inscrits ne voyaient pas les nouveaux modules ajoutés au catalogue, malgré des mises à jour régulières du site.
+
+**Cause** : le site fonctionne comme une PWA avec mise en cache hors-ligne (nécessaire pour l'usage sans connexion). Une fois le site chargé une première fois, rien ne vérifiait ni ne forçait activement la mise à jour de ce cache par la suite — un stagiaire qui gardait le site ouvert, ou qui y revenait souvent sans jamais faire un rechargement complet, pouvait rester bloqué longtemps sur une version ancienne sans le savoir. C'est exactement le même type de problème qu'on a rencontré (et résolu au cas par cas) sur des navigateurs individuels au fil des échanges précédents — sauf que cette fois, ça touchait les appareils des stagiaires, qu'on ne peut évidemment pas aller vider un par un.
+
+**Corrigé à la source** : le site vérifie désormais activement s'il existe une nouvelle version...
+- toutes les heures si le site reste ouvert ;
+- et à chaque fois que la personne revient sur l'onglet (par exemple après avoir consulté un autre onglet).
+
+Dès qu'une nouvelle version est détectée, elle est appliquée automatiquement (rechargement de la page). Rien n'est perdu dans l'opération : la progression et les messages sont déjà sauvegardés localement et se resynchronisent normalement après le rechargement.
+
+**Conséquence pratique pour vous** : les futures mises à jour du site (nouveaux modules, corrections...) devraient maintenant atteindre les stagiaires déjà inscrits en quelques heures maximum, sans qu'ils aient besoin de vider leur cache ou de réinstaller l'application — ce qui n'était pas garanti auparavant.
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).

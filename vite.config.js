@@ -7,6 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: null,
       includeAssets: ['favicon.svg', 'icon-192.png', 'icon-512.png'],
       manifest: {
         name: 'Parcours Numérique',
@@ -23,6 +24,12 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+        // Le nouveau service worker prend le contrôle immédiatement (au lieu
+        // d'attendre que tous les onglets soient fermés), pour que les
+        // stagiaires reçoivent les mises à jour de contenu (nouveaux
+        // modules...) sans devoir vider leur cache manuellement.
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.href.includes('firestore.googleapis.com') || url.href.includes('identitytoolkit.googleapis.com'),
