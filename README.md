@@ -406,6 +406,16 @@ firestore.rules                        -> règles de sécurité à publier dans 
 
 **Sur la traduction** : comme pour les 61 autres modules, les étapes détaillées restent en français uniquement (seuls le titre, la description et le "C'est quoi" sont traduits dans les 13 langues) — c'est la règle appliquée uniformément depuis le début du projet, donc rien à changer sur ce point pour ces nouvelles étapes.
 
+## Nouveautés (vingt-neuvième itération) — Maison des Femmes du Havre et Maison de Justice et du Droit
+
+Deux structures locales vérifiées et ajoutées au module Numéros d'urgence et d'aide, juste après le 3919 :
+
+**La Maison des Femmes du Havre** : information particulièrement à jour — la structure vient de déménager le 6 juillet 2026 dans de nouveaux locaux au 9 rue Magellan, près de la gare. Elle accueille toute femme victime de violences (conjugales, sexuelles, ou autres), sans condition de ressources, avec un accompagnement médical, psychologique, social **et juridique** en un seul lieu — ce qui répond directement aux deux besoins signalés (violences faites aux femmes, et accompagnement juridique).
+
+**Maison de Justice et du Droit (MJD) du Havre** : permanences gratuites et confidentielles avec avocats, notaires et juristes, sur rendez-vous (10 rue Pierre Morgand, ☎ 02 79 92 76 00) — un complément concret au module existant sur l'aide juridictionnelle.
+
+**Une vigilance particulière a été appliquée à ces deux ajouts**, étant donné la sensibilité du sujet des violences faites aux femmes : les informations ont été vérifiées via plusieurs sources récentes et concordantes (Groupe Hospitalier du Havre, Ville du Havre) avant intégration.
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
