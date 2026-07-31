@@ -441,6 +441,22 @@ Dès qu'une nouvelle version est détectée, elle est appliquée automatiquement
 
 **Conséquence pratique pour vous** : les futures mises à jour du site (nouveaux modules, corrections...) devraient maintenant atteindre les stagiaires déjà inscrits en quelques heures maximum, sans qu'ils aient besoin de vider leur cache ou de réinstaller l'application — ce qui n'était pas garanti auparavant.
 
+## Nouveautés (trente-deuxième itération) — deux problèmes signalés par de vrais stagiaires, corrigés
+
+**1. Un vrai bug de fond sur la sauvegarde de progression, trouvé et corrigé**
+
+Le bouton « Marquer comme terminé » créait **toujours un nouvel enregistrement** en base, au lieu de mettre à jour l'enregistrement existant s'il y en avait déjà un pour ce module. Résultat possible : des doublons, et au rechargement, le mauvais enregistrement (incomplet) pouvait être lu en premier — donnant l'impression que la progression n'avait pas été sauvegardée.
+
+- Corrigé à la source : le bouton met désormais à jour l'enregistrement existant plutôt que d'en créer un nouveau.
+- La lecture de la progression a aussi été rendue tolérante aux doublons déjà créés par le bug chez les stagiaires déjà inscrits : elle considère un module comme terminé si **au moins un** enregistrement le confirme, plutôt que de se fier à un seul choisi arbitrairement.
+- Les statistiques formateur ont été corrigées pour compter des **stagiaires distincts**, pas des enregistrements bruts — un doublon existant ne gonflera plus artificiellement les chiffres de complétion.
+
+**2. Les retours "Comment ça s'est passé ?" n'étaient jamais visibles côté formateur**
+
+Ce n'était pas un bug technique : la réponse du stagiaire (🙂 facile / 🤔 besoin d'aide / 😕 difficile) à la fin d'un module était bien enregistrée, mais **rien dans l'espace formateur ne permettait de la consulter** — la fonctionnalité était incomplète depuis le début.
+
+Une nouvelle section **« 💬 Retours des stagiaires »** a été ajoutée en bas de l'onglet Statistiques : les 30 retours les plus récents, avec le nom du stagiaire, le module concerné, la réponse (mise en évidence en orange/rouge si "besoin d'aide" ou "difficile"), et la date — pour repérer rapidement qui pourrait avoir besoin d'un coup de main.
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).

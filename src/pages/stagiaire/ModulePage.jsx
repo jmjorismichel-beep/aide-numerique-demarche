@@ -36,9 +36,14 @@ export default function ModulePage() {
   }, [id])
 
   useEffect(() => {
-    db.moduleProgress.filter(p => p.user_id === user.id && p.module_id === id).first().then(p => {
-      setDone(!!p?.completed)
-      setSelfAssessment(p?.self_assessment || null)
+    db.moduleProgress.filter(p => p.user_id === user.id && p.module_id === id).toArray().then(records => {
+      // Avant le correctif, "Marquer comme terminé" pouvait créer un doublon
+      // au lieu de mettre à jour l'enregistrement existant. On reste donc
+      // tolérant en lisant : "terminé" si AU MOINS un enregistrement le dit,
+      // et on garde la dernière auto-évaluation connue parmi les doublons.
+      setDone(records.some(p => p.completed))
+      const withAssessment = records.filter(p => p.self_assessment).sort((a, b) => (b.completed_at || '').localeCompare(a.completed_at || ''))
+      setSelfAssessment(withAssessment[0]?.self_assessment || null)
     })
   }, [id])
 
@@ -46,8 +51,10 @@ export default function ModulePage() {
   if (!module) return <p>Chargement…</p>
 
   async function marquerTermine() {
+    const existing = await db.moduleProgress.filter(p => p.user_id === user.id && p.module_id === id).first()
     await saveRecord('moduleProgress', {
-      id: uid(), user_id: user.id, module_id: id, completed: true, completed_at: new Date().toISOString()
+      ...(existing || { id: uid(), user_id: user.id, module_id: id }),
+      completed: true, completed_at: new Date().toISOString()
     })
     setDone(true)
     await logActivity(user.id, 'A terminé le module', id)
