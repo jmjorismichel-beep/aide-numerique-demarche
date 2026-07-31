@@ -1,0 +1,69 @@
+<svg viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+  <!-- Ciel -->
+  <rect x="0" y="0" width="900" height="140" fill="#EAF4F4"/>
+  <!-- Mer, fine bande -->
+  <rect x="0" y="112" width="900" height="10" fill="#BFE0E0"/>
+  <!-- Sable -->
+  <rect x="0" y="122" width="900" height="18" fill="#F1E7D0"/>
+
+  <!-- Rangée de cabines de plage, une couleur par catégorie du site -->
+  <g>
+    <!-- cabine 1 -->
+    <g transform="translate(40,55)">
+      <rect x="0" y="30" width="52" height="48" fill="#2E86A6"/>
+      <polygon points="-6,30 58,30 26,4" fill="#1F5F78"/>
+      <rect x="20" y="52" width="12" height="26" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 2 -->
+    <g transform="translate(130,48)">
+      <rect x="0" y="30" width="52" height="55" fill="#F0A83C"/>
+      <polygon points="-6,30 58,30 26,4" fill="#C9812A"/>
+      <rect x="20" y="55" width="12" height="30" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 3 (centrale, la plus grande) -->
+    <g transform="translate(220,38)">
+      <rect x="0" y="30" width="62" height="65" fill="#F4693F"/>
+      <polygon points="-8,30 70,30 31,0" fill="#C94F2B"/>
+      <rect x="24" y="58" width="14" height="37" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 4 -->
+    <g transform="translate(330,50)">
+      <rect x="0" y="30" width="52" height="53" fill="#4C9A6A"/>
+      <polygon points="-6,30 58,30 26,4" fill="#357A4E"/>
+      <rect x="20" y="54" width="12" height="29" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 5 -->
+    <g transform="translate(420,55)">
+      <rect x="0" y="30" width="52" height="48" fill="#C1558A"/>
+      <polygon points="-6,30 58,30 26,4" fill="#9B3D6C"/>
+      <rect x="20" y="52" width="12" height="26" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 6 -->
+    <g transform="translate(510,50)">
+      <rect x="0" y="30" width="52" height="53" fill="#D4A24C"/>
+      <polygon points="-6,30 58,30 26,4" fill="#AD8033"/>
+      <rect x="20" y="54" width="12" height="29" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 7 -->
+    <g transform="translate(600,55)">
+      <rect x="0" y="30" width="52" height="48" fill="#6FA8C7"/>
+      <polygon points="-6,30 58,30 26,4" fill="#4C82A3"/>
+      <rect x="20" y="52" width="12" height="26" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 8 -->
+    <g transform="translate(690,48)">
+      <rect x="0" y="30" width="52" height="55" fill="#B3532E"/>
+      <polygon points="-6,30 58,30 26,4" fill="#8C3F21"/>
+      <rect x="20" y="55" width="12" height="30" fill="#EAF4F4"/>
+    </g>
+    <!-- cabine 9 -->
+    <g transform="translate(780,55)">
+      <rect x="0" y="30" width="52" height="48" fill="#8B7BC7"/>
+      <polygon points="-6,30 58,30 26,4" fill="#6B5CA3"/>
+      <rect x="20" y="52" width="12" height="26" fill="#EAF4F4"/>
+    </g>
+  </g>
+
+  <!-- Mouette simple -->
+  <path d="M 760 25 Q 768 15, 776 25 Q 784 15, 792 25" stroke="#5B7C85" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

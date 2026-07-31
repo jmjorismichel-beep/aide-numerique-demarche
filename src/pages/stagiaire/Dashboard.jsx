@@ -10,6 +10,7 @@ import { applySimplification } from '../../data/simplify'
 import { logActivity } from '../../lib/activity'
 import { db } from '../../lib/db'
 import VisiteGuidee, { tourDejaVue } from '../../components/VisiteGuidee'
+import { hutColorFor } from '../../lib/hutColors'
 
 export default function Dashboard() {
   const { user } = useAuthStore()
@@ -72,6 +73,8 @@ export default function Dashboard() {
       <h2>Bonjour {user.prenom} 👋</h2>
       <p>Niveau linguistique : <strong>{user.niveau_linguistique}</strong> — Choisis un module pour commencer.</p>
 
+      <img src="/diagrams/cabines-plage.svg" alt="" role="presentation" className="beach-huts-banner" />
+
       <div className="card" style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
           <strong>Ma progression</strong>
@@ -90,7 +93,7 @@ export default function Dashboard() {
 
       {byCategory.map(cat => (
         <div key={cat.key}>
-          <div className="category-title">{cat.label}</div>
+          <div className="category-title" style={{ '--hut-color': hutColorFor(cat.key) }}>{cat.label}</div>
           <div className="grid">
             {cat.items.map(m => <ModuleCard key={m.id} module={m} completed={completedIds.has(m.id)} />)}
           </div>

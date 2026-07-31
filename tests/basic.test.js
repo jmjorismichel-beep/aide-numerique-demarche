@@ -17,14 +17,19 @@ describe('translateAuthError', () => {
 })
 
 describe('hutColorFor', () => {
-  it('always returns the same color for the same module id', () => {
-    const a = hutColorFor('dem-caf')
-    const b = hutColorFor('dem-caf')
+  it('always returns the same color for the same category', () => {
+    const a = hutColorFor('demarches')
+    const b = hutColorFor('demarches')
     expect(a).toBe(b)
   })
-  it('returns one of the known hut colors', () => {
-    const color = hutColorFor('app-windows')
+  it('returns one of the known hut colors for a real category', () => {
+    const color = hutColorFor('appareils')
     expect(color).toMatch(/^var\(--hut-/)
+  })
+  it('every category defined in the app has a hut color assigned', () => {
+    for (const key of Object.keys(CATEGORIES)) {
+      expect(hutColorFor(key), `category "${key}" has no dedicated hut color`).toMatch(/^var\(--hut-/)
+    }
   })
 })
 

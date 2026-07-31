@@ -497,6 +497,21 @@ Un bandeau propose désormais d'installer le site comme une application, dès l'
 Le bandeau peut être fermé ("Non merci") et ne réapparaît pas ensuite sur cet appareil. Il disparaît aussi automatiquement une fois le site installé.
 
 
+## Nouveautés (trente-sixième itération) — un coup de peinture guidé par le thème déjà présent
+
+Suite à un retour d'un stagiaire ("donner envie d'aller sur le site"), j'ai renforcé un concept visuel qui existait déjà dans le code mais était sous-exploité : les **couleurs "cabines de plage du Havre"** (une référence directe et concrète au front de mer, plutôt qu'un choix de couleurs générique).
+
+**1. Les couleurs deviennent un vrai repère, pas juste une décoration.** Avant, chaque module recevait une couleur presque aléatoire (basée sur son identifiant technique). Désormais, chaque catégorie a sa propre couleur de cabine, fixe et cohérente — reconnaître "Argent et travail" en violet ou "Santé" en vert devient un repère de navigation, comme une vraie rangée de cabines colorées où chaque teinte a son identité. 4 nouvelles couleurs ont été ajoutées à la famille existante pour couvrir les 9 catégories (sable, ciel, terracotta, lilas).
+
+**2. Un moment "signature" à l'arrivée.** Une bannière illustrée en haut du tableau de bord — une rangée de cabines de plage, une par catégorie, avec la mer et le sable — accueille visuellement chaque stagiaire dès sa connexion. C'est un dessin fait main (SVG, aucune image téléchargée), très léger.
+
+**3. Une touche discrète de front de mer.** Une fine bande ondulée, sous le bandeau du haut, rappelle la mer sans surcharger l'interface.
+
+**Ce qui n'a volontairement pas changé** : la police (Baloo 2, déjà chaleureuse et bien choisie), la structure générale des pages, les couleurs de fond. Le principe suivi : pousser plus loin une idée déjà juste plutôt que de tout réinventer — et garder un seul geste visuel fort (la bannière) plutôt que d'accumuler les effets.
+
+**Un choix technique évité, par prudence** : une première tentative de vague en découpe (`clip-path`) directement sur le bandeau de navigation collant (sticky) a été écartée en cours de route, après avoir identifié un risque réel de mal couper les boutons de navigation. Remplacée par une bande décorative séparée, sans ce risque.
+
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).

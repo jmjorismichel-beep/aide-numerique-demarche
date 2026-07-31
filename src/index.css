@@ -28,6 +28,10 @@
   --hut-sea: #2E86A6;
   --hut-plum: #C1558A;
   --hut-leaf: #4C9A6A;
+  --hut-sand: #D4A24C;
+  --hut-sky: #6FA8C7;
+  --hut-terracotta: #B3532E;
+  --hut-lilac: #8B7BC7;
 
   --red: #DC2626;
   --green: #3F9142;
@@ -61,6 +65,22 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
   box-shadow: 0 2px 10px rgba(15, 92, 102, .25);
 }
 .topbar h1 { font-size: 1.15rem; margin: 0; font-weight: 700; letter-spacing: .2px; }
+
+.wave-strip {
+  height: 14px; width: 100%;
+  background: var(--sea);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 10 0 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 V14 H0 Z' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 10 0 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 V14 H0 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+}
+
+.beach-huts-banner {
+  display: block; width: 100%; height: auto; max-height: 110px; object-fit: cover;
+  border-radius: 14px; margin: 4px 0 20px; box-shadow: 0 4px 14px rgba(15, 92, 102, .12);
+}
+@media (max-width: 640px) {
+  .beach-huts-banner { max-height: 70px; }
+}
 .offline-pill {
   font-size: .75rem; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.2);
 }
@@ -103,7 +123,7 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
   display: flex; align-items: center; gap: 10px;
 }
 .category-title::before {
-  content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--coral); display: inline-block;
+  content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--hut-color, var(--coral)); display: inline-block;
 }
 
 .btn {

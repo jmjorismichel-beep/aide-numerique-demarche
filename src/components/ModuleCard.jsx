@@ -3,7 +3,7 @@ import { hutColorFor } from '../lib/hutColors'
 
 export default function ModuleCard({ module, completed }) {
   return (
-    <Link to={`/module/${module.id}`} className="module-card" style={{ '--hut-color': hutColorFor(module.id) }}>
+    <Link to={`/module/${module.id}`} className="module-card" style={{ '--hut-color': hutColorFor(module.category) }}>
       {completed && <span className="check" title="Module terminé">✓</span>}
       <span className="icon-badge">{module.icon}</span>
       <h3>{module.title}</h3>

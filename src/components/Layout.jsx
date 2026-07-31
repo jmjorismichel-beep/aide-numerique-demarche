@@ -90,6 +90,7 @@ export default function Layout({ children }) {
           )}
         </div>
       </header>
+      <div className="wave-strip" aria-hidden="true" />
       <InstallButton />
       {askNotif && notificationsSupported() && (
         <div style={{ background: '#FFF6F2', borderBottom: '1.5px solid var(--coral)', padding: '10px 20px', display: 'flex', gap: 12, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
