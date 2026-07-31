@@ -1,0 +1,42 @@
+<svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="500" height="340" fill="#F3F7F6"/>
+  <text x="250" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#0F5C66">La souris</text>
+
+  <!-- Mouse body -->
+  <path d="M 175 70
+           C 175 55, 190 45, 210 45
+           L 290 45
+           C 310 45, 325 55, 325 70
+           L 325 200
+           C 325 240, 290 270, 250 270
+           C 210 270, 175 240, 175 200
+           Z"
+        fill="#FFFFFF" stroke="#0F5C66" stroke-width="3"/>
+
+  <!-- Divider line (left/right button split) -->
+  <line x1="250" y1="45" x2="250" y2="130" stroke="#0F5C66" stroke-width="2"/>
+  <!-- Horizontal divider for button top area -->
+  <path d="M 178 130 L 322 130" stroke="#0F5C66" stroke-width="2"/>
+
+  <!-- Scroll wheel -->
+  <rect x="242" y="60" width="16" height="34" rx="8" fill="#D1451C"/>
+
+  <!-- Left button label -->
+  <line x1="205" y1="90" x2="90" y2="90" stroke="#0F5C66" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="205" cy="90" r="4" fill="#0F5C66"/>
+  <text x="20" y="85" font-size="16" font-weight="bold" fill="#0F5C66">Clic gauche</text>
+  <text x="20" y="105" font-size="13" fill="#6B7280">pour sélectionner,</text>
+  <text x="20" y="120" font-size="13" fill="#6B7280">cliquer, valider</text>
+
+  <!-- Right button label -->
+  <line x1="295" y1="90" x2="410" y2="90" stroke="#0F5C66" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="295" cy="90" r="4" fill="#0F5C66"/>
+  <text x="480" y="85" font-size="16" font-weight="bold" fill="#0F5C66" text-anchor="end">Clic droit</text>
+  <text x="480" y="105" font-size="13" fill="#6B7280" text-anchor="end">ouvre un menu</text>
+  <text x="480" y="120" font-size="13" fill="#6B7280" text-anchor="end">d'options</text>
+
+  <!-- Scroll wheel label -->
+  <line x1="250" y1="77" x2="250" y2="300" stroke="#D1451C" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="250" y="320" text-anchor="middle" font-size="16" font-weight="bold" fill="#D1451C">Molette</text>
+  <text x="250" y="335" text-anchor="middle" font-size="13" fill="#6B7280">fait défiler la page (monter/descendre)</text>
+</svg>

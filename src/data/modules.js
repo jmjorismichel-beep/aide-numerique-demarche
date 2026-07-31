@@ -38,16 +38,16 @@ export const DEFAULT_MODULES = [
       steps: [
         { title: "Repérer les éléments", text: "Un ordinateur fixe a une grosse boîte. Il a un écran. Il a un clavier. Il a une souris. Vérifie les câbles avant d'allumer." },
         { title: "Allumer l'ordinateur", text: "Appuie sur le bouton rond ⏻ sur la boîte. L'écran reste noir ? Vérifie que l'écran est aussi allumé." },
-        { title: "Utiliser la souris", text: "Le bouton gauche sert à cliquer. Le bouton droit ouvre un menu. La molette fait défiler la page." },
-        { title: "Utiliser le clavier", text: "Les lettres sont en AZERTY. La touche Shift fait une majuscule. La barre d'espace fait un espace." },
+        { title: "Utiliser la souris", text: "Le bouton gauche sert à cliquer. Le bouton droit ouvre un menu. La molette fait défiler la page.", diagram: "/diagrams/souris.svg" },
+        { title: "Utiliser le clavier", text: "Les lettres sont en AZERTY. La touche Shift fait une majuscule. La barre d'espace fait un espace.", diagram: "/diagrams/clavier-azerty.svg" },
         { title: "Éteindre correctement", text: "Ne débranche jamais la prise directement ! Clique sur « Démarrer ». Choisis « Éteindre ». Attends l'écran noir." }
       ]
     },
     steps: [
       { title: "Repérer les éléments", text: "Un ordinateur fixe a une unité centrale (la grosse boîte), un écran, un clavier et une souris. Vérifie que tous les câbles sont bien branchés avant d'allumer." },
       { title: "Allumer l'ordinateur", text: "Appuie sur le bouton rond avec le symbole ⏻ sur l'unité centrale. Si l'écran reste noir, vérifie qu'il est aussi allumé (bouton en bas ou sur le côté de l'écran)." },
-      { title: "Utiliser la souris", text: "Le bouton gauche sert à cliquer et sélectionner. Le bouton droit ouvre un menu avec plus d'options. La molette au milieu permet de faire défiler une page." },
-      { title: "Utiliser le clavier", text: "Les lettres sont disposées en AZERTY sur un clavier français. La touche Shift (majuscule) permet d'écrire une lettre en majuscule. La barre d'espace sert à mettre un espace." },
+      { title: "Utiliser la souris", text: "Le bouton gauche sert à cliquer et sélectionner. Le bouton droit ouvre un menu avec plus d'options. La molette au milieu permet de faire défiler une page.", diagram: "/diagrams/souris.svg" },
+      { title: "Utiliser le clavier", text: "Les lettres sont disposées en AZERTY sur un clavier français. La touche Shift (majuscule) permet d'écrire une lettre en majuscule. La barre d'espace sert à mettre un espace.", diagram: "/diagrams/clavier-azerty.svg" },
       { title: "Éteindre correctement", text: "Ne débranche jamais directement la prise ! Clique sur le bouton Démarrer (ou le menu Pomme sur Mac), puis choisis « Éteindre ». Attends que l'écran devienne noir avant de partir." }
     ] },
 

@@ -457,7 +457,20 @@ Ce n'était pas un bug technique : la réponse du stagiaire (🙂 facile / 🤔 
 
 Une nouvelle section **« 💬 Retours des stagiaires »** a été ajoutée en bas de l'onglet Statistiques : les 30 retours les plus récents, avec le nom du stagiaire, le module concerné, la réponse (mise en évidence en orange/rouge si "besoin d'aide" ou "difficile"), et la date — pour repérer rapidement qui pourrait avoir besoin d'un coup de main.
 
+## Nouveautés (trente-troisième itération) — des schémas explicatifs, pas seulement des captures d'écran
+
+Suite à un retour d'usage : deux schémas dessinés à la main (pas des photos ou images externes, donc aucun souci de droit d'auteur, et très légers — 4 Ko et 2 Ko) ont été ajoutés :
+
+- **Un clavier AZERTY complet et labellisé**, avec les lettres A, Z, E, R, T, Y bien visibles en haut à gauche — le repère le plus simple pour reconnaître un clavier français.
+- **Une souris avec ses trois zones expliquées** : clic gauche (sélectionner, cliquer, valider), clic droit (ouvre un menu), molette (fait défiler la page).
+
+Les deux sont intégrés directement dans le module "Ordinateur fixe", aux étapes qui en parlent déjà ("Utiliser la souris" et "Utiliser le clavier").
+
+**Mécanisme réutilisable** : un nouveau champ `diagram` (distinct du champ `screenshot` déjà existant pour les captures de sites officiels) permet d'ajouter facilement d'autres schémas de ce type à n'importe quelle étape de n'importe quel module — utile si d'autres retours similaires arrivent (par exemple, un schéma expliquant les ports d'un ordinateur, ou les boutons d'un smartphone).
+
 ## Prochaines améliorations possibles
+
+
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
 - Ajouter un système de notification (nouveau message reçu) via un badge.

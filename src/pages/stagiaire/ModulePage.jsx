@@ -183,6 +183,16 @@ export default function ModulePage() {
                     </figcaption>
                   </figure>
                 )}
+                {s.diagram && (
+                  <figure style={{ margin: '10px 0 0', maxWidth: 420 }}>
+                    <img
+                      src={s.diagram}
+                      alt={s.diagramAlt || `Schéma illustrant : ${s.title}`}
+                      style={{ maxWidth: '100%', borderRadius: 10, border: '1.5px solid #D7DEDD', display: 'block' }}
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
               </div>
             </div>
           </div>
