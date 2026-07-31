@@ -1,0 +1,20 @@
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="600" height="300" fill="#F3F7F6"/>
+  <text x="300" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#0F5C66">Le RIB (Relevé d'Identité Bancaire)</text>
+  <text x="300" y="48" text-anchor="middle" font-size="13" fill="#6B7280">On te le demande souvent pour recevoir un salaire, la CAF, ou payer un loyer</text>
+
+  <!-- Document -->
+  <rect x="60" y="70" width="480" height="190" rx="10" fill="#FFFFFF" stroke="#0F5C66" stroke-width="2"/>
+  <text x="80" y="98" font-size="14" font-weight="bold" fill="#1F2937">Titulaire du compte : DIALLO Fatima</text>
+
+  <rect x="80" y="115" width="440" height="34" rx="5" fill="#FFF6F2" stroke="#D1451C" stroke-width="1.5"/>
+  <text x="90" y="137" font-size="14" font-weight="bold" fill="#D1451C">IBAN : FR76 XXXX XXXX XXXX XXXX XXXX XXX</text>
+
+  <rect x="80" y="158" width="200" height="30" rx="5" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="1.5"/>
+  <text x="90" y="178" font-size="13" font-weight="bold" fill="#1E3A8A">BIC : XXXXFRXX</text>
+
+  <text x="80" y="215" font-size="13" fill="#374151">Domiciliation : Nom de ta banque et de l'agence</text>
+
+  <line x1="80" y1="230" x2="520" y2="230" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="80" y="250" font-size="12" fill="#6B7280">→ L'IBAN identifie ton compte. Le BIC identifie ta banque.</text>
+</svg>

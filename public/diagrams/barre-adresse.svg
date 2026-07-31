@@ -1,0 +1,28 @@
+<svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="600" height="220" fill="#F3F7F6"/>
+  <text x="300" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#0F5C66">La barre d'adresse du navigateur</text>
+
+  <!-- Browser window -->
+  <rect x="40" y="50" width="520" height="130" rx="10" fill="#FFFFFF" stroke="#0F5C66" stroke-width="2"/>
+  <!-- Browser top bar -->
+  <rect x="40" y="50" width="520" height="30" rx="10" fill="#E5E7EB"/>
+  <circle cx="58" cy="65" r="5" fill="#D1451C"/>
+  <circle cx="74" cy="65" r="5" fill="#F5A623"/>
+  <circle cx="90" cy="65" r="5" fill="#22C55E"/>
+
+  <!-- Address bar -->
+  <rect x="115" y="55" width="420" height="20" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="1"/>
+  <text x="128" y="70" font-size="12" fill="#166534">🔒 https://www.caf.fr</text>
+
+  <!-- Explanation arrow -->
+  <line x1="325" y1="82" x2="325" y2="110" stroke="#D1451C" stroke-width="2" marker-end="url(#arrow2)"/>
+  <defs>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto">
+      <path d="M0,0 L8,0 L4,8 Z" fill="#D1451C"/>
+    </marker>
+  </defs>
+
+  <text x="80" y="130" font-size="13" fill="#1F2937">C'est ICI qu'on tape l'adresse d'un site (pas dans le moteur de recherche).</text>
+  <text x="80" y="150" font-size="13" fill="#1F2937">🔒 Le cadenas = connexion sécurisée. "https://" = bon signe.</text>
+  <text x="80" y="170" font-size="13" fill="#1F2937">Un site officiel finit souvent par ".gouv.fr" ou ".fr".</text>
+</svg>

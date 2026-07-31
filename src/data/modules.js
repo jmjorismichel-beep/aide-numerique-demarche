@@ -57,7 +57,7 @@ export const DEFAULT_MODULES = [
       description: "Découvrir un ordinateur portable.",
       steps: [
         { title: "Allumer l'ordinateur portable", text: "Ouvre l'écran. Appuie sur le bouton ⏻. Il est souvent au-dessus du clavier." },
-        { title: "Utiliser le pavé tactile", text: "Le pavé tactile remplace la souris. Un doigt qui glisse bouge le curseur. Un tapotement clique." },
+        { title: "Utiliser le pavé tactile", text: "Le pavé tactile remplace la souris. Un doigt qui glisse bouge le curseur. Un tapotement clique.", diagram: "/diagrams/trackpad.svg" },
         { title: "Brancher le chargeur", text: "Branche le chargeur dans la prise. Branche l'autre bout dans l'ordinateur. Une lumière s'allume." },
         { title: "Fermer sans éteindre", text: "Fermer l'écran met l'ordinateur en veille. Pour l'éteindre : clique sur « Démarrer », puis « Éteindre »." },
         { title: "Bien transporter son ordinateur", text: "Ferme toujours l'écran avant de le déplacer. Utilise une housse si possible." }
@@ -65,7 +65,7 @@ export const DEFAULT_MODULES = [
     },
     steps: [
       { title: "Allumer l'ordinateur portable", text: "Ouvre l'écran (le clapet) et appuie sur le bouton ⏻, souvent situé au-dessus du clavier ou sur le côté." },
-      { title: "Utiliser le pavé tactile", text: "Le pavé tactile (touchpad) remplace la souris. Un doigt qui glisse déplace le curseur. Un tapotement clique. Deux doigts qui glissent font défiler la page." },
+      { title: "Utiliser le pavé tactile", text: "Le pavé tactile (touchpad) remplace la souris. Un doigt qui glisse déplace le curseur. Un tapotement clique. Deux doigts qui glissent font défiler la page.", diagram: "/diagrams/trackpad.svg" },
       { title: "Brancher le chargeur", text: "Branche le chargeur dans la prise de courant, puis l'autre extrémité dans l'ordinateur. Une lumière s'allume en général pour indiquer que ça charge." },
       { title: "Fermer sans éteindre", text: "Fermer l'écran met l'ordinateur en veille : il continue de fonctionner à basse consommation. Pour vraiment l'éteindre, utilise le menu Démarrer (ou Pomme) puis « Éteindre »." },
       { title: "Bien transporter son ordinateur", text: "Ferme toujours l'écran avant de le déplacer, et utilise une housse ou un sac de protection si possible pour éviter les chocs." }
@@ -123,7 +123,7 @@ export const DEFAULT_MODULES = [
         { title: "Le menu Pomme", text: "En haut à gauche, la pomme ouvre le menu principal. Tu trouves « Réglages Système » et « Éteindre »." },
         { title: "Ouvrir les Réglages Système", text: "Clique sur la pomme. Clique sur « Réglages Système ». Règle le Wi-Fi, le son, la langue." },
         { title: "Le Dock et le Finder", text: "En bas, le Dock a tes applications. L'icône bleue et blanche est le Finder : tes fichiers." },
-        { title: "Utiliser le trackpad", text: "Un doigt qui glisse bouge le curseur. Deux doigts font défiler la page." },
+        { title: "Utiliser le trackpad", text: "Un doigt qui glisse bouge le curseur. Deux doigts font défiler la page.", diagram: "/diagrams/trackpad.svg" },
         { title: "Éteindre le Mac", text: "Clique sur la pomme. Choisis « Éteindre ». Attends l'écran noir." }
       ]
     },
@@ -131,7 +131,7 @@ export const DEFAULT_MODULES = [
       { title: "Le menu Pomme", text: "En haut à gauche de l'écran, la petite pomme  ouvre le menu principal : c'est ici que se trouvent « Réglages Système » et « Éteindre »." },
       { title: "Ouvrir les Réglages Système", text: "Clique sur la pomme  puis sur « Réglages Système ». Tu peux régler le Wi-Fi, le son, la luminosité et la langue." },
       { title: "Le Dock et le Finder", text: "En bas de l'écran, le Dock regroupe tes applications favorites. L'icône bleue et blanche est le Finder : il permet de retrouver tes fichiers et dossiers." },
-      { title: "Utiliser le trackpad", text: "Un doigt qui glisse déplace le curseur. Deux doigts qui glissent font défiler la page. Un clic avec deux doigts ouvre le menu (clic droit)." },
+      { title: "Utiliser le trackpad", text: "Un doigt qui glisse déplace le curseur. Deux doigts qui glissent font défiler la page. Un clic avec deux doigts ouvre le menu (clic droit).", diagram: "/diagrams/trackpad.svg" },
       { title: "Éteindre le Mac", text: "Clique sur la pomme  en haut à gauche, puis choisis « Éteindre ». Attends que l'écran devienne noir avant de fermer l'ordinateur." }
     ] },
 
@@ -247,14 +247,14 @@ export const DEFAULT_MODULES = [
       description: "Reconnaître les sites officiels pour faire ses démarches en ligne.",
       whatIsIt: "En France, beaucoup de démarches se font sur internet. Il faut savoir reconnaître un site officiel. Ça évite de perdre du temps. Ça évite les arnaques.",
       steps: [
-        { title: "Reconnaître un site officiel", text: "Un site officiel finit presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr. Méfie-toi des sites qui demandent de payer pour un service gratuit." },
+        { title: "Reconnaître un site officiel", text: "Un site officiel finit presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr. Méfie-toi des sites qui demandent de payer pour un service gratuit.", diagram: "/diagrams/barre-adresse.svg" },
         { title: "Le site service-public.fr", text: "C'est le site officiel avec toutes les démarches. Il explique quoi faire. Il donne les bons liens." },
         { title: "FranceConnect : un seul mot de passe pour plusieurs sites", text: "FranceConnect te connecte à plusieurs sites (impôts, ameli, CAF...) avec un seul compte. Cherche le bouton « FranceConnect »." },
         { title: "Vérifier avant de cliquer", text: "Avant de donner tes informations, regarde bien l'adresse du site. Un doute ? Demande à ton formateur." }
       ]
     },
     steps: [
-      { title: "Reconnaître un site officiel", text: "Un site officiel du gouvernement se termine presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr, service-public.fr. Méfie-toi des sites qui ressemblent mais demandent de payer pour un service normalement gratuit." },
+      { title: "Reconnaître un site officiel", text: "Un site officiel du gouvernement se termine presque toujours par « .gouv.fr ». Exemple : impots.gouv.fr, service-public.fr. Méfie-toi des sites qui ressemblent mais demandent de payer pour un service normalement gratuit.", diagram: "/diagrams/barre-adresse.svg" },
       { title: "Le site service-public.fr", text: "C'est le site officiel qui rassemble des informations sur toutes les démarches administratives françaises (identité, famille, travail, logement...). Il explique clairement quoi faire et donne les liens vers les bons sites.", screenshot: "/screenshots/servicepublic-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel service-public.fr" },
       { title: "FranceConnect : un seul mot de passe pour plusieurs sites", text: "FranceConnect permet de se connecter à plusieurs services publics (impots.gouv.fr, ameli.fr, caf.fr...) avec un seul compte, par exemple ton compte des impôts ou ta carte Vitale. Cherche le bouton « FranceConnect » sur la page de connexion." },
       { title: "Vérifier avant de cliquer", text: "Avant d'entrer des informations personnelles, regarde bien l'adresse du site dans la barre du haut. Si tu as un doute, demande à ton formateur avant de continuer." }
@@ -298,7 +298,7 @@ export const DEFAULT_MODULES = [
         { title: "Aller sur le site ameli.fr", text: "Ouvre le site ameli.fr. C'est le site officiel de la CPAM." },
         { title: "Créer ou retrouver son compte", text: "Clique sur « Mon compte ». Première visite ? Clique sur « Créer mon compte ». Il te faut ton numéro de Sécurité Sociale." },
         { title: "Suivre ses remboursements", text: "Connecte-toi. Va dans « Mes remboursements ». Tu vois tes soins remboursés." },
-        { title: "Commander une carte Vitale", text: "Va dans « Mes démarches ». Tu peux demander une carte Vitale. Perte, vol, première demande." },
+        { title: "Commander une carte Vitale", text: "Va dans « Mes démarches ». Tu peux demander une carte Vitale. Perte, vol, première demande.", diagram: "/diagrams/carte-vitale.svg" },
         { title: "Télécharger une attestation", text: "Va dans « Mes démarches » puis « Mes attestations ». Télécharge ton attestation de droits." }
       ]
     },
@@ -306,7 +306,7 @@ export const DEFAULT_MODULES = [
       { title: "Aller sur le site ameli.fr", text: "Ouvre le site officiel de l'Assurance Maladie : ameli.fr. C'est le site de la CPAM (Caisse Primaire d'Assurance Maladie).", screenshot: "/screenshots/ameli-accueil.jpg", screenshotAlt: "Page d'accueil du site officiel ameli.fr" },
       { title: "Créer ou retrouver son compte", text: "Clique sur « Mon compte ». Si c'est ta première visite, clique sur « Créer mon compte » et suis les étapes avec ton numéro de Sécurité Sociale." },
       { title: "Suivre ses remboursements", text: "Une fois connecté, la rubrique « Mes remboursements » montre l'historique de tes soins remboursés (médecin, pharmacie...)." },
-      { title: "Commander une carte Vitale", text: "Dans « Mes démarches », tu peux demander une nouvelle carte Vitale (première demande, perte, vol) ou signaler un changement de situation." },
+      { title: "Commander une carte Vitale", text: "Dans « Mes démarches », tu peux demander une nouvelle carte Vitale (première demande, perte, vol) ou signaler un changement de situation.", diagram: "/diagrams/carte-vitale.svg" },
       { title: "Télécharger une attestation", text: "Dans « Mes démarches » > « Mes attestations », tu peux télécharger et imprimer ton attestation de droits, souvent demandée par d'autres administrations." }
     ] },
 

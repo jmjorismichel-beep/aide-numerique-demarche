@@ -468,9 +468,23 @@ Les deux sont intégrés directement dans le module "Ordinateur fixe", aux étap
 
 **Mécanisme réutilisable** : un nouveau champ `diagram` (distinct du champ `screenshot` déjà existant pour les captures de sites officiels) permet d'ajouter facilement d'autres schémas de ce type à n'importe quelle étape de n'importe quel module — utile si d'autres retours similaires arrivent (par exemple, un schéma expliquant les ports d'un ordinateur, ou les boutons d'un smartphone).
 
+## Nouveautés (trente-quatrième itération) — schémas étendus, avec un choix de périmètre assumé
+
+**Clavier et souris généralisés** partout où ils étaient déjà mentionnés : le clavier AZERTY et la souris couvrent maintenant tous les endroits pertinents.
+
+**Nouveau schéma : le pavé tactile (trackpad)** — 1 doigt déplace le curseur, 2 doigts font défiler, un tapotement clique. Ajouté aux modules Ordinateur portable et Apple/Mac, qui utilisent un trackpad plutôt qu'une souris.
+
+**Trois nouveaux schémas à forte réutilisation, plutôt qu'un schéma par terme technique** :
+- **La barre d'adresse du navigateur** : où taper l'adresse d'un site, à quoi sert le cadenas 🔒, comment reconnaître un site officiel. Ajouté au module "Sites officiels", le plus transversal de tous.
+- **Le RIB** (Relevé d'Identité Bancaire) : où trouver l'IBAN et le BIC. Ajouté au module Compte bancaire.
+- **La carte Vitale** : où trouver son numéro de Sécurité Sociale sur la carte. Ajouté au module CPAM.
+
+**Un choix de périmètre assumé, à vous de me dire si vous voulez aller plus loin** : "tous les termes techniques dans tous les modules" représenterait littéralement des dizaines de schémas différents (port USB, QR code, arobase @, icône de recherche, symboles de batterie/Wi-Fi, etc.) — un travail considérable et sans fin naturelle. J'ai donc privilégié les **schémas à la plus forte réutilisation** (qui servent dans plusieurs modules à la fois) plutôt que d'essayer de tout couvrir d'un coup. Si un terme précis pose particulièrement problème aux stagiaires, dites-le-moi et je peux créer un schéma ciblé pour lui — comme on l'a déjà fait pour le clavier et la souris suite à un vrai retour d'usage.
+
+
+
+
 ## Prochaines améliorations possibles
-
-
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
 - Ajouter un système de notification (nouveau message reçu) via un badge.

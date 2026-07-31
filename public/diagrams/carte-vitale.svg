@@ -1,0 +1,20 @@
+<svg viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="500" height="320" fill="#F3F7F6"/>
+  <text x="250" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#0F5C66">La carte Vitale</text>
+
+  <!-- Card -->
+  <rect x="60" y="55" width="380" height="230" rx="16" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="3"/>
+  <text x="85" y="85" font-size="15" font-weight="bold" fill="#1E3A8A">CARTE VITALE</text>
+
+  <!-- Chip -->
+  <rect x="85" y="105" width="55" height="42" rx="6" fill="#D1451C"/>
+  <line x1="85" y1="126" x2="140" y2="126" stroke="#B33E1A" stroke-width="1.5"/>
+  <line x1="112" y1="105" x2="112" y2="147" stroke="#B33E1A" stroke-width="1.5"/>
+
+  <text x="85" y="180" font-size="14" fill="#1F2937">DIALLO Fatima</text>
+  <text x="85" y="205" font-size="15" font-weight="bold" fill="#D1451C">1 85 XX XX XXX XXX XX</text>
+  <text x="85" y="222" font-size="11" fill="#6B7280">← ton numéro de Sécurité Sociale (15 chiffres)</text>
+
+  <text x="85" y="255" font-size="12" fill="#374151">Elle permet d'être remboursé automatiquement</text>
+  <text x="85" y="270" font-size="12" fill="#374151">chez le médecin ou en pharmacie.</text>
+</svg>

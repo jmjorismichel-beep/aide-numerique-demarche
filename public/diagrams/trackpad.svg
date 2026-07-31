@@ -1,0 +1,35 @@
+<svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="520" height="340" fill="#F3F7F6"/>
+  <text x="260" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#0F5C66">Le pavé tactile (trackpad)</text>
+
+  <!-- Trackpad surface -->
+  <rect x="140" y="60" width="240" height="160" rx="14" fill="#FFFFFF" stroke="#0F5C66" stroke-width="3"/>
+
+  <!-- One finger -->
+  <circle cx="200" cy="120" r="9" fill="#D1451C"/>
+  <path d="M 200 129 Q 230 145, 255 150" stroke="#D1451C" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow1)"/>
+
+  <!-- Two fingers -->
+  <circle cx="310" cy="160" r="8" fill="#0F5C66"/>
+  <circle cx="330" cy="160" r="8" fill="#0F5C66"/>
+  <line x1="320" y1="145" x2="320" y2="185" stroke="#0F5C66" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <defs>
+    <marker id="arrow1" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#D1451C"/>
+    </marker>
+  </defs>
+
+  <!-- Labels -->
+  <g font-size="15">
+    <circle cx="30" cy="255" r="7" fill="#D1451C"/>
+    <text x="45" y="245" font-weight="bold" fill="#D1451C">1 doigt qui glisse</text>
+    <text x="45" y="263" fill="#6B7280">déplace le curseur à l'écran</text>
+
+    <circle cx="30" cy="285" r="7" fill="#0F5C66"/>
+    <text x="45" y="275" font-weight="bold" fill="#0F5C66">2 doigts qui glissent</text>
+    <text x="45" y="293" fill="#6B7280">font défiler la page (haut/bas)</text>
+
+    <text x="30" y="320" font-weight="bold" fill="#1F2937">Un petit tapotement (avec 1 doigt) = un clic</text>
+  </g>
+</svg>

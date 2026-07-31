@@ -294,14 +294,14 @@ export const EXTRA_MODULES = [
         { title: "Choisir une banque", text: "Il y a des banques classiques (avec agence). Il y a des banques en ligne (Boursorama, N26...), souvent gratuites." },
         { title: "Prendre rendez-vous ou faire la demande en ligne", text: "Banque classique ? Prends rendez-vous en agence. Banque en ligne ? Tout se fait dans l'application." },
         { title: "Le droit au compte", text: "Une banque refuse ? Demande à la Banque de France d'en choisir une pour toi. C'est le « droit au compte »." },
-        { title: "Recevoir sa carte et son RIB", text: "Le compte est ouvert. Tu reçois une carte bancaire et un RIB. Donne le RIB à ton employeur ou à la CAF." }
+        { title: "Recevoir sa carte et son RIB", text: "Le compte est ouvert. Tu reçois une carte bancaire et un RIB. Donne le RIB à ton employeur ou à la CAF.", diagram: "/diagrams/rib.svg" }
       ]
     },
     steps: [
       { title: "Choisir une banque", text: "Il existe des banques classiques (avec agence) et des banques en ligne (Boursorama, N26, Revolut...), souvent gratuites et avec une ouverture de compte plus rapide.", visual: "document" },
       { title: "Prendre rendez-vous ou faire la demande en ligne", text: "Dans une banque classique, prends rendez-vous en agence. Pour une banque en ligne, tout se fait depuis l'application, avec une photo de tes documents." },
       { title: "Le droit au compte", text: "Si une banque refuse de t'ouvrir un compte, tu peux demander à la Banque de France d'en désigner une qui devra accepter : c'est ce qu'on appelle le « droit au compte »." },
-      { title: "Recevoir sa carte et son RIB", text: "Une fois le compte ouvert, tu reçois une carte bancaire et un RIB (Relevé d'Identité Bancaire), à donner à ton employeur ou à la CAF pour recevoir tes virements." }
+      { title: "Recevoir sa carte et son RIB", text: "Une fois le compte ouvert, tu reçois une carte bancaire et un RIB (Relevé d'Identité Bancaire), à donner à ton employeur ou à la CAF pour recevoir tes virements.", diagram: "/diagrams/rib.svg" }
     ] },
 
   { id: 'argent-cpf', category: 'argent-travail', icon: '🎓', title: 'Mon Compte Formation (CPF)',
