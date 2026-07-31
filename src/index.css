@@ -226,6 +226,19 @@ h1, h2, h3, h4 { font-family: 'Baloo 2', 'Segoe UI', Arial, sans-serif; }
 .site-footer a { color: var(--muted); text-decoration: underline; }
 .site-footer a:hover { color: var(--sea); }
 
+.install-banner {
+  background: #EFF6FF; border-bottom: 1.5px solid var(--sea);
+  padding: 10px 20px; display: flex; gap: 12px; align-items: center;
+  justify-content: center; flex-wrap: wrap;
+}
+.install-banner span { font-size: .9rem; }
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(15, 92, 102, .55);
+  display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 16px;
+}
+.modal-overlay ol { font-size: .9rem; line-height: 1.6; }
+
 .fr-subtitle { color: var(--muted); font-size: .8rem; font-style: italic; margin: -6px 0 4px; }
 [dir="rtl"] .fr-subtitle { font-style: normal; }
 

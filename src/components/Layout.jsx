@@ -9,6 +9,7 @@ import { t } from '../data/translations/ui'
 import { db } from '../lib/db'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { notificationsSupported, requestNotificationPermission, shouldAskForPermission, notifyNewMessage } from '../lib/notifications'
+import InstallButton from './InstallButton'
 
 export default function Layout({ children }) {
   const { user, signOut } = useAuthStore()
@@ -89,6 +90,7 @@ export default function Layout({ children }) {
           )}
         </div>
       </header>
+      <InstallButton />
       {askNotif && notificationsSupported() && (
         <div style={{ background: '#FFF6F2', borderBottom: '1.5px solid var(--coral)', padding: '10px 20px', display: 'flex', gap: 12, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '.9rem' }}>🔔 Être averti quand un nouveau message arrive, tant que ce site reste ouvert dans un onglet ?</span>

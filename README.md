@@ -484,6 +484,19 @@ Les deux sont intégrés directement dans le module "Ordinateur fixe", aux étap
 
 
 
+## Nouveautés (trente-cinquième itération) — bouton d'installation, avec une vraie limite Apple à connaître
+
+Un bandeau propose désormais d'installer le site comme une application, dès l'arrivée sur le site (avant même de se connecter).
+
+**Là où ça fonctionne en un clic** : Windows, macOS et Linux avec Chrome ou Edge, et Android (Chrome, la plupart des navigateurs). Un clic sur "Installer" déclenche directement la fenêtre d'installation du navigateur — aucune manipulation supplémentaire.
+
+**Sur iPhone et iPad — une limite d'Apple, pas de nous** : Safari sur iOS/iPadOS ne permet à **aucun site web au monde** de déclencher une installation automatique — c'est une restriction volontaire d'Apple, pas une limite technique qu'on pourrait contourner. Sur ces appareils, le bouton "Installer" ouvre donc une petite fenêtre d'instructions claires en 3 étapes (bouton Partager → "Sur l'écran d'accueil" → "Ajouter"), plutôt que de proposer un bouton qui ne fonctionnerait pas.
+
+**Sur les autres navigateurs** (Firefox, Safari desktop...) qui ne proposent aucune installation programmable : le bandeau ne s'affiche pas plutôt que de proposer un bouton inopérant.
+
+Le bandeau peut être fermé ("Non merci") et ne réapparaît pas ensuite sur cet appareil. Il disparaît aussi automatiquement une fois le site installé.
+
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
