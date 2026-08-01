@@ -15,7 +15,20 @@ export const LANGUAGES = {
   sq: { label: 'Shqip', dir: 'ltr' },
   ti: { label: 'ትግርኛ', dir: 'ltr' },
   so: { label: 'Soomaali', dir: 'ltr' },
-  zh: { label: '中文', dir: 'ltr' }
+  zh: { label: '中文', dir: 'ltr' },
+  ur: { label: 'اردو', dir: 'rtl' },
+  ps: { label: 'پښتو', dir: 'rtl' },
+  bn: { label: 'বাংলা', dir: 'ltr' },
+  hi: { label: 'हिन्दी', dir: 'ltr' },
+  vi: { label: 'Tiếng Việt', dir: 'ltr' },
+  ro: { label: 'Română', dir: 'ltr' },
+  pl: { label: 'Polski', dir: 'ltr' },
+  ku: { label: 'Kurdî', dir: 'ltr' },
+  sw: { label: 'Kiswahili', dir: 'ltr' },
+  wo: { label: 'Wolof', dir: 'ltr' },
+  ka: { label: 'ქართული', dir: 'ltr' },
+  hy: { label: 'Հայերեն', dir: 'ltr' },
+  ta: { label: 'தமிழ்', dir: 'ltr' }
 }
 
 function readInitial() {

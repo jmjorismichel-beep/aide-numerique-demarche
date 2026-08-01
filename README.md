@@ -512,6 +512,23 @@ Suite à un retour d'un stagiaire ("donner envie d'aller sur le site"), j'ai ren
 **Un choix technique évité, par prudence** : une première tentative de vague en découpe (`clip-path`) directement sur le bandeau de navigation collant (sticky) a été écartée en cours de route, après avoir identifié un risque réel de mal couper les boutons de navigation. Remplacée par une bande décorative séparée, sans ce risque.
 
 
+## Nouveautés (trente-septième itération) — 13 nouvelles langues (25 au total)
+
+Suite à la demande d'élargir la liste des langues, 13 langues supplémentaires ont été ajoutées : ourdou, pachto, bengali, hindi, vietnamien, roumain, polonais, kurde (kurmandji), swahili, wolof, géorgien, arménien, tamoul.
+
+**Le sous-titre français fonctionne exactement comme pour les 12 langues précédentes** : dès qu'une de ces nouvelles langues est choisie, le texte français reste affiché en dessous, avec le drapeau 🇫🇷 — même mécanisme, sans aucune différence de traitement.
+
+**Ce qui est traduit pour ces 13 langues** :
+- L'intégralité de l'interface (navigation, formulaire d'inscription en 3 étapes, niveaux CECRL A1-C2, messages d'erreur) — comme pour les 12 langues précédentes.
+- Le titre et la description des 61 modules.
+
+**Ce qui reste en français pour ces 13 nouvelles langues (différence assumée avec les 12 premières)** : le "C'est quoi, et pourquoi c'est utile ?" et la liste des documents à préparer ne sont pas encore traduits pour ce nouveau lot de langues — seulement le titre et la description. Contrairement aux 12 langues précédentes qui ont ces champs traduits, ici le mécanisme de repli automatique s'applique : le texte français s'affiche à la place, sans rien casser, mais sans traduction non plus à cet endroit précis. Les étapes détaillées de chaque module restent en français uniquement, comme pour toutes les langues du site.
+
+**Fiabilité des traductions** : comme précédemment, ces traductions ont été produites automatiquement, avec une fiabilité qui varie selon la langue. Le roumain et le polonais (langues européennes bien dotées en outils de traduction) sont probablement les plus fiables de ce lot. Le wolof et le kurde kurmandji, langues moins présentes dans les outils de traduction automatique, mériteraient une relecture par un locuteur natif avant un usage critique — même remarque que pour le tigrinya, le somali ou l'albanais du premier lot.
+
+**Sur "toutes les langues du monde"** : comme expliqué avant de commencer, ce n'était pas réaliste (environ 7000 langues vivantes, beaucoup sans écriture standardisée ou sans données de traduction fiables). Ce paquet de 13 langues cible les publics les plus probables. Si des besoins précis se font sentir chez d'autres stagiaires, on peut ajouter une langue ciblée plutôt que d'essayer une couverture universelle.
+
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
