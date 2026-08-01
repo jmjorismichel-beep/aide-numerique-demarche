@@ -529,6 +529,24 @@ Suite à la demande d'élargir la liste des langues, 13 langues supplémentaires
 **Sur "toutes les langues du monde"** : comme expliqué avant de commencer, ce n'était pas réaliste (environ 7000 langues vivantes, beaucoup sans écriture standardisée ou sans données de traduction fiables). Ce paquet de 13 langues cible les publics les plus probables. Si des besoins précis se font sentir chez d'autres stagiaires, on peut ajouter une langue ciblée plutôt que d'essayer une couverture universelle.
 
 
+## Nouveautés (trente-huitième itération) — "C'est quoi" et documents complétés pour 4 langues sur 13
+
+Suite à la demande de compléter le "C'est quoi" et les documents à préparer pour les 13 nouvelles langues, **4 langues sont maintenant traduites à 100%** sur les 4 champs (titre, description, C'est quoi, documents), comme les 12 langues du premier lot : **ourdou, pachto, bengali, hindi**.
+
+**Reste à faire** : vietnamien, roumain, polonais, kurde, swahili, wolof, géorgien, arménien, tamoul (9 langues) — pour l'instant, ces 9 langues ont titre + description + interface complète, mais le "C'est quoi" et les documents y affichent encore le français par défaut (repli automatique, rien de cassé, juste pas encore traduit à cet endroit précis).
+
+Je continue avec les 9 langues restantes dans la foulée.
+
+
+## Nouveautés (trente-neuvième itération) — les 13 nouvelles langues sont maintenant complètes à 100%
+
+Suite de l'itération précédente : les 9 langues restantes (vietnamien, roumain, polonais, kurde, swahili, wolof, géorgien, arménien, tamoul) ont maintenant elles aussi le "C'est quoi" et les documents à préparer traduits, sur les 52 modules qui ont ce contenu.
+
+**Bilan final : les 25 langues du site sont toutes traduites sur les 4 mêmes champs** (titre, description, C'est quoi, documents), sans différence de traitement entre "l'ancien" et le "nouveau" lot de langues. Le sous-titre français continue de s'afficher de la même façon pour toutes.
+
+**Fiabilité, comme toujours** : ces traductions ont été produites automatiquement. Le roumain et le polonais sont probablement les plus fiables de ce lot (langues européennes bien dotées). Le wolof, le kurde kurmandji, le géorgien, l'arménien et le tamoul mériteraient une relecture par un locuteur natif avant un usage critique, comme c'est déjà noté pour le tigrinya, le somali et l'albanais du tout premier lot. Le fichier de relecture Excel préparé précédemment peut être étendu pour couvrir ces langues si des locuteurs natifs sont disponibles.
+
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).

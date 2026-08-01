@@ -986,3 +986,353 @@ const NEW_LANGUAGES_BATCH2 = {
 for (const id in NEW_LANGUAGES_BATCH2) {
   MODULE_TRANSLATIONS[id] = { ...MODULE_TRANSLATIONS[id], ...NEW_LANGUAGES_BATCH2[id] }
 }
+
+
+const WHATISIT_BATCH1 = {
+  'app-linux': {
+    ur: { whatIsIt: 'لینکس ایک آپریٹنگ سسٹم ہے، جیسے ونڈوز یا macOS، لیکن یہ مفت ہے اور کم وسائل استعمال کرتا ہے: یہ پرانے یا کم طاقتور کمپیوٹر پر بھی اچھی طرح کام کرتا ہے۔ اس کے کئی ورژن ہیں (Ubuntu, Debian, Linux Mint...)، لیکن وہ سب بنیادی طور پر ایک جیسے کام کرتے ہیں۔', documents: [] },
+    ps: { whatIsIt: 'لینکس یو عملیاتي سیسټم دی، لکه ویندوز یا macOS، مګر دا وړیا دی او لږ سرچینې کاروي: دا حتی په زاړه یا لږ پیاوړي کمپیوټر کې هم ښه کار کوي.', documents: [] },
+    bn: { whatIsIt: 'লিনাক্স একটি অপারেটিং সিস্টেম, উইন্ডোজ বা macOS-এর মতো, তবে এটি বিনামূল্যে এবং কম সম্পদ ব্যবহার করে: এটি পুরনো বা কম শক্তিশালী কম্পিউটারেও ভালো কাজ করে।', documents: [] },
+    hi: { whatIsIt: 'लिनक्स एक ऑपरेटिंग सिस्टम है, विंडोज़ या macOS की तरह, लेकिन यह मुफ्त है और कम संसाधन उपयोग करता है।', documents: [] },
+  },
+  'dem-sites-officiels': {
+    ur: { whatIsIt: 'فرانس میں، بہت سے انتظامی کام (خاندان، صحت، کام، رہائش، دستاویزات...) اب گھر بیٹھے انٹرنیٹ پر کیے جاتے ہیں۔ سرکاری ویب سائٹ کو پہچاننا وقت ضائع ہونے یا دھوکہ دہی سے بچاتا ہے۔', documents: [] },
+    ps: { whatIsIt: 'په فرانسه کې، ډیری اداري چارې (کورنۍ، روغتیا، کار، استوګنه، اسناد...) اوس د کارتوس پرځای انټرنیټ باندې ترسره کیږي.', documents: [] },
+    bn: { whatIsIt: 'ফ্রান্সে, অনেক প্রশাসনিক কাজ (পরিবার, স্বাস্থ্য, কাজ, আবাসন, নথি...) এখন কাউন্টারের পরিবর্তে ইন্টারনেটে করা হয়।', documents: [] },
+    hi: { whatIsIt: 'फ्रांस में, कई प्रशासनिक कार्य अब काउंटर के बजाय इंटरनेट पर किए जाते हैं।', documents: [] },
+  },
+  'dem-caf': {
+    ur: { whatIsIt: 'CAF خاندانوں اور کم آمدنی والے افراد کو رقم دیتا ہے: رہائش کی مدد، بچوں کی مدد، سرگرمی بونس... اگر آپ کے بچے ہیں یا آمدنی کم ہے، تو آپ کو شاید مدد کا حق ہے۔', documents: ['سوشل سیکیورٹی نمبر', 'ای میل ایڈریس', 'RIB (بینک شناختی بیان)', 'حالیہ رہائشی ثبوت'] },
+    ps: { whatIsIt: 'CAF کورنیو او کم عاید لرونکو کسانو ته پیسې ورکوي: د استوګنې مرسته، د ماشومانو مرسته، د فعالیت انعام... که تاسو ماشومان لرئ یا ستاسو عاید کم دی، تاسو شاید د مرستې حق لرئ.', documents: ['د ټولنیزې خوندیتوب شمېره', 'بریښنالیک پته', 'RIB (بانکي پیژندنیز بیان)', 'وروستی استوګنې ثبوت'] },
+    bn: { whatIsIt: 'CAF পরিবার এবং কম আয়ের ব্যক্তিদের অর্থ প্রদান করে: আবাসন সহায়তা, শিশুদের জন্য সহায়তা, কার্যকলাপ বোনাস...', documents: ['সামাজিক নিরাপত্তা নম্বর', 'ইমেইল ঠিকানা', 'RIB (ব্যাংক পরিচয় বিবরণী)', 'সাম্প্রতিক আবাসিক প্রমাণ'] },
+    hi: { whatIsIt: 'CAF परिवारों और कम आय वाले लोगों को पैसा देता है: आवास सहायता, बच्चों के लिए सहायता, गतिविधि बोनस...', documents: ['सामाजिक सुरक्षा संख्या', 'ईमेल पता', 'RIB (बैंक पहचान विवरण)', 'हाल का आवासीय प्रमाण'] },
+  },
+  'dem-cpam': {
+    ur: { whatIsIt: 'CPAM آپ کے کچھ طبی اخراجات (ڈاکٹر، فارمیسی، ہسپتال) کی واپسی کرتا ہے۔ یہ کارٹے ویتال بھی جاری کرتا ہے، جو اچھی طرح رقم واپس لینے کے لیے ضروری ہے۔ اس کے بغیر آپ اپنی دیکھ بھال زیادہ مہنگی ادا کرتے ہیں۔', documents: ['سوشل سیکیورٹی نمبر', 'شناختی دستاویز', 'ای میل ایڈریس'] },
+    ps: { whatIsIt: 'CPAM ستاسو د ځینو طبي لګښتونو بیرته راګرځوي (ډاکټر، درملتون، روغتون). دا کارت ویتال هم ورکوي، چې د ښه بیرته راګرځیدو لپاره اړین دی.', documents: ['د ټولنیزې خوندیتوب شمېره', 'پیژندنیز سند', 'بریښنالیک پته'] },
+    bn: { whatIsIt: 'CPAM আপনার কিছু চিকিৎসা খরচ (ডাক্তার, ফার্মেসি, হাসপাতাল) ফেরত দেয়। এটি কার্ট ভিটালও প্রদান করে।', documents: ['সামাজিক নিরাপত্তা নম্বর', 'পরিচয়পত্র', 'ইমেইল ঠিকানা'] },
+    hi: { whatIsIt: 'CPAM आपके कुछ चिकित्सा खर्चों की प्रतिपूर्ति करता है।', documents: ['सामाजिक सुरक्षा संख्या', 'पहचान पत्र', 'ईमेल पता'] },
+  },
+  'dem-carsat': {
+    ur: { whatIsIt: 'CARSAT آپ کے مستقبل کی پنشن کا خیال رکھتا ہے: یہ آپ کے کام کیے گئے سال اور سہ ماہی گنتا ہے۔ اگرچہ پنشن دور لگتی ہے، ہر اعلان شدہ کام کا عرصہ بعد میں شمار ہوتا ہے۔', documents: ['سوشل سیکیورٹی نمبر', 'ای میل ایڈریس', 'کیریئر کا بیان اگر آپ کے پاس ہے'] },
+    ps: { whatIsIt: 'CARSAT ستاسو راتلونکي تقاعد ته پاملرنه کوي: دا هغه کلونه او ربعې شمېري چې تاسو کار کوئ.', documents: ['د ټولنیزې خوندیتوب شمېره', 'بریښنالیک پته', 'د کاري مسیر بیان که لرئ'] },
+    bn: { whatIsIt: 'CARSAT আপনার ভবিষ্যত পেনশনের যত্ন নেয়: এটি আপনার কাজ করা বছর ও ত্রৈমাসিক গণনা করে।', documents: ['সামাজিক নিরাপত্তা নম্বর', 'ইমেইল ঠিকানা', 'ক্যারিয়ার বিবৃতি যদি থাকে'] },
+    hi: { whatIsIt: 'CARSAT आपकी भविष्य की पेंशन की देखभाल करता है।', documents: ['सामाजिक सुरक्षा संख्या', 'ईमेल पता', 'करियर विवरण यदि है'] },
+  },
+  'dem-lia': {
+    ur: { whatIsIt: 'LiA لی ہاور میں بس اور ٹرام نیٹ ورک کا نام ہے۔ گاڑی کے بغیر شہر میں گھومنے کے لیے (تربیت، کام، خریداری)، یہ اہم ذریعہ ہے۔ عام قیمت آپ کی صورتحال کے مطابق کافی کم ہو سکتی ہے۔', documents: ['شناختی دستاویز', 'رہائشی ثبوت', 'آپ کی صورتحال سے متعلق ثبوت (CAF، CSS، France Travail، ٹیکس نوٹس... آپ کی پروفائل کے مطابق)'] },
+    ps: { whatIsIt: 'LiA د لی هاور د بس او ټرام شبکې نوم دی. د موټر پرته په ښار کې د تګ راتګ لپاره، دا اصلي وسیله ده.', documents: ['پیژندنیز سند', 'د استوګنې ثبوت', 'ستاسو د حالت اړوند ثبوتونه'] },
+    bn: { whatIsIt: 'LiA হল লে হাভরের বাস ও ট্রাম নেটওয়ার্কের নাম। গাড়ি ছাড়া শহরে চলাচলের জন্য এটি প্রধান উপায়।', documents: ['পরিচয়পত্র', 'আবাসিক প্রমাণ', 'আপনার পরিস্থিতি সম্পর্কিত প্রমাণপত্র'] },
+    hi: { whatIsIt: 'LiA ले हावर में बस और ट्राम नेटवर्क का नाम है।', documents: ['पहचान पत्र', 'आवासीय प्रमाण', 'आपकी स्थिति से संबंधित प्रमाण'] },
+  },
+  'dem-impots': {
+    ur: { whatIsIt: 'فرانس میں، تقریباً ہر کسی کو ہر سال اپنی آمدنی کا اعلان کرنا ہوتا ہے، یہاں تک کہ کم پیسے والے افراد کو بھی۔ یہ لازمی ہے، اور بہت سے دوسرے کام (امداد، رہائش...) پھر "ٹیکس نوٹس" نامی دستاویز مانگتے ہیں۔', documents: ['ٹیکس نمبر (پچھلے ٹیکس نوٹس پر)', 'ای میل ایڈریس', 'سال کی آمدنی کے ثبوت'] },
+    ps: { whatIsIt: 'په فرانسه کې، تقریباً هرڅوک باید هر کال خپل عاید اعلان کړي، حتی هغه کسان چې لږ پیسې لري. دا لازمي دي.', documents: ['مالیاتي شمېره (په پخوانۍ مالیاتي خبرتیا کې)', 'بریښنالیک پته', 'د کال د عاید ثبوتونه'] },
+    bn: { whatIsIt: 'ফ্রান্সে, প্রায় সবাইকে প্রতি বছর তাদের আয় ঘোষণা করতে হয়, এমনকি কম আয়ের ব্যক্তিদেরও।', documents: ['করদাতা নম্বর', 'ইমেইল ঠিকানা', 'বছরের আয়ের প্রমাণপত্র'] },
+    hi: { whatIsIt: 'फ्रांस में, लगभग सभी को हर साल अपनी आय घोषित करनी होती है।', documents: ['कर संख्या', 'ईमेल पता', 'वर्ष की आय के प्रमाण'] },
+  },
+  'dem-france-travail': {
+    ur: { whatIsIt: 'France Travail (پہلے Pôle Emploi کہلاتا تھا) کام تلاش کرنے میں مدد کرتا ہے اور اگر آپ اپنی نوکری کھو دیں تو الاؤنس دے سکتا ہے۔ نگرانی اور نوکری کی پیشکشوں تک رسائی کے لیے، رجسٹر ہونا ضروری ہے۔', documents: ['شناختی دستاویز', 'سوشل سیکیورٹی نمبر', 'CV اگر آپ کے پاس ہے', 'ای میل ایڈریس'] },
+    ps: { whatIsIt: 'France Travail (چې مخکې یې Pôle Emploi نومیده) د کار لټون کې مرسته کوي او که تاسو خپله دنده له لاسه ورکړئ نو تادیه درکولی شي.', documents: ['پیژندنیز سند', 'د ټولنیزې خوندیتوب شمېره', 'CV که لرئ', 'بریښنالیک پته'] },
+    bn: { whatIsIt: 'France Travail (আগে Pôle Emploi নামে পরিচিত) কাজ খুঁজতে সাহায্য করে এবং আপনি চাকরি হারালে ভাতা প্রদান করতে পারে।', documents: ['পরিচয়পত্র', 'সামাজিক নিরাপত্তা নম্বর', 'CV যদি থাকে', 'ইমেইল ঠিকানা'] },
+    hi: { whatIsIt: 'France Travail (पहले Pôle Emploi) काम खोजने में मदद करता है।', documents: ['पहचान पत्र', 'सामाजिक सुरक्षा संख्या', 'CV यदि है', 'ईमेल पता'] },
+  },
+  'dem-mdph': {
+    ur: { whatIsIt: 'MDPH معذور افراد کی مدد کرتا ہے: معذوری کی سرکاری پہچان، مالی امداد، خصوصی کارڈ، رہنمائی۔ اگر آپ یا آپ کا کوئی قریبی روزمرہ زندگی میں رکاوٹ ڈالنے والی معذوری یا بیماری رکھتا ہے، تو یہ مدد کر سکتا ہے۔', documents: ['شناختی دستاویز', '12 ماہ سے کم پرانا طبی سرٹیفکیٹ', 'رہائشی ثبوت'] },
+    ps: { whatIsIt: 'MDPH د معلولیت لرونکو کسانو سره مرسته کوي: د معلولیت رسمي پیژندنه، مالي مرستې، ځانګړی کارت، لارښوونه.', documents: ['پیژندنیز سند', 'طبي تصدیق چې د 12 میاشتو څخه کم زوړ وي', 'د استوګنې ثبوت'] },
+    bn: { whatIsIt: 'MDPH প্রতিবন্ধী ব্যক্তিদের সাহায্য করে: প্রতিবন্ধকতার সরকারি স্বীকৃতি, আর্থিক সহায়তা, বিশেষ কার্ড।', documents: ['পরিচয়পত্র', '১২ মাসের কম পুরনো মেডিকেল সার্টিফিকেট', 'আবাসিক প্রমাণ'] },
+    hi: { whatIsIt: 'MDPH विकलांग व्यक्तियों की मदद करता है।', documents: ['पहचान पत्र', '12 महीने से कम पुराना मेडिकल प्रमाणपत्र', 'आवासीय प्रमाण'] },
+  },
+  'dem-mee': {
+    ur: { whatIsIt: 'یہ ویب سائٹ ان دنوں کی فہرست دیتی ہے جب کمپنیاں آپ کے قریب براہ راست بھرتی کرنے آتی ہیں۔ یہ تحریری درخواست کے بغیر آجروں سے ملنے کا اچھا موقع ہے۔', documents: ['موجودہ CV (کاغذی یا ڈیجیٹل)', 'آپ کا France Travail شناختی نمبر اگر آپ کے پاس ہے'] },
+    ps: { whatIsIt: 'دا سایټ هغه ورځې لیست کوي کله چې شرکتونه ستاسو نږدې مستقیم استخدام لپاره راځي.', documents: ['اوسنی CV (کاغذي یا ډیجیټل)', 'ستاسو د France Travail پیژندنیز شمېره که لرئ'] },
+    bn: { whatIsIt: 'এই সাইটটি এমন দিনগুলির তালিকা দেয় যখন কোম্পানিগুলি সরাসরি আপনার কাছাকাছি নিয়োগ করতে আসে।', documents: ['আপডেট করা CV', 'আপনার France Travail শনাক্তকারী যদি থাকে'] },
+    hi: { whatIsIt: 'यह साइट उन दिनों की सूची देती है जब कंपनियां सीधे भर्ती के लिए आती हैं।', documents: ['अद्यतन CV', 'आपका France Travail पहचानकर्ता यदि है'] },
+  },
+  'dem-logement-social': {
+    ur: { whatIsIt: 'سماجی رہائش (HLM) وہ رہائش ہے جس کا کرایہ نجی رہائش سے کم ہوتا ہے، کم آمدنی والے افراد کے لیے مخصوص۔ سرکاری درخواست دینی ہوتی ہے اور اکثر انتظار کرنا پڑتا ہے، اس لیے جلدی شروع کرنا بہتر ہے۔', documents: ['شناختی دستاویز', 'پورے گھر کے وسائل کے ثبوت', 'خاندانی کتابچہ اگر آپ کے پاس ہے'] },
+    ps: { whatIsIt: 'ټولنیز کور (HLM) هغه کور دی چې کرایه یې د خصوصي کور په پرتله کمه ده، د کم عاید کسانو لپاره ځانګړی شوی.', documents: ['پیژندنیز سند', 'د ټولې کورنۍ د سرچینو ثبوتونه', 'د کورنۍ کتابچه که لرئ'] },
+    bn: { whatIsIt: 'সামাজিক আবাসন (HLM) হল এমন আবাসন যার ভাড়া বেসরকারি আবাসনের চেয়ে কম।', documents: ['পরিচয়পত্র', 'পুরো পরিবারের সম্পদের প্রমাণ', 'পারিবারিক বুকলেট যদি থাকে'] },
+    hi: { whatIsIt: 'सामाजिक आवास (HLM) वह आवास है जिसका किराया निजी आवास से कम होता है।', documents: ['पहचान पत्र', 'पूरे परिवार के संसाधनों के प्रमाण', 'पारिवारिक पुस्तिका यदि है'] },
+  },
+  'dem-mobilite': {
+    ur: { whatIsIt: 'نقل و حرکت کا ذریعہ نہ ہونا اکثر کام یا تربیت تلاش کرنے میں رکاوٹ بنتا ہے۔ لی ہاور کا Pôle Mobilité بالکل اسی صورتحال میں لوگوں کی مدد کرتا ہے: کم قیمت پر لائسنس، گاڑی کی مرمت، سستی گاڑی کرائے پر۔', documents: ['ایک مشیر کی سفارشی خط (France Travail، مقامی مشن...)', 'شناختی دستاویز'] },
+    ps: { whatIsIt: 'د تګ راتګ وسیلې نه لرل ډیری وختونه د کار یا روزنې موندلو لپاره خنډ دی. د لی هاور Pôle Mobilité د دې حالت لرونکو کسانو سره مرسته کوي.', documents: ['د یو مشاور لارښوونیز لیک', 'پیژندنیز سند'] },
+    bn: { whatIsIt: 'পরিবহনের উপায় না থাকা প্রায়ই কাজ বা প্রশিক্ষণ খুঁজে পাওয়ার ক্ষেত্রে বাধা।', documents: ['একজন পরামর্শদাতার নির্দেশনা পত্র', 'পরিচয়পত্র'] },
+    hi: { whatIsIt: 'परिवहन का साधन न होना अक्सर काम या प्रशिक्षण खोजने में बाधा है।', documents: ['एक सलाहकार का मार्गदर्शन पत्र', 'पहचान पत्र'] },
+  },
+  'dem-remuneration-normandie': {
+    ur: { whatIsIt: 'اگر آپ نارمنڈی کے علاقے کی مالی اعانت والی تربیت لے رہے ہیں اور France Travail سے معاوضہ نہیں لیتے، تو آپ کو تربیت کے دوران ادائیگی مل سکتی ہے۔ یہ ویب سائٹ ان ادائیگیوں کی پیروی کرنے دیتی ہے۔', documents: ['آپ کے تربیتی ادارے کی طرف سے دیے گئے شناختی معلومات', 'RIB'] },
+    ps: { whatIsIt: 'که تاسو د نورماندي سیمې لخوا تمویل شوې روزنه ترسره کوئ او د France Travail لخوا نه یاست تادیه شوي، تاسو کولی شئ د خپلې روزنې پر مهال معاش ترلاسه کړئ.', documents: ['ستاسو د روزنیز ادارې لخوا لیږل شوي پیژندونکي', 'RIB'] },
+    bn: { whatIsIt: 'আপনি যদি নরমান্ডি অঞ্চল দ্বারা অর্থায়িত প্রশিক্ষণ নেন এবং France Travail দ্বারা ক্ষতিপূরণ না পান, আপনি প্রশিক্ষণের সময় বেতন পেতে পারেন।', documents: ['আপনার প্রশিক্ষণ প্রতিষ্ঠান দ্বারা প্রদত্ত পরিচয়পত্র', 'RIB'] },
+    hi: { whatIsIt: 'यदि आप नॉर्मंडी क्षेत्र द्वारा वित्तपोषित प्रशिक्षण ले रहे हैं, आप प्रशिक्षण के दौरान भुगतान प्राप्त कर सकते हैं।', documents: ['आपके प्रशिक्षण संगठन द्वारा प्रदान किए गए पहचानकर्ता', 'RIB'] },
+  },
+  'dem-ecole': {
+    ur: { whatIsIt: 'اگر آپ کے بچے لی ہاور میں اسکول جاتے ہیں، تو کینٹین اور اسکول سے پہلے/بعد کی دیکھ بھال خودکار نہیں ہوتی: آپ کو ہر سال شہر کی ویب سائٹ پر اپنے بچے کا اندراج کرنا ہوتا ہے، ورنہ وہ کینٹین میں کھانا یا دیکھ بھال حاصل نہیں کر سکے گا۔', documents: ['CAF کا خاندانی حصص کا 2 ماہ سے کم پرانا سرٹیفکیٹ', 'ای میل ایڈریس', 'خاندانی کتابچہ'] },
+    ps: { whatIsIt: 'که تاسو په لی هاور کې ښوونځي ته ځي ماشومان لرئ، کانتین او د ښوونځي مخکې/وروسته پاملرنه اتومات نه ده.', documents: ['د CAF کورنۍ برخې تصدیق چې د 2 میاشتو څخه کم زوړ وي', 'بریښنالیک پته', 'د کورنۍ کتابچه'] },
+    bn: { whatIsIt: 'আপনার যদি লে হাভরে স্কুলে যাওয়া সন্তান থাকে, ক্যান্টিন এবং স্কুলের আগে/পরে যত্ন স্বয়ংক্রিয় নয়।', documents: ['CAF পারিবারিক ভাগফল সার্টিফিকেট (২ মাসের কম পুরনো)', 'ইমেইল ঠিকানা', 'পারিবারিক বুকলেট'] },
+    hi: { whatIsIt: 'यदि आपके बच्चे ले हावर में स्कूल जाते हैं, कैंटीन और स्कूल से पहले/बाद की देखभाल स्वचालित नहीं है।', documents: ['CAF पारिवारिक गुणांक प्रमाणपत्र (2 महीने से कम पुराना)', 'ईमेल पता', 'पारिवारिक पुस्तिका'] },
+  },
+  'dem-titre-sejour': {
+    ur: { whatIsIt: 'قیام کا اجازت نامہ وہ دستاویز ہے جو کسی غیر ملکی شخص کو فرانس میں قانونی طور پر رہنے کی اجازت دیتی ہے۔ اسے پہنچنے پر مانگنا اور ختم ہونے کی تاریخ سے پہلے تجدید کرنا ضروری ہے، ورنہ آپ غیر قانونی صورتحال میں پھنس سکتے ہیں — یہ اکثر پہنچنے پر پہلا کام ہوتا ہے۔', documents: ['پاسپورٹ', 'رہائشی ثبوت', 'حالیہ شناختی تصویر', 'ای میل ایڈریس'] },
+    ps: { whatIsIt: 'د اوسیدو اجازه هغه سند دی چې یو بهرني کس ته اجازه ورکوي چې په قانوني ډول په فرانسه کې ژوند وکړي.', documents: ['پاسپورټ', 'د استوګنې ثبوت', 'وروستۍ پیژندنیزه انځور', 'بریښنالیک پته'] },
+    bn: { whatIsIt: 'বসবাসের অনুমতি হল সেই নথি যা একজন বিদেশী ব্যক্তিকে ফ্রান্সে আইনত বসবাসের অনুমতি দেয়।', documents: ['পাসপোর্ট', 'আবাসিক প্রমাণ', 'সাম্প্রতিক পরিচয় ছবি', 'ইমেইল ঠিকানা'] },
+    hi: { whatIsIt: 'निवास परमिट वह दस्तावेज़ है जो एक विदेशी व्यक्ति को फ्रांस में कानूनी रूप से रहने की अनुमति देता है।', documents: ['पासपोर्ट', 'आवासीय प्रमाण', 'हाल की पहचान तस्वीर', 'ईमेल पता'] },
+  },
+  'dem-casier-judiciaire': {
+    ur: { whatIsIt: 'عدالتی ریکارڈ ایک دستاویز ہے جو ثابت کرتی ہے کہ آپ پر کوئی سزا نہیں ہے (یا ممکنہ سزاؤں کی فہرست دیتی ہے)۔ بہت سے آجر یا انتظامیہ اسے مانگتے ہیں، خاص طور پر کچھ پیشوں کے لیے (بچوں کی دیکھ بھال، سیکیورٹی...)۔', documents: ['بالکل صحیح نام، تاریخ اور جائے پیدائش (جیسے آپ کے شناختی کارڈ پر)'] },
+    ps: { whatIsIt: 'عدلي سابقه هغه سند دی چې ثابتوي چې تاسو هیڅ محکومیت نه لرئ.', documents: ['دقیق نوم، نوم د پلار، د زیږون نیټه او ځای'] },
+    bn: { whatIsIt: 'অপরাধ রেকর্ড এমন একটি নথি যা প্রমাণ করে যে আপনার কোনো সাজা নেই।', documents: ['সঠিক নাম, জন্ম তারিখ ও স্থান'] },
+    hi: { whatIsIt: 'आपराधिक रिकॉर्ड एक दस्तावेज़ है जो साबित करता है कि आपको कोई सजा नहीं है।', documents: ['सटीक नाम, जन्म तिथि और स्थान'] },
+  },
+  'dem-carte-identite': {
+    ur: { whatIsIt: 'شناختی کارڈ ثابت کرتا ہے کہ آپ فرانس میں کون ہیں۔ یہ قیام کے اجازت نامے سے مختلف ہے: یہ خاص طور پر فرانسیسی شہریت والے افراد سے متعلق ہے۔ بہت سے انتظامی کاموں کے لیے آپ کو ایک درست شناختی دستاویز کی ضرورت ہوگی۔', documents: ['حالیہ معیاری شناختی تصویر', 'رہائشی ثبوت', 'پرانا شناختی کارڈ اگر آپ کے پاس ہے'] },
+    ps: { whatIsIt: 'پیژندنیز کارت ثابتوي چې تاسو په فرانسه کې څوک یاست.', documents: ['وروستۍ معیاري پیژندنیزه انځور', 'د استوګنې ثبوت', 'زوړ پیژندنیز کارت که لرئ'] },
+    bn: { whatIsIt: 'পরিচয়পত্র প্রমাণ করে যে আপনি ফ্রান্সে কে। এটি বসবাসের অনুমতি থেকে আলাদা।', documents: ['সাম্প্রতিক মানসম্মত পরিচয় ছবি', 'আবাসিক প্রমাণ', 'পুরানো পরিচয়পত্র যদি থাকে'] },
+    hi: { whatIsIt: 'पहचान पत्र साबित करता है कि आप फ्रांस में कौन हैं।', documents: ['हाल की मानक पहचान तस्वीर', 'आवासीय प्रमाण', 'पुराना पहचान पत्र यदि है'] },
+  },
+}
+for (const id in WHATISIT_BATCH1) {
+  for (const lang in WHATISIT_BATCH1[id]) {
+    MODULE_TRANSLATIONS[id][lang] = { ...MODULE_TRANSLATIONS[id][lang], ...WHATISIT_BATCH1[id][lang] }
+  }
+}
+
+
+const WHATISIT_BATCH2 = {
+  'app-linux': {
+    vi: { whatIsIt: 'Linux là một hệ điều hành, giống Windows hoặc macOS, nhưng miễn phí và ít tốn tài nguyên hơn: nó hoạt động tốt ngay cả trên máy tính cũ hoặc kém mạnh mẽ hơn.', documents: [] },
+    ro: { whatIsIt: 'Linux este un sistem de operare, precum Windows sau macOS, dar este gratuit și consumă mai puține resurse: funcționează bine chiar și pe un calculator mai vechi sau mai puțin puternic.', documents: [] },
+    pl: { whatIsIt: 'Linux to system operacyjny, podobny do Windows czy macOS, ale jest darmowy i zużywa mniej zasobów: działa dobrze nawet na starszym lub słabszym komputerze.', documents: [] },
+    ku: { whatIsIt: 'Linux sîستemek xebitandinê ye, wek Windows an macOS, lê belaş e û çavkaniyên kêmtir bikar tîne.', documents: [] },
+  },
+  'dem-sites-officiels': {
+    vi: { whatIsIt: 'Tại Pháp, nhiều thủ tục hành chính (gia đình, sức khỏe, việc làm, nhà ở, giấy tờ...) giờ đây được thực hiện trên internet thay vì tại quầy.', documents: [] },
+    ro: { whatIsIt: 'În Franța, multe demersuri administrative se fac acum pe internet în loc de la ghișeu.', documents: [] },
+    pl: { whatIsIt: 'We Francji wiele formalności administracyjnych odbywa się teraz przez internet zamiast przy okienku.', documents: [] },
+    ku: { whatIsIt: 'Li Fransayê, gelek karên îdarî niha li ser înternetê tên kirin.', documents: [] },
+  },
+  'dem-caf': {
+    vi: { whatIsIt: 'CAF trả tiền cho các gia đình và người có thu nhập thấp: trợ cấp nhà ở, trợ cấp trẻ em, trợ cấp hoạt động...', documents: ['Số an sinh xã hội', 'Địa chỉ email', 'RIB (thông tin tài khoản ngân hàng)', 'Giấy chứng nhận nơi cư trú gần đây'] },
+    ro: { whatIsIt: 'CAF plătește bani familiilor și persoanelor cu venituri mici: ajutor de locuință, ajutor pentru copii, prima de activitate...', documents: ['Numărul de securitate socială', 'Adresă de email', 'RIB (extras de identitate bancară)', 'Dovadă de domiciliu recentă'] },
+    pl: { whatIsIt: 'CAF wypłaca pieniądze rodzinom i osobom o niskich dochodach: pomoc mieszkaniowa, pomoc na dzieci, premia aktywności...', documents: ['Numer ubezpieczenia społecznego', 'Adres e-mail', 'RIB (dane bankowe)', 'Aktualne potwierdzenie zamieszkania'] },
+    ku: { whatIsIt: 'CAF ji malbatan û kesên bi dahata kêm re pere dide.', documents: ['Hejmara ewlekariya civakî', 'Navnîşana e-nameyê', 'RIB', 'Belgeya niştecihiyê ya nûjen'] },
+  },
+  'dem-cpam': {
+    vi: { whatIsIt: 'CPAM hoàn trả một phần chi phí y tế của bạn (bác sĩ, hiệu thuốc, bệnh viện). Nó cũng cấp thẻ Vitale.', documents: ['Số an sinh xã hội', 'Giấy tờ tùy thân', 'Địa chỉ email'] },
+    ro: { whatIsIt: 'CPAM rambursează o parte din cheltuielile tale medicale. De asemenea, eliberează cardul Vitale.', documents: ['Numărul de securitate socială', 'Act de identitate', 'Adresă de email'] },
+    pl: { whatIsIt: 'CPAM zwraca część kosztów medycznych. Wydaje również kartę Vitale.', documents: ['Numer ubezpieczenia społecznego', 'Dokument tożsamości', 'Adres e-mail'] },
+    ku: { whatIsIt: 'CPAM beşek ji lêçûnên te yên bijîjkî vedigerîne.', documents: ['Hejmara ewlekariya civakî', 'Belgeya nasnameyê', 'Navnîşana e-nameyê'] },
+  },
+  'dem-carsat': {
+    vi: { whatIsIt: 'CARSAT lo về lương hưu tương lai của bạn: nó tính số năm và quý bạn đã làm việc.', documents: ['Số an sinh xã hội', 'Địa chỉ email', 'Bảng tóm tắt sự nghiệp nếu có'] },
+    ro: { whatIsIt: 'CARSAT se ocupă de pensia ta viitoare: numără anii și trimestrele în care lucrezi.', documents: ['Numărul de securitate socială', 'Adresă de email', 'Extras de carieră dacă ai unul'] },
+    pl: { whatIsIt: 'CARSAT zajmuje się Twoją przyszłą emeryturą: liczy lata i kwartały pracy.', documents: ['Numer ubezpieczenia społecznego', 'Adres e-mail', 'Wyciąg z kariery zawodowej jeśli posiadasz'] },
+    ku: { whatIsIt: 'CARSAT li teqawidiya te ya pêşerojê dinêre.', documents: ['Hejmara ewlekariya civakî', 'Navnîşana e-nameyê', 'Rapora kariyerê heke hebe'] },
+  },
+  'dem-lia': {
+    vi: { whatIsIt: 'LiA là tên mạng lưới xe buýt và tàu điện tại Le Havre. Đây là phương tiện chính để di chuyển trong thành phố mà không cần xe hơi.', documents: ['Giấy tờ tùy thân', 'Chứng minh nơi cư trú', 'Giấy tờ liên quan đến hoàn cảnh của bạn'] },
+    ro: { whatIsIt: 'LiA este numele rețelei de autobuze și tramvaie din Le Havre.', documents: ['Act de identitate', 'Dovadă de domiciliu', 'Documente legate de situația ta'] },
+    pl: { whatIsIt: 'LiA to nazwa sieci autobusów i tramwajów w Le Havre.', documents: ['Dokument tożsamości', 'Potwierdzenie zamieszkania', 'Dokumenty związane z Twoją sytuacją'] },
+    ku: { whatIsIt: 'LiA navê torgilokê otobês û tramwayê li Le Havre ye.', documents: ['Belgeya nasnameyê', 'Belgeya niştecihiyê', 'Belgeyên têkildarî rewşa te'] },
+  },
+  'dem-impots': {
+    vi: { whatIsIt: 'Tại Pháp, hầu như mọi người phải khai báo thu nhập hàng năm, ngay cả những người có ít tiền.', documents: ['Số thuế', 'Địa chỉ email', 'Chứng minh thu nhập trong năm'] },
+    ro: { whatIsIt: 'În Franța, aproape toată lumea trebuie să-și declare veniturile în fiecare an, chiar și persoanele cu puțini bani.', documents: ['Numărul fiscal', 'Adresă de email', 'Dovezi de venit pe anul respectiv'] },
+    pl: { whatIsIt: 'We Francji prawie każdy musi co roku zadeklarować swoje dochody.', documents: ['Numer podatkowy', 'Adres e-mail', 'Potwierdzenia dochodów za rok'] },
+    ku: { whatIsIt: 'Li Fransayê, hema hema hemû kes divê her sal dahata xwe ragihîne.', documents: ['Hejmara bacê', 'Navnîşana e-nameyê', 'Belgeyên dahata salê'] },
+  },
+  'dem-france-travail': {
+    vi: { whatIsIt: 'France Travail (trước đây gọi là Pôle Emploi) giúp tìm việc làm và có thể trả trợ cấp nếu bạn mất việc.', documents: ['Giấy tờ tùy thân', 'Số an sinh xã hội', 'CV nếu có', 'Địa chỉ email'] },
+    ro: { whatIsIt: 'France Travail (fostul Pôle Emploi) ajută la căutarea unui loc de muncă.', documents: ['Act de identitate', 'Numărul de securitate socială', 'CV dacă ai unul', 'Adresă de email'] },
+    pl: { whatIsIt: 'France Travail (dawniej Pôle Emploi) pomaga w szukaniu pracy.', documents: ['Dokument tożsamości', 'Numer ubezpieczenia społecznego', 'CV jeśli posiadasz', 'Adres e-mail'] },
+    ku: { whatIsIt: 'France Travail (berê Pôle Emploi) alîkariya lêgerîna karî dike.', documents: ['Belgeya nasnameyê', 'Hejmara ewlekariya civakî', 'CV heke hebe', 'Navnîşana e-nameyê'] },
+  },
+  'dem-mdph': {
+    vi: { whatIsIt: 'MDPH giúp đỡ người khuyết tật: công nhận chính thức về khuyết tật, hỗ trợ tài chính, thẻ đặc biệt.', documents: ['Giấy tờ tùy thân', 'Giấy chứng nhận y tế dưới 12 tháng', 'Chứng minh nơi cư trú'] },
+    ro: { whatIsIt: 'MDPH ajută persoanele cu dizabilități.', documents: ['Act de identitate', 'Certificat medical de mai puțin de 12 luni', 'Dovadă de domiciliu'] },
+    pl: { whatIsIt: 'MDPH pomaga osobom niepełnosprawnym.', documents: ['Dokument tożsamości', 'Zaświadczenie lekarskie nie starsze niż 12 miesięcy', 'Potwierdzenie zamieszkania'] },
+    ku: { whatIsIt: 'MDPH alîkariya kesên bi seqetî re dike.', documents: ['Belgeya nasnameyê', 'Belgeya bijîjkî ya di bin 12 mehan de', 'Belgeya niştecihiyê'] },
+  },
+  'dem-mee': {
+    vi: { whatIsIt: 'Trang web này liệt kê các ngày mà các công ty đến tuyển dụng trực tiếp gần bạn.', documents: ['CV cập nhật', 'Mã số France Travail của bạn nếu có'] },
+    ro: { whatIsIt: 'Acest site listează zilele în care companiile vin să recruteze direct lângă tine.', documents: ['CV actualizat', 'Identificatorul tău France Travail dacă ai unul'] },
+    pl: { whatIsIt: 'Ta strona wymienia dni, w których firmy przychodzą rekrutować bezpośrednio w Twojej okolicy.', documents: ['Aktualne CV', 'Twój identyfikator France Travail jeśli posiadasz'] },
+    ku: { whatIsIt: 'Ev malper rojên ku pargîdanî tên karkirin li nêzîkî te nîşan dide.', documents: ['CV nûjen', 'Naskera te ya France Travail heke hebe'] },
+  },
+  'dem-logement-social': {
+    vi: { whatIsIt: 'Nhà ở xã hội (HLM) là nhà ở có tiền thuê rẻ hơn nhà ở tư nhân, dành cho người có thu nhập thấp.', documents: ['Giấy tờ tùy thân', 'Chứng minh nguồn lực của cả hộ gia đình', 'Sổ gia đình nếu có'] },
+    ro: { whatIsIt: 'Locuința socială (HLM) este o locuință cu chirie mai mică decât locuința privată.', documents: ['Act de identitate', 'Dovezi de resurse ale întregii gospodării', 'Livret de familie dacă ai unul'] },
+    pl: { whatIsIt: 'Mieszkanie socjalne (HLM) to mieszkanie z niższym czynszem niż mieszkanie prywatne.', documents: ['Dokument tożsamości', 'Dowody zasobów całego gospodarstwa domowego', 'Książeczka rodzinna jeśli posiadasz'] },
+    ku: { whatIsIt: 'Xaniyê civakî (HLM) xaniyekî bi kirêyeke kêmtir e.', documents: ['Belgeya nasnameyê', 'Belgeyên çavkaniyên tevahiya malbatê', 'Pirtûka malbatê heke hebe'] },
+  },
+  'dem-mobilite': {
+    vi: { whatIsIt: 'Không có phương tiện di chuyển thường là trở ngại để tìm việc làm hoặc theo học đào tạo.', documents: ['Thư giới thiệu từ cố vấn', 'Giấy tờ tùy thân'] },
+    ro: { whatIsIt: 'Lipsa unui mijloc de transport este adesea un obstacol pentru găsirea unui loc de muncă sau urmarea unei formări.', documents: ['Scrisoare de orientare de la un consilier', 'Act de identitate'] },
+    pl: { whatIsIt: 'Brak środka transportu jest często przeszkodą w znalezieniu pracy lub szkolenia.', documents: ['List polecający od doradcy', 'Dokument tożsamości'] },
+    ku: { whatIsIt: 'Nebûna amûra tevgerê pir caran asteng e ji bo dîtina kar an perwerdehiyê.', documents: ['Nameyeke rêberiyê ji şêwirmendekî', 'Belgeya nasnameyê'] },
+  },
+  'dem-remuneration-normandie': {
+    vi: { whatIsIt: 'Nếu bạn theo học một khóa đào tạo do Vùng Normandie tài trợ và không được France Travail bồi thường, bạn có thể được trả lương trong quá trình đào tạo.', documents: ['Thông tin đăng nhập do tổ chức đào tạo của bạn cung cấp', 'RIB'] },
+    ro: { whatIsIt: 'Dacă urmezi o formare finanțată de Regiunea Normandia și nu ești indemnizat de France Travail, poți fi plătit în timpul formării.', documents: ['Datele de conectare furnizate de organizația ta de formare', 'RIB'] },
+    pl: { whatIsIt: 'Jeśli uczestniczysz w szkoleniu finansowanym przez Region Normandia, możesz otrzymywać wynagrodzenie podczas szkolenia.', documents: ['Dane logowania przekazane przez organizację szkoleniową', 'RIB'] },
+    ku: { whatIsIt: 'Heke tu perwerdehiyeke ku Herêma Normandiyê fînans dike dişopînî, tu dikarî di dema perwerdehiyê de meaş bistînî.', documents: ['Naskerên ku saziya te ya perwerdehiyê pêşkêş kirine', 'RIB'] },
+  },
+  'dem-ecole': {
+    vi: { whatIsIt: 'Nếu con bạn đi học tại Le Havre, căng tin và việc trông trẻ trước/sau giờ học không tự động.', documents: ['Giấy chứng nhận hệ số gia đình CAF dưới 2 tháng', 'Địa chỉ email', 'Sổ gia đình'] },
+    ro: { whatIsIt: 'Dacă ai copii școlarizați în Le Havre, cantina și supravegherea înainte/după școală nu sunt automate.', documents: ['Certificat de coeficient familial CAF de mai puțin de 2 luni', 'Adresă de email', 'Livret de familie'] },
+    pl: { whatIsIt: 'Jeśli masz dzieci uczące się w Le Havre, stołówka i opieka przed/po szkole nie są automatyczne.', documents: ['Zaświadczenie o współczynniku rodzinnym CAF nie starsze niż 2 miesiące', 'Adres e-mail', 'Książeczka rodzinna'] },
+    ku: { whatIsIt: 'Heke zarokên te li Le Havre dixwînin, kantîn û çavdêrî ne otomatîk in.', documents: ['Belgeya CAF ya kêmtir ji 2 mehan', 'Navnîşana e-nameyê', 'Pirtûka malbatê'] },
+  },
+  'dem-titre-sejour': {
+    vi: { whatIsIt: 'Giấy phép cư trú là tài liệu cho phép một người nước ngoài sống hợp pháp tại Pháp.', documents: ['Hộ chiếu', 'Chứng minh nơi cư trú', 'Ảnh chân dung gần đây', 'Địa chỉ email'] },
+    ro: { whatIsIt: 'Permisul de ședere este documentul care autorizează o persoană străină să locuiască legal în Franța.', documents: ['Pașaport', 'Dovadă de domiciliu', 'Fotografie de identitate recentă', 'Adresă de email'] },
+    pl: { whatIsIt: 'Zezwolenie na pobyt to dokument uprawniający cudzoziemca do legalnego zamieszkania we Francji.', documents: ['Paszport', 'Potwierdzenie zamieszkania', 'Aktualne zdjęcie', 'Adres e-mail'] },
+    ku: { whatIsIt: 'Destûra rûniştinê belgeya ku kesekî biyanî destûr dide ku bi qanûnî li Fransayê bijî.', documents: ['Pasaport', 'Belgeya niştecihiyê', 'Wêneyê nasnameyê yê nûjen', 'Navnîşana e-nameyê'] },
+  },
+  'dem-casier-judiciaire': {
+    vi: { whatIsIt: 'Lý lịch tư pháp là tài liệu chứng minh bạn không có án tích.', documents: ['Họ tên, ngày và nơi sinh chính xác'] },
+    ro: { whatIsIt: 'Cazierul judiciar este un document care dovedește că nu ai condamnări.', documents: ['Nume, prenume, data și locul nașterii exacte'] },
+    pl: { whatIsIt: 'Rejestr karny to dokument potwierdzający brak skazań.', documents: ['Dokładne imię, nazwisko, data i miejsce urodzenia'] },
+    ku: { whatIsIt: 'Tomara edlî belgeyek e ku îspat dike tu tu sûc nînî.', documents: ['Nav, paşnav, roj û cihê jidayikbûnê yê rast'] },
+  },
+  'dem-carte-identite': {
+    vi: { whatIsIt: 'Thẻ căn cước chứng minh bạn là ai tại Pháp.', documents: ['Ảnh chân dung chuẩn gần đây', 'Chứng minh nơi cư trú', 'Thẻ căn cước cũ nếu có'] },
+    ro: { whatIsIt: 'Cartea de identitate dovedește cine ești în Franța.', documents: ['Fotografie de identitate recentă standard', 'Dovadă de domiciliu', 'Cartea de identitate veche dacă ai una'] },
+    pl: { whatIsIt: 'Dowód osobisty potwierdza, kim jesteś we Francji.', documents: ['Aktualne standardowe zdjęcie', 'Potwierdzenie zamieszkania', 'Stary dowód osobisty jeśli posiadasz'] },
+    ku: { whatIsIt: 'Kabra nasnameyê îspat dike ku tu li Fransayê kî yî.', documents: ['Wêneyê nasnameyê yê standard nûjen', 'Belgeya niştecihiyê', 'Kabra kevn heke hebe'] },
+  },
+}
+for (const id in WHATISIT_BATCH2) {
+  for (const lang in WHATISIT_BATCH2[id]) {
+    MODULE_TRANSLATIONS[id][lang] = { ...MODULE_TRANSLATIONS[id][lang], ...WHATISIT_BATCH2[id][lang] }
+  }
+}
+
+
+const WHATISIT_BATCH3 = {
+  'app-linux': {
+    sw: { whatIsIt: 'Linux ni mfumo wa uendeshaji, kama Windows au macOS, lakini ni bure na hutumia rasilimali chache.', documents: [] },
+    wo: { whatIsIt: 'Linux mooy sistem bu operation, ni Windows walla macOS, waaye dafa gratis te dafa jëfandikoo doole yu néew.', documents: [] },
+    ka: { whatIsIt: 'Linux არის ოპერაციული სისტემა, Windows-ის ან macOS-ის მსგავსად, მაგრამ უფასოა და ნაკლებ რესურსს მოიხმარს.', documents: [] },
+    hy: { whatIsIt: 'Linux-ը գործառնական համակարգ է, ինչպես Windows-ը կամ macOS-ը, բայց այն անվճար է և ավելի քիչ ռեսուրսներ է սպառում։', documents: [] },
+    ta: { whatIsIt: 'லினக்ஸ் என்பது விண்டோஸ் அல்லது macOS போன்ற ஒரு இயக்க முறைமை, ஆனால் இது இலவசம் மற்றும் குறைவான வளங்களைப் பயன்படுத்துகிறது.', documents: [] },
+  },
+  'dem-sites-officiels': {
+    sw: { whatIsIt: 'Nchini Ufaransa, taratibu nyingi za kiutawala sasa hufanyika mtandaoni badala ya kwenye kaunta.', documents: [] },
+    wo: { whatIsIt: 'Ci France, lu bare ci jëf yu administration ñu koy def ci internet.', documents: [] },
+    ka: { whatIsIt: 'საფრანგეთში ბევრი ადმინისტრაციული პროცედურა ახლა ინტერნეტით ხდება.', documents: [] },
+    hy: { whatIsIt: 'Ֆրանսիայում շատ վարչական գործընթացներ այժմ կատարվում են ինտերնետով։', documents: [] },
+    ta: { whatIsIt: 'பிரான்சில், பல நிர்வாக நடைமுறைகள் இப்போது இணையத்தில் செய்யப்படுகின்றன.', documents: [] },
+  },
+  'dem-caf': {
+    sw: { whatIsIt: 'CAF hulipa pesa kwa familia na watu wenye kipato kidogo.', documents: ['Namba ya usalama wa jamii', 'Anwani ya barua pepe', 'RIB', 'Uthibitisho wa makazi wa hivi karibuni'] },
+    wo: { whatIsIt: 'CAF dafay fey xaalis njabot yi ak ñi am xaalis bu néew.', documents: ['Nimero sécurité sociale', 'Adres email', 'RIB', 'Preuve résidence bu bees'] },
+    ka: { whatIsIt: 'CAF ფულს უხდის ოჯახებს და დაბალშემოსავლიან პირებს.', documents: ['სოციალური დაზღვევის ნომერი', 'ელფოსტის მისამართი', 'RIB', 'ბინადრობის ბოლოდროინდელი დამადასტურებელი'] },
+    hy: { whatIsIt: 'CAF-ը փող է վճարում ընտանիքներին և ցածր եկամուտ ունեցող մարդկանց։', documents: ['Սոցիալական ապահովագրության համարը', 'Էլ. փոստի հասցե', 'RIB', 'Բնակության վերջին ապացույց'] },
+    ta: { whatIsIt: 'CAF குடும்பங்களுக்கும் குறைந்த வருமானம் உள்ளவர்களுக்கும் பணம் வழங்குகிறது.', documents: ['சமூக பாதுகாப்பு எண்', 'மின்னஞ்சல் முகவரி', 'RIB', 'சமீபத்திய குடியிருப்பு சான்று'] },
+  },
+  'dem-cpam': {
+    sw: { whatIsIt: 'CPAM hurejesha sehemu ya gharama zako za matibabu.', documents: ['Namba ya usalama wa jamii', 'Kitambulisho', 'Anwani ya barua pepe'] },
+    wo: { whatIsIt: 'CPAM dafay delloo benn wàll ci say dépense santé.', documents: ['Nimero sécurité sociale', 'Piece identité', 'Adres email'] },
+    ka: { whatIsIt: 'CPAM აანაზღაურებს თქვენი სამედიცინო ხარჯების ნაწილს.', documents: ['სოციალური დაზღვევის ნომერი', 'პირადობის დამადასტურებელი', 'ელფოსტის მისამართი'] },
+    hy: { whatIsIt: 'CPAM-ը փոխհատուցում է ձեր բժշկական ծախսերի մի մասը։', documents: ['Սոցիալական ապահովագրության համարը', 'Անձնագիր', 'Էլ. փոստի հասցե'] },
+    ta: { whatIsIt: 'CPAM உங்கள் மருத்துவ செலவுகளில் ஒரு பகுதியை திருப்பி செலுத்துகிறது.', documents: ['சமூக பாதுகாப்பு எண்', 'அடையாள ஆவணம்', 'மின்னஞ்சல் முகவரி'] },
+  },
+  'dem-carsat': {
+    sw: { whatIsIt: 'CARSAT inashughulikia pensheni yako ya baadaye.', documents: ['Namba ya usalama wa jamii', 'Anwani ya barua pepe', 'Taarifa ya kazi ikiwa unayo'] },
+    wo: { whatIsIt: 'CARSAT dafay wottu sa retret bu ëllëg.', documents: ['Nimero sécurité sociale', 'Adres email', 'Relevé carrière su fekkee am'] },
+    ka: { whatIsIt: 'CARSAT ზრუნავს თქვენს მომავალ პენსიაზე.', documents: ['სოციალური დაზღვევის ნომერი', 'ელფოსტის მისამართი', 'კარიერის ამონაწერი თუ გაქვთ'] },
+    hy: { whatIsIt: 'CARSAT-ը հոգում է ձեր ապագա կենսաթոշակի մասին։', documents: ['Սոցիալական ապահովագրության համարը', 'Էլ. փոստի հասցե', 'Կարիերայի քաղվածք, եթե ունեք'] },
+    ta: { whatIsIt: 'CARSAT உங்கள் எதிர்கால ஓய்வூதியத்தை கவனிக்கிறது.', documents: ['சமூக பாதுகாப்பு எண்', 'மின்னஞ்சல் முகவரி', 'தொழில் அறிக்கை இருந்தால்'] },
+  },
+  'dem-lia': {
+    sw: { whatIsIt: 'LiA ni jina la mtandao wa mabasi na tramu huko Le Havre.', documents: ['Kitambulisho', 'Uthibitisho wa makazi', 'Nyaraka zinazohusiana na hali yako'] },
+    wo: { whatIsIt: 'LiA mooy tur réseau bis ak tram ci Le Havre.', documents: ['Piece identité', 'Preuve résidence', 'Piece yu am jëmm ak sa situation'] },
+    ka: { whatIsIt: 'LiA არის Le Havre-ის ავტობუსისა და ტრამვაის ქსელის სახელი.', documents: ['პირადობის დამადასტურებელი', 'ბინადრობის დამადასტურებელი', 'თქვენს მდგომარეობასთან დაკავშირებული საბუთები'] },
+    hy: { whatIsIt: 'LiA-ն Le Havre-ի ավտոբուսի և տրամվայի ցանցի անվանումն է։', documents: ['Անձնագիր', 'Բնակության ապացույց', 'Ձեր իրավիճակին վերաբերող փաստաթղթեր'] },
+    ta: { whatIsIt: 'LiA என்பது லு ஆவ்ரில் பேருந்து மற்றும் ட்ராம் நெட்வொர்க்கின் பெயர்.', documents: ['அடையாள ஆவணம்', 'குடியிருப்பு சான்று', 'உங்கள் நிலைமை தொடர்பான ஆவணங்கள்'] },
+  },
+  'dem-impots': {
+    sw: { whatIsIt: 'Nchini Ufaransa, karibu kila mtu lazima atangaze kipato chake kila mwaka.', documents: ['Namba ya kodi', 'Anwani ya barua pepe', 'Uthibitisho wa kipato cha mwaka'] },
+    wo: { whatIsIt: 'Ci France, ku bare war a déclarer sa revenu at mu nekk.', documents: ['Nimero fiscal', 'Adres email', 'Preuve revenu bu at bi'] },
+    ka: { whatIsIt: 'საფრანგეთში თითქმის ყველამ უნდა გამოაცხადოს შემოსავალი ყოველწლიურად.', documents: ['საგადასახადო ნომერი', 'ელფოსტის მისამართი', 'წლის შემოსავლის დამადასტურებელი'] },
+    hy: { whatIsIt: 'Ֆրանսիայում գրեթե բոլորը պետք է ամեն տարի հայտարարեն իրենց եկամուտները։', documents: ['Հարկային համարը', 'Էլ. փոստի հասցե', 'Տարվա եկամտի ապացույցներ'] },
+    ta: { whatIsIt: 'பிரான்சில், கிட்டத்தட்ட அனைவரும் ஒவ்வொரு ஆண்டும் தங்கள் வருமானத்தை அறிவிக்க வேண்டும்.', documents: ['வரி எண்', 'மின்னஞ்சல் முகவரி', 'ஆண்டு வருமான சான்றுகள்'] },
+  },
+  'dem-france-travail': {
+    sw: { whatIsIt: 'France Travail (zamani Pôle Emploi) husaidia kutafuta kazi.', documents: ['Kitambulisho', 'Namba ya usalama wa jamii', 'CV ikiwa unayo', 'Anwani ya barua pepe'] },
+    wo: { whatIsIt: 'France Travail (ca njëkk France Pôle Emploi) dafay wallu ci wutli liggéey.', documents: ['Piece identité', 'Nimero sécurité sociale', 'CV su fekkee am', 'Adres email'] },
+    ka: { whatIsIt: 'France Travail (ყოფილი Pôle Emploi) ეხმარება სამუშაოს ძებნაში.', documents: ['პირადობის დამადასტურებელი', 'სოციალური დაზღვევის ნომერი', 'CV თუ გაქვთ', 'ელფოსტის მისამართი'] },
+    hy: { whatIsIt: 'France Travail-ը (նախկին Pôle Emploi) օգնում է աշխատանք փնտրելիս։', documents: ['Անձնագիր', 'Սոցիալական ապահովագրության համարը', 'CV, եթե ունեք', 'Էլ. փոստի հասցե'] },
+    ta: { whatIsIt: 'France Travail (முன்பு Pôle Emploi) வேலை தேடுவதற்கு உதவுகிறது.', documents: ['அடையாள ஆவணம்', 'சமூக பாதுகாப்பு எண்', 'CV இருந்தால்', 'மின்னஞ்சல் முகவரி'] },
+  },
+  'dem-mdph': {
+    sw: { whatIsIt: 'MDPH husaidia watu wenye ulemavu.', documents: ['Kitambulisho', 'Cheti cha matibabu chini ya miezi 12', 'Uthibitisho wa makazi'] },
+    wo: { whatIsIt: 'MDPH dafay wallu ñi am handicap.', documents: ['Piece identité', 'Certificat médical bu ndaw 12 weer', 'Preuve résidence'] },
+    ka: { whatIsIt: 'MDPH ეხმარება შშმ პირებს.', documents: ['პირადობის დამადასტურებელი', 'სამედიცინო ცნობა 12 თვეზე ნაკლები', 'ბინადრობის დამადასტურებელი'] },
+    hy: { whatIsIt: 'MDPH-ը օգնում է հաշմանդամություն ունեցող մարդկանց։', documents: ['Անձնագիր', 'Բժշկական վկայական 12 ամսից պակաս', 'Բնակության ապացույց'] },
+    ta: { whatIsIt: 'MDPH மாற்றுத்திறனாளிகளுக்கு உதவுகிறது.', documents: ['அடையாள ஆவணம்', '12 மாதங்களுக்கும் குறைவான மருத்துவ சான்றிதழ்', 'குடியிருப்பு சான்று'] },
+  },
+  'dem-mee': {
+    sw: { whatIsIt: 'Tovuti hii inaorodhesha siku ambazo makampuni huja kuajiri moja kwa moja karibu nawe.', documents: ['CV iliyosasishwa', 'Kitambulisho chako cha France Travail ikiwa unacho'] },
+    wo: { whatIsIt: 'Site bii day wone bis yi entreprise yi dañuy dikk ngir recruter ci sa wet.', documents: ['CV bu bees', 'Identifiant France Travail su fekkee am'] },
+    ka: { whatIsIt: 'ეს საიტი ჩამოთვლის დღეებს, როცა კომპანიები მოდიან თქვენთან ახლოს პირდაპირი დასაქმებისთვის.', documents: ['განახლებული CV', 'France Travail იდენტიფიკატორი თუ გაქვთ'] },
+    hy: { whatIsIt: 'Այս կայքը թվարկում է այն օրերը, երբ ընկերությունները գալիս են ուղղակիորեն ձեզ մոտ աշխատանքի ընդունելու համար։', documents: ['Թարմացված CV', 'Ձեր France Travail նույնացուցիչը, եթե ունեք'] },
+    ta: { whatIsIt: 'இந்த தளம் நிறுவனங்கள் உங்களுக்கு அருகில் நேரடியாக ஆட்சேர்ப்பு செய்ய வரும் நாட்களை பட்டியலிடுகிறது.', documents: ['புதுப்பிக்கப்பட்ட CV', 'உங்கள் France Travail அடையாளங்காட்டி இருந்தால்'] },
+  },
+  'dem-logement-social': {
+    sw: { whatIsIt: 'Nyumba za kijamii (HLM) ni nyumba zenye kodi ya chini kuliko nyumba binafsi.', documents: ['Kitambulisho', 'Uthibitisho wa rasilimali za kaya nzima', 'Kitabu cha familia ikiwa unacho'] },
+    wo: { whatIsIt: 'Kër social (HLM) mooy kër bu loyer wu ndaw.', documents: ['Piece identité', 'Preuve ressources njabot gi', 'Livret njabot su fekkee am'] },
+    ka: { whatIsIt: 'სოციალური საცხოვრებელი (HLM) არის საცხოვრებელი დაბალი ქირით.', documents: ['პირადობის დამადასტურებელი', 'მთელი ოჯახის რესურსების დამადასტურებელი', 'საოჯახო წიგნაკი თუ გაქვთ'] },
+    hy: { whatIsIt: 'Սոցիալական բնակարանը (HLM) ավելի ցածր վարձակալությամբ բնակարան է։', documents: ['Անձնագիր', 'Ամբողջ ընտանիքի միջոցների ապացույցներ', 'Ընտանեկան գրքույկ, եթե ունեք'] },
+    ta: { whatIsIt: 'சமூக வீட்டுவசதி (HLM) என்பது தனியார் வீட்டுவசதியை விட குறைந்த வாடகை கொண்ட வீடு.', documents: ['அடையாள ஆவணம்', 'முழு குடும்பத்தின் வளங்களின் சான்றுகள்', 'குடும்பப் புத்தகம் இருந்தால்'] },
+  },
+  'dem-mobilite': {
+    sw: { whatIsIt: 'Kutokuwa na njia ya usafiri mara nyingi ni kikwazo cha kupata kazi au mafunzo.', documents: ['Barua ya mwongozo kutoka kwa mshauri', 'Kitambulisho'] },
+    wo: { whatIsIt: 'Amul moyen transport dafay jur problème ci wutli liggéey walla formation.', documents: ['Lettre orientation bu conseiller', 'Piece identité'] },
+    ka: { whatIsIt: 'ტრანსპორტის საშუალების არქონა ხშირად დაბრკოლებაა სამუშაოს ან სწავლების საპოვნელად.', documents: ['კონსულტანტის სარეკომენდაციო წერილი', 'პირადობის დამადასტურებელი'] },
+    hy: { whatIsIt: 'Տրանսպորտային միջոցի բացակայությունը հաճախ խոչընդոտ է աշխատանք կամ վերապատրաստում գտնելու համար։', documents: ['Խորհրդատուի ուղղորդման նամակ', 'Անձնագիր'] },
+    ta: { whatIsIt: 'போக்குவரத்து வழி இல்லாதது பெரும்பாலும் வேலை அல்லது பயிற்சி கண்டறிவதற்கு தடையாக இருக்கும்.', documents: ['ஆலோசகரிடமிருந்து வழிகாட்டல் கடிதம்', 'அடையாள ஆவணம்'] },
+  },
+  'dem-remuneration-normandie': {
+    sw: { whatIsIt: 'Ikiwa unafuata mafunzo yanayofadhiliwa na Mkoa wa Normandie, unaweza kulipwa wakati wa mafunzo.', documents: ['Taarifa za kuingia zilizotolewa na shirika lako la mafunzo', 'RIB'] },
+    wo: { whatIsIt: 'Su nga topp formation bu Région Normandie fey, mën nga am fey ci diggante formation bi.', documents: ['Identifiants bu ton organisme formation joxe', 'RIB'] },
+    ka: { whatIsIt: 'თუ თქვენ გადიხართ ნორმანდიის რეგიონის მიერ დაფინანსებულ მომზადებას, შეგიძლიათ მიიღოთ ხელფასი მომზადების დროს.', documents: ['თქვენი სასწავლო ორგანიზაციის მიერ მოწოდებული მონაცემები', 'RIB'] },
+    hy: { whatIsIt: 'Եթե դուք հետևում եք Նորմանդիայի շրջանի կողմից ֆինանսավորվող վերապատրաստմանը, կարող եք վճարվել վերապատրաստման ընթացքում։', documents: ['Ձեր վերապատրաստման կազմակերպության կողմից տրված տվյալներ', 'RIB'] },
+    ta: { whatIsIt: 'நீங்கள் நோர்மண்டி பிராந்தியத்தால் நிதியளிக்கப்பட்ட பயிற்சியைப் பின்பற்றினால், பயிற்சியின் போது ஊதியம் பெறலாம்.', documents: ['உங்கள் பயிற்சி அமைப்பால் வழங்கப்பட்ட சான்றுகள்', 'RIB'] },
+  },
+  'dem-ecole': {
+    sw: { whatIsIt: 'Ikiwa una watoto wanaosoma Le Havre, kantini na uangalizi kabla/baada ya shule sio moja kwa moja.', documents: ['Cheti cha mgawo wa familia cha CAF chini ya miezi 2', 'Anwani ya barua pepe', 'Kitabu cha familia'] },
+    wo: { whatIsIt: 'Su am doom ci jàng Le Havre, cantine ak garde bunu automatique.', documents: ['Attestation CAF bu ndaw 2 weer', 'Adres email', 'Livret njabot'] },
+    ka: { whatIsIt: 'თუ თქვენი შვილები სწავლობენ Le Havre-ში, სასადილო და ზედამხედველობა არ არის ავტომატური.', documents: ['CAF-ის ოჯახური კოეფიციენტის ცნობა 2 თვეზე ნაკლები', 'ელფოსტის მისამართი', 'საოჯახო წიგნაკი'] },
+    hy: { whatIsIt: 'Եթե ձեր երեխաները սովորում են Le Havre-ում, ճաշարանը և հսկողությունը դպրոցից առաջ/հետո ավտոմատ չեն։', documents: ['CAF ընտանեկան գործակցի վկայական 2 ամսից պակաս', 'Էլ. փոստի հասցե', 'Ընտանեկան գրքույկ'] },
+    ta: { whatIsIt: 'உங்கள் குழந்தைகள் லு ஆவ்ரில் படித்தால், உணவகம் மற்றும் பள்ளிக்கு முன்/பின் கண்காணிப்பு தானாக இல்லை.', documents: ['CAF குடும்ப குணக சான்றிதழ் 2 மாதங்களுக்கும் குறைவானது', 'மின்னஞ்சல் முகவரி', 'குடும்பப் புத்தகம்'] },
+  },
+  'dem-titre-sejour': {
+    sw: { whatIsIt: 'Kibali cha ukaazi ni hati inayomruhusu mtu wa kigeni kuishi kihalali nchini Ufaransa.', documents: ['Pasipoti', 'Uthibitisho wa makazi', 'Picha ya hivi karibuni', 'Anwani ya barua pepe'] },
+    wo: { whatIsIt: 'Titre séjour mooy dokiment bi baaxal ku dëkk ci France ci anam légal.', documents: ['Passeport', 'Preuve résidence', 'Photo identité bu bees', 'Adres email'] },
+    ka: { whatIsIt: 'ბინადრობის ნებართვა არის დოკუმენტი, რომელიც უცხოელს აძლევს ნებართვას კანონიერად იცხოვროს საფრანგეთში.', documents: ['პასპორტი', 'ბინადრობის დამადასტურებელი', 'ბოლოდროინდელი ფოტოსურათი', 'ელფოსტის მისამართი'] },
+    hy: { whatIsIt: 'Կացության թույլտվությունը փաստաթուղթ է, որը թույլ է տալիս օտարերկրացուն օրինականորեն ապրել Ֆրանսիայում։', documents: ['Անձնագիր', 'Բնակության ապացույց', 'Վերջին լուսանկարը', 'Էլ. փոստի հասցե'] },
+    ta: { whatIsIt: 'தங்குமிட அனுமதி என்பது ஒரு வெளிநாட்டவரை பிரான்சில் சட்டப்பூர்வமாக வாழ அனுமதிக்கும் ஆவணம்.', documents: ['பாஸ்போர்ட்', 'குடியிருப்பு சான்று', 'சமீபத்திய அடையாள புகைப்படம்', 'மின்னஞ்சல் முகவரி'] },
+  },
+  'dem-casier-judiciaire': {
+    sw: { whatIsIt: 'Rekodi ya jinai ni hati inayothibitisha kuwa huna hukumu.', documents: ['Jina, tarehe na mahali pa kuzaliwa sahihi'] },
+    wo: { whatIsIt: 'Kasye judisiyer mooy dokiment bi firndeel danga amul condamnation.', documents: ['Tur, sant, bis ak barab juddu bu wóor'] },
+    ka: { whatIsIt: 'ნასამართლობის ცნობა არის დოკუმენტი, რომელიც ადასტურებს, რომ თქვენ არ გყავთ ნასამართლობა.', documents: ['ზუსტი სახელი, გვარი, დაბადების თარიღი და ადგილი'] },
+    hy: { whatIsIt: 'Դատական գործի քաղվածքը փաստաթուղթ է, որը ապացուցում է, որ դուք դատվածություն չունեք։', documents: ['Ճշգրիտ անուն, ազգանուն, ծննդյան ամսաթիվ և վայր'] },
+    ta: { whatIsIt: 'குற்றவியல் பதிவு என்பது உங்களுக்கு தண்டனை இல்லை என்பதை நிரூபிக்கும் ஆவணம்.', documents: ['சரியான பெயர், பிறந்த தேதி மற்றும் இடம்'] },
+  },
+  'dem-carte-identite': {
+    sw: { whatIsIt: 'Kitambulisho kinathibitisha wewe ni nani nchini Ufaransa.', documents: ['Picha ya kawaida ya hivi karibuni', 'Uthibitisho wa makazi', 'Kitambulisho cha zamani ikiwa unacho'] },
+    wo: { whatIsIt: 'Kart didantite dafay firndeel kan nga ci France.', documents: ['Foto identité bu standard bu bees', 'Preuve résidence', 'Kart bu yàgg su fekkee am'] },
+    ka: { whatIsIt: 'პირადობის მოწმობა ადასტურებს ვინ ხართ საფრანგეთში.', documents: ['ბოლოდროინდელი სტანდარტული ფოტოსურათი', 'ბინადრობის დამადასტურებელი', 'ძველი პირადობის მოწმობა თუ გაქვთ'] },
+    hy: { whatIsIt: 'Անձնագիրը ապացուցում է, թե ով եք դուք Ֆրանսիայում։', documents: ['Վերջին ստանդարտ լուսանկարը', 'Բնակության ապացույց', 'Հին անձնագիր, եթե ունեք'] },
+    ta: { whatIsIt: 'அடையாள அட்டை பிரான்சில் நீங்கள் யார் என்பதை நிரூபிக்கிறது.', documents: ['சமீபத்திய தரநிலை அடையாள புகைப்படம்', 'குடியிருப்பு சான்று', 'பழைய அடையாள அட்டை இருந்தால்'] },
+  },
+}
+for (const id in WHATISIT_BATCH3) {
+  for (const lang in WHATISIT_BATCH3[id]) {
+    MODULE_TRANSLATIONS[id][lang] = { ...MODULE_TRANSLATIONS[id][lang], ...WHATISIT_BATCH3[id][lang] }
+  }
+}
