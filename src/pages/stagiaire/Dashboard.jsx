@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import ModuleCard from '../../components/ModuleCard'
 import { getAllModules } from '../../data/getModuleContent'
 import { CATEGORIES } from '../../data/modules'
 import { useAuthStore } from '../../store/authStore'
-import { useI18nStore } from '../../store/i18nStore'
+import { useI18nStore, LANGUAGES } from '../../store/i18nStore'
 import { translateModule } from '../../data/translations/modules'
 import { applySimplification } from '../../data/simplify'
 import { logActivity } from '../../lib/activity'
 import { db } from '../../lib/db'
 import VisiteGuidee, { tourDejaVue } from '../../components/VisiteGuidee'
 import { hutColorFor } from '../../lib/hutColors'
+
+// Normalisation insensible aux accents/majuscules, réutilisée pour la saisie
+// de recherche ET pour l'index multilingue ci-dessous.
+function normaliser(s) {
+  return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
 
 export default function Dashboard() {
   const { user } = useAuthStore()
@@ -54,11 +60,30 @@ export default function Dashboard() {
   const done = visibleModules.filter(m => completedIds.has(m.id)).length
   const pct = total > 0 ? Math.round((done / total) * 100) : 0
 
-  // Recherche insensible aux accents/majuscules, sur le titre et la description.
-  const normaliser = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  // Index de recherche MULTILINGUE : pour chaque module, on concatène le titre
+  // et la description dans TOUTES les langues disponibles (pas seulement la
+  // langue d'affichage active). Ainsi, un stagiaire peut taper dans sa propre
+  // langue même si l'interface est affichée en français (ou toute autre langue).
+  // Calculé une seule fois par chargement de la liste de modules.
+  const searchIndex = useMemo(() => {
+    const index = {}
+    const langCodes = Object.keys(LANGUAGES)
+    for (const m of modules) {
+      const parts = [m.title, m.description]
+      for (const l of langCodes) {
+        if (l === 'fr') continue // déjà inclus via m.title / m.description
+        const tr = translateModule(m, l)
+        if (tr.title) parts.push(tr.title)
+        if (tr.description) parts.push(tr.description)
+      }
+      index[m.id] = normaliser(parts.join(' '))
+    }
+    return index
+  }, [modules])
+
   const rechercheNormalisee = normaliser(recherche)
   const modulesFiltres = rechercheNormalisee
-    ? visibleModules.filter(m => normaliser(m.title).includes(rechercheNormalisee) || normaliser(m.description).includes(rechercheNormalisee))
+    ? visibleModules.filter(m => (searchIndex[m.id] || '').includes(rechercheNormalisee))
     : visibleModules
 
   const byCategory = Object.keys(CATEGORIES).map(cat => ({
