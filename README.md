@@ -547,8 +547,18 @@ Suite de l'itération précédente : les 9 langues restantes (vietnamien, roumai
 **Fiabilité, comme toujours** : ces traductions ont été produites automatiquement. Le roumain et le polonais sont probablement les plus fiables de ce lot (langues européennes bien dotées). Le wolof, le kurde kurmandji, le géorgien, l'arménien et le tamoul mériteraient une relecture par un locuteur natif avant un usage critique, comme c'est déjà noté pour le tigrinya, le somali et l'albanais du tout premier lot. Le fichier de relecture Excel préparé précédemment peut être étendu pour couvrir ces langues si des locuteurs natifs sont disponibles.
 
 
+## Nouveautés (quarantième itération) — quatre chantiers d'amélioration
+
+**Recherche dans les modules** : une barre de recherche apparaît en haut du tableau de bord stagiaire, filtrant par titre et description (insensible aux accents et majuscules). Utile maintenant que le catalogue compte 61 modules.
+
+**Visite guidée pour les formateurs** : jusqu'ici, seuls les stagiaires avaient un accueil guidé. Un nouveau formateur voit désormais, à sa première connexion, une présentation en 5 étapes de l'espace formateur (Activité/Statistiques, édition de contenu avec brouillon/publication, approbation des nouveaux formateurs, messagerie).
+
+**Priorisation par données d'usage réelles** : une nouvelle section « 🎯 Où concentrer l'effort en premier » a été ajoutée en haut de l'onglet Statistiques. Elle croise le taux réel de difficulté rapporté par les stagiaires (retours "besoin d'aide"/"difficile") avec le fait qu'un module ait déjà ou non une capture d'écran/un schéma, pour indiquer concrètement où continuer les efforts de captures d'écran ou de contenu — plutôt que de deviner. Cette section reste vide tant qu'il n'y a pas assez de retours réels (au moins 2 par module) : elle est conçue pour prendre de la valeur au fil de l'usage, pas pour inventer des priorités à l'aveugle.
+
+**Réduction du poids du premier chargement** : le fichier JavaScript principal, chargé immédiatement à l'arrivée sur le site, est passé de **995 Ko à 112 Ko** (presque 9 fois plus léger) grâce à un découpage plus fin du code (React, Firebase et les bibliothèques de base de données locale sont maintenant dans des fichiers séparés, mis en cache indépendamment). Concrètement : le site s'affiche plus vite au premier chargement, surtout sur une connexion lente ou un téléphone plus ancien — exactement le public visé par cette plateforme. Les fichiers volumineux restants (export PDF, ~940 Ko cumulés) ne se chargent que si quelqu'un clique sur "Imprimer en PDF" — ils n'affectent jamais le premier chargement du site.
+
+
 ## Prochaines améliorations possibles
 - Renseigner le contenu détaillé des modules restants.
 - Ajouter un logo personnalisé dans l'en-tête et sur les PDF (actuellement bandeau bleu simple).
 - Ajouter un système de notification (nouveau message reçu) via un badge.
-- Découper le fichier JS final en plusieurs morceaux plus légers si le nombre de stagiaires connectés en simultané devient important (avertissement de taille de build, sans impact pour un usage en centre de formation).

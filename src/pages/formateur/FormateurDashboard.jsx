@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../../lib/db'
 import { DEFAULT_MODULES } from '../../data/modules'
+import VisiteGuideeFormateur, { tourFormateurDejaVue } from '../../components/VisiteGuideeFormateur'
 
 const moduleTitle = (id) => DEFAULT_MODULES.find(m => m.id === id)?.title || id
 
 export default function FormateurDashboard() {
+  const [afficherTour, setAfficherTour] = useState(!tourFormateurDejaVue())
   const stagiaires = useLiveQuery(() => db.users.filter(u => u.role === 'stagiaire' && !u.archived).toArray()) || []
   const logs = useLiveQuery(() => db.activityLogs.orderBy('created_at').reverse().limit(200).toArray()) || []
 
@@ -15,6 +18,7 @@ export default function FormateurDashboard() {
 
   return (
     <div>
+      {afficherTour && <VisiteGuideeFormateur onFinish={() => setAfficherTour(false)} />}
       <h2>Activité des stagiaires</h2>
       <div className="card">
         <table className="table-simple">

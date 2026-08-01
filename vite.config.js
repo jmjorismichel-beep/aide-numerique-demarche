@@ -45,5 +45,24 @@ export default defineConfig({
       devOptions: { enabled: true }
     })
   ],
-  server: { host: true, port: 5173 }
+  server: { host: true, port: 5173 },
+  build: {
+    rollupOptions: {
+      output: {
+        // Sépare les grosses bibliothèques externes du code de l'application.
+        // Avantage concret : à chaque mise à jour du site, le navigateur n'a
+        // besoin de re-télécharger que le code qui a vraiment changé — les
+        // bibliothèques (React, Firebase, Dexie...) restent en cache tant
+        // qu'elles ne changent pas elles-mêmes, au lieu d'être mélangées
+        // avec le code applicatif dans un seul gros fichier.
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) return 'vendor-react'
+            if (id.includes('firebase')) return 'vendor-firebase'
+            if (id.includes('dexie') || id.includes('zustand')) return 'vendor-db'
+          }
+        }
+      }
+    }
+  }
 })

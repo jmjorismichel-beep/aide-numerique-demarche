@@ -44,6 +44,8 @@ export default function Dashboard() {
     [user.group_id]
   )
   const assigned = myGroup?.assigned_modules
+  const [recherche, setRecherche] = useState('')
+
   const visibleModules = (assigned && assigned.length > 0)
     ? translatedModules.filter(m => assigned.includes(m.id))
     : translatedModules
@@ -52,10 +54,17 @@ export default function Dashboard() {
   const done = visibleModules.filter(m => completedIds.has(m.id)).length
   const pct = total > 0 ? Math.round((done / total) * 100) : 0
 
+  // Recherche insensible aux accents/majuscules, sur le titre et la description.
+  const normaliser = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const rechercheNormalisee = normaliser(recherche)
+  const modulesFiltres = rechercheNormalisee
+    ? visibleModules.filter(m => normaliser(m.title).includes(rechercheNormalisee) || normaliser(m.description).includes(rechercheNormalisee))
+    : visibleModules
+
   const byCategory = Object.keys(CATEGORIES).map(cat => ({
     key: cat,
     label: CATEGORIES[cat],
-    items: visibleModules.filter(m => m.category === cat)
+    items: modulesFiltres.filter(m => m.category === cat)
   })).filter(cat => cat.items.length > 0)
 
   return (
@@ -75,6 +84,17 @@ export default function Dashboard() {
 
       <img src="/diagrams/cabines-plage.svg" alt="" role="presentation" className="beach-huts-banner" />
 
+      <div className="search-modules">
+        <span aria-hidden="true">🔎</span>
+        <input
+          type="search"
+          placeholder="Rechercher un module (ex : CAF, mot de passe, titre de séjour...)"
+          value={recherche}
+          onChange={e => setRecherche(e.target.value)}
+          aria-label="Rechercher un module"
+        />
+      </div>
+
       <div className="card" style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
           <strong>Ma progression</strong>
@@ -88,6 +108,12 @@ export default function Dashboard() {
       {assigned && assigned.length > 0 && (
         <p style={{ color: 'var(--muted)', fontSize: '.9rem' }}>
           Votre formateur a sélectionné {assigned.length} module(s) pour votre groupe.
+        </p>
+      )}
+
+      {rechercheNormalisee && byCategory.length === 0 && (
+        <p style={{ color: 'var(--muted)', textAlign: 'center', margin: '40px 0' }}>
+          Aucun module ne correspond à « {recherche} ». Essaie un autre mot, ou demande à ton formateur.
         </p>
       )}
 
